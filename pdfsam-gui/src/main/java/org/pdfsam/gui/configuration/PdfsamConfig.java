@@ -34,6 +34,7 @@ import org.pdfsam.gui.components.dialog.CreateOutputDirectoryDialogController;
 import org.pdfsam.gui.components.dialog.LenientTaskExecutionDialogController;
 import org.pdfsam.gui.components.dialog.OpenWithDialogController;
 import org.pdfsam.gui.components.dialog.OverwriteDialogController;
+import org.pdfsam.gui.components.dialog.SaveWorkspaceConfirmationDialogController;
 import org.pdfsam.gui.components.dnd.FilesDropController;
 import org.pdfsam.gui.components.info.InfoStageController;
 import org.pdfsam.gui.components.notification.NotificationsController;
@@ -50,7 +51,8 @@ import org.pdfsam.injector.Provides;
 @Components({ NativeOpenFileController.class, NativeOpenUrlController.class, WindowStatusController.class,
         PlaySoundController.class, NotificationsController.class, InfoStageController.class,
         OpenWithDialogController.class, OverwriteDialogController.class, CreateOutputDirectoryDialogController.class,
-        ClearToolConfirmationDialogController.class, LenientTaskExecutionDialogController.class,
+        ClearToolConfirmationDialogController.class, SaveWorkspaceConfirmationDialogController.class,
+        LenientTaskExecutionDialogController.class,
         FilesDropController.class, AppContentController.class, RunAcceleratorController.class, AboutContentItem.class,
         PreferenceContentItem.class, HomeContentItem.class, LogContentItem.class })
 public class PdfsamConfig {

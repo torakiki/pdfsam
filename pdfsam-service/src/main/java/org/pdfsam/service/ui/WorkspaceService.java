@@ -19,6 +19,7 @@
 package org.pdfsam.service.ui;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -39,6 +40,8 @@ public interface WorkspaceService {
      *             in case of error
      */
     void saveWorkspace(Map<String, Map<String, String>> data, File destination);
+
+    void writeToFile(Map<String, Map<String, String>> data, File destination) throws IOException;
 
     /**
      * Loads the workspace from the given file
