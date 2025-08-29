@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2025-04-18 09:59+0200\n"
+"PO-Revision-Date: 2025-08-21 17:38+0200\n"
 "Last-Translator: Μάριος Μπαλασόπουλος <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5-SNAPSHOT\n"
 "Language: el\n"
 
 msgid "No PDF document has been selected"
@@ -630,8 +630,8 @@ msgstr "Κάντε Δωρεά"
 msgid "Social"
 msgstr "Κοινωνικά"
 
-msgid "Follow us on Twitter"
-msgstr "Ακολουθήστε μας στο Twitter"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Ακολουθήστε μας στο Twitter"
 
 msgid "Like us on Facebook"
 msgstr "Κάντε μας like στο Facebook"
@@ -1383,3 +1383,24 @@ msgstr "Το αρχείο {0} αποθηκεύτηκε"
 
 msgid "Error saving content to clipboard"
 msgstr "Σφάλμα αποθήκευσης περιεχομένου στο πρόχειρο"
+
+msgid "Follow us on Bluesky"
+msgstr "Follow us on Bluesky"
+
+msgid "Font:"
+msgstr "Font:"
+
+msgid "Sets the application font"
+msgstr "Sets the application font"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Light"
+msgstr "Light"
+
+msgid "Dark"
+msgstr "Dark"
+
+msgid "Unlock selected"
+msgstr "Unlock selected"

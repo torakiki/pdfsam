@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-21 17:37+0200\n"
 "Last-Translator: Milo Ivir <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5-SNAPSHOT\n"
 "Language: de\n"
 
 msgid "No PDF document has been selected"
@@ -621,8 +621,8 @@ msgstr "Spenden"
 msgid "Social"
 msgstr "Soziale Netzwerke"
 
-msgid "Follow us on Twitter"
-msgstr "Auf Twitter folgen"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Auf Twitter folgen"
 
 msgid "Like us on Facebook"
 msgstr "Auf Facebook mögen"
@@ -1331,3 +1331,24 @@ msgstr "Ungültige Zahl: {0}."
 
 #~ msgid "Unable to get latest available version"
 #~ msgstr "Letzte verfügbare Version kann nicht erhalten werden"
+
+msgid "Follow us on Bluesky"
+msgstr "Folgen Sie uns auf Bluesky"
+
+msgid "Font:"
+msgstr "Schriftart:"
+
+msgid "Sets the application font"
+msgstr "Legt die Anwendungsschriftart fest"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Light"
+msgstr "Hell"
+
+msgid "Dark"
+msgstr "Dunkel"
+
+msgid "Unlock selected"
+msgstr "Ausgewählte entsperren"

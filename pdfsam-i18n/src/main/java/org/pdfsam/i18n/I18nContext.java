@@ -44,14 +44,14 @@ public final class I18nContext {
 
     private static final Logger LOG = LoggerFactory.getLogger(I18nContext.class);
 
-    private final Set<Locale> supported = Set.of(Locale.of("af"), Locale.of("bs"), Locale.of("bg"),
-            Locale.of("el"),
+    private final Set<Locale> supported = Set.of(Locale.of("af"), Locale.of("bs"), Locale.of("bg"), Locale.of("el"),
             Locale.of("eu"), Locale.of("pt", "BR"), Locale.SIMPLIFIED_CHINESE, Locale.TRADITIONAL_CHINESE,
             Locale.of("co"), Locale.of("ca"), Locale.of("hr"), Locale.of("cs"), Locale.of("da"), Locale.of("nl"),
-            Locale.UK, Locale.FRENCH, Locale.GERMAN, Locale.of("he"), Locale.of("hi"), Locale.of("hu"), Locale.JAPANESE,
-            Locale.ITALIAN, Locale.of("pl"), Locale.of("pt"), Locale.of("ro"), Locale.of("ru"), Locale.of("sk"),
-            Locale.of("sl"), Locale.of("sr"), Locale.of("sv"), Locale.of("es"), Locale.of("tr"), Locale.of("uk"),
-            Locale.of("fi"), Locale.of("ko"), Locale.of("oc"));
+            Locale.UK, Locale.FRENCH, Locale.GERMAN, Locale.of("he"), Locale.of("hi"), Locale.of("hu"), Locale.of("lv"),
+            Locale.of("nb"), Locale.of("lt"), Locale.of("ms"), Locale.JAPANESE, Locale.ITALIAN, Locale.of("pl"),
+            Locale.of("pt"), Locale.of("ro"), Locale.of("ru"), Locale.of("sk"), Locale.of("sl"), Locale.of("sr"),
+            Locale.of("sv"), Locale.of("es"), Locale.of("tr"), Locale.of("uk"), Locale.of("fi"), Locale.of("ko"),
+            Locale.of("oc"));
 
     private final SimpleObjectProperty<Locale> locale = new SimpleObjectProperty<>();
     private Optional<ResourceBundle> bundle = empty();

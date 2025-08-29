@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-29 10:49+0200\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5\n"
 "Language: ms\n"
 
 msgid "No PDF document has been selected"
@@ -37,10 +37,10 @@ msgid "Output settings"
 msgstr "Tetapan output"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "Fail berasingan untuk setiap set halaman"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "Setiap siri halaman berterusan akan menjana fail PDF berasingan"
 
 #~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 #~ msgstr "Halaman untuk diekstrak (cth: 2 atau 5-23 atau 2,5-7, 12-)"
@@ -75,7 +75,7 @@ msgid "Matching regular expression:"
 msgstr "Ungkapan nalar sepadan:"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr "Satu ungkapan nalar teks tanda buku ada padanan"
+msgstr "Ungkapan nalar yang teks penanda buku mesti sepadan"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
@@ -197,7 +197,7 @@ msgid "All pages"
 msgstr "Semua halaman"
 
 msgid "90 degrees clockwise"
-msgstr "90 darjah lawan jam"
+msgstr "90 darjah ikut arah jam"
 
 msgid "180 degrees clockwise"
 msgstr "180 darjah ikut jam"
@@ -251,21 +251,23 @@ msgstr ""
 ""
 
 msgid "None"
-msgstr ""
+msgstr "Tiada"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Lebar sama dengan halaman pertama"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Lebar sama seperti halaman pertama (berdasarkan orientasi halaman)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Normalisasi Halaman:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"Tetapkan sama ada halaman perlu diubah saiz supaya semua mempunyai lebar "
+"yang sama seperti yang pertama"
 
 msgid "Merge fields"
 msgstr "Gabung medan"
@@ -334,50 +336,55 @@ msgstr "Gabung"
 #~ msgstr "Gabung bersama dokumen PDF atau subseksyen berbilang."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
+msgstr "Pilih atau seret dan lepas fail PDF yang halamannya akan diulang"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Ulang halaman-halaman ini:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Halaman untuk diulang (cth: 2 atau 5-23 atau 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Nombor halaman atau julat yang dipisahkan koma untuk diulang (cth: 2 atau 5-"
+"23 atau 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "Biarkan kosong untuk menggunakan semua halaman fail PDF"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Ulang setiap \"n\" muka surat:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Nombor halaman tidak sah"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "Ulang halaman yang dipilih setiap \"n\" halaman dokumen asal"
 
 msgid "The selected PDF file is invalid"
 msgstr "Fail PDF terpilih tidak sah"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "Bilangan muka surat mestilah nombor positif"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "Pilih atau seret dan lepas PDF yang anda ingin masukkan halaman"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Sisip dan Ulang tetapan"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Masukkan halaman beberapa kali"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Masukkan halaman-halaman dokumen PDF A ke dalam dokumen B yang lain "
+"mengulanginya selepas beberapa halaman tertentu menghasilkan B1 A B2 A B3 A "
+"dan sebagainya."
 
 #, java-format
 msgid "Started in {0}"
@@ -393,25 +400,25 @@ msgid "No PDF found"
 msgstr "Tiada PDF ditemui"
 
 msgid "Tools"
-msgstr ""
+msgstr "Alatan"
 
 msgid "News"
-msgstr ""
+msgstr "Berita"
 
 msgid "What's new"
 msgstr "Apa yang baharu"
 
 msgid "Exit"
-msgstr ""
+msgstr "Keluar"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Keluar aplikasi"
 
 msgid "Workspace"
 msgstr "Ruang kerja"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Urus ruang kerja anda"
 
 msgid "Yes"
 msgstr "Ya"
@@ -426,7 +433,7 @@ msgid "Do you confirm?"
 msgstr "Anda pasti?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Kosongkan tetapan alat"
 
 msgid "Clear the selection table"
 msgstr "Kosongkan jadual pemilihan"
@@ -501,7 +508,7 @@ msgstr ""
 "teruskan jua?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Memadamkan semua mesej log"
 
 msgid "_Clear"
 msgstr "K_osongkan"
@@ -510,7 +517,7 @@ msgid "_Save"
 msgstr "_Simpan"
 
 msgid "C_lose"
-msgstr ""
+msgstr "Tutu_p"
 
 msgid "Copy"
 msgstr "Salin"
@@ -528,7 +535,7 @@ msgid "Select where to save the log file"
 msgstr "Pilih lokasi fail log disimpan"
 
 msgid "Logs"
-msgstr ""
+msgstr "Log"
 
 msgid "Application messages"
 msgstr "Mesej aplikasi"
@@ -540,7 +547,7 @@ msgid "Recen_ts"
 msgstr "Baru-baru _Ini"
 
 msgid "_Clear recents"
-msgstr "_Kosongkan baru-baru ini"
+msgstr "_Kosongkan Terkini"
 
 msgid "Select the workspace file to save"
 msgstr "Pilih fail ruang kerja untuk disimpan"
@@ -564,11 +571,11 @@ msgstr "Laluan masa jalan Java: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "Versi runtime JavaFX: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "Enjin PDF (Sejda SDK) versi: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -601,8 +608,8 @@ msgstr "Derma"
 msgid "Social"
 msgstr "Sosial"
 
-msgid "Follow us on Twitter"
-msgstr "Ikuti kami di Twitter"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Ikuti kami di Twitter"
 
 msgid "Like us on Facebook"
 msgstr "Sukai kami di Facebook"
@@ -611,7 +618,7 @@ msgid "About"
 msgstr "Perihal"
 
 msgid "Home"
-msgstr ""
+msgstr "Utama"
 
 msgid "Premium features"
 msgstr "Ciri-ciri premium"
@@ -629,22 +636,24 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Tetapkan bahasa pilihan anda (mula semula diperlukan)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Alat Mula:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
+"Tetapkan alat untuk dibuka semasa permulaan aplikasi (perlu dimulakan "
+"semula)"
 
 msgid "Theme:"
-msgstr ""
+msgstr "Tema:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Tetapkan tema aplikasi"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Saiz fon:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Tetapkan saiz fon aplikasi"
 
 msgid "Manually selected"
 msgstr "Dipilih secara manual"
@@ -696,7 +705,7 @@ msgid "Load default workspace at startup:"
 msgstr "Muat ruang kerja lalai semasa permulaan:"
 
 msgid "System default"
-msgstr ""
+msgstr "Lalai sistem"
 
 msgid "Check for updates at startup"
 msgstr "Periksa kemas kini semasa permulaan"
@@ -805,7 +814,7 @@ msgid "Show errors"
 msgstr "Tunjuk ralat"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Parameter masukan tidak sah"
 
 msgid "Invalid parameters"
 msgstr "Parameter tidak sah"
@@ -826,10 +835,10 @@ msgid "You performed {0} tasks with PDFsam, did it help?"
 msgstr "Anda telah melakukan {0} tugas dengan PDFsam, adakah ia membantu?"
 
 msgid "Give something back"
-msgstr "Buat baik dibalas baik"
+msgstr "Sumbang kembali"
 
 msgid "PDFsam worked hard!"
-msgstr "PDFsam memang terbaik!"
+msgstr "PDFsam telah berusaha keras!"
 
 msgid "Spread the word!"
 msgstr "Sebar luaskan aplikasi ini!"
@@ -867,19 +876,19 @@ msgid "An error has occurred, click for more details."
 msgstr "Satu ralat telah berlaku, klik untuk perincian."
 
 msgid "Split tools"
-msgstr ""
+msgstr "Alat Pisah"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Alat Gabung"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Alat Penukaran"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Alat sunting"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Alat lain"
 
 msgid "Checking for updates"
 msgstr "Memeriksa kemas kini"
@@ -945,16 +954,16 @@ msgid "Unable to load workspace from {0}"
 msgstr "Tidak boleh memuatkan ruang kerja dari {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "Cerah dengan biru"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Gelap dengan Ungu"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Gelap dengan hijau kebiruan"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Cerah dengan maroon"
 
 msgid "Close"
 msgstr "Tutup"
@@ -1018,10 +1027,10 @@ msgid "Duplicate"
 msgstr "Pendua"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Halaman terpilih"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Jumlah halaman yang dipilih"
 
 msgid "Size"
 msgstr "Saiz"
@@ -1031,7 +1040,7 @@ msgstr "Diubah Suai"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Jumlah muka surat: {0}"
 
 msgid "Name"
 msgstr "Nama"
@@ -1092,7 +1101,7 @@ msgid "Pages"
 msgstr "Halaman"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Bilangan jumlah muka surat dokumen"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1145,7 +1154,7 @@ msgid "Version {0}"
 msgstr "Versi {0}"
 
 msgid "Same as the input document"
-msgstr "Sa,a seperti dokumen input"
+msgstr "Sama seperti dokumen input"
 
 msgid "An existing output directory is required"
 msgstr "Satu direktori output sedia ada diperlukan"
@@ -1160,7 +1169,7 @@ msgid "Select"
 msgstr "Pilih"
 
 msgid "Browse"
-msgstr "Layar"
+msgstr "Semak imbas"
 
 #, java-format
 msgid "PDF version required: {0}"
@@ -1173,7 +1182,7 @@ msgid "Add prefix"
 msgstr "Tambah awalan"
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "AWALAN_LALAI"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Awalan nama dokumen PDF yang dijana:"
@@ -1185,13 +1194,13 @@ msgid "Some special keywords are replaced with runtime values."
 msgstr "Beberapa kata kunci khas telah diganti dengan nilai-nilai masa jalan."
 
 msgid "Right click to add these keywords."
-msgstr "Klik kanan untuk menambah kata kunci-kata kunci ini"
+msgstr "Klik kanan untuk menambah kata kunci-kata kunci ini."
 
 msgid "Run"
 msgstr "Jalan"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Jalankan tugas"
 
 msgid "Requested"
 msgstr "Dipinta"
@@ -1218,7 +1227,7 @@ msgstr "Berjalan {0}%"
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr "Julat tidak sah: {0}"
+msgstr "Julat tidak sah: {0}."
 
 #, java-format
 msgid ""
@@ -1230,69 +1239,95 @@ msgstr ""
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr "Nombor tidak sah: {0}"
+msgstr "Nombor tidak sah: {0}."
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
 msgstr ""
+"Halaman untuk diekstrak (cth: 2 atau 5-23 atau 2,5-7,12- atau 3,akhir)"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 " or 3,last)"
 msgstr ""
+"Nombor halaman atau julat yang dipisahkan koma untuk diekstrak (cth: 2 atau "
+"5-23 atau 2,5-7,12- atau 3,akhir)"
 
 msgid "Merge multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "Gabung beberapa dokumen PDF atau subseksyen daripadanya."
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr ""
+msgstr "Ekstensi .pdf diperlukan untuk fail berulang"
 
 msgid "A .pdf destination file extension is required"
-msgstr ""
+msgstr "Sambungan fail destinasi .pdf diperlukan"
 
 msgid "Default PDF version:"
-msgstr ""
+msgstr "Versi PDF Lalai:"
 
 msgid "Default PDF version for generated PDF files"
-msgstr ""
+msgstr "Versi PDF lalai untuk fail PDF yang dijana"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "Awalan lalai:"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
 "files"
 msgstr ""
+"Awalan lalai untuk nama fail output, digunakan dalam alat yang menjana "
+"berbilang fail"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
+msgstr "Tetapkan sama ada \"Buang penanda buku\" patut diaktifkan secara lalai"
 
 #, java-format
 msgid "Workspace loaded: {0}"
-msgstr ""
+msgstr "Ruang kerja dimuatkan: {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr ""
+msgstr "Fail berikut sudah wujud dan telah dilangkau: {0}"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Duplikasi di Atas"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Gandakan Ke Atas"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Duplikasi ke Bawah"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Gandakan di Bawah"
 
 #, java-format
 msgid "Error saving content to file {0}"
-msgstr ""
+msgstr "Ralat menyimpan kandungan ke fail {0}"
 
 #, java-format
 msgid "File {0} saved"
-msgstr ""
+msgstr "Fail {0} disimpan"
 
 msgid "Error saving content to clipboard"
-msgstr ""
+msgstr "Ralat menyimpan kandungan ke papan keratan"
+
+msgid "Follow us on Bluesky"
+msgstr "Ikuti kami di Bluesky"
+
+msgid "Font:"
+msgstr "Fon:"
+
+msgid "Sets the application font"
+msgstr "Menetapkan fon aplikasi"
+
+msgid "Default"
+msgstr "Lalai"
+
+msgid "Light"
+msgstr "Cerah"
+
+msgid "Dark"
+msgstr "Gelap"
+
+msgid "Unlock selected"
+msgstr "Buka kunci yang dipilih"

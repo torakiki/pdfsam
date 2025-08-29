@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-26 11:43+0200\n"
 "Last-Translator: Andrzej Rudnik <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-04-17 17:36+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5\n"
 "Language: pl\n"
 
 msgid "Name"
@@ -607,8 +607,8 @@ msgstr "Darowizna"
 msgid "Social"
 msgstr "Serwisy społecznościowe"
 
-msgid "Follow us on Twitter"
-msgstr "Śledź nas na Twitterze"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Śledź nas na Twitterze"
 
 msgid "Like us on Facebook"
 msgstr "Polub nas na Facebooku"
@@ -1302,3 +1302,24 @@ msgstr "Nieprawidłowa wartość: {0}."
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "Pytaj o potwierdzenie gdy okienko nadpisywania jest zaznaczone"
+
+msgid "Follow us on Bluesky"
+msgstr "Obserwuj nas na Bluesky"
+
+msgid "Font:"
+msgstr "Czcionka:"
+
+msgid "Sets the application font"
+msgstr "Ustawia czcionkę aplikacji"
+
+msgid "Default"
+msgstr "Domyślny"
+
+msgid "Light"
+msgstr "Jasny"
+
+msgid "Dark"
+msgstr "Ciemny"
+
+msgid "Unlock selected"
+msgstr "Odblokuj zaznaczone"

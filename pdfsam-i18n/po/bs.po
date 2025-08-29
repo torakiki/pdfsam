@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-21 17:33+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5-SNAPSHOT\n"
 "Language: bs\n"
 
 msgid "No PDF document has been selected"
@@ -575,8 +575,8 @@ msgstr ""
 msgid "Social"
 msgstr ""
 
-msgid "Follow us on Twitter"
-msgstr ""
+#~ msgid "Follow us on Twitter"
+#~ msgstr ""
 
 msgid "Like us on Facebook"
 msgstr ""
@@ -1268,4 +1268,25 @@ msgid "File {0} saved"
 msgstr ""
 
 msgid "Error saving content to clipboard"
+msgstr ""
+
+msgid "Follow us on Bluesky"
+msgstr ""
+
+msgid "Font:"
+msgstr ""
+
+msgid "Sets the application font"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Light"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Unlock selected"
 msgstr ""

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-21 17:35+0200\n"
 "Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-04-17 17:36+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5-SNAPSHOT\n"
 "Language: cs\n"
 
 msgid "No PDF document has been selected"
@@ -600,8 +600,8 @@ msgstr "Podpořit"
 msgid "Social"
 msgstr "Sociální sítě"
 
-msgid "Follow us on Twitter"
-msgstr "Sledujte nás na Twitteru"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Sledujte nás na Twitteru"
 
 msgid "Like us on Facebook"
 msgstr "Dejte nám Like na Facebooku"
@@ -1294,3 +1294,24 @@ msgstr "Neplatné číslo: {0}."
 #~ "Show a dialog box asking the user for confirmation when the \"overwrite\" is "
 #~ "selected"
 #~ msgstr "Zobrazit potvrzovací okno, když položka \"přepsat\" je vybrána"
+
+msgid "Follow us on Bluesky"
+msgstr "Sledujte nás na Bluesky"
+
+msgid "Font:"
+msgstr "Písmo:"
+
+msgid "Sets the application font"
+msgstr "Nastaví písmo aplikace"
+
+msgid "Default"
+msgstr "Výchozí"
+
+msgid "Light"
+msgstr "Světlý"
+
+msgid "Dark"
+msgstr "Tmavý"
+
+msgid "Unlock selected"
+msgstr "Odemknout vybrané"

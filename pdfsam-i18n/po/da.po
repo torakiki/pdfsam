@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-21 17:36+0200\n"
 "Last-Translator: Morten Juhl-Johansen <mj-j@syntaktisk.dk>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5-SNAPSHOT\n"
 "Language: da\n"
 
 msgid "No PDF document has been selected"
@@ -605,8 +605,8 @@ msgstr "Donér"
 msgid "Social"
 msgstr "Socialt"
 
-msgid "Follow us on Twitter"
-msgstr "Følg os på Twitter"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Følg os på Twitter"
 
 msgid "Like us on Facebook"
 msgstr "Følg os på Facebook"
@@ -1300,3 +1300,24 @@ msgstr "Ugyldigt tal: {0}."
 
 #~ msgid "Ask for confirmation when overwrite checkbox is selected"
 #~ msgstr "Spørg om bekræftelse når afkrydsningsfeltet er markeret"
+
+msgid "Follow us on Bluesky"
+msgstr "Følg os på Bluesky"
+
+msgid "Font:"
+msgstr "Skrifttype:"
+
+msgid "Sets the application font"
+msgstr "Indstiller programmets skrifttype"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Light"
+msgstr "Lys"
+
+msgid "Dark"
+msgstr "Mørk"
+
+msgid "Unlock selected"
+msgstr "Lås valgte op"

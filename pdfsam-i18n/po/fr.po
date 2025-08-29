@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-04-18 10:04+0200\n"
+"PO-Revision-Date: 2025-08-21 17:41+0200\n"
 "Last-Translator: HAUW Fabien <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5-SNAPSHOT\n"
 "Language: fr\n"
 
 msgid "No PDF document has been selected"
@@ -622,8 +622,8 @@ msgstr "Faire un don"
 msgid "Social"
 msgstr "Réseaux sociaux"
 
-msgid "Follow us on Twitter"
-msgstr "Suivez-nous sur Twitter"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Suivez-nous sur Twitter"
 
 msgid "Like us on Facebook"
 msgstr "Suivez-nous sur Facebook"
@@ -1344,3 +1344,24 @@ msgstr "Nombre non valide : {0}."
 
 #~ msgid "Split odd pages"
 #~ msgstr "Après les pages impaires"
+
+msgid "Follow us on Bluesky"
+msgstr "Suivez-nous sur Bluesky"
+
+msgid "Font:"
+msgstr "Police :"
+
+msgid "Sets the application font"
+msgstr "Définit la police de l'application"
+
+msgid "Default"
+msgstr "Défaut"
+
+msgid "Light"
+msgstr "Clair"
+
+msgid "Dark"
+msgstr "Sombre"
+
+msgid "Unlock selected"
+msgstr "Déverrouiller la sélection"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2025-04-18 10:02+0200\n"
+"PO-Revision-Date: 2025-08-21 17:34+0200\n"
 "Last-Translator: Andrea Vacondio <info@pdfsam.org>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-07-26 09:48+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5-SNAPSHOT\n"
 
 msgid "No PDF document has been selected"
 msgstr "Няма избран pdf документ"
@@ -597,8 +597,8 @@ msgstr "Дарете"
 msgid "Social"
 msgstr "Социални"
 
-msgid "Follow us on Twitter"
-msgstr "Последвайте ни в Twitter"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Последвайте ни в Twitter"
 
 msgid "Like us on Facebook"
 msgstr "Харейсайте ни във Facebook"
@@ -1280,3 +1280,24 @@ msgstr "Файл {0} запазен"
 
 msgid "Error saving content to clipboard"
 msgstr "Грешка при запазване на съдържанието в клипборда"
+
+msgid "Follow us on Bluesky"
+msgstr "Последвайте ни в Bluesky"
+
+msgid "Font:"
+msgstr "Шрифт:"
+
+msgid "Sets the application font"
+msgstr "Задава шрифта на приложението"
+
+msgid "Default"
+msgstr "По подразбиране"
+
+msgid "Light"
+msgstr "Светъл"
+
+msgid "Dark"
+msgstr "Тъмна"
+
+msgid "Unlock selected"
+msgstr "Отключи избраните"

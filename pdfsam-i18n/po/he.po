@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-21 17:33+0200\n"
 "Last-Translator: NAT <Unknown>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5-SNAPSHOT\n"
 "Language: he\n"
 
 msgid "No PDF document has been selected"
@@ -25,7 +25,7 @@ msgid "Extract"
 msgstr "חלץ"
 
 msgid "Extract pages from PDF documents."
-msgstr "חלץ עמודים ממסמך PDF"
+msgstr "חילוץ דפים ממסמכי PDF."
 
 msgid "File names settings"
 msgstr "הגדרות שמות הקבצים"
@@ -37,10 +37,10 @@ msgid "Output settings"
 msgstr "הגדרות הפלט"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "קובץ נפרד לכל סט עמודים"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "כל סדרה רציפה של עמודים תיצור קובץ PDF נפרד"
 
 #~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 #~ msgstr "מספרי העמודים לבחירה (למשל: \"2\", \"5-23\" או \"-2,5-7,12\")"
@@ -100,7 +100,7 @@ msgid "Split"
 msgstr "פיצול"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr "פצל מסמך PDF לפי מספרי עמודים"
+msgstr "פצל מסמך PDF לפי מספרי העמודים הנתונים."
 
 msgid "Every page"
 msgstr "כל עמוד"
@@ -209,7 +209,7 @@ msgid "Rotate"
 msgstr "סובב"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr "סובב עמודים של מספר מסמכי PDF"
+msgstr "סובב את העמודים של מסמכי PDF מרובים."
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -245,18 +245,19 @@ msgid "None"
 msgstr "ללא"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "אותו רוחב כמו עמוד ראשון"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "רוחב זהה לעמוד הראשון (בהתבסס על כיוון העמוד)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "נורמליזציית עמודים:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"קבע אם יש לשנות את גודל העמודים כך שלכולם יהיה אותו רוחב כמו לעמוד הראשון"
 
 msgid "Merge fields"
 msgstr "מזג את השדות"
@@ -317,50 +318,54 @@ msgstr "מזג"
 #~ msgstr "מזג מספר מסמכי PDF או חלקים שלהם"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
+msgstr "בחר או גרור ושחרר את קובץ ה-PDF שעמודיו ישוכפלו"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "שכפל עמודים אלה:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "דפים לחזור עליהם (לדוגמה: 2 או 5-23 או 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"מספרי עמודים או טווחים מופרדים בפסיקים שיש לחזור עליהם (לדוגמה: 2 או 5-23 או "
+"2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "השאר ריק כדי להשתמש בכל עמודי קובץ ה-PDF"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "חזור כל \"n\" עמודים:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "מספר עמוד לא תקין"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "חזור על העמודים הנבחרים כל \"n\" עמודים של המסמך המקורי"
 
 msgid "The selected PDF file is invalid"
 msgstr "קובץ ה-PDF שנבחר אינו תקין"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "מספר העמודים חייב להיות מספר חיובי"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "בחר או גרור ושחרר את קובץ ה-PDF שאליו תרצה להוסיף עמודים"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "הגדרות הכנסה וחזרה"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "הוסף עמודים מספר פעמים"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"הכנס את עמודי מסמך PDF A לתוך מסמך B אחר, חזור עליהם לאחר מספר מסוים של "
+"עמודים, וכך יתקבל B1 A B2 A B3 A וכו'"
 
 #, java-format
 msgid "Started in {0}"
@@ -376,10 +381,10 @@ msgid "No PDF found"
 msgstr "לא נמצא PDF"
 
 msgid "Tools"
-msgstr ""
+msgstr "כלים"
 
 msgid "News"
-msgstr ""
+msgstr "חדשות"
 
 msgid "What's new"
 msgstr "מה חדש"
@@ -388,13 +393,13 @@ msgid "Exit"
 msgstr "יציאה"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "צא מהיישום"
 
 msgid "Workspace"
 msgstr "סביבת העבודה"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "נהל את סביבות העבודה שלך"
 
 msgid "Yes"
 msgstr "כן"
@@ -406,10 +411,10 @@ msgid "Confirm clearing"
 msgstr "אשר את הסליקה"
 
 msgid "Do you confirm?"
-msgstr "האם אתה מאשר"
+msgstr "האם אתה מאשר?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "נקה את הגדרות הכלי"
 
 msgid "Clear the selection table"
 msgstr "נקה את טבלת הבחירה"
@@ -482,7 +487,7 @@ msgid ""
 msgstr "תוכן זה עלול להיות מוצג חלקית או חסר בקבצי PDF, להמשיך בכל זאת?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "מסיר את כל הודעות היומן"
 
 msgid "_Clear"
 msgstr "_נקה"
@@ -491,7 +496,7 @@ msgid "_Save"
 msgstr "_שמור"
 
 msgid "C_lose"
-msgstr ""
+msgstr "ס_גור"
 
 msgid "Copy"
 msgstr "העתק"
@@ -509,7 +514,7 @@ msgid "Select where to save the log file"
 msgstr "בחר היכן לשמור את יומן הרישום"
 
 msgid "Logs"
-msgstr ""
+msgstr "יומנים"
 
 msgid "Application messages"
 msgstr "הודעות התוכנית"
@@ -545,11 +550,11 @@ msgstr "נתיב זמן ריצה של ג'אוה: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "גרסת זמן ריצה של JavaFX: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "מנוע PDF (Sejda SDK) גרסה: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -582,8 +587,8 @@ msgstr "תרום"
 msgid "Social"
 msgstr "חברתי"
 
-msgid "Follow us on Twitter"
-msgstr "עקוב אחרינו בטוויטר"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "עקוב אחרינו בטוויטר"
 
 msgid "Like us on Facebook"
 msgstr "עשה לנו לייק בפייסבוק"
@@ -592,7 +597,7 @@ msgid "About"
 msgstr "אודות"
 
 msgid "Home"
-msgstr ""
+msgstr "בית"
 
 msgid "Premium features"
 msgstr "יכולות פרימיום"
@@ -610,22 +615,22 @@ msgid "Set your preferred language (restart needed)"
 msgstr "הגדרת השפה המועדפת עליך (נדרש אתחול)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "כלי הפעלה:"
 
 msgid "Set the tool to open at application startup (restart needed)"
-msgstr ""
+msgstr "הגדר את הכלי שייפתח בהפעלת היישום (נדרשת הפעלה מחדש)"
 
 msgid "Theme:"
 msgstr "ערכת נושא:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "הגדר את ערכת הנושא של היישום"
 
 msgid "Font size:"
-msgstr ""
+msgstr "גודל גופן:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "הגדר את גודל הגופן של היישום"
 
 msgid "Manually selected"
 msgstr "בחירה ידנית"
@@ -671,7 +676,7 @@ msgid "Load default workspace at startup:"
 msgstr "טען את סביבת העבודה של ברירת המחדל בהפעלת התוכנית"
 
 msgid "System default"
-msgstr ""
+msgstr "ברירת מחדל מערכתית"
 
 msgid "Check for updates at startup"
 msgstr "בדוק עידכונים בהפעלה"
@@ -764,7 +769,7 @@ msgid "Show errors"
 msgstr "הצג שגיאות"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "פרמטרי קלט לא חוקיים"
 
 msgid "Invalid parameters"
 msgstr "פרמטרים לא תקינים"
@@ -826,19 +831,19 @@ msgid "An error has occurred, click for more details."
 msgstr "ארעה שגיאה, לחצו לפרטים נוספים."
 
 msgid "Split tools"
-msgstr ""
+msgstr "כלי פיצול"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "כלי מיזוג"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "כלי המרה"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "כלי עריכה"
 
 msgid "Other tools"
-msgstr ""
+msgstr "כלים אחרים"
 
 msgid "Checking for updates"
 msgstr "מחפש עדכונים"
@@ -904,16 +909,16 @@ msgid "Unable to load workspace from {0}"
 msgstr "טעינת סביבת העבודה מ-{0} נכשלה"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "בהיר עם כחול"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "כהה עם סגול"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "כהה עם טורקיז"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "בהיר עם בורדו"
 
 msgid "Close"
 msgstr "סגירה"
@@ -977,10 +982,10 @@ msgid "Duplicate"
 msgstr "שכפול"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "דפים נבחרים"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "סך הכל עמודים נבחרים"
 
 msgid "Size"
 msgstr "גודל"
@@ -990,7 +995,7 @@ msgstr "השתנה"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "סה\"כ עמודים: {0}"
 
 msgid "Name"
 msgstr "שם"
@@ -1049,7 +1054,7 @@ msgid "Pages"
 msgstr "עמודים"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "מספר העמודים הכולל של המסמך"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1092,7 +1097,7 @@ msgstr "החלף קובץ במידה שקיים"
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 ""
-msgstr "סמנו אם ברצונכם לדרוס את קבצי הפלט אם הם כבר קיימים"
+msgstr "סמן את התיבה אם ברצונך לדרוס את קבצי הפלט אם הם כבר קיימים."
 
 #, java-format
 msgid "Version {0}"
@@ -1172,7 +1177,7 @@ msgstr "פועל %{0}"
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr "טווח לא חוקי: {0}"
+msgstr "טווח לא חוקי: {0}."
 
 #, java-format
 msgid ""
@@ -1183,7 +1188,7 @@ msgstr ""
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr "מספר לא חוקי: {0}"
+msgstr "מספר לא תקין: {0}."
 
 #~ msgid "Split even pages"
 #~ msgstr "פיצול עמודים זוגיים"
@@ -1274,4 +1279,25 @@ msgid "File {0} saved"
 msgstr ""
 
 msgid "Error saving content to clipboard"
+msgstr ""
+
+msgid "Follow us on Bluesky"
+msgstr ""
+
+msgid "Font:"
+msgstr ""
+
+msgid "Sets the application font"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Light"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Unlock selected"
 msgstr ""

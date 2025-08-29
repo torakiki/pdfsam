@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2025-04-18 10:05+0200\n"
+"PO-Revision-Date: 2025-08-29 10:52+0200\n"
 "Last-Translator: Loge Xu <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5\n"
 "Language: zh_CN\n"
 
 msgid "No PDF document has been selected"
@@ -573,8 +573,8 @@ msgstr "捐赠(_D)"
 msgid "Social"
 msgstr "社交媒体(_S)"
 
-msgid "Follow us on Twitter"
-msgstr "在Twitter上关注我们(_T)"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "在Twitter上关注我们(_T)"
 
 msgid "Like us on Facebook"
 msgstr "在脸书上关注我们(_F)"
@@ -1255,3 +1255,24 @@ msgstr "文件{0}已保存"
 
 msgid "Error saving content to clipboard"
 msgstr "保存内容到剪贴板时出错"
+
+msgid "Follow us on Bluesky"
+msgstr "在 Bluesky 上关注我们"
+
+msgid "Font:"
+msgstr "字体："
+
+msgid "Sets the application font"
+msgstr "设置应用程序字体"
+
+msgid "Default"
+msgstr "默认"
+
+msgid "Light"
+msgstr "浅色"
+
+msgid "Dark"
+msgstr "深色"
+
+msgid "Unlock selected"
+msgstr "解锁选定"

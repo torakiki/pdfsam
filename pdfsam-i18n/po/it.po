@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-28 17:29+0200\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Language: it\n"
 
@@ -625,8 +625,8 @@ msgstr "Dona"
 msgid "Social"
 msgstr "Social"
 
-msgid "Follow us on Twitter"
-msgstr "Seguici su Twitter"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Seguici su Twitter"
 
 msgid "Like us on Facebook"
 msgstr "Mi piace su Facebook"
@@ -1372,3 +1372,24 @@ msgstr "Intervallo non valido: {0}."
 #, java-format
 msgid "Invalid number: {0}."
 msgstr "Numero non valido: {0}"
+
+msgid "Follow us on Bluesky"
+msgstr "Seguici su Bluesky"
+
+msgid "Font:"
+msgstr "Carattere:"
+
+msgid "Sets the application font"
+msgstr "Imposta il carattere dell'applicazione"
+
+msgid "Default"
+msgstr "Predefinito"
+
+msgid "Light"
+msgstr "Chiaro"
+
+msgid "Dark"
+msgstr "Scuro"
+
+msgid "Unlock selected"
+msgstr "Sblocca selezionati"

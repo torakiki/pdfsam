@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-29 10:35+0200\n"
 "Last-Translator: Arne Hanssen <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5\n"
 "Language: nb\n"
 
 msgid "No PDF document has been selected"
@@ -37,10 +37,10 @@ msgid "Output settings"
 msgstr "Resultatinnstillinger"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "En separat fil for hvert sett med sider"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "Hver sammenhengende serie med sider vil generere en separat PDF-fil"
 
 #~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 #~ msgstr "Sider å trekke ut (eks. 2 eller 5-23 eller 2,5-7,12-)"
@@ -100,7 +100,7 @@ msgid "Split"
 msgstr "Del opp"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr "Del PDF dokument etter oppgitt sidenummer"
+msgstr "Del PDF dokument etter oppgitt sidenummer."
 
 msgid "Every page"
 msgstr "Hver side"
@@ -212,7 +212,7 @@ msgid "Rotate"
 msgstr "Rotér"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr "Roter sidene i flere PDF dokumenter"
+msgstr "Roter sidene i flere PDF dokumenter."
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -243,24 +243,26 @@ msgid "Add a footer"
 msgstr "Legg til en fottekst"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr "Legg til en sidefot med samme navn som filnavn som siden tilhører"
+msgstr "Legg til en sidefot med samme navn som filnavn som siden tilhører."
 
 msgid "None"
 msgstr "Ingen"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Samme bredde som første side"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Samme bredde som første side (basert på sideretning)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Sidenormalisering:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"Angi om sider skal endres størrelse slik at alle har samme bredde som den "
+"første"
 
 msgid "Merge fields"
 msgstr "Slå sammen felt"
@@ -316,56 +318,60 @@ msgid ""
 msgstr "Velg dersom innholdsfortegnelse skal legges til i PDFen som lages"
 
 msgid "Merge"
-msgstr "Slå sammen."
+msgstr "Slå sammen"
 
 #~ msgid "Merge together multiple PDF documents or subsections of them."
 #~ msgstr "Slå sammen flere PDF dokumenter eller deler av disse"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
+msgstr "Velg eller dra og slipp PDF-en hvis sider skal gjentas"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Gjenta disse sidene:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Sider som skal gjentas (f.eks: 2 eller 5-23 eller 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Kommaseparerte sidenumre eller områder som skal gjentas (f.eks.: 2 eller 5-"
+"23 eller 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "La det stå tomt for å bruke alle sidene i PDF-filen"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Gjenta hver \"n\" side:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Ugyldig sidenummer"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "Gjenta de valgte sidene hver \"n\" side i originaldokumentet"
 
 msgid "The selected PDF file is invalid"
 msgstr "Den valgte PDF fil er ugyldig"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "Antall sider må være et positivt tall"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "Velg eller dra og slipp PDF-en du vil sette inn sider i"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Sett inn og gjenta innstillinger"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Sett inn sider flere ganger"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Sett inn sidene fra et PDF-dokument A i et annet dokument B, og gjenta det "
+"etter et visst antall sider, slik at resultatet blir B1 A B2 A B3 A osv."
 
 #, java-format
 msgid "Started in {0}"
@@ -381,10 +387,10 @@ msgid "No PDF found"
 msgstr "Ingen PDF filer funnet"
 
 msgid "Tools"
-msgstr ""
+msgstr "Verktøy"
 
 msgid "News"
-msgstr ""
+msgstr "Nyheter"
 
 msgid "What's new"
 msgstr "Hva er nytt"
@@ -393,13 +399,13 @@ msgid "Exit"
 msgstr "Avslutt"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Avslutt programmet"
 
 msgid "Workspace"
 msgstr "Arbeidsområde"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Administrer arbeidsområdene dine"
 
 msgid "Yes"
 msgstr "Ja"
@@ -414,7 +420,7 @@ msgid "Do you confirm?"
 msgstr "Bekrefte?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Tøm verktøyinnstillingene"
 
 msgid "Clear the selection table"
 msgstr "Slett valg tabellen"
@@ -489,7 +495,7 @@ msgstr ""
 "likevel?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Fjerner alle loggmeldingene"
 
 msgid "_Clear"
 msgstr "_Tøm"
@@ -498,7 +504,7 @@ msgid "_Save"
 msgstr "_Lagre"
 
 msgid "C_lose"
-msgstr ""
+msgstr "L_ukk"
 
 msgid "Copy"
 msgstr "Kopier"
@@ -516,7 +522,7 @@ msgid "Select where to save the log file"
 msgstr "Velg hvor loggfil skal lagres"
 
 msgid "Logs"
-msgstr ""
+msgstr "Logger"
 
 msgid "Application messages"
 msgstr "Programmeldinger"
@@ -548,15 +554,15 @@ msgstr "Leverandør: %s"
 
 #, java-printf-format
 msgid "Java runtime path: %s"
-msgstr "\"Java runtime\" sti: %s"
+msgstr "Java runtime-sti: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "JavaFX runtime-versjon: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "PDF-motor (Sejda SDK) versjon: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -578,7 +584,7 @@ msgid "Contribute"
 msgstr "Bidra"
 
 msgid "Fork PDFsam on GitHub"
-msgstr "\"Fork\" PDFsam på GitHub"
+msgstr "Fork PDFsam på GitHub"
 
 msgid "Translate"
 msgstr "Oversett"
@@ -589,8 +595,8 @@ msgstr "Donér"
 msgid "Social"
 msgstr "Sosialt"
 
-msgid "Follow us on Twitter"
-msgstr "Følg oss på Twitter"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Følg oss på Twitter"
 
 msgid "Like us on Facebook"
 msgstr "Lik oss på Facebook"
@@ -599,7 +605,7 @@ msgid "About"
 msgstr "Om"
 
 msgid "Home"
-msgstr ""
+msgstr "Hjem"
 
 msgid "Premium features"
 msgstr "Premium funksjoner"
@@ -617,22 +623,22 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Velg ditt foretrekkende språk (krever omstart)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Oppstartsverktøy:"
 
 msgid "Set the tool to open at application startup (restart needed)"
-msgstr ""
+msgstr "Angi verktøyet til å åpne ved programstart (omstart kreves)"
 
 msgid "Theme:"
 msgstr "Tema:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Angi programtemaet"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Skriftstørrelse:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Angi skriftstørrelsen for programmet"
 
 msgid "Manually selected"
 msgstr "Valgt manuelt"
@@ -640,7 +646,7 @@ msgstr "Valgt manuelt"
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
-msgstr "Sett målmappe lik plassering av valgte PDF dokument."
+msgstr "Sett målmappe lik plassering av valgte PDF dokument"
 
 msgid "Settings"
 msgstr "Innstillinger"
@@ -680,7 +686,7 @@ msgid "Load default workspace at startup:"
 msgstr "Les standard arbeidsområde ved oppstart:"
 
 msgid "System default"
-msgstr ""
+msgstr "Systemstandard"
 
 msgid "Check for updates at startup"
 msgstr "Se etter oppdateringer ved oppstart"
@@ -766,8 +772,7 @@ msgstr "Lagre arbeidsområde ved avslutning"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
-"Dersom standard arbeidsområde ikke er valgt, lagre det ved programavslutning."
-""
+"Dersom standard arbeidsområde ikke er valgt, lagre det ved programavslutning"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Det maksimale antallet rader må være et positivt tall"
@@ -785,7 +790,7 @@ msgid "Show errors"
 msgstr "Vis feil"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Inndataparameterne er ugyldige"
 
 msgid "Invalid parameters"
 msgstr "Ugyldige parametere"
@@ -838,28 +843,28 @@ msgid "File \"{0}\" does not exist or is invalid"
 msgstr "Fil \"{0}\" finnes ikke eller er ugyldig"
 
 msgid "Valid user password provided."
-msgstr "Gyldig brukerpassord må oppgis"
+msgstr "Gyldig brukerpassord må oppgis."
 
 msgid "This document is encrypted, click to provide a password."
-msgstr "Dette dokumentet er kryptert, klikk for å skrive inn passord"
+msgstr "Dette dokumentet er kryptert, klikk for å skrive inn passord."
 
 msgid "An error has occurred, click for more details."
-msgstr "En feil oppstod, klikk for flere detaljer"
+msgstr "En feil oppstod, klikk for flere detaljer."
 
 msgid "Split tools"
-msgstr ""
+msgstr "Deleverktøy"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Fletteverktøy"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Konverteringsverktøy"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Redigeringsverktøy"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Andre verktøy"
 
 msgid "Checking for updates"
 msgstr "Ser etter oppdateringer"
@@ -925,16 +930,16 @@ msgid "Unable to load workspace from {0}"
 msgstr "Klarte ikke laste arbeidsområde fra {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "Lys med blå"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Mørk med lilla"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Mørk med turkis"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Lys med rødbrun"
 
 msgid "Close"
 msgstr "Lukk"
@@ -956,7 +961,7 @@ msgid "Pages: {0}, PDF Version: {1}"
 msgstr "Sider: {0}, PDF Versjon: {1}"
 
 msgid "Loading..."
-msgstr "Laster …"
+msgstr "Laster..."
 
 msgid "Document properties"
 msgstr "Dokumentegenskaper"
@@ -998,10 +1003,10 @@ msgid "Duplicate"
 msgstr "Dubliser"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Valgte sider"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Totalt antall valgte sider"
 
 msgid "Size"
 msgstr "Størrelse"
@@ -1011,7 +1016,7 @@ msgstr "Endret"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Totalt antall sider: {0}"
 
 msgid "Name"
 msgstr "Navn"
@@ -1071,7 +1076,7 @@ msgid "Pages"
 msgstr "Sider"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Totalt antall sider i dokumentet"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "Dobbeltklikk for å velge sider (eks: 2 eller 5-23 eller 2,5-7,12-)"
@@ -1114,7 +1119,8 @@ msgstr "Overskriv dersom det allerede eksisterer"
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 ""
-msgstr "Kryss av ruten om du vil overskrive resultatfiler som allerede finnes"
+msgstr ""
+"Kryss av ruten om du vil overskrive resultatfiler som allerede finnes."
 
 #, java-format
 msgid "Version {0}"
@@ -1149,7 +1155,7 @@ msgid "Add prefix"
 msgstr "Legg til prefiks"
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "STANDARD_PREFIKS"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "PDF navneprefix i dokumenter:"
@@ -1167,7 +1173,7 @@ msgid "Run"
 msgstr "Kjør"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Kjør oppgaven"
 
 msgid "Requested"
 msgstr "Forespurt"
@@ -1225,65 +1231,91 @@ msgstr "Ugyldig nummer: {0}."
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
 msgstr ""
+"Sider som skal trekkes ut (f.eks: 2 eller 5-23 eller 2,5-7,12- eller "
+"3,siste)"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 " or 3,last)"
 msgstr ""
+"Kommaseparerte sidenumre eller områder som skal hentes ut (f.eks.: 2 eller 5-"
+"23 eller 2,5-7,12- eller 3,siste)"
 
 msgid "Merge multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "Slå sammen flere PDF-dokumenter eller deler av dem."
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr ""
+msgstr "En .pdf-utvidelse kreves for den gjentakende filen"
 
 msgid "A .pdf destination file extension is required"
-msgstr ""
+msgstr "En .pdf-filtype for målfilen er påkrevd"
 
 msgid "Default PDF version:"
-msgstr ""
+msgstr "Standard PDF-versjon:"
 
 msgid "Default PDF version for generated PDF files"
-msgstr ""
+msgstr "Standard PDF-versjon for genererte PDF-filer"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "Standardprefiks:"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
 "files"
 msgstr ""
+"Standardprefiks for utdatafilnavn, brukt i verktøy som genererer flere filer"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
+msgstr "Angi om \"Forkast bokmerker\" skal være aktivert som standard"
 
 #, java-format
 msgid "Workspace loaded: {0}"
-msgstr ""
+msgstr "Arbeidsområde lastet: {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr ""
+msgstr "Følgende fil eksisterte allerede og ble hoppet over: {0}"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Dupliser øverst"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Dupliser opp"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Dupliser ned"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Dupliser nederst"
 
 #, java-format
 msgid "Error saving content to file {0}"
-msgstr ""
+msgstr "Feil ved lagring av innhold til fil {0}"
 
 #, java-format
 msgid "File {0} saved"
-msgstr ""
+msgstr "Fil {0} lagret"
 
 msgid "Error saving content to clipboard"
-msgstr ""
+msgstr "Feil ved lagring av innhold til utklippstavlen"
+
+msgid "Follow us on Bluesky"
+msgstr "Følg oss på Bluesky"
+
+msgid "Font:"
+msgstr "Skrift:"
+
+msgid "Sets the application font"
+msgstr "Angir programskriften"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Light"
+msgstr "Lys"
+
+msgid "Dark"
+msgstr "Mørk"
+
+msgid "Unlock selected"
+msgstr "Lås opp valgte"

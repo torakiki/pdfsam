@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Copyright 2022 by Andrea Vacondio (andrea@soberlemur.com)
+# Copyright (C) YEAR Copyright 2025 by Sober Lemur S.r.l. (info@soberlemur.com)
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: info@pdfsam.org\n"
-"POT-Creation-Date: 2024-10-23 17:08+0200\n"
+"Report-Msgid-Bugs-To: info@soberlemur.com\n"
+"POT-Creation-Date: 2025-08-29 10:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -575,7 +575,7 @@ msgstr ""
 msgid "Social"
 msgstr ""
 
-msgid "Follow us on Twitter"
+msgid "Follow us on Bluesky"
 msgstr ""
 
 msgid "Like us on Facebook"
@@ -612,6 +612,12 @@ msgid "Theme:"
 msgstr ""
 
 msgid "Set the application theme"
+msgstr ""
+
+msgid "Font:"
+msgstr ""
+
+msgid "Sets the application font"
 msgstr ""
 
 msgid "Font size:"
@@ -681,6 +687,9 @@ msgid "Default working directory:"
 msgstr ""
 
 msgid "Load default workspace at startup:"
+msgstr ""
+
+msgid "Default"
 msgstr ""
 
 msgid "System default"
@@ -927,13 +936,19 @@ msgstr ""
 msgid "The following file already existed and was skipped: {0}"
 msgstr ""
 
+msgid "Light"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Dark with teal"
+msgstr ""
+
 msgid "Light with blue"
 msgstr ""
 
 msgid "Dark with purple"
-msgstr ""
-
-msgid "Dark with teal"
 msgstr ""
 
 msgid "Light with maroon"
@@ -995,6 +1010,9 @@ msgid "Move Down"
 msgstr ""
 
 msgid "Move to Bottom"
+msgstr ""
+
+msgid "Unlock selected"
 msgstr ""
 
 msgid "Duplicate"

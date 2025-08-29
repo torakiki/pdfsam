@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-28 17:40+0200\n"
 "Last-Translator: SEO ARAM <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
 "Language: ko\n"
 
 msgid "No PDF document has been selected"
@@ -37,10 +37,10 @@ msgid "Output settings"
 msgstr "출력 설정"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "각 페이지 세트에 대한 별도 파일"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "연속된 각 페이지 시리즈는 별도의 PDF 파일을 생성합니다"
 
 #~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 #~ msgstr "특정 페이지 추출"
@@ -61,10 +61,10 @@ msgstr "책갈피로 분할하기"
 
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
-msgstr ""
+msgstr "북마크 수준을 지정하여 북마크된 페이지에서 PDF 문서를 분할합니다."
 
 msgid "Regular expression the bookmark has to match"
-msgstr ""
+msgstr "북마크가 일치해야 하는 정규 표현식"
 
 msgid "Split at this bookmark level:"
 msgstr "현재 책갈피 수준으로 분할하기"
@@ -73,11 +73,11 @@ msgid "Matching regular expression:"
 msgstr "일치하는 정규식:"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "북마크 텍스트가 일치해야 하는 정규 표현식"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
-msgstr ""
+msgstr "예: \"Chapter\"라는 단어가 포함된 책갈피를 찾으려면 .*Chapter.*를 사용하세요"
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "분할할 PDF파일을 선택하거나 여기에 끌어다 놓으세요."
@@ -89,7 +89,7 @@ msgid "Invalid bookmarks level"
 msgstr "유효하지 않는 책갈피 수준입니다."
 
 msgid "Split after"
-msgstr ""
+msgstr "다음 이후 분할"
 
 msgid "No page selected"
 msgstr "아무런 페이지도 선택하지 않았습니다."
@@ -98,7 +98,7 @@ msgid "Split"
 msgstr "분할"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "지정된 페이지 번호에서 PDF 문서를 분할합니다."
 
 msgid "Every page"
 msgstr "전체 페이지"
@@ -110,22 +110,22 @@ msgid "Odd pages"
 msgstr "홀수 페이지"
 
 msgid "Split the document after the given page numbers"
-msgstr ""
+msgstr "지정된 페이지 번호 다음에 문서 분할"
 
 msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
+msgstr "PDF를 \"n\" 페이지마다 분할하여 각각 \"n\" 페이지의 문서를 생성합니다"
 
 msgid "Split after the following page numbers"
-msgstr ""
+msgstr "다음 페이지 번호 뒤에서 분할"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
+msgstr "분할할 페이지 번호 (n1,n2,n3..)"
 
 msgid "Invalid page numbers"
 msgstr "유효하지 않는 페이지 수입니다."
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "유효한 양수 페이지 번호만 허용됩니다"
 
 msgid "Split by every \"n\" pages"
 msgstr "모든 \"n\"페이지로 분할합니다."
@@ -175,13 +175,13 @@ msgstr "교대로 섞기"
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
-msgstr ""
+msgstr "두 개 이상의 PDF 문서를 자연스러운 순서 또는 역순으로 페이지를 번갈아 가며 병합합니다."
 
 msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "섞고 싶은 페이지를 설정하려면 더블 클릭하세요(ex: 2 or 5-23 or 2,5-7,12-)."
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "페이스로 양의 정수를 선택하세요"
 
 msgid "All pages"
 msgstr "전체 페이지"
@@ -233,21 +233,21 @@ msgid "Adds a page footer with the name of the file the page belonged to."
 msgstr "페이지가 속한 파일의 이름을 바닥글로 추가하기"
 
 msgid "None"
-msgstr ""
+msgstr "없음"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "첫 페이지와 동일한 너비"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "첫 페이지와 동일한 너비 (페이지 방향 기준)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "페이지 정규화:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
-msgstr ""
+msgstr "페이지가 첫 번째 페이지와 동일한 너비를 갖도록 크기를 조정할지 설정"
 
 msgid "Merge fields"
 msgstr "필드 병합하기"
@@ -308,50 +308,51 @@ msgstr "병합하기"
 #~ msgstr "여러 PDF문서 또는 그 PDF문서의 하위 섹션을 함께 병합하기"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
+msgstr "페이지를 반복할 PDF를 선택하거나 끌어다 놓으세요"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "이 페이지들을 반복:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "반복할 페이지 (예: 2 또는 5-23 또는 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
-msgstr ""
+msgstr "반복할 페이지 번호 또는 범위를 쉼표로 구분하여 입력 (예: 2 또는 5-23 또는 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "PDF 파일의 모든 페이지를 사용하려면 비워 두세요"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "\"n\"페이지마다 반복:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "잘못된 페이지 번호"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "선택한 페이지를 원본 문서의 \"n\" 페이지마다 반복"
 
 msgid "The selected PDF file is invalid"
 msgstr "유효하지 않는 PDF파일을 선택하였습니다."
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "페이지 수는 양수여야 합니다"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "페이지를 삽입할 PDF를 선택하거나 드래그 앤 드롭하세요"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "삽입 및 반복 설정"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "페이지 여러 번 삽입"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"PDF 문서 A의 페이지를 다른 문서 B에 삽입하여 특정 페이지 수마다 반복하면 B1 A B2 A B3 A 등의 결과를 얻습니다"
 
 #, java-format
 msgid "Started in {0}"
@@ -367,10 +368,10 @@ msgid "No PDF found"
 msgstr "검색된 PDF파일이 없습니다."
 
 msgid "Tools"
-msgstr ""
+msgstr "도구"
 
 msgid "News"
-msgstr ""
+msgstr "뉴스"
 
 msgid "What's new"
 msgstr "새로운 소식"
@@ -379,13 +380,13 @@ msgid "Exit"
 msgstr "종료"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "응용 프로그램 종료"
 
 msgid "Workspace"
 msgstr "작업 공간"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "작업 공간 관리"
 
 msgid "Yes"
 msgstr "예"
@@ -394,16 +395,16 @@ msgid "No"
 msgstr "아니오"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "지우기 확인"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "확인하시겠습니까?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "도구 설정 지우기"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "선택 테이블 지우기"
 
 msgid "Open with"
 msgstr "불러오기"
@@ -418,16 +419,16 @@ msgid "The selected directory is not empty"
 msgstr "선택한 디렉토리가 비어 있지 않습니다."
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "동일한 이름의 파일이 있는 경우 어떻게 하시겠습니까?"
 
 msgid "Overwrite"
 msgstr "덮어쓰기"
 
 msgid "Rename"
-msgstr ""
+msgstr "이름 바꾸기"
 
 msgid "Skip"
-msgstr ""
+msgstr "건너뛰기"
 
 msgid "Cancel"
 msgstr "취소"
@@ -442,7 +443,7 @@ msgid "A file with the given name already exists"
 msgstr "지정된 이름의 파일이 이미 존재하고 있습니다."
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "무엇을 하시겠습니까?"
 
 msgid "Non existing directory"
 msgstr "존재하지 않는 디렉토리"
@@ -466,14 +467,14 @@ msgid "Task failed"
 msgstr "작업 실패"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam이 오류를 해결하려고 시도할 수 있습니다"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr "PDF파일의 데이터가 일부 또는 누락될 수 있습니다. 계속 진행하시겠습니까?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "모든 로그 메시지를 제거합니다"
 
 msgid "_Clear"
 msgstr "지우기(_C)"
@@ -482,7 +483,7 @@ msgid "_Save"
 msgstr "저장하기(_S)"
 
 msgid "C_lose"
-msgstr ""
+msgstr "닫기(_L)"
 
 msgid "Copy"
 msgstr "복사하기"
@@ -500,7 +501,7 @@ msgid "Select where to save the log file"
 msgstr "로그파일 저장위치 선택하기"
 
 msgid "Logs"
-msgstr ""
+msgstr "로그"
 
 msgid "Application messages"
 msgstr "응용프로그램 메세지"
@@ -515,7 +516,7 @@ msgid "_Clear recents"
 msgstr "최근목록 지우기(_C)"
 
 msgid "Select the workspace file to save"
-msgstr ""
+msgstr "저장할 작업 공간 파일 선택"
 
 msgid "Select the workspace to load"
 msgstr "불러올 작업공간 선택하기"
@@ -536,11 +537,11 @@ msgstr "Java 런타임 경로: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "JavaFX 런타임 버전: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "PDF 엔진 (Sejda SDK) 버전: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -573,8 +574,8 @@ msgstr "기부하기"
 msgid "Social"
 msgstr "소셜"
 
-msgid "Follow us on Twitter"
-msgstr "트위터 팔로우하기"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "트위터 팔로우하기"
 
 msgid "Like us on Facebook"
 msgstr "페이스북 좋아요하기"
@@ -583,7 +584,7 @@ msgid "About"
 msgstr "프로그램 정보"
 
 msgid "Home"
-msgstr ""
+msgstr "홈"
 
 msgid "Premium features"
 msgstr "프리미엄 기능(유료 기능)"
@@ -601,22 +602,22 @@ msgid "Set your preferred language (restart needed)"
 msgstr "언어 설정 (재시작 필요)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "시작 도구:"
 
 msgid "Set the tool to open at application startup (restart needed)"
-msgstr ""
+msgstr "애플리케이션 시작 시 도구 열기 설정 (재시작 필요)"
 
 msgid "Theme:"
 msgstr "테마:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "애플리케이션 테마 설정"
 
 msgid "Font size:"
-msgstr ""
+msgstr "글꼴 크기:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "애플리케이션 글꼴 크기 설정"
 
 msgid "Manually selected"
 msgstr "수동 선택"
@@ -662,7 +663,7 @@ msgid "Load default workspace at startup:"
 msgstr "시작시 기본 폴더 불러오기"
 
 msgid "System default"
-msgstr ""
+msgstr "시스템 기본값"
 
 msgid "Check for updates at startup"
 msgstr "프로그램 시작시 업데이트 확인"
@@ -687,10 +688,10 @@ msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr "\"압축하여 파일 내보내기\"를 기본적으로 활성화 할지를 설정하기"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "파일 덮어쓰기"
 
 msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
-msgstr ""
+msgstr "\"이미 존재하는 경우 덮어쓰기\"를 기본적으로 활성화할지 설정"
 
 msgid "Play alert sounds"
 msgstr "경고음 재생하기"
@@ -704,7 +705,7 @@ msgstr "작업공간 파일을 저장할 때 암호를 저장하기"
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
-msgstr ""
+msgstr "암호화된 PDF 문서가 암호로 열린 경우 작업 공간 파일에 암호를 저장"
 
 msgid "Show donation window"
 msgstr "기부창 보이기"
@@ -712,7 +713,7 @@ msgstr "기부창 보이기"
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
-msgstr ""
+msgstr "가끔씩 나타나서 사용자에게 PDFsam을 기부로 지원해달라고 요청하는 알림을 켜거나 끄기"
 
 msgid "Show premium features"
 msgstr "유료 기능(premium features) 보이기"
@@ -720,27 +721,27 @@ msgstr "유료 기능(premium features) 보이기"
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
-msgstr ""
+msgstr "애플리케이션이 모듈 대시보드에서 프리미엄 기능 설명을 가져와서 표시할지 여부를 설정합니다"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "선택 테이블을 지울 때 확인 요청"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
-msgstr ""
+msgstr "선택 테이블을 지울 때 애플리케이션이 확인을 요청해야 하는지 설정"
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr ""
+msgstr "선택한 PDF 문서 디렉토리를 출력 디렉토리로 사용"
 
 msgid "Save default workspace on exit"
 msgstr "종료시 기본 작업공간을 저장하기"
 
 msgid "If a default workspace is set, save it on application exit"
-msgstr ""
+msgstr "기본 작업 공간이 설정된 경우 응용 프로그램 종료 시 저장"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "최대 행 수는 양수여야 합니다"
 
 msgid "Summary"
 msgstr "요약"
@@ -755,7 +756,7 @@ msgid "Show errors"
 msgstr "오류 표시하기"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "입력 매개변수가 유효하지 않습니다"
 
 msgid "Invalid parameters"
 msgstr "잘못된 매개변수"
@@ -767,17 +768,17 @@ msgstr "접근이 거부되었습니다."
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
-msgstr ""
+msgstr "\"{0}\"에 액세스할 수 없습니다. 쓰기 권한이 있는지 확인하거나 자세한 내용은 애플리케이션 메시지를 확인하세요."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
 msgstr "PDFSam으로 {0}개의 작업을 완료하였씁니다. 도움이 되셨나요?"
 
 msgid "Give something back"
-msgstr ""
+msgstr "기여하기"
 
 msgid "PDFsam worked hard!"
-msgstr ""
+msgstr "PDFsam이 열심히 작업했습니다!"
 
 msgid "Spread the word!"
 msgstr "홍보하기(Spread the word!)"
@@ -815,19 +816,19 @@ msgid "An error has occurred, click for more details."
 msgstr "오류가 발생했습니다. 세부 정보를 확인하기 위해 클릭해 주세요."
 
 msgid "Split tools"
-msgstr ""
+msgstr "분할 도구"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "병합 도구"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "변환 도구"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "편집 도구"
 
 msgid "Other tools"
-msgstr ""
+msgstr "기타 도구"
 
 msgid "Checking for updates"
 msgstr "업데이트 확인 중"
@@ -869,7 +870,7 @@ msgstr "그 최신 뉴스는 가져올 수 없습니다."
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "작업 공간 데이터를 {0}에 저장하는 중"
 
 msgid "Workspace saved"
 msgstr "작업 공간이 저장됨."
@@ -893,22 +894,22 @@ msgid "Unable to load workspace from {0}"
 msgstr "{0}로부터 작업 공간을 불러올 수 없습니다."
 
 msgid "Light with blue"
-msgstr ""
+msgstr "파란색이 있는 밝은 색"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "보라색이 있는 어두운 테마"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "청록색이 포함된 어두운 테마"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "밝은 색상에 적갈색"
 
 msgid "Close"
 msgstr "닫기"
 
 msgid "The selected PDF document is invalid"
-msgstr ""
+msgstr "선택한 PDF 문서가 유효하지 않습니다"
 
 msgid "Select the PDF file"
 msgstr "PDF파일 선택하기"
@@ -921,7 +922,7 @@ msgstr "PDF파일 선택(_S)"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
+msgstr "페이지: {0}, PDF 버전: {1}"
 
 msgid "Loading..."
 msgstr "불러오는 중"
@@ -933,7 +934,7 @@ msgid "Remove"
 msgstr "제거하기"
 
 msgid "Set destination"
-msgstr ""
+msgstr "대상 설정"
 
 msgid "Open Folder"
 msgstr "폴더 열기"
@@ -945,10 +946,10 @@ msgid "Unlock"
 msgstr "잠금해제"
 
 msgid "Drag and drop PDF files here"
-msgstr ""
+msgstr "여기에 PDF 파일을 끌어다 놓으세요"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "모든 항목에 범위로 설정"
 
 msgid "Move to Top"
 msgstr "최상단으로 옮기기"
@@ -966,32 +967,32 @@ msgid "Duplicate"
 msgstr "사본"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "선택한 페이지"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "선택한 페이지의 총 개수"
 
 msgid "Size"
 msgstr "파일크기"
 
 msgid "Modified"
-msgstr ""
+msgstr "수정됨"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "전체 페이지: {0}"
 
 msgid "Name"
 msgstr "파일이름"
 
 msgid "Add documents to the table"
-msgstr ""
+msgstr "테이블에 문서 추가"
 
 msgid "_Add"
 msgstr "추가하기(_A)"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "텍스트/csv 파일에서 PDF 목록(_T)"
 
 msgid "Select pdf documents to load"
 msgstr "불러올 PDF파일 선택하기"
@@ -1024,12 +1025,12 @@ msgid "Move _Down"
 msgstr "밑으로 내리기(_D)"
 
 msgid "Pace"
-msgstr ""
+msgstr "속도"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
-msgstr ""
+msgstr "작업이 다음 파일로 전환되기 전까지의 페이지 수를 설정하려면 더블 클릭하세요"
 
 msgid "Reverse"
 msgstr "역순"
@@ -1038,10 +1039,10 @@ msgid "Pages"
 msgstr "페이지 수"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "문서의 전체 페이지 수"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "선택한 페이지를 설정하려면 더블 클릭하세요 (예: 2 또는 5-23 또는 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "페이지 범위"
@@ -1054,18 +1055,18 @@ msgstr "파일을 반드시 선택해야 합니다. "
 
 #, java-format
 msgid "Allowed extensions are {0}"
-msgstr ""
+msgstr "허용된 확장자는 {0}입니다"
 
 msgid "Compress output file/files"
-msgstr ""
+msgstr "출력 파일 압축"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
-msgstr ""
+msgstr "원본 PDF 문서의 책갈피를 유지하지 않으려면 확인란을 선택하세요"
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "출력 PDF 버전:"
 
 msgid "Show advanced settings"
 msgstr "상세 설정화면 보이기"
@@ -1079,20 +1080,20 @@ msgstr "파일이 이미 있으면 덮어 쓰기"
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 ""
-msgstr ""
+msgstr "출력 파일이 이미 존재하는 경우 덮어쓰려면 확인란을 선택하세요."
 
 #, java-format
 msgid "Version {0}"
-msgstr ""
+msgstr "버전 {0}"
 
 msgid "Same as the input document"
-msgstr ""
+msgstr "입력 문서와 동일"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "기존 출력 디렉토리가 필요합니다"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "출력 디렉토리가 필요합니다"
 
 msgid "Select an existing directory"
 msgstr "기존의 디렉토리 선택하기"
@@ -1105,37 +1106,37 @@ msgstr "찾아보기"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "PDF 버전 필요: {0}"
 
 msgid "Prefix for the generated files names"
-msgstr ""
+msgstr "생성된 파일 이름의 접두사"
 
 msgid "Add prefix"
-msgstr ""
+msgstr "접두사 추가"
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "DEFAULT_PREFIX"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "생성된 PDF 문서 이름 접두사:"
 
 msgid "Prefix for the output files name."
-msgstr ""
+msgstr "출력 파일 이름의 접두사"
 
 msgid "Some special keywords are replaced with runtime values."
-msgstr ""
+msgstr "일부 특수 키워드는 런타임 값으로 대체됩니다."
 
 msgid "Right click to add these keywords."
-msgstr ""
+msgstr "이 키워드를 추가하려면 마우스 오른쪽 버튼을 클릭하세요."
 
 msgid "Run"
 msgstr "실행하기"
 
 msgid "Run the task"
-msgstr ""
+msgstr "작업 실행"
 
 msgid "Requested"
-msgstr ""
+msgstr "요청됨"
 
 msgid "Completed"
 msgstr "완료"
@@ -1165,7 +1166,7 @@ msgstr "유효하지 않는 범위: {0}"
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
-msgstr ""
+msgstr "모호한 페이지 범위 정의: {0}. 다음 형식을 사용하세요: [n] 또는 [n1-n2] 또는 [-n] 또는 [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
@@ -1181,66 +1182,87 @@ msgstr "유효하지 않은 숫자{0}"
 #~ msgstr "대상 폴더"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
-msgstr ""
+msgstr "추출할 페이지 (예: 2 또는 5-23 또는 2,5-7,12- 또는 3,last)"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 " or 3,last)"
-msgstr ""
+msgstr "추출할 페이지 번호 또는 범위를 쉼표로 구분하여 입력 (예: 2 또는 5-23 또는 2,5-7,12- 또는 3,last)"
 
 msgid "Merge multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "여러 PDF 문서 또는 하위 섹션을 병합합니다."
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr ""
+msgstr "반복 파일에는 .pdf 확장자가 필요합니다"
 
 msgid "A .pdf destination file extension is required"
-msgstr ""
+msgstr ".pdf 대상 파일 확장자가 필요합니다"
 
 msgid "Default PDF version:"
-msgstr ""
+msgstr "기본 PDF 버전:"
 
 msgid "Default PDF version for generated PDF files"
-msgstr ""
+msgstr "생성된 PDF 파일의 기본 PDF 버전"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "기본 접두사:"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
 "files"
-msgstr ""
+msgstr "여러 파일을 생성하는 도구에서 사용되는 출력 파일 이름의 기본 접두사"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
+msgstr "\"책갈피 삭제\"를 기본적으로 활성화할지 설정"
 
 #, java-format
 msgid "Workspace loaded: {0}"
-msgstr ""
+msgstr "작업 공간 불러옴: {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr ""
+msgstr "다음 파일이 이미 존재하여 건너뛰었습니다: {0}"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "맨 위에 복제"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "위로 복제"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "아래로 복제"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "맨 아래에 복제"
 
 #, java-format
 msgid "Error saving content to file {0}"
-msgstr ""
+msgstr "파일 {0}에 콘텐츠를 저장하는 중 오류 발생"
 
 #, java-format
 msgid "File {0} saved"
-msgstr ""
+msgstr "파일 {0} 저장됨"
 
 msgid "Error saving content to clipboard"
-msgstr ""
+msgstr "클립보드에 내용을 저장하는 중 오류 발생"
+
+msgid "Follow us on Bluesky"
+msgstr "Bluesky에서 팔로우하세요"
+
+msgid "Font:"
+msgstr "글꼴:"
+
+msgid "Sets the application font"
+msgstr "애플리케이션 글꼴을 설정합니다"
+
+msgid "Default"
+msgstr "기본값"
+
+msgid "Light"
+msgstr "밝게"
+
+msgid "Dark"
+msgstr "어둡게"
+
+msgid "Unlock selected"
+msgstr "선택 항목 잠금 해제"

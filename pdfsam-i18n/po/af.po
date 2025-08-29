@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-29 10:37+0200\n"
 "Last-Translator: Andrea Vacondio <info@pdfsam.org>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "Language: af\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5\n"
 
 msgid "No PDF document has been selected"
 msgstr "Geen PDF dokument was geselekteerde"
@@ -37,10 +37,10 @@ msgid "Output settings"
 msgstr "Uitset instellings"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "Aparte lêer vir elke stel bladsye"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "Elke aaneenlopende reeks bladsye sal 'n aparte PDF-lêer genereer"
 
 #~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 #~ msgstr "Bladsye te ekstrak (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -75,7 +75,7 @@ msgid "Matching regular expression:"
 msgstr "Wedstryd gereelde uitdrukking:"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr "'N Gereelde uitdrukking die boekmerk teks moet wedstryd"
+msgstr "'n Gereelde uitdrukking waarmee die boekmerkteks moet ooreenstem"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
@@ -250,18 +250,20 @@ msgid "None"
 msgstr "Geeneen"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Dieselfde breedte as eerste bladsy"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Dieselfde breedte as eerste bladsy (gebaseer op bladsyoriëntasie)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Bladsye normalisering:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"Stel of bladsye hergrootte moet word om almal dieselfde breedte as die "
+"eerste een te hê"
 
 msgid "Merge fields"
 msgstr "Merge velde"
@@ -325,50 +327,56 @@ msgstr "Saamsmelt"
 #~ msgstr "Saamsmelt saam meervoudige PDF-dokumente of onderafdelings van hulle."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
+msgstr "Kies of sleep en los die PDF waarvan die bladsye herhaal sal word"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Herhaal hierdie bladsye:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Bladsye om te herhaal (bv.: 2 of 5-23 of 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Komma-geskeide bladsynommers of reekse wat herhaal moet word (bv: 2 of 5-23 "
+"of 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "Laat dit leeg om al die bladsye van die PDF-lêer te gebruik"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Herhaal elke \"n\" bladsye:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Ongeldige bladsynommer"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
+"Herhaal die geselekteerde bladsye elke \"n\" bladsye van die oorspronklike "
+"dokument"
 
 msgid "The selected PDF file is invalid"
 msgstr "Die geselekteerde PDF lêer is ongeldig"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "Die aantal bladsye moet 'n positiewe getal wees"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "Kies of sleep en los die PDF waarby jy bladsye wil invoeg"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Invoeg en Herhaal instellings"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Voeg bladsye verskeie kere in"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Voeg die bladsye van 'n PDF-dokument A in 'n ander dokument B in, herhaal "
+"dit na 'n sekere aantal bladsye, wat lei tot B1 A B2 A B3 A ens."
 
 #, java-format
 msgid "Started in {0}"
@@ -384,10 +392,10 @@ msgid "No PDF found"
 msgstr "Geen PDF gevind"
 
 msgid "Tools"
-msgstr ""
+msgstr "Gereedskap"
 
 msgid "News"
-msgstr ""
+msgstr "Nuus"
 
 msgid "What's new"
 msgstr "Wat is nuwe"
@@ -396,13 +404,13 @@ msgid "Exit"
 msgstr "Uitgang"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Sluit die toepassing"
 
 msgid "Workspace"
 msgstr "Werkspasie"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Bestuur jou werkruimtes"
 
 msgid "Yes"
 msgstr "Ja"
@@ -417,7 +425,7 @@ msgid "Do you confirm?"
 msgstr "Bevestig doen jy?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Vee die gereedskapinstellings uit"
 
 msgid "Clear the selection table"
 msgstr "Duidelike die seleksie tafel"
@@ -456,7 +464,7 @@ msgid "Overwrite confirmation"
 msgstr "Oorskryf bevestiging"
 
 msgid "A file with the given name already exists"
-msgstr "'N Lêer met die gegewe naam bestaan reeds"
+msgstr "'n Lêer met die gegewe naam bestaan reeds"
 
 msgid "What would you like to do?"
 msgstr "Wat wil jy graag doen?"
@@ -492,7 +500,7 @@ msgstr ""
 "voortgaan elk geval?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Verwyder al die logboodskappe"
 
 msgid "_Clear"
 msgstr "_Duidelike"
@@ -501,7 +509,7 @@ msgid "_Save"
 msgstr "_Stoor"
 
 msgid "C_lose"
-msgstr ""
+msgstr "S_luit"
 
 msgid "Copy"
 msgstr "Kopieër"
@@ -519,7 +527,7 @@ msgid "Select where to save the log file"
 msgstr "Selekteer waar om die log lêer te stoor"
 
 msgid "Logs"
-msgstr ""
+msgstr "Logboeke"
 
 msgid "Application messages"
 msgstr "Aansoek boodskappe"
@@ -555,11 +563,11 @@ msgstr "Java hardlooptyd pad: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "JavaFX looptydweergawe: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "PDF-enjin (Sejda SDK) weergawe: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -592,8 +600,8 @@ msgstr "Skenk"
 msgid "Social"
 msgstr "Sosiale"
 
-msgid "Follow us on Twitter"
-msgstr "Volg ons op Twitter"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Volg ons op Twitter"
 
 msgid "Like us on Facebook"
 msgstr "Soos ons op Facebook"
@@ -602,7 +610,7 @@ msgid "About"
 msgstr "Omtrent"
 
 msgid "Home"
-msgstr ""
+msgstr "Tuis"
 
 msgid "Premium features"
 msgstr "Premie funksies"
@@ -620,22 +628,22 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Stel jou voorkeur taal (herbegin benodigde)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Opstartgereedskap:"
 
 msgid "Set the tool to open at application startup (restart needed)"
-msgstr ""
+msgstr "Stel die instrument om oop te maak by programopstart (herbegin nodig)"
 
 msgid "Theme:"
 msgstr "Tema:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Stel die toepassing tema"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Lettertipe grootte:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Stel die toepassing se lettergrootte"
 
 msgid "Manually selected"
 msgstr "Handmatig gekies"
@@ -684,7 +692,7 @@ msgid "Load default workspace at startup:"
 msgstr "Laai verstek werkspasie by opstart:"
 
 msgid "System default"
-msgstr ""
+msgstr "Stelsel verstek"
 
 msgid "Check for updates at startup"
 msgstr "Tjek vir opdaterings by- opstart"
@@ -792,7 +800,7 @@ msgid "Show errors"
 msgstr "Wys foute"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Invoerparameters is ongeldig"
 
 msgid "Invalid parameters"
 msgstr "Ongeldige parameters"
@@ -854,19 +862,19 @@ msgid "An error has occurred, click for more details."
 msgstr "N fout het voorgekom, klik vir meer besonderhede."
 
 msgid "Split tools"
-msgstr ""
+msgstr "Verdeelgereedskap"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Saamsmeltgereedskap"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Omskakelgereedskap"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Wysig gereedskap"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Ander gereedskap"
 
 msgid "Checking for updates"
 msgstr "Loer vir opdaterings"
@@ -932,16 +940,16 @@ msgid "Unable to load workspace from {0}"
 msgstr "Nie in staat is om laai werkruimte vanaf {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "Lig met blou"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Donker met pers"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Donker met blougroen"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Lig met maroen"
 
 msgid "Close"
 msgstr "Toemaak"
@@ -1005,10 +1013,10 @@ msgid "Duplicate"
 msgstr "Dupliseer"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Geselekteerde bladsye"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Totale aantal geselekteerde bladsye"
 
 msgid "Size"
 msgstr "Grootte"
@@ -1018,7 +1026,7 @@ msgstr "Gemodifiseerde"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Totale bladsye: {0}"
 
 msgid "Name"
 msgstr "Naam"
@@ -1079,7 +1087,7 @@ msgid "Pages"
 msgstr "Bladsye"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Aantal totale bladsye van die dokument"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1135,7 +1143,7 @@ msgid "Same as the input document"
 msgstr "Dieselfde as die insette dokument"
 
 msgid "An existing output directory is required"
-msgstr "'N bestaande uitset gids is vereis"
+msgstr "'n bestaande uitsetlêergids word vereis"
 
 msgid "The output directory is required"
 msgstr "Die uitset gids is vereis"
@@ -1160,7 +1168,7 @@ msgid "Add prefix"
 msgstr "Voeg voorvoegsel by"
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "VERSTEK_VOORVOEGSEL"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Gegenereerde PDF dokumente se naam voorvoegsel:"
@@ -1178,7 +1186,7 @@ msgid "Run"
 msgstr "Hardloop"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Voer die taak uit"
 
 msgid "Requested"
 msgstr "Aangevraagde"
@@ -1251,66 +1259,91 @@ msgstr "Ongeldige nommer: {0}."
 #~ msgstr "Nooit"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
-msgstr ""
+msgstr "Bladsye om te onttrek (bv: 2 of 5-23 of 2,5-7,12- of 3,laaste)"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 " or 3,last)"
 msgstr ""
+"Komma-geskeide bladsynommers of reekse om te onttrek (bv: 2 of 5-23 of 2,5-"
+"7,12- of 3,laaste)"
 
 msgid "Merge multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "Voeg veelvuldige PDF-dokumente of subafdelings daarvan saam."
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr ""
+msgstr "'n .pdf-uitbreiding word vereis vir die herhalende lêer"
 
 msgid "A .pdf destination file extension is required"
-msgstr ""
+msgstr "'n .pdf-bestemmingslêeruitbreiding word vereis"
 
 msgid "Default PDF version:"
-msgstr ""
+msgstr "Verstek PDF-weergawe:"
 
 msgid "Default PDF version for generated PDF files"
-msgstr ""
+msgstr "Verstek PDF-weergawe vir gegenereerde PDF-lêers"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "Verstek voorvoegsel:"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
 "files"
 msgstr ""
+"Standaardvoorvoegsel vir uitvoerlêername, gebruik in gereedskap wat "
+"veelvuldige lêers genereer"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
+msgstr "Stel of \"Verwerp boekmerke\" by verstek geaktiveer moet word"
 
 #, java-format
 msgid "Workspace loaded: {0}"
-msgstr ""
+msgstr "Werkspasie gelaai: {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr ""
+msgstr "Die volgende lêer het reeds bestaan en is oorgeslaan: {0}"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Dupliseer bo-aan"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Dupliseer Op"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Dupliseer Af"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Dupliseer onderaan"
 
 #, java-format
 msgid "Error saving content to file {0}"
-msgstr ""
+msgstr "Fout met die stoor van inhoud na lêer {0}"
 
 #, java-format
 msgid "File {0} saved"
-msgstr ""
+msgstr "Lêer {0} gestoor"
 
 msgid "Error saving content to clipboard"
-msgstr ""
+msgstr "Fout met die stoor van inhoud na knipbord"
+
+msgid "Follow us on Bluesky"
+msgstr "Volg ons op Bluesky"
+
+msgid "Font:"
+msgstr "Lettertipe:"
+
+msgid "Sets the application font"
+msgstr "Stel die toepassingslettertipe"
+
+msgid "Default"
+msgstr "Standaard"
+
+msgid "Light"
+msgstr "Lig"
+
+msgid "Dark"
+msgstr "Donker"
+
+msgid "Unlock selected"
+msgstr "Ontsluit gekies"

@@ -29,8 +29,13 @@
        				<Publish Property="LOCALE_CODE" Value="fr">LOCALE = "French"</Publish>
        				<Publish Property="LOCALE_CODE" Value="de">LOCALE = "German"</Publish>
        				<Publish Property="LOCALE_CODE" Value="hu">LOCALE = "Hungarian"</Publish>
+       				<Publish Property="LOCALE_CODE" Value="ko">LOCALE = "Korean"</Publish>
        				<Publish Property="LOCALE_CODE" Value="ja">LOCALE = "Japanese"</Publish>
        				<Publish Property="LOCALE_CODE" Value="it">LOCALE = "Italian"</Publish>
+       				<Publish Property="LOCALE_CODE" Value="lt">LOCALE = "Lithuanian"</Publish>
+       				<Publish Property="LOCALE_CODE" Value="lv">LOCALE = "Latvian"</Publish>
+       				<Publish Property="LOCALE_CODE" Value="ms">LOCALE = "Malay"</Publish>
+       				<Publish Property="LOCALE_CODE" Value="nb">LOCALE = "Norwegian Bokmål"</Publish>
        				<Publish Property="LOCALE_CODE" Value="pl">LOCALE = "Polish"</Publish>
        				<Publish Property="LOCALE_CODE" Value="pt">LOCALE = "Portuguese"</Publish>
        				<Publish Property="LOCALE_CODE" Value="ro">LOCALE = "Romanian"</Publish>
@@ -38,6 +43,7 @@
        				<Publish Property="LOCALE_CODE" Value="sk">LOCALE = "Slovak"</Publish>
        				<Publish Property="LOCALE_CODE" Value="sl">LOCALE = "Slovenian"</Publish>
        				<Publish Property="LOCALE_CODE" Value="es">LOCALE = "Spanish"</Publish>
+       				<Publish Property="LOCALE_CODE" Value="sr">LOCALE = "Serbian"</Publish>
        				<Publish Property="LOCALE_CODE" Value="tr">LOCALE = "Turkish"</Publish>
        				<Publish Property="LOCALE_CODE" Value="uk">LOCALE = "Ukrainian"</Publish>
                  </Control>

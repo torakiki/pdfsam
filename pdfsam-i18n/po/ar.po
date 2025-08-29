@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-07-23 11:23+0200\n"
+"PO-Revision-Date: 2025-08-21 17:34+0200\n"
 "Last-Translator: Bouzid Zeroug <Unknown>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-07-23 08:44+0000\n"
-"X-Generator: Autopo v1.0.3-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.5-SNAPSHOT\n"
 "Language: ar\n"
 
 msgid "No PDF document has been selected"
@@ -604,8 +604,8 @@ msgstr "تبرّع"
 msgid "Social"
 msgstr "اجتماعي"
 
-msgid "Follow us on Twitter"
-msgstr "تابعنا عبر التويتر"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "تابعنا عبر التويتر"
 
 msgid "Like us on Facebook"
 msgstr "اعجب بصفحتنا على الفيسبوك"
@@ -1272,3 +1272,24 @@ msgstr "رقم غير صالح: {0}."
 
 #~ msgid "Destination folder"
 #~ msgstr "المجلد الوجهة"
+
+msgid "Follow us on Bluesky"
+msgstr "Последвайте ни в Bluesky"
+
+msgid "Font:"
+msgstr "Шрифт:"
+
+msgid "Sets the application font"
+msgstr "Задава шрифта на приложението"
+
+msgid "Default"
+msgstr "По подразбиране"
+
+msgid "Light"
+msgstr "Светъл"
+
+msgid "Dark"
+msgstr "Тъмна"
+
+msgid "Unlock selected"
+msgstr "Отключи избраните"

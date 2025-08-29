@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-04-18 10:04+0200\n"
+"PO-Revision-Date: 2025-08-26 11:41+0200\n"
 "Last-Translator: Andrei Vasile Nemeș <Unknown>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5\n"
 "Language: ro\n"
 
 msgid "No PDF document has been selected"
@@ -609,8 +609,8 @@ msgstr "Donați"
 msgid "Social"
 msgstr "Social"
 
-msgid "Follow us on Twitter"
-msgstr "Urmăriți-ne pe Twitter"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Urmăriți-ne pe Twitter"
 
 msgid "Like us on Facebook"
 msgstr "Apreciați-ne pe Facebook"
@@ -1340,3 +1340,24 @@ msgstr "Fișierul {0} a fost salvat"
 
 msgid "Error saving content to clipboard"
 msgstr "Eroare la salvarea conținutului în clipboard"
+
+msgid "Follow us on Bluesky"
+msgstr "Urmărește-ne pe Bluesky"
+
+msgid "Font:"
+msgstr "Font:"
+
+msgid "Sets the application font"
+msgstr "Setează fontul aplicației"
+
+msgid "Default"
+msgstr "Implicit"
+
+msgid "Light"
+msgstr "Luminos"
+
+msgid "Dark"
+msgstr "Întunecat"
+
+msgid "Unlock selected"
+msgstr "Deblocare selecție"

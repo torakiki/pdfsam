@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-29 10:18+0200\n"
 "Last-Translator: Quentin PAGÈS <Unknown>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5\n"
 "Language: oc\n"
 
 msgid "No PDF document has been selected"
@@ -605,8 +605,8 @@ msgstr "Far un don"
 msgid "Social"
 msgstr "Social"
 
-msgid "Follow us on Twitter"
-msgstr "Seguissètz-nos sus Twitter"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Seguissètz-nos sus Twitter"
 
 msgid "Like us on Facebook"
 msgstr "Aimatz nòstre Facebook"
@@ -1278,38 +1278,61 @@ msgstr "Nombre invalid : {0}."
 #~ msgstr "Dorsièr de creacion"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
-msgstr ""
+msgstr "Paginas d'extraire (ex: 2 o 5-23 o 2,5-7,12- o 3,darrièra)"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 " or 3,last)"
 msgstr ""
+"Numèros de pagina o intervales a extraire, separats per virgulas (ex: 2 o 5-"
+"23 o 2,5-7,12- o 3,darrièra)"
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr ""
+msgstr "Una extension .pdf es requesida pel fichièr repetit"
 
 msgid "A .pdf destination file extension is required"
-msgstr ""
+msgstr "Una extension de fichièr de destinacion .pdf es requesida"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Duplicar en cap"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Duplicar Amont"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Duplicar cap aval"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Duplicar en bas"
 
 #, java-format
 msgid "Error saving content to file {0}"
-msgstr ""
+msgstr "Error d'enregistrament del contengut al fichièr {0}"
 
 #, java-format
 msgid "File {0} saved"
-msgstr ""
+msgstr "Fichièr {0} salvat"
 
 msgid "Error saving content to clipboard"
-msgstr ""
+msgstr "Error en registrar contengut al pòrta-papièrs"
+
+msgid "Follow us on Bluesky"
+msgstr "Seguissetz-nos sus Bluesky"
+
+msgid "Font:"
+msgstr "Polícia:"
+
+msgid "Sets the application font"
+msgstr "Definís la polícia de l'aplicacion"
+
+msgid "Default"
+msgstr "Per defaut"
+
+msgid "Light"
+msgstr "Clar"
+
+msgid "Dark"
+msgstr "Escur"
+
+msgid "Unlock selected"
+msgstr "Desblocar seleccionats"

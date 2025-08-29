@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-04-18 09:59+0200\n"
+"PO-Revision-Date: 2025-08-26 11:36+0200\n"
 "Last-Translator: Charudutt Marathe <Unknown>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5\n"
 "Language: hi\n"
 
 msgid "No PDF document has been selected"
@@ -617,8 +617,8 @@ msgstr "दान करें"
 msgid "Social"
 msgstr "सामाजिक"
 
-msgid "Follow us on Twitter"
-msgstr "हमें ट्विटर पर फॉलो करें"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "हमें ट्विटर पर फॉलो करें"
 
 msgid "Like us on Facebook"
 msgstr "हमें फेसबुक पर पसंद करें"
@@ -1297,3 +1297,24 @@ msgstr "अमान्य श्रेणी: {0}."
 #, java-format
 msgid "Invalid number: {0}."
 msgstr "अमान्य संख्या: {0}."
+
+msgid "Follow us on Bluesky"
+msgstr "Bluesky पर हमें फॉलो करें"
+
+msgid "Font:"
+msgstr "फ़ॉन्ट:"
+
+msgid "Sets the application font"
+msgstr "एप्लिकेशन फ़ॉन्ट सेट करता है"
+
+msgid "Default"
+msgstr "डिफ़ॉल्ट"
+
+msgid "Light"
+msgstr "हल्का"
+
+msgid "Dark"
+msgstr "डार्क"
+
+msgid "Unlock selected"
+msgstr "चयनित को अनलॉक करें"

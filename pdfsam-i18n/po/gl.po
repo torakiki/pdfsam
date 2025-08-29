@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-26 11:37+0200\n"
 "Last-Translator: Santy <Unknown>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-07-26 09:48+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5\n"
 "Language: gl\n"
 
 msgid "No PDF document has been selected"
@@ -607,8 +607,8 @@ msgstr "Doar"
 msgid "Social"
 msgstr "Social"
 
-msgid "Follow us on Twitter"
-msgstr "Siguenos en X (antigo Twitter)"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Siguenos en X (antigo Twitter)"
 
 msgid "Like us on Facebook"
 msgstr "Danos \"góstame\" en Facebook"
@@ -1332,3 +1332,24 @@ msgstr "Ficheiro {0} gardado"
 
 msgid "Error saving content to clipboard"
 msgstr "Erro gardando contido no portapapeis"
+
+msgid "Follow us on Bluesky"
+msgstr "Síguenos en Bluesky"
+
+msgid "Font:"
+msgstr "Tipo de letra:"
+
+msgid "Sets the application font"
+msgstr "Define o tipo de letra da aplicación"
+
+msgid "Default"
+msgstr "Predeterminado"
+
+msgid "Light"
+msgstr "Claro"
+
+msgid "Dark"
+msgstr "Escuro"
+
+msgid "Unlock selected"
+msgstr "Desbloquear seleccionado"

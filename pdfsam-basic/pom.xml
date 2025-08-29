@@ -83,7 +83,7 @@
                                         <argument>
                                             java.base,java.logging,java.naming,java.sql,java.desktop,java.xml,java.management,jdk.unsupported,java.prefs,jdk.localedata
                                         </argument>
-                                        <argument>--include-locales=en-*,af,ar,bg,bs,el,eu,pt-*,zh-*,co,ca,hr,cs,da,nl,fr,de,he,hi,hu,jp,it,pl,pt,ro,ru,sk,sl,sr,sv,es,tr,uk,fi,ko,oc</argument>
+                                        <argument>--include-locales=en-*,af,ar,bg,bs,ca,co,cs,da,de,el,es,eu,fi,fr,he,hi,hu,hr,ko,jp,it,lt,lv,ms,nl,nb,oc,pt-*,pl,pt,ro,ru,sk,sl,sr,sv,tr,zh-*,uk</argument>
                                         <argument>--output</argument>
                                         <argument>${project.build.directory}/assembled/runtime</argument>
                                         <argument>--compress</argument>
@@ -109,7 +109,7 @@
                                 </goals>
                                 <configuration>
                                     <outputDirectory>${project.build.directory}/assembled/lib</outputDirectory>
-                                    <includeScope>compile</includeScope>
+                                    <includeScope>runtime</includeScope>
                                 </configuration>
                             </execution>
                         </executions>

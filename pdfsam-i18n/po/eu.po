@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-04-26 12:14+0200\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-21 17:40+0200\n"
 "Last-Translator: Jon Ortiz VIllanueva <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5-SNAPSHOT\n"
 "Language: eu\n"
 
 msgid "No PDF document has been selected"
@@ -605,8 +605,8 @@ msgstr "Diruz lagundu"
 msgid "Social"
 msgstr "Sare sozialak"
 
-msgid "Follow us on Twitter"
-msgstr "Jarraitu Twitter-en"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Jarraitu Twitter-en"
 
 msgid "Like us on Facebook"
 msgstr "Atsegindu Facebook-en"
@@ -1250,55 +1250,80 @@ msgstr "Zenbaki baliogabea: {0}"
 #~ msgstr "Inoiz ere ez"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
-msgstr ""
+msgstr "Ateratzeko orrialdeak (adib: 2 edo 5-23 edo 2,5-7,12- edo 3,azkena)"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 " or 3,last)"
 msgstr ""
+"Komaz bereizitako orrialde zenbakiak edo tarteak ateratzeko (adib: 2 edo 5-"
+"23 edo 2,5-7,12- edo 3,last)"
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr ""
+msgstr ".pdf luzapena beharrezkoa da fitxategi errepikakorrerako"
 
 msgid "A .pdf destination file extension is required"
-msgstr ""
+msgstr ".pdf helmuga fitxategi luzapena beharrezkoa da"
 
 msgid "Default PDF version:"
-msgstr ""
+msgstr "PDF bertsio lehenetsia:"
 
 msgid "Default PDF version for generated PDF files"
-msgstr ""
+msgstr "PDF fitxategi sortuetarako PDF bertsio lehenetsia"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "Aurrizki lehenetsia:"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
 "files"
 msgstr ""
+"Irteerako fitxategi-izenen aurrizki lehenetsia, fitxategi anitz sortzen "
+"dituzten tresnetan erabilia"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
+msgstr "Ezarri \"Baztertu laster-markak\" lehenespenez gaituta egon behar duen"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Bikoiztu Goian"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Bikoiztu Gora"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Bikoiztu Behera"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Bikoiztu Behean"
 
 #, java-format
 msgid "Error saving content to file {0}"
-msgstr ""
+msgstr "Errorea edukia {0} fitxategian gordetzean"
 
 #, java-format
 msgid "File {0} saved"
-msgstr ""
+msgstr "\"{0} fitxategia gordeta\""
 
 msgid "Error saving content to clipboard"
-msgstr ""
+msgstr "Errorea edukia arbelean gordetzean"
+
+msgid "Follow us on Bluesky"
+msgstr "Jarraitu gaitzazu Blueskyn"
+
+msgid "Font:"
+msgstr "Letra-tipoa:"
+
+msgid "Sets the application font"
+msgstr "Aplikazioaren letra-tipoa ezartzen du"
+
+msgid "Default"
+msgstr "Lehenetsia"
+
+msgid "Light"
+msgstr "Argia"
+
+msgid "Dark"
+msgstr "Ilun"
+
+msgid "Unlock selected"
+msgstr "Desblokeatutakoak desblokeatu"

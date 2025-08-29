@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2025-04-18 10:06+0200\n"
+"PO-Revision-Date: 2025-08-28 17:29+0200\n"
 "Last-Translator: seki-arxiv <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5\n"
 "Language: ja\n"
 
 msgid "No PDF document has been selected"
@@ -573,8 +573,8 @@ msgstr "寄付"
 msgid "Social"
 msgstr "ソーシャル"
 
-msgid "Follow us on Twitter"
-msgstr "Twitter でフォロー"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Twitter でフォロー"
 
 msgid "Like us on Facebook"
 msgstr "Facebook でいいね"
@@ -1238,3 +1238,24 @@ msgstr "ファイル{0}を保存しました"
 
 msgid "Error saving content to clipboard"
 msgstr "クリップボードにコンテンツを保存中にエラーが発生しました"
+
+msgid "Follow us on Bluesky"
+msgstr "Blueskyでフォローする"
+
+msgid "Font:"
+msgstr "フォント:"
+
+msgid "Sets the application font"
+msgstr "アプリケーションのフォントを設定します"
+
+msgid "Default"
+msgstr "デフォルト"
+
+msgid "Light"
+msgstr "ライト"
+
+msgid "Dark"
+msgstr "ダーク"
+
+msgid "Unlock selected"
+msgstr "選択したものをロック解除"

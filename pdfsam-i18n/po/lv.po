@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-04-18 09:55+0200\n"
+"PO-Revision-Date: 2025-08-29 10:30+0200\n"
 "Last-Translator: Reinis <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.1\n"
+"X-Generator: Autopo v1.0.5\n"
 "Language: lv\n"
 
 msgid "No PDF document has been selected"
@@ -37,10 +37,10 @@ msgid "Output settings"
 msgstr "Izvades iestatījumi"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "Atsevišķs fails katrai lapu kopai"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "Katra nepārtraukta lappušu sērija ģenerēs atsevišķu PDF failu"
 
 #~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 #~ msgstr "Lappuses, ko izvilkt (piem. 2 vai 5-23, vai 2,5-7,12-)"
@@ -57,27 +57,30 @@ msgstr "Izvilkt lappuses:"
 #~ msgstr ""
 
 msgid "Split by bookmarks"
-msgstr ""
+msgstr "Sadalīt pēc grāmatzīmēm"
 
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
 msgstr ""
+"Sadalīt PDF dokumentu pēc grāmatzīmētām lapām, norādot grāmatzīmes līmeni."
 
 msgid "Regular expression the bookmark has to match"
-msgstr ""
+msgstr "Regulārā izteiksme grāmatzīmes atbilstībai"
 
 msgid "Split at this bookmark level:"
-msgstr ""
+msgstr "Sadalīt pie šī grāmatzīmes līmeņa:"
 
 msgid "Matching regular expression:"
-msgstr ""
+msgstr "Atbilstošā regulārā izteiksme:"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "Regulārā izteiksme, kurai jāatbilst grāmatzīmes tekstam"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
 msgstr ""
+"Piemērs: izmantojiet .*Chapter.*, lai atrastu grāmatzīmes, kas satur vārdu "
+"\"Chapter\""
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Atlasiet vai ievelciet PDf dokumentu, ko vēlaties sadalīt"
@@ -86,7 +89,7 @@ msgid "Split settings"
 msgstr "Dalīšanas iestatījumi"
 
 msgid "Invalid bookmarks level"
-msgstr ""
+msgstr "Nepareizs grāmatzīmju līmenis"
 
 msgid "Split after"
 msgstr "Dalīt pēc"
@@ -98,7 +101,7 @@ msgid "Split"
 msgstr "Dalīt"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr "Sadalīt PDF dokumentu norādītajos lapu numuros"
+msgstr "Sadalīt PDF dokumentu norādītajos lapu numuros."
 
 msgid "Every page"
 msgstr "Katru lapu"
@@ -116,7 +119,7 @@ msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr "Dalīt PDF dokumentu ik pēc n lapām, veidojot n lapu garus dokumentus"
 
 msgid "Split after the following page numbers"
-msgstr "dalīt pēc šādiem lapu numuriem"
+msgstr "Sadalīt pēc sekojošajiem lapu numuriem"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
 msgstr "Lapu numuri, pēc kuriem veidot dalījumu (n1,n2,n3...)"
@@ -125,7 +128,7 @@ msgid "Invalid page numbers"
 msgstr "Nederīgi lapu numuri"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr "Atļauti tikai derīgi pozitīvi lapu numuri."
+msgstr "Atļauti tikai derīgi pozitīvi lapu numuri"
 
 msgid "Split by every \"n\" pages"
 msgstr "Sadalīt ik \"n\" lappusēm"
@@ -137,75 +140,79 @@ msgid "Invalid number of pages"
 msgstr "Nederīgs lapu skaits"
 
 msgid "Megabytes"
-msgstr ""
+msgstr "Megabaiti"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "Kilobytes"
-msgstr ""
+msgstr "Kilobaiti"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "Split by size"
-msgstr ""
+msgstr "Sadalīt pēc izmēra"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr ""
+msgstr "Sadalīt PDF dokumentu failos norādītajā izmērā (aptuveni)."
 
 msgid "Set the size to split at"
-msgstr ""
+msgstr "Iestatīt izmēru, pie kura sadalīt"
 
 msgid "Size must be a number"
-msgstr ""
+msgstr "Izmēram jābūt skaitlim"
 
 msgid "Split at this size:"
-msgstr ""
+msgstr "Sadalīt pie šī izmēra:"
 
 msgid "Invalid split size"
-msgstr ""
+msgstr "Nederīgs sadalīšanas izmērs"
 
 msgid "Destination file"
 msgstr "Mērķa datne"
 
 msgid "Alternate Mix"
-msgstr ""
+msgstr "Alternatīvs Mikss"
 
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
 msgstr ""
+"Apvienot divus vai vairāk PDF dokumentus, ņemot lapas pamīšus dabiskā vai "
+"apgrieztā secībā."
 
 msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Dubultklikšķis, lai iestatītu lapas, kuras vēlaties sajaukt (piem: 2 vai 5-"
+"23 vai 2,5-7,12-)"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "Izvēlieties pozitīvu veselu skaitli par tempu"
 
 msgid "All pages"
-msgstr ""
+msgstr "Visas lapas"
 
 msgid "90 degrees clockwise"
-msgstr ""
+msgstr "90 grādi pulksteņrādītāja virzienā"
 
 msgid "180 degrees clockwise"
-msgstr ""
+msgstr "180 grādi pulksteņrādītāja virzienā"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "90 grādi pretēji pulksteņrādītāja virzienam"
 
 msgid "Rotate "
-msgstr ""
+msgstr "Pagriezt "
 
 msgid "Rotate settings"
-msgstr ""
+msgstr "Rotācijas iestatījumi"
 
 msgid "Rotate"
-msgstr ""
+msgstr "Rotēt"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr ""
+msgstr "Pagriezt vairāku PDF dokumentu lapas."
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -236,30 +243,30 @@ msgid "Add a footer"
 msgstr "Pievienot kājeni"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
+msgstr "Pievieno lapas kājeni ar faila nosaukumu, kuram lapa piederēja."
 
 msgid "None"
-msgstr ""
+msgstr "Neviens"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Vienāds platums kā pirmajai lapai"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Vienāds platums kā pirmajai lapai (pamatojoties uz lapas orientāciju)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Lapas normalizācija:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
-msgstr ""
+msgstr "Iestatīt vai lapas jāpielāgo lai visām būtu vienāds platums ar pirmo"
 
 msgid "Merge fields"
-msgstr ""
+msgstr "Apvienot laukus"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "Apvienot pārdēvējot esošos laukus"
 
 msgid "Flatten"
 msgstr "Saplacināt"
@@ -280,19 +287,19 @@ msgid "Discard bookmarks"
 msgstr "Atmest grāmatzīmes"
 
 msgid "Create one entry for each merged document"
-msgstr ""
+msgstr "Izveidot vienu ierakstu katram apvienotajam dokumentam"
 
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Paturēt grāmatzīmes kā vienu ierakstu katram apvienotajam dokumentam"
 
 msgid "Bookmarks handling:"
-msgstr ""
+msgstr "Grāmatzīmju pārvaldība:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "Ko darīt, ja kādā no ievades dokumentiem ir grāmatzīmes"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "Negenerēt"
 
 msgid "Generate from file names"
 msgstr "Veidot no datņu nosaukumiem"
@@ -317,504 +324,535 @@ msgstr "Apvienot"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
+"Atlasiet vai ievelciet un nometiet PDF failu, kura lapas tiks atkārtotas"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Atkārtot šīs lapas:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Atkārtojamās lapas (piem.: 2 vai 5-23 vai 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Ar komatiem atdalīti lappušu numuri vai diapazoni atkārtošanai (piem: 2 vai "
+"5-23 vai 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "Atstājiet tukšu, lai izmantotu visas PDF faila lapas"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Atkārtot ik pēc \"n\" lapām:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Nederīgs lapas numurs"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "Atkārtot atlasītās lapas ik pēc \"n\" lapām no oriģinālā dokumenta"
 
 msgid "The selected PDF file is invalid"
-msgstr ""
+msgstr "Izvēlētais PDF fails nav derīgs"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "Lapu skaitam jābūt pozitīvam skaitlim"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr ""
+"Atlasiet vai velciet un nometiet PDF failu, kurā vēlaties ievietot lapas"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Ievietošanas un Atkārtošanas iestatījumi"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Ievietot lapas vairākas reizes"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Ievietot PDF dokumenta A lapas citā dokumentā B, atkārtojot to pēc noteikta "
+"lapu skaita, kā rezultātā veidojas B1 A B2 A B3 A utt."
 
 #, java-format
 msgid "Started in {0}"
-msgstr ""
+msgstr "Sākts {0}"
 
 msgid "Closing PDFsam..."
-msgstr ""
+msgstr "Aizver PDFsam..."
 
 msgid "Drag and drop PDF files or directories containing PDF files"
-msgstr ""
+msgstr "Vilkt un nomest PDF failus vai mapes, kas satur PDF failus"
 
 msgid "No PDF found"
-msgstr ""
+msgstr "Nav atrasts neviens PDF"
 
 msgid "Tools"
-msgstr ""
+msgstr "Rīki"
 
 msgid "News"
-msgstr ""
+msgstr "Jaunumi"
 
 msgid "What's new"
-msgstr ""
+msgstr "Kas jauns"
 
 msgid "Exit"
-msgstr ""
+msgstr "Iziet"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Iziet no lietojumprogrammas"
 
 msgid "Workspace"
-msgstr ""
+msgstr "Darbvieta"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Pārvaldīt jūsu darbvietas"
 
 msgid "Yes"
-msgstr ""
+msgstr "Jā"
 
 msgid "No"
-msgstr ""
+msgstr "Nē"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "Apstiprināt notīrīšanu"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "Vai apstiprināt?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Notīrīt rīka iestatījumus"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "Notīrīt atlases tabulu"
 
 msgid "Open with"
-msgstr ""
+msgstr "Atvērt ar"
 
 msgid "Select the task to perform on the following files"
-msgstr ""
+msgstr "Izvēlieties uzdevumu veikt ar sekojošajiem failiem"
 
 msgid "Directory not empty"
-msgstr ""
+msgstr "Mape nav tukša"
 
 msgid "The selected directory is not empty"
-msgstr ""
+msgstr "Izvēlētā direktorija nav tukša"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "Ko vēlaties darīt ar failiem ar vienādu nosaukumu?"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Pārrakstīt"
 
 msgid "Rename"
-msgstr ""
+msgstr "Pārsaukt"
 
 msgid "Skip"
-msgstr ""
+msgstr "Izlaist"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Atcelt"
 
 msgid "Don't overwrite existing file"
-msgstr ""
+msgstr "Nepārrakstīt esošo failu"
 
 msgid "Overwrite confirmation"
-msgstr ""
+msgstr "Pārrakstīšanas apstiprinājums"
 
 msgid "A file with the given name already exists"
-msgstr ""
+msgstr "Fails ar norādīto nosaukumu jau pastāv"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Ko vēlaties darīt?"
 
 msgid "Non existing directory"
-msgstr ""
+msgstr "Neeksistējoša direktorija"
 
 msgid "The selected output directory does not exist"
-msgstr ""
+msgstr "Izvēlētā izvades direktorija nepastāv"
 
 msgid "Do you want to create it?"
-msgstr ""
+msgstr "Vai vēlaties to izveidot?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Apakšmapes"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Apakšdirektoriji ir atrasti"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "Vai vēlaties pievienot PDF failus, atrastus apakšmapēs?"
 
 msgid "Task failed"
-msgstr ""
+msgstr "Uzdevums neizdevās"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam var mēģināt pārvarēt kļūmi"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
+"Tas var radīt PDF failus ar nepilnīgiem vai trūkstošiem datiem, tomēr "
+"turpināt?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Dzēš visus žurnālziņojumus"
 
 msgid "_Clear"
-msgstr ""
+msgstr "_Notīrīt"
 
 msgid "_Save"
-msgstr ""
+msgstr "_Saglabāt"
 
 msgid "C_lose"
-msgstr ""
+msgstr "A_izvērt"
 
 msgid "Copy"
-msgstr ""
+msgstr "Kopēt"
 
 msgid "Clear"
 msgstr "Notīrīt"
 
 msgid "Select all"
-msgstr ""
+msgstr "Atlasīt visu"
 
 msgid "Save log"
-msgstr ""
+msgstr "Saglabāt žurnālu"
 
 msgid "Select where to save the log file"
-msgstr ""
+msgstr "Izvēlieties kur saglabāt žurnālfailu"
 
 msgid "Logs"
-msgstr ""
+msgstr "Žurnāli"
 
 msgid "Application messages"
-msgstr ""
+msgstr "Lietojumprogrammas ziņojumi"
 
 msgid "_Load"
-msgstr ""
+msgstr "_Ielādēt"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "Pēdēj_ie"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "_Notīrīt nesenās"
 
 msgid "Select the workspace file to save"
-msgstr ""
+msgstr "Atlasiet darbvietas failu saglabāšanai"
 
 msgid "Select the workspace to load"
-msgstr ""
+msgstr "Atlasiet darbvietu ielādēšanai"
 
 msgid "Subscribe to the official news feed"
-msgstr ""
+msgstr "Abonēt oficiālo ziņu plūsmu"
 
 msgid "Environment"
-msgstr ""
+msgstr "Vide"
 
 #, java-printf-format
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Izstrādātājs: %s"
 
 #, java-printf-format
 msgid "Java runtime path: %s"
-msgstr ""
+msgstr "Java izpildlaika ceļš: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "JavaFX izpildlaika versija: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "PDF dzinējs (Sejda SDK) versija: %s"
 
 #, java-format
 msgid "Max memory {0}"
-msgstr ""
+msgstr "Maks. atmiņa {0}"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopēt uz starpliktuvi"
 
 msgid "Support"
-msgstr ""
+msgstr "Atbalsts"
 
 msgid "Bug and feature requests"
-msgstr ""
+msgstr "Kļūdu un funkciju pieprasījumi"
 
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentācija"
 
 msgid "Contribute"
-msgstr ""
+msgstr "Ieguldīt"
 
 msgid "Fork PDFsam on GitHub"
-msgstr ""
+msgstr "Forkojiet PDFsam pakalpojumā GitHub"
 
 msgid "Translate"
-msgstr ""
+msgstr "Tulkot"
 
 msgid "Donate"
-msgstr ""
+msgstr "Ziedot"
 
 msgid "Social"
-msgstr ""
+msgstr "Sociālie"
 
-msgid "Follow us on Twitter"
-msgstr ""
+#~ msgid "Follow us on Twitter"
+#~ msgstr ""
 
 msgid "Like us on Facebook"
-msgstr ""
+msgstr "Patīk mums Facebook"
 
 msgid "About"
-msgstr ""
+msgstr "Par"
 
 msgid "Home"
-msgstr ""
+msgstr "Sākums"
 
 msgid "Premium features"
-msgstr ""
+msgstr "Premium funkcijas"
 
 msgid "Log register rows:"
-msgstr ""
+msgstr "Žurnāla reģistra rindas:"
 
 msgid "Maximum number of rows displayed by the Log register"
-msgstr ""
+msgstr "Žurnāla reģistra maksimālais attēloto rindu skaits"
 
 msgid "Language:"
-msgstr ""
+msgstr "Valoda:"
 
 msgid "Set your preferred language (restart needed)"
-msgstr ""
+msgstr "Iestatīt savu vēlamo valodu (pārstartēšana nepieciešama)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Palaišanas rīks:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
+"Iestatīt rīka atvēršanu, palaižot lietojumprogrammu (nepieciešama "
+"restartēšana)"
 
 msgid "Theme:"
-msgstr ""
+msgstr "Tēma:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Iestatīt lietotnes tēmu"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Fonta lielums:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Iestatīt lietotnes fonta lielumu"
 
 msgid "Manually selected"
-msgstr ""
+msgstr "Manuāli atlasīts"
 
 msgid ""
 "Automatically set the destination directory to the selected PDF document "
 "directory"
 msgstr ""
+"Automātiski iestatīt mērķa direktoriju uz atlasītā PDF dokumenta direktoriju"
 
 msgid "Settings"
-msgstr ""
+msgstr "Iestatījumi"
 
 msgid "Appearance"
-msgstr ""
+msgstr "Izskats"
 
 msgid "Behavior"
-msgstr ""
+msgstr "Uzvedība"
 
 msgid "Output"
-msgstr ""
+msgstr "Izvade"
 
 msgid "Check for updates now"
-msgstr ""
+msgstr "Pārbaudīt atjauninājumus tagad"
 
 msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
+"Izvēlieties mapi, kur dokumenti tiks saglabāti un ielādēti pēc noklusējuma"
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Atlasīt mapi"
 
 msgid ""
 "Select a previously saved workspace that will be automatically loaded at "
 "startup"
 msgstr ""
+"Izvēlieties iepriekš saglabātu darbvietu kas tiks automātiski ielādēta "
+"startējot"
 
 msgid "Select a workspace"
-msgstr ""
+msgstr "Izvēlēties darbvietu"
 
 msgid "Default working directory:"
-msgstr ""
+msgstr "Noklusējuma darba direktorija:"
 
 msgid "Load default workspace at startup:"
-msgstr ""
+msgstr "Ielādēt noklusējuma darbvietu startējot:"
 
 msgid "System default"
-msgstr ""
+msgstr "Sistēmas noklusējums"
 
 msgid "Check for updates at startup"
-msgstr ""
+msgstr "Pārbaudīt atjauninājumus startējot"
 
 msgid ""
 "Set whether new version availability should be checked on startup (restart "
 "needed)"
 msgstr ""
+"Iestatīt, vai pārbaudīt jaunas versijas pieejamību startējot (nepieciešama "
+"restartēšana)"
 
 msgid "Check for news at startup"
-msgstr ""
+msgstr "Pārbaudīt jaunumus startējot"
 
 msgid ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 msgstr ""
+"Iestatīt, vai lietotne startējot pārbauda ziņu pieejamību (nepieciešama "
+"restartēšana)"
 
 msgid "Enabled PDF compression"
-msgstr ""
+msgstr "Iespējota PDF kompresija"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
+"Iestatīt, vai \"Saspiest izvades failu\" jābūt iespējotam pēc noklusējuma"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Pārrakstīt failus"
 
 msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
+"Iestatīt, vai \"Pārrakstīt, ja jau pastāv\" jābūt iespējotam pēc noklusējuma"
 
 msgid "Play alert sounds"
-msgstr ""
+msgstr "Atskaņot brīdinājuma skaņas"
 
 msgid "Turn on or off alert sounds"
-msgstr ""
+msgstr "Ieslēgt vai izslēgt brīdinājuma skaņas"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "Saglabāt paroles, saglabājot darbvirsmas failu"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
 msgstr ""
+"Ja šifrēts PDF dokuments ir atvērts ar paroli, saglabājiet paroli darbvietas "
+"failā"
 
 msgid "Show donation window"
-msgstr ""
+msgstr "Rādīt ziedojumu logu"
 
 msgid ""
 "Turn on or off the notification appearing once in a while and asking the "
 "user to support PDFsam with a donation"
 msgstr ""
+"Ieslēgt vai izslēgt paziņojumu kas ik pa laikam parādās un lūdz lietotāju "
+"atbalstīt PDFsam ar ziedojumu"
 
 msgid "Show premium features"
-msgstr ""
+msgstr "Rādīt premium funkcijas"
 
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
+"Iestatīt, vai lietojumprogramma ielādē un rāda premium funkciju aprakstu "
+"moduļu informācijas panelī"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "Lūgt apstiprinājumu notīrot atlases tabulu"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
+"Iestatīt, vai lietojumprogramma prasa apstiprinājumu, notīrot atlases tabulu"
 
 msgid "Use the selected PDF document directory as output directory"
-msgstr ""
+msgstr "Izmantot izvēlēto PDF dokumentu direktoriju kā izvades direktoriju"
 
 msgid "Save default workspace on exit"
-msgstr ""
+msgstr "Saglabāt noklusējuma darbvietu izejot"
 
 msgid "If a default workspace is set, save it on application exit"
 msgstr ""
+"Ja noklusējuma darbvieta ir iestatīta saglabāt to aizverot lietojumprogrammu"
 
 msgid "Maximum number of rows mast be a positive number"
-msgstr ""
+msgstr "Maksimālajam rindu skaitam jābūt pozitīvam skaitlim"
 
 msgid "Summary"
-msgstr ""
+msgstr "Kopsavilkums"
 
 msgid "Keywords"
-msgstr ""
+msgstr "Atslēgvārdi"
 
 msgid "Document details"
-msgstr ""
+msgstr "Dokumenta detaļas"
 
 msgid "Show errors"
-msgstr ""
+msgstr "Rādīt kļūdas"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Ievades parametri ir nederīgi"
 
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Nederīgi parametri"
 
 msgid "Access denied"
-msgstr ""
+msgstr "Piekļuve liegta"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"Nevar piekļūt \"{0}\", lūdzu, pārliecinieties, ka jums ir rakstīšanas "
+"atļaujas vai atveriet lietojumprogrammas ziņojumus, lai iegūtu sīkāku "
+"informāciju."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
-msgstr ""
+msgstr "Jūs veicāt {0} uzdevumus ar PDFsam, vai tas palīdzēja?"
 
 msgid "Give something back"
-msgstr ""
+msgstr "Dod kaut ko atpakaļ"
 
 msgid "PDFsam worked hard!"
-msgstr ""
+msgstr "PDFsam strādāja cītīgi!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Izplatiet ziņu!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr ""
+msgstr "PDFsam {0} ir pieejams lejupielādei"
 
 msgid "Download"
-msgstr ""
+msgstr "Lejupielādēt"
 
 msgid "New version available"
-msgstr ""
+msgstr "Jauna versija pieejama"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "Jums ir jaunākā PDFsam Basic versija"
 
 msgid "No update"
-msgstr ""
+msgstr "Nav atjauninājumu"
 
 msgid "Open"
-msgstr ""
+msgstr "Atvērt"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "Fails \"{0}\" nepastāv vai ir nederīgs"
 
 msgid "Valid user password provided."
-msgstr ""
+msgstr "Derīga lietotāja parole ievadīta."
 
 msgid "This document is encrypted, click to provide a password."
 msgstr "Šis dokuments ir šifrēts. Noklikšķiniet, lai sniegtu paroli."
@@ -823,143 +861,143 @@ msgid "An error has occurred, click for more details."
 msgstr "Radusies kļūda. Noklikšķiniet, lai gūtu vairāk informācijas."
 
 msgid "Split tools"
-msgstr ""
+msgstr "Sadališanas rīki"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Apvienošanas rīki"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Konvertēšanas rīki"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Rediģēšanas rīki"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Citi rīki"
 
 msgid "Checking for updates"
-msgstr ""
+msgstr "Pārbauda atjauninājumus"
 
 msgid "Unable to find the latest available version."
-msgstr ""
+msgstr "Neizdevās atrast jaunāko pieejamo versiju."
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "Neizdevās atrast nevienu derīgu PDF failu sarakstā: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "Neizdevās ielādēt PDF saraksta failu no {0}"
 
 msgid "Loading pdf documents"
-msgstr ""
+msgstr "Notiek pdf dokumentu ielāde"
 
 msgid "Documents loaded"
-msgstr ""
+msgstr "Dokumenti ielādēti"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "Nevar iegūt premium funkciju aprakstu"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "Iegūst premium moduļus"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "Nevarēja iegūt premium moduļus"
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "Nevarēja ielādēt jaunākās ziņas"
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "Iegūst jaunākās ziņas"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "Nevarēja ielādēt jaunākās ziņas"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "Saglabā darbvietas datus uz {0}"
 
 msgid "Workspace saved"
-msgstr ""
+msgstr "Darbvieta saglabāta"
 
 msgid "Requesting modules state"
-msgstr ""
+msgstr "Moduļu stāvokļa pieprasīšana"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Nevar saglabāt darbvietu uz {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
-msgstr ""
+msgstr "Notiek darbvietas ielāde no {0}"
 
 #~ msgid "Workspace loaded"
 #~ msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "Neizdevās ielādēt darbvietu no {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "Gaišs ar zilu"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Tumšs ar violetu"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Tumšs ar tirkīzzilu"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Gaišs ar bordo"
 
 msgid "Close"
-msgstr ""
+msgstr "Aizvērt"
 
 msgid "The selected PDF document is invalid"
-msgstr ""
+msgstr "Izvēlētais PDF dokuments ir nederīgs"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "Izvēlēties PDF failu"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_Atlasīt PDF"
 
 #~ msgid "Clear all settings"
 #~ msgstr ""
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
+msgstr "Lapas: {0}, PDF versija: {1}"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Ielādē..."
 
 msgid "Document properties"
-msgstr ""
+msgstr "Dokumenta īpašības"
 
 msgid "Remove"
 msgstr "Aizvākt"
 
 msgid "Set destination"
-msgstr ""
+msgstr "Iestatīt galamērķi"
 
 msgid "Open Folder"
-msgstr ""
+msgstr "Atvērt Mapi"
 
 msgid "Enter the user password"
-msgstr ""
+msgstr "Ievadiet lietotāja paroli"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Atslēgt"
 
 msgid "Drag and drop PDF files here"
-msgstr ""
+msgstr "Velciet un nometiet PDF failus šeit"
 
 msgid "Set as range for all"
-msgstr ""
+msgstr "Iestatīt par diapazonu visiem"
 
 msgid "Move to Top"
-msgstr ""
+msgstr "Pārvietot uz augšu"
 
 msgid "Move Up"
 msgstr "Pārvietot uz augšu"
@@ -968,101 +1006,105 @@ msgid "Move Down"
 msgstr "Pārvietot lejup"
 
 msgid "Move to Bottom"
-msgstr ""
+msgstr "Pārvietot uz apakšu"
 
 msgid "Duplicate"
-msgstr ""
+msgstr "Dublēt"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Izvēlētās lapas"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Kopējais atlasīto lapu skaits"
 
 msgid "Size"
-msgstr ""
+msgstr "Izmērs"
 
 msgid "Modified"
-msgstr ""
+msgstr "Modificēts"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Kopā lapas: {0}"
 
 msgid "Name"
-msgstr ""
+msgstr "Nosaukums"
 
 msgid "Add documents to the table"
-msgstr ""
+msgstr "Pievienot dokumentus tabulai"
 
 msgid "_Add"
-msgstr ""
+msgstr "_Pievienot"
 
 msgid "PDF list from _text/csv file"
-msgstr ""
+msgstr "PDF saraksts no _teksta/csv faila"
 
 msgid "Select pdf documents to load"
-msgstr ""
+msgstr "Izvēlēties PDF dokumentus ielādēšanai"
 
 msgid "Select a text or CSV file to load"
-msgstr ""
+msgstr "Izvēlieties teksta vai CSV failu ielādēšanai"
 
 msgid "Removes selected documents"
-msgstr ""
+msgstr "Noņem atlasītos dokumentus"
 
 msgid "_Remove"
-msgstr ""
+msgstr "_Noņemt"
 
 msgid "Removes every document"
-msgstr ""
+msgstr "Noņem visus dokumentus"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "N_otīrīt visus iestatījumus"
 
 msgid "Moves up selected documents"
-msgstr ""
+msgstr "Pārvietot uz augšu atlasītos dokumentus"
 
 msgid "Move _Up"
-msgstr ""
+msgstr "Pārvietot _Uz augšu"
 
 msgid "Moves down selected documents"
-msgstr ""
+msgstr "Pārvieto uz leju atlasītos dokumentus"
 
 msgid "Move _Down"
-msgstr ""
+msgstr "Pārvietot uz _leju"
 
 msgid "Pace"
-msgstr ""
+msgstr "Temps"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
+"Dubultklikšķiniet, lai iestatītu lapu skaitu, pēc kura uzdevums pārslēgsies "
+"uz nākamo failu"
 
 msgid "Reverse"
-msgstr ""
+msgstr "Apgriezt"
 
 msgid "Pages"
 msgstr "Lapas"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Dokumenta kopējais lapu skaits"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Dubultklikšķis lai iestatītu atlasītās lapas (piem: 2 vai 5-23 vai 2,5-7,12-"
+")"
 
 msgid "Page ranges"
-msgstr ""
+msgstr "Lapu diapazoni"
 
 msgid "Select a file"
-msgstr ""
+msgstr "Izvēlēties failu"
 
 msgid "The selected file must exist. "
-msgstr ""
+msgstr "Izvēlētajam failam ir jāeksistē. "
 
 #, java-format
 msgid "Allowed extensions are {0}"
-msgstr ""
+msgstr "Atļautie paplašinājumi ir {0}"
 
 msgid "Compress output file/files"
 msgstr "Saspiest izejošo failu/failus"
@@ -1071,15 +1113,17 @@ msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
 msgstr ""
+"Atzīmējiet rūtiņu, ja nevēlaties saglabāt nevienu grāmatzīmi no oriģinālā "
+"PDF dokumenta"
 
 msgid "Output PDF version:"
-msgstr ""
+msgstr "Izvades PDF versija:"
 
 msgid "Show advanced settings"
-msgstr ""
+msgstr "Rādīt papildu iestatījumus"
 
 msgid "Hide advanced settings"
-msgstr ""
+msgstr "Slēpt izvērstos iestatījumus"
 
 msgid "Overwrite if already exists"
 msgstr "Pārrakstīt ja jau eksistē"
@@ -1088,75 +1132,77 @@ msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
 ""
 msgstr ""
+"Atzīmējiet lodziņu, ja vēlaties pārrakstīt izvades failus, ja tie jau pastāv."
+""
 
 #, java-format
 msgid "Version {0}"
-msgstr ""
+msgstr "Versija {0}"
 
 msgid "Same as the input document"
-msgstr ""
+msgstr "Tāds pats kā ievaddokuments"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "Esoša izvades direktorija ir nepieciešama"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "Izvades direktorijs ir obligāts"
 
 msgid "Select an existing directory"
-msgstr ""
+msgstr "Atlasīt esošu mapi"
 
 msgid "Select"
-msgstr ""
+msgstr "Atlasīt"
 
 msgid "Browse"
 msgstr "Pārlūkot"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "PDF versija nepieciešama: {0}"
 
 msgid "Prefix for the generated files names"
-msgstr ""
+msgstr "Prefikss ģenerēto failu nosaukumiem"
 
 msgid "Add prefix"
-msgstr ""
+msgstr "Pievienot prefiksu"
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "NOKLUSĒJUMA_PREFIKSS"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "Ģenerēto PDF dokumentu nosaukuma priedēklis:"
 
 msgid "Prefix for the output files name."
-msgstr ""
+msgstr "Izvades failu nosaukuma prefikss."
 
 msgid "Some special keywords are replaced with runtime values."
-msgstr ""
+msgstr "Daži īpaši atslēgvārdi tiek aizstāti ar izpildlaika vērtībām."
 
 msgid "Right click to add these keywords."
-msgstr ""
+msgstr "Labais klikšķis, lai pievienotu šos atslēgvārdus."
 
 msgid "Run"
 msgstr "Palaist"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Palaist uzdevumu"
 
 msgid "Requested"
-msgstr ""
+msgstr "Pieprasīts"
 
 msgid "Completed"
-msgstr ""
+msgstr "Pabeigts"
 
 msgid "Failed"
-msgstr ""
+msgstr "Neizdevās"
 
 msgid "Running"
-msgstr ""
+msgstr "Darbojas"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "Darbojas {0}%"
 
 #~ msgid "Error saving log file."
 #~ msgstr "Saglabājot žurnāldatni, radās kļūda."
@@ -1179,72 +1225,97 @@ msgstr ""
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr "Nederīgs skaitlis: {0}"
+msgstr "Nederīgs skaitlis: {0}."
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "Izejošā pdf dokumeta versija:"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
-msgstr ""
+msgstr "Lapas, ko izvilkt (piem.: 2 vai 5-23 vai 2,5-7,12- vai 3,pēdējā)"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 " or 3,last)"
 msgstr ""
+"Ar komatiem atdalīti lapu numuri vai diapazoni izvilkšanai (piemēram: 2 vai "
+"5-23 vai 2,5-7,12- vai 3,pēdējā)"
 
 msgid "Merge multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "Apvienot vairākus PDF dokumentus vai to apakšsekcijas."
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr ""
+msgstr "Dublētajam failam ir nepieciešams .pdf paplašinājums"
 
 msgid "A .pdf destination file extension is required"
-msgstr ""
+msgstr "Ir nepieciešams .pdf mērķa faila paplašinājums"
 
 msgid "Default PDF version:"
-msgstr ""
+msgstr "Noklusējuma PDF versija:"
 
 msgid "Default PDF version for generated PDF files"
-msgstr ""
+msgstr "Noklusējuma PDF versija ģenerētajiem PDF failiem"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "Noklusējuma prefikss:"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
 "files"
 msgstr ""
+"Noklusējuma prefikss izvades failu nosaukumiem, izmantots rīkos, kas ģenerē "
+"vairākus failus"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
+msgstr "Iestatīt, vai \"Atmest grāmatzīmes\" jābūt iespējotam pēc noklusējuma"
 
 #, java-format
 msgid "Workspace loaded: {0}"
-msgstr ""
+msgstr "Darbvieta ielādēta: {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr ""
+msgstr "Šis fails jau eksistēja un tika izlaists: {0}"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Dublēt augšpusē"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Dublēt uz augšu"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Dublēt uz leju"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Dublēt apakšā"
 
 #, java-format
 msgid "Error saving content to file {0}"
-msgstr ""
+msgstr "Kļūda saglabājot saturu failā {0}"
 
 #, java-format
 msgid "File {0} saved"
-msgstr ""
+msgstr "Fails {0} saglabāts"
 
 msgid "Error saving content to clipboard"
-msgstr ""
+msgstr "Kļūda saglabājot saturu starpliktuvē"
+
+msgid "Follow us on Bluesky"
+msgstr "Seko mums pakalpojumā Bluesky"
+
+msgid "Font:"
+msgstr "Fonts:"
+
+msgid "Sets the application font"
+msgstr "Iestata lietojumprogrammas fontu"
+
+msgid "Default"
+msgstr "Noklusējuma"
+
+msgid "Light"
+msgstr "Gaišs"
+
+msgid "Dark"
+msgstr "Tumšs"
+
+msgid "Unlock selected"
+msgstr "Atslēgt atlasīto"
