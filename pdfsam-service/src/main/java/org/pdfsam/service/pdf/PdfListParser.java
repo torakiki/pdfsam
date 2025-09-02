@@ -18,9 +18,9 @@
  */
 package org.pdfsam.service.pdf;
 
-import static java.util.Objects.isNull;
-import static java.util.function.Predicate.not;
-import static java.util.stream.Collectors.toList;
+import org.apache.commons.lang3.Strings;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,14 +29,12 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static java.util.Objects.isNull;
 
 /**
  * @author Andrea Vacondio
@@ -57,10 +55,9 @@ class PdfListParser implements Function<Path, List<File>> {
         }
         List<Charset> charsets = List.of(StandardCharsets.UTF_8, StandardCharsets.ISO_8859_1, Charset.defaultCharset());
         for (Charset charset : charsets) {
-            try {
-                return Files.lines(listFile, charset).filter(StringUtils::isNoneBlank).map(PdfListParser::parseLine)
-                        .map(String::trim).filter(s -> s.toUpperCase().endsWith("PDF")).map(Paths::get)
-                        .filter(Files::exists).filter(not(Files::isDirectory)).map(Path::toFile).collect(toList());
+            try (Stream<String> stream = Files.lines(listFile, charset)) {
+                return stream.map(PdfListParser::parseLine).filter(s -> s != null && Strings.CI.endsWith(s, "pdf"))
+                        .map(File::new).filter(f -> f.exists() && !f.isDirectory()).toList();
             } catch (UncheckedIOException e) {
                 LOG.warn("Unable to read lines from " + listFile + " using charset " + charset, e);
             } catch (IOException e) {
@@ -68,15 +65,18 @@ class PdfListParser implements Function<Path, List<File>> {
             }
         }
         throw new RuntimeException("Unable to read lines from " + listFile);
-
     }
 
     private static String parseLine(String line) {
+        if (line == null || (line = line.trim()).isEmpty()) {
+            return null;
+        }
+
         boolean hasQuotes = false;
         boolean lastWasQuote = false;
         StringBuilder field = new StringBuilder();
         for (char c : line.toCharArray()) {
-            if (field.length() == 0 && c == '"') {
+            if (field.isEmpty() && c == '"') {
                 hasQuotes = true;
             } else {
                 if (c == ',' && !hasQuotes) {
@@ -85,10 +85,15 @@ class PdfListParser implements Function<Path, List<File>> {
                     field.setLength(field.length() - 1);
                     return field.toString();
                 }
+
                 lastWasQuote = c == '"';
                 field.append(c);
-
             }
+        }
+
+        int len = field.length();
+        if (hasQuotes && !field.isEmpty() && field.charAt(len - 1) == '"') {
+            field.setLength(len - 1);
         }
         return field.toString();
     }
