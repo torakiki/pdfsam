@@ -76,6 +76,19 @@ public class PdfListParserTest {
     }
 
     @Test
+    public void applyPathsWithQuotes(@TempDir Path folder) throws IOException {
+        var file1 = Files.createTempFile(folder, null, "Hello World.pdf").toFile();
+        var file2 = Files.createTempFile(folder, null, "Hello, World.pdf").toFile();
+        var list = folder.resolve("list.csv");
+        List<String> lines = new ArrayList<>();
+        lines.add(file1.getAbsolutePath());
+        lines.add("\"" + file2.getAbsolutePath() + "\"");
+        Files.write(list, lines);
+        List<File> parsed = new PdfListParser().apply(list);
+        assertThat(parsed).containsExactly(file1, file2);
+    }
+
+    @Test
     public void filenameWithQuotes(@TempDir Path folder) throws IOException {
         var file1 = Files.createFile(folder.resolve("file\"with quotes.pdf")).toFile();
         var list = folder.resolve("list.csv");
