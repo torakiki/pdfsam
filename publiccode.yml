@@ -1,169 +1,118 @@
-# This repository adheres to the publiccode.yml standard by including this 
-# metadata file that makes public software easily discoverable.
-# More info at https://github.com/italia/publiccode.yml
-
-publiccodeYmlVersion: '0.2'
+publiccodeYmlVersion: 0.4.0
+name: PDFsam Basic
 applicationSuite: PDFsam
+url: https://github.com/torakiki/pdfsam
+landingURL: https://pdfsam.org
+softwareVersion: v5.3.2
+releaseDate: 2025-07-24
+logo: https://raw.githubusercontent.com/torakiki/pdfsam/master/pdfsam-docs/graphics/basic.svg
+platforms:
+  - windows
+  - mac
+  - linux
 categories:
   - document-management
+developmentStatus: stable
+softwareType: standalone/desktop
+intendedAudience:
+  scope:
+    - government
+    - education
 description:
   it:
-    documentation: 'https://pdfsam.org/it/pdfsam-basic/'
+    genericName: PDFsam Basic
+    shortDescription: PDFsam Basic, un software gratuito, open source,  multipiattaforma progettato per dividere, unire, estrarre pagine, mixare e ruotare file PDF
+    longDescription: >+
+      PDFsam Basic, un software gratuito, open source, multipiattaforma
+      progettato per dividere, unire, estrarre pagine, mixare e ruotare file PDF
+
+            # Unisci PDF
+
+            Unisci è il modulo di PDFsam Basic più utilizzato e consente di combinare file PDF
+
+            ### Intervalli di pagine
+
+            I file PDF di input possono essere uniti completamente o parzialmente. Una selezione di pagina può essere impostata sotto forma di intervalli di pagine separate da virgola (Es. 1-10, 14, 25-) che ti permettono di specificare quali pagine vuoi unire per ogni file PDF di input.
+
+            ### Segnalibri
+
+            Imposta cosa fare con i segnalibri dei file PDF uniti. Puoi unirli insieme, scartarli per mantenere il file risultante più piccolo o creare un nuovo albero dei segnalibri con una voce per ogni file PDF unito.
+
+            ### AcroForms
+
+            Imposta cosa fare con gli AcroForms quando vengono trovati nel file PDF di input. Puoi scartarli ma anche unirli in un nuovo form o persino unirli rinominando i campi in caso di conflitti di nome.
+
+            ### Sommario
+
+            Aggiungi un sommario all'inizio del PDF generato. Un elenco di voci cliccabili ti consente di navigare facilmente tra i file PDF uniti.
+
+
+            # Dividi PDF
+
+            ### Dividi a pagine predefinite
+
+            Il file PDF selezionato può essere diviso dopo ogni pagina, generando un nuovo documento per ogni pagina del file originale o dopo ogni pagina pari o dispari.
+
+            ### Dividi pagine specifiche
+
+            Specificare i numeri di pagina in cui si desidera interrompere il documento. Puoi persino dire a PDFsam di dividere il PDF ogni \_n \_ pagine.
+
+            ### Dividi i PDF per dimensione
+
+            Dividere i file PDF in file più piccoli di una determinata dimensione  (approssimativamente)
+
+            ### Dividi i PDF per segnalibro
+
+            Seleziona il livello di segnalibri che vuoi dividere e il tuo file PDF sarà diviso in ogni pagina indicata dai segnalibri al livello selezionato
+
+
+            # Miscela i PDF
+
+            Il modulo di mix PDF ti consente di unire due o più file PDF prendendo  pagine alternativamente da ciascun file di input, in ordine diretto o inverso. La combinazione perfetta per le tue scansioni su un solo lato
+
+
+            # Ruota i PDF
+            
+            Il modulo PDF Rotate ti consente di ruotare i file PDF semplicemente selezionando i file che vuoi ruotare e applicando una rotazione di 90, 180 o 270 gradi a tutte o alcune delle loro pagine
+
+
+            # Estrai pagine
+
+            Il modulo Estrai ti consente di estrarre pagine da file PDF. È possibile selezionare pagine singole o intervalli di pagine per creare un nuovo file PDF contenente solo le pagine necessarie
+
+    documentation: https://pdfsam.org/it/pdfsam-basic/
     features:
       - Unisci PDF
       - Dividi PDF
       - Ruota PDF
       - Estrai pagine dai PDF
       - Miscela i PDF
-    genericName: PDFsam Basic
-    longDescription: |
-      # Unisci PDF
-
-
-      Unisci è il modulo di PDFsam Basic più utilizzato e consente di combinare
-      file PDF
-
-
-      ### Intervalli di pagine
-
-
-      ##### I file PDF di input possono essere uniti completamente o
-
-
-      parzialmente. Una selezione di pagina può essere impostata sotto forma di
-      intervalli di pagine separate da virgola (Es. 1-10, 14, 25-) che ti
-      permettono di specificare quali pagine vuoi unire per ogni file PDF di
-      input.
-
-
-      ### Segnalibri
-
-
-      Imposta cosa fare con i segnalibri dei file PDF uniti. Puoi unirli
-      insieme, scartarli per mantenere il file risultante più piccolo o creare
-      un nuovo albero dei segnalibri con una voce per ogni file PDF unito.
-
-
-      ### AcroForms
-
-
-      Imposta cosa fare con gli AcroForms quando vengono trovati nel file PDF di
-      input. Puoi scartarli ma anche unirli in un nuovo form o persino unirli
-      rinominando i campi in caso di conflitti di nome.
-
-
-      ### Sommario
-
-
-      Aggiungi un sommario all'inizio del PDF generato. Un elenco di voci
-      cliccabili ti consente di navigare facilmente tra i file PDF uniti.
-
-
-      # Dividi PDF
-
-
-      ### Dividi a pagine predefinite
-
-
-      Il file PDF selezionato può essere diviso dopo ogni pagina, generando un
-      nuovo documento per ogni pagina del file originale o dopo ogni pagina pari
-      o dispari.
-
-
-      ### Dividi pagine specifiche
-
-
-      Specificare i numeri di pagina in cui si desidera interrompere il
-      documento. Puoi persino dire a PDFsam di dividere il PDF ogni \_n \_
-      pagine.
-
-
-      ### Dividi i PDF per dimensione
-
-
-      Dividere i file PDF in file più piccoli di una determinata dimensione
-      (approssimativamente)
-
-
-      ### Dividi i PDF per segnalibro
-
-
-      Seleziona il livello di segnalibri che vuoi dividere e il tuo file PDF
-      sarà diviso in ogni pagina indicata dai segnalibri al livello selezionato
-
-
-      ### Miscela i PDF
-
-
-      Il modulo di mix PDF ti consente di unire due o più file PDF prendendo
-      pagine alternativamente da ciascun file di input, in ordine diretto o
-      inverso. La combinazione perfetta per le tue scansioni su un solo lato
-
-
-      ### Ruota i PDF
-
-
-      Il modulo PDF Rotate ti consente di ruotare i file PDF semplicemente
-      selezionando i file che vuoi ruotare e applicando una rotazione di 90, 180
-      o 270 gradi a tutte o alcune delle loro pagine
-
-
-      ### Estrai pagine
-
-
-      Il modulo Estrai ti consente di estrarre pagine da file PDF. È possibile
-      selezionare pagine singole o intervalli di pagine per creare un nuovo file
-      PDF contenente solo le pagine necessarie
-    shortDescription: |-
-      PDFsam Basic, un software gratuito, open source, multipiattaforma
-      progettato per dividere, unire, estrarre pagine, mixare e ruotare file PDF
-developmentStatus: stable
-inputTypes:
-  - application/pdf
-intendedAudience:
-  scope:
-    - government
-    - education
-it:
-  conforme:
-    gdpr: true
-    lineeGuidaDesign: false
-    misureMinimeSicurezza: false
-    modelloInteroperabilita: false
-  countryExtensionVersion: '0.2'
-  piattaforme:
-    anpr: false
-    cie: false
-    pagopa: false
-    spid: false
-landingURL: 'https://pdfsam.org'
 legal:
   license: AGPL-3.0-or-later
-  mainCopyrightOwner: Sober Lemus S.a.s.
-  repoOwner: '@torakiki'
+  mainCopyrightOwner: Sober Lemus S.r.l.
+  repoOwner: "@torakiki"
+maintenance:
+  type: internal
+  contacts:
+    - name: Andrea Vacondio
+      email: support@pdfsam.org
 localisation:
+  localisationReady: true
   availableLanguages:
     - it
     - en
     - es
     - fr
     - de
-  localisationReady: true
-logo: |-
-  https://raw.githubusercontent.com/torakiki/pdfsam/master/pdfsam-docs/graphics/basic.svg
-maintenance:
-  contacts:
-    - email: support@pdfsam.org
-      name: Andrea Vacondio
-  type: internal
-name: PDFsam Basic
-outputTypes:
-  - application/pdf
-platforms:
-  - windows
-  - mac
-  - linux
-releaseDate: '2021-09-30'
-softwareType: standalone/desktop
-softwareVersion: v4.2.7
-url: 'https://github.com/torakiki/pdfsam'
+it:
+  countryExtensionVersion: "1.0"
+  conforme:
+    lineeGuidaDesign: false
+    modelloInteroperabilita: false
+    misureMinimeSicurezza: false
+    gdpr: true
+  piattaforme:
+    spid: false
+    cie: false
+    anpr: false
+    pagopa: false
