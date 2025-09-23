@@ -25,6 +25,8 @@ import javafx.stage.Stage;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
+ * Dialog asking for a confirmation before saving the currently loaded workspace if changed.
+ *
  * @author Alessandro Parisi
  */
 public class SaveWorkspaceConfirmationDialog extends ConfirmationDialog {
