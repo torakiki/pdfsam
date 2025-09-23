@@ -57,6 +57,7 @@ import org.pdfsam.model.ui.StageMode;
 import org.pdfsam.model.ui.StageStatus;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceRequest;
 import org.pdfsam.model.ui.workspace.SaveWorkspaceRequest;
+import org.pdfsam.model.ui.workspace.WorkspaceCloseEvent;
 import org.pdfsam.model.update.UpdateCheckRequest;
 import org.pdfsam.ui.components.tool.RunButtonTriggerRequest;
 import org.sejda.core.Sejda;
@@ -244,10 +245,13 @@ public class PdfsamApp extends Application {
     }
 
     private void saveWorkspaceIfRequired() {
-        if (app().persistentSettings().get(BooleanPersistentProperty.SAVE_WORKSPACE_ON_EXIT)) {
-            app().persistentSettings().get(StringPersistentProperty.WORKSPACE_PATH).filter(StringUtils::isNotBlank)
-                    .map(Paths::get).filter(Files::exists).map(Path::toFile).map(SaveWorkspaceRequest::new)
-                    .ifPresent(eventStudio()::broadcast);
+        boolean saveOnExit = app().persistentSettings().get(BooleanPersistentProperty.SAVE_WORKSPACE_ON_EXIT);
+        Path workspacePath = app().persistentSettings().get(StringPersistentProperty.WORKSPACE_PATH)
+                .filter(StringUtils::isNotBlank).map(Path::of).orElse(null);
+        if (saveOnExit && workspacePath != null && Files.exists(workspacePath)) {
+            eventStudio().broadcast(new SaveWorkspaceRequest(workspacePath.toFile()));
+        } else {
+            eventStudio().broadcast(new WorkspaceCloseEvent());
         }
     }
 
