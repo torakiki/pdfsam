@@ -19,6 +19,8 @@
 package org.pdfsam.model.ui.workspace;
 
 /**
+ * Event to notify that the workspace is about to be closed.
+ *
  * @author Alessandro Parisi
  */
 public record WorkspaceCloseEvent() {

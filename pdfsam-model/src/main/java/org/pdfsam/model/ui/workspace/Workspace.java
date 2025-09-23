@@ -22,6 +22,8 @@ import java.io.File;
 import java.util.Map;
 
 /**
+ * Data class to keep track of the loaded workspace and its source file.
+ * 
  * @author Alessandro Parisi
  */
 public record Workspace(Map<String, Map<String, String>> data, File file) {
@@ -30,6 +32,12 @@ public record Workspace(Map<String, Map<String, String>> data, File file) {
         data.putAll(otherData);
     }
 
+    /**
+     * Checks if this workspace's data is equal to the given data by verifying that all tools' data in the latter
+     * are present here and that every key-value pair is the same.
+     * 
+     * @see Map#equals(Object) 
+     */
     public boolean equals(Map<String, Map<String, String>> otherData) {
         for (Map.Entry<String, Map<String, String>> e : otherData.entrySet()) {
             Map<String, String> toolData = data.get(e.getKey());
