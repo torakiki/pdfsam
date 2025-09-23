@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-08-26 11:41+0200\n"
+"PO-Revision-Date: 2025-09-23 09:21+0200\n"
 "Last-Translator: Botfai Tibor <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.5\n"
+"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
 "Language: hu\n"
 
 msgid "No PDF document has been selected"
@@ -37,10 +37,10 @@ msgid "Output settings"
 msgstr "Kimeneti beállítások"
 
 msgid "A separate file for each set of pages"
-msgstr "Külön fájl minden oldalcsoporthoz"
+msgstr "Külön fájl minden oldalkészlethez"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr "Minden folyamatos oldalsorozat külön PDF fájlt fog létrehozni"
+msgstr "Minden összefüggő oldalsorozat külön PDF fájlt fog generálni"
 
 #~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 #~ msgstr "Oldalak kiszedése (pl.: 2 vagy 5-23 vagy 2,5-7,12-)"
@@ -250,20 +250,20 @@ msgid "None"
 msgstr "Egyik sem"
 
 msgid "Same width as first page"
-msgstr "Ugyanolyan széles, mint az első oldal"
+msgstr "Azonos szélesség az első oldallal"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr "Ugyanolyan széles, mint az első oldal (oldaltájolás alapján)"
+msgstr "Az első oldal szélességével megegyező (oldaltájolás szerint)"
 
 msgid "Pages normalization:"
-msgstr "Oldalak normalizálása:"
+msgstr "Oldalnormalizálás:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
-"Állítsa be, hogy az oldalakat átméretezzék-e úgy, hogy mindegyik ugyanolyan "
-"széles legyen, mint az első."
+"Állítsa be, hogy az oldalak mindegyike az elsővel azonos szélességűre legyen-"
+"e átméretezve"
 
 msgid "Merge fields"
 msgstr "Mezők egyesítése"
@@ -330,59 +330,57 @@ msgstr "Egyesítés"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
-"Válassza ki vagy húzza ide a PDF-et, amelynek oldalait meg szeretné "
-"ismételni"
+"Válassza ki vagy húzza ide a PDF-et amelynek oldalai ismétlődni fognak"
 
 msgid "Repeat these pages:"
 msgstr "Ismételje meg ezeket az oldalakat:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Ismétlendő oldalak (pl: 2 vagy 5-23 vagy 2,5-7,12-)"
+msgstr "Oldalak ismétlése (pl: 2 vagy 5-23 vagy 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
-"Vesszővel elválasztott oldalszámok vagy tartományok, amelyeket meg kell "
-"ismételni (pl.: 2 vagy 5-23 vagy 2,5-7,12-)"
+"Vesszővel elválasztott oldalszámok vagy tartományok ismétlésre (pl: 2 vagy 5-"
+"23 vagy 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr "Hagyja üresen, hogy a PDF fájl összes oldalát használja"
+msgstr "Hagyja üresen a PDF fájl összes oldalának használatához"
 
 msgid "Repeat every \"n\" pages:"
-msgstr "Ismétlés minden \"n\" oldalon:"
+msgstr "Ismétlés minden \"n\" oldalonként:"
 
 msgid "Invalid page number"
 msgstr "Érvénytelen oldalszám"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
-"Ismételje meg a kijelölt oldalakat az eredeti dokumentum minden \"n\" oldala "
-"után"
+"Ismételje meg a kiválasztott oldalakat minden \"n\" oldalonként az eredeti "
+"dokumentumban"
 
 msgid "The selected PDF file is invalid"
 msgstr "A kiválasztott PDF érvénytelen"
 
 msgid "The number of pages must be a positive number"
-msgstr "Az oldalak számának pozitív számnak kell lennie"
+msgstr "Az oldalszám pozitív szám legyen"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr ""
-"Válassza ki vagy húzza ide a PDF-et, amelybe oldalakat szeretne beszúrni"
+"Válassza ki vagy húzza ide azt a PDF-et, amelybe oldalakat szeretne beszúrni"
 
 msgid "Insert and Repeat settings"
-msgstr "Beszúrás és ismétlés beállításai"
+msgstr "Beszúrás és Ismétlés beállítások"
 
 msgid "Insert pages multiple times"
-msgstr "Oldalak többszöri beszúrása"
+msgstr "Oldalak beszúrása többször"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
-"A PDF dokumentum A oldalait illessze be egy másik B dokumentumba, "
-"megismételve azt bizonyos számú oldal után, így B1 A B2 A B3 A stb. "
-"eredményt kapva"
+"Szúrja be egy A PDF dokumentum oldalait egy másik B dokumentumba, bizonyos "
+"oldalszámú laponként ismételve, aminek eredménye B1 A B2 A B3 A stb."
 
 #, java-format
 msgid "Started in {0}"
@@ -416,7 +414,7 @@ msgid "Workspace"
 msgstr "Munkaterület"
 
 msgid "Manage your workspaces"
-msgstr "Munkaterületek kezelése"
+msgstr "Kezelje a munkaterületeit"
 
 msgid "Yes"
 msgstr "Igen"
@@ -569,7 +567,7 @@ msgstr "Java runtime helye: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr "JavaFX futtatókörnyezet verziója: %s"
+msgstr "JavaFX futtatókörnyezet verzió: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
@@ -606,8 +604,8 @@ msgstr "Támogatás"
 msgid "Social"
 msgstr "Közösségi szolgáltatások"
 
-#~ msgid "Follow us on Twitter"
-#~ msgstr "Kövessen a Twitteren"
+msgid "Follow us on Twitter"
+msgstr "Kövessen a Twitteren"
 
 msgid "Like us on Facebook"
 msgstr "Kedveljen a Facebookon"
@@ -637,15 +635,13 @@ msgid "Startup tool:"
 msgstr "Indítási eszköz:"
 
 msgid "Set the tool to open at application startup (restart needed)"
-msgstr ""
-"Állítsa be az eszközt, hogy az alkalmazás indításakor nyíljon meg "
-"(újraindítás szükséges)"
+msgstr "Eszköz indításkori megnyitásának beállítása (újraindítás szükséges)"
 
 msgid "Theme:"
 msgstr "Téma:"
 
 msgid "Set the application theme"
-msgstr "Alkalmazás témájának beállítása"
+msgstr "Alkalmazás téma beállítása"
 
 msgid "Font size:"
 msgstr "Betűméret:"
@@ -699,7 +695,7 @@ msgid "Load default workspace at startup:"
 msgstr "Alapértelmezett munkaterület betöltése induláskor:"
 
 msgid "System default"
-msgstr "Rendszer alapértelmezett"
+msgstr "Rendszer alapértelmezés"
 
 msgid "Check for updates at startup"
 msgstr "Frissítés keresése induláskor"
@@ -808,7 +804,7 @@ msgid "Show errors"
 msgstr "Mutatsd a hibákat"
 
 msgid "Input parameters are invalid"
-msgstr "A bemeneti paraméterek érvénytelenek"
+msgstr "Bemeneti paraméterek érvénytelenek"
 
 msgid "Invalid parameters"
 msgstr "Érvénytelen paraméterek"
@@ -950,13 +946,13 @@ msgid "Unable to load workspace from {0}"
 msgstr "Nem sikerült a munkaterület betöltése innen: {0}"
 
 msgid "Light with blue"
-msgstr "Világos kékkel"
+msgstr "Világoskék"
 
 msgid "Dark with purple"
 msgstr "Sötét lilával"
 
 msgid "Dark with teal"
-msgstr "Sötét türkizzel"
+msgstr "Sötét kékeszölddel"
 
 msgid "Light with maroon"
 msgstr "Világos bordóval"
@@ -1023,10 +1019,10 @@ msgid "Duplicate"
 msgstr "Másolat készítés"
 
 msgid "Selected pages"
-msgstr "Kijelölt oldalak"
+msgstr "Kiválasztott oldalak"
 
 msgid "Total number of selected pages"
-msgstr "Kiválasztott oldalak száma összesen"
+msgstr "Összesen kiválasztott oldalak száma"
 
 msgid "Size"
 msgstr "Méret"
@@ -1097,7 +1093,7 @@ msgid "Pages"
 msgstr "Oldalszám"
 
 msgid "Number of total pages of the document"
-msgstr "A dokumentum összes oldalainak száma"
+msgstr "A dokumentum összes oldalának száma"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
@@ -1269,23 +1265,23 @@ msgstr "Érvénytelen szám: {0}."
 #~ msgstr "Soha"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
-msgstr "Kinyerendő oldalak (pl: 2 vagy 5-23 vagy 2,5-7,12- vagy 3,last)"
+msgstr "Kinyerendő oldalak (pl: 2 vagy 5-23 vagy 2,5-7,12- vagy 3,utolsó)"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 " or 3,last)"
 msgstr ""
-"Vesszővel elválasztott oldalszámok vagy tartományok kivonatoláshoz (pl.: 2 "
-"vagy 5-23 vagy 2,5-7,12- vagy 3,last)"
+"Vesszővel elválasztott oldalszámok vagy tartományok a kinyeréshez (pl.: 2 "
+"vagy 5-23 vagy 2,5-7,12- vagy 3,utolsó)"
 
 msgid "Merge multiple PDF documents or subsections of them."
-msgstr "Több PDF dokumentum vagy azok részleteinek egyesítése."
+msgstr "Összefűz több PDF dokumentumot vagy azok alrészeit"
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr "A .pdf kiterjesztés szükséges az ismétlődő fájlhoz"
+msgstr "Egy .pdf kiterjesztés szükséges az ismétlődő fájlhoz"
 
 msgid "A .pdf destination file extension is required"
-msgstr "A .pdf kiterjesztésű célfájl megadása kötelező"
+msgstr "Egy .pdf célfájl kiterjesztés szükséges"
 
 msgid "Default PDF version:"
 msgstr "Alapértelmezett PDF verzió:"
@@ -1301,12 +1297,12 @@ msgid ""
 "files"
 msgstr ""
 "Alapértelmezett előtag a kimeneti fájlnevekhez, több fájlt generáló "
-"eszközöknél használatos"
+"eszközökben használt"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
-"Beállítja, hogy a \"Könyvjelzők elvetése\" alapértelmezés szerint "
-"engedélyezve legyen-e"
+"Állítsa be, hogy az \"Könyvjelzők elvetése\" alapértelmezés szerint "
+"engedélyezve legyen"
 
 #, java-format
 msgid "Workspace loaded: {0}"
@@ -1314,48 +1310,27 @@ msgstr "Munkaterület betöltve: {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr "A következő fájl már létezett és ki lett hagyva: {0}"
+msgstr "A következő fájl már létezett és átugrásra került: {0}"
 
 msgid "Duplicate at Top"
-msgstr "Másolat felülre"
+msgstr "Duplikálás felülre"
 
 msgid "Duplicate Up"
-msgstr "Másolat fel"
+msgstr "Duplikálás fel"
 
 msgid "Duplicate Down"
-msgstr "Duplikálás lefelé"
+msgstr "Duplikál alá"
 
 msgid "Duplicate at Bottom"
-msgstr "Másolat alulra"
+msgstr "Duplikálás alulra"
 
 #, java-format
 msgid "Error saving content to file {0}"
-msgstr "Hiba a tartalom fájlba mentésekor: {0}"
+msgstr "Hiba a tartalom {0} fájlba mentésekor"
 
 #, java-format
 msgid "File {0} saved"
-msgstr "{0} fájl mentve"
+msgstr "Fájl {0} elmentve"
 
 msgid "Error saving content to clipboard"
-msgstr "Hiba történt a tartalom vágólapra mentésekor"
-
-msgid "Follow us on Bluesky"
-msgstr "Kövess minket a Blueskyn"
-
-msgid "Font:"
-msgstr "Betűtípus:"
-
-msgid "Sets the application font"
-msgstr "Beállítja az alkalmazás betűtípusát"
-
-msgid "Default"
-msgstr "Alapértelmezett"
-
-msgid "Light"
-msgstr "Világos"
-
-msgid "Dark"
-msgstr "Sötét"
-
-msgid "Unlock selected"
-msgstr "Kijelöltek feloldása"
+msgstr "Hiba a tartalom vágólapra mentésekor"
