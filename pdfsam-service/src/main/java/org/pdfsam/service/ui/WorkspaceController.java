@@ -25,6 +25,7 @@ import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceRequest;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceResponse;
 import org.pdfsam.model.ui.workspace.SaveWorkspaceRequest;
+import org.pdfsam.model.ui.workspace.Workspace;
 import org.pdfsam.model.ui.workspace.WorkspaceLoadedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,6 +49,7 @@ public class WorkspaceController {
     private final Collection<Tool> tools;
     private final WorkspaceService service;
     private final RecentWorkspacesService recentWorkspace;
+    private Workspace workspace;
 
     @Inject
     WorkspaceController(WorkspaceService service, RecentWorkspacesService recentWorkspace) {
@@ -72,7 +74,12 @@ public class WorkspaceController {
                 }));
                 scope.join();
                 scope.throwIfFailed();
-                service.saveWorkspace(event.data(), event.workspace());
+                if (workspace != null) {
+                    workspace.merge(event.data());
+                } else {
+                    workspace = new Workspace(event.data());
+                }
+                service.saveWorkspace(workspace.data(), event.workspace());
             } catch (Exception e) {
                 LOG.error(i18n().tr("Unable to save workspace to {0}", event.workspace().getName()), e);
             }
@@ -95,6 +102,7 @@ public class WorkspaceController {
                     scope.throwIfFailed();
                     recentWorkspace.addWorkspaceLastUsed(event.workspace());
                     eventStudio().broadcast(new WorkspaceLoadedEvent(event.workspace()));
+                    workspace = new Workspace(data);
                     LOG.info(i18n().tr("Workspace loaded: {0}", event.workspace().getName()));
                 }
             } catch (Exception e) {

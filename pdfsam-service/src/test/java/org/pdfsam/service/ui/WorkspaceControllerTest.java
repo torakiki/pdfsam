@@ -137,4 +137,25 @@ public class WorkspaceControllerTest {
         verify(recentWorkspaces).addWorkspaceLastUsed(any());
     }
 
+    @Test
+    public void mergeWorkspaceData() {
+        Map<String, Map<String, String>> data = new HashMap<>();
+        Map<String, String> moduleData = new HashMap<>();
+        moduleData.put("key", "value");
+        data.put("module", moduleData);
+        Map<String, String> anotherModuleData = new HashMap<>();
+        anotherModuleData.put("anotherKey", "anotherValue");
+        data.put("anotherModule", anotherModuleData);
+
+        when(service.loadWorkspace(any())).thenReturn(data);
+        victim.loadWorkspace(new LoadWorkspaceRequest(file));
+        await().atMost(5, SECONDS).untilAsserted(() -> verify(service).loadWorkspace(any()));
+
+        Listener<SaveWorkspaceRequest> saveListener = mock(Listener.class);
+        eventStudio().add(SaveWorkspaceRequest.class, saveListener, DefaultPriorityTestTool.ID);
+        victim.saveWorkspace(new SaveWorkspaceRequest(file));
+        verify(saveListener, timeout(5000).times(1)).onEvent(any());
+
+        verify(service).saveWorkspace(eq(data), eq(file));
+    }
 }
