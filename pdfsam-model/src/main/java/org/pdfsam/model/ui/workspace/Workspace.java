@@ -28,4 +28,14 @@ public record Workspace(Map<String, Map<String, String>> data) {
     public void merge(Map<String, Map<String, String>> otherData) {
         data.putAll(otherData);
     }
+
+    public boolean equals(Map<String, Map<String, String>> otherData) {
+        for (Map.Entry<String, Map<String, String>> e : otherData.entrySet()) {
+            Map<String, String> toolData = data.get(e.getKey());
+            if (toolData == null || !toolData.equals(e.getValue())) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

@@ -24,8 +24,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Alessandro Parisi
@@ -48,11 +48,11 @@ public class WorkspaceTest {
         unorderedCopy.put("foo", new HashMap<>(fooData));
         unorderedCopy.put("bar", new HashMap<>(barData));
 
-        assertEquals(new Workspace(data), new Workspace(unorderedCopy));
+        assertTrue(new Workspace(data).equals(unorderedCopy));
     }
 
     @Test
-    void testNotEquals() {
+    void testNotEqualsSize() {
         Map<String, String> fooData = new LinkedHashMap<>();
         fooData.put("a", "1");
         fooData.put("b", "true");
@@ -62,14 +62,51 @@ public class WorkspaceTest {
         Map<String, Map<String, String>> data = new LinkedHashMap<>();
         data.put("foo", fooData);
         data.put("bar", barData);
-        Workspace preWorkspace = new Workspace(Map.copyOf(data));
+        Workspace workspace = new Workspace(Map.copyOf(data));
 
         Map<String, String> bazData = new LinkedHashMap<>();
         bazData.put("x", "3.14");
         bazData.put("y", "center");
         data.put("baz", bazData);
-        Workspace postWorkspace = new Workspace(data);
 
-        assertNotEquals(preWorkspace, postWorkspace);
+        assertFalse(workspace.equals(data));
+    }
+
+    @Test
+    void testNotEqualsValues() {
+        Map<String, String> fooData = new LinkedHashMap<>();
+        fooData.put("a", "1");
+        fooData.put("b", "true");
+        Map<String, String> barData = new LinkedHashMap<>();
+        barData.put("a", "0");
+        barData.put("b", "false");
+        Map<String, Map<String, String>> data = new LinkedHashMap<>();
+        data.put("foo", Map.copyOf(fooData));
+        data.put("bar", Map.copyOf(barData));
+        Workspace workspace = new Workspace(Map.copyOf(data));
+
+        barData.put("b", "true");
+        data.put("bar", barData);
+
+        assertFalse(workspace.equals(data));
+    }
+
+    @Test
+    void testNotEqualsNewValues() {
+        Map<String, String> fooData = new LinkedHashMap<>();
+        fooData.put("a", "1");
+        fooData.put("b", "true");
+        Map<String, String> barData = new LinkedHashMap<>();
+        barData.put("a", "0");
+        barData.put("b", "false");
+        Map<String, Map<String, String>> data = new LinkedHashMap<>();
+        data.put("foo", Map.copyOf(fooData));
+        data.put("bar", Map.copyOf(barData));
+        Workspace workspace = new Workspace(Map.copyOf(data));
+
+        barData.put("x", "3.14");
+        data.put("bar", barData);
+
+        assertFalse(workspace.equals(data));
     }
 }
