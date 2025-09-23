@@ -22,10 +22,12 @@ import jakarta.inject.Inject;
 import org.pdfsam.eventstudio.annotation.EventListener;
 import org.pdfsam.injector.Auto;
 import org.pdfsam.model.tool.Tool;
+import org.pdfsam.model.ui.workspace.ConfirmSaveWorkspaceRequest;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceRequest;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceResponse;
 import org.pdfsam.model.ui.workspace.SaveWorkspaceRequest;
 import org.pdfsam.model.ui.workspace.Workspace;
+import org.pdfsam.model.ui.workspace.WorkspaceCloseEvent;
 import org.pdfsam.model.ui.workspace.WorkspaceLoadedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -110,5 +112,21 @@ public class WorkspaceController {
                 LOG.error(i18n().tr("Unable to load workspace from {0}", event.workspace().getName()), e);
             }
         });
+    }
+
+    @EventListener
+    public void onClose(WorkspaceCloseEvent event) {
+        if (hasWorkspaceChanged()) {
+            eventStudio().broadcast(new ConfirmSaveWorkspaceRequest(workspace.file()));
+        }
+    }
+
+    private boolean hasWorkspaceChanged() {
+        if (workspace == null) {
+            return false;
+        }
+        SaveWorkspaceRequest swr = new SaveWorkspaceRequest(workspace.file());
+        tools.forEach(t -> eventStudio().broadcast(swr, t.id()));
+        return !workspace.equals(swr.data());
     }
 }
