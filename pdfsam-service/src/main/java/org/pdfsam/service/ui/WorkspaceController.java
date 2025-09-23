@@ -75,9 +75,10 @@ public class WorkspaceController {
                 scope.join();
                 scope.throwIfFailed();
                 if (workspace != null) {
+                    workspace = workspace.withFile(event.workspace());
                     workspace.merge(event.data());
                 } else {
-                    workspace = new Workspace(event.data());
+                    workspace = new Workspace(event.data(), event.workspace());
                 }
                 service.saveWorkspace(workspace.data(), event.workspace());
             } catch (Exception e) {
@@ -102,7 +103,7 @@ public class WorkspaceController {
                     scope.throwIfFailed();
                     recentWorkspace.addWorkspaceLastUsed(event.workspace());
                     eventStudio().broadcast(new WorkspaceLoadedEvent(event.workspace()));
-                    workspace = new Workspace(data);
+                    workspace = new Workspace(data, event.workspace());
                     LOG.info(i18n().tr("Workspace loaded: {0}", event.workspace().getName()));
                 }
             } catch (Exception e) {

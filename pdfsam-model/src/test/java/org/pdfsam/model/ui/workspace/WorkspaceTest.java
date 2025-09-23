@@ -48,7 +48,7 @@ public class WorkspaceTest {
         unorderedCopy.put("foo", new HashMap<>(fooData));
         unorderedCopy.put("bar", new HashMap<>(barData));
 
-        assertTrue(new Workspace(data).equals(unorderedCopy));
+        assertTrue(new Workspace(data, null).equals(unorderedCopy));
     }
 
     @Test
@@ -62,7 +62,7 @@ public class WorkspaceTest {
         Map<String, Map<String, String>> data = new LinkedHashMap<>();
         data.put("foo", fooData);
         data.put("bar", barData);
-        Workspace workspace = new Workspace(Map.copyOf(data));
+        Workspace workspace = new Workspace(Map.copyOf(data), null);
 
         Map<String, String> bazData = new LinkedHashMap<>();
         bazData.put("x", "3.14");
@@ -83,7 +83,7 @@ public class WorkspaceTest {
         Map<String, Map<String, String>> data = new LinkedHashMap<>();
         data.put("foo", Map.copyOf(fooData));
         data.put("bar", Map.copyOf(barData));
-        Workspace workspace = new Workspace(Map.copyOf(data));
+        Workspace workspace = new Workspace(Map.copyOf(data), null);
 
         barData.put("b", "true");
         data.put("bar", barData);
@@ -102,7 +102,7 @@ public class WorkspaceTest {
         Map<String, Map<String, String>> data = new LinkedHashMap<>();
         data.put("foo", Map.copyOf(fooData));
         data.put("bar", Map.copyOf(barData));
-        Workspace workspace = new Workspace(Map.copyOf(data));
+        Workspace workspace = new Workspace(Map.copyOf(data), null);
 
         barData.put("x", "3.14");
         data.put("bar", barData);

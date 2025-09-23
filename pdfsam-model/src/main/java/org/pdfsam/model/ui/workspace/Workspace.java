@@ -18,12 +18,13 @@
  */
 package org.pdfsam.model.ui.workspace;
 
+import java.io.File;
 import java.util.Map;
 
 /**
  * @author Alessandro Parisi
  */
-public record Workspace(Map<String, Map<String, String>> data) {
+public record Workspace(Map<String, Map<String, String>> data, File file) {
 
     public void merge(Map<String, Map<String, String>> otherData) {
         data.putAll(otherData);
@@ -37,5 +38,9 @@ public record Workspace(Map<String, Map<String, String>> data) {
             }
         }
         return true;
+    }
+
+    public Workspace withFile(File file) {
+        return new Workspace(data, file);
     }
 }
