@@ -47,6 +47,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
@@ -64,6 +65,7 @@ public class WorkspaceControllerTest {
 
     @BeforeEach
     public void setUp() {
+        app().runtimeState().workspace(null);
         file = mock(File.class);
         when(file.getName()).thenReturn("mock file");
         service = mock(WorkspaceService.class);
