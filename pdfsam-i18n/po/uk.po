@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-08-21 17:33+0200\n"
+"PO-Revision-Date: 2025-09-24 15:24+0200\n"
 "Last-Translator: mwp <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.5-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
 "Language: uk\n"
 
 msgid "No PDF document has been selected"
@@ -37,10 +37,10 @@ msgid "Output settings"
 msgstr "Налаштування виводу"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "Окремий файл для кожного набору сторінок"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "Кожна безперервна серія сторінок згенерує окремий PDF-файл"
 
 #~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 #~ msgstr "Витягнути такі сторінки (приклад: 2 або 5-23 або 2,5-7,12-)"
@@ -191,7 +191,7 @@ msgstr ""
 "або 2,5-7,12-)"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "Виберіть додатне ціле число як крок"
 
 msgid "All pages"
 msgstr "Всі сторінки"
@@ -250,21 +250,23 @@ msgstr ""
 "Додавати нижній колонтитул з назвою файла, з якого походить дана сторінка."
 
 msgid "None"
-msgstr ""
+msgstr "Немає"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "Така ж ширина як у першої сторінки"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "Така ж ширина, як і перша сторінка (залежно від орієнтації сторінки)"
 
 msgid "Pages normalization:"
-msgstr ""
+msgstr "Нормалізація сторінок:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
 msgstr ""
+"Налаштувати чи змінювати розмір сторінок щоб усі мали однакову ширину як "
+"перша"
 
 msgid "Merge fields"
 msgstr "Об’єднання полів"
@@ -273,7 +275,7 @@ msgid "Merge renaming existing fields"
 msgstr "Злиття перейменованих існуючих полів"
 
 msgid "Flatten"
-msgstr ""
+msgstr "Звести"
 
 msgid "Discard forms"
 msgstr "Викинути форми"
@@ -327,49 +329,54 @@ msgstr "Об’єднати"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
 msgstr ""
+"Виберіть або перетягніть PDF-файл, сторінки якого будуть повторюватися"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "Повторити ці сторінки:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "Сторінки для повтору (напр.: 2 або 5-23 або 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"Номери сторінок або діапазони, розділені комами, для повторення (напр.: 2 "
+"або 5-23 або 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "Залиште порожнім, щоб використовувати всі сторінки PDF-файлу"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "Повторювати кожні \"n\" сторінок:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "Неправильний номер сторінки"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "Повторювати вибрані сторінки кожні \"n\" сторінок вихідного документа"
 
 msgid "The selected PDF file is invalid"
 msgstr "Обраний PDF файл пошкоджено"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "Кількість сторінок має бути додатним числом"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "Виберіть або перетягніть PDF-файл, в який ви хочете вставити сторінки"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "Параметри вставки та повтору"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "Вставити сторінки кілька разів"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"Вставити сторінки PDF-документа A в інший документ B, повторюючи його через "
+"певну кількість сторінок, в результаті B1 A B2 A B3 A тощо."
 
 #, java-format
 msgid "Started in {0}"
@@ -385,10 +392,10 @@ msgid "No PDF found"
 msgstr "Не знайдено жодного файла PDF"
 
 msgid "Tools"
-msgstr ""
+msgstr "Інструменти"
 
 msgid "News"
-msgstr ""
+msgstr "Новини"
 
 msgid "What's new"
 msgstr "Що нового"
@@ -397,13 +404,13 @@ msgid "Exit"
 msgstr "Вихід"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "Вийти з програми"
 
 msgid "Workspace"
 msgstr "Робочий простір"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "Керувати своїми робочими просторами"
 
 msgid "Yes"
 msgstr "Так"
@@ -412,22 +419,22 @@ msgid "No"
 msgstr "Ні"
 
 msgid "Confirm clearing"
-msgstr ""
+msgstr "Підтвердити очищення"
 
 msgid "Do you confirm?"
-msgstr ""
+msgstr "Підтверджуєте"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "Скинути налаштування інструмента"
 
 msgid "Clear the selection table"
-msgstr ""
+msgstr "Очистити таблицю вибору"
 
 msgid "Open with"
 msgstr "Відкрити за допомогою"
 
 msgid "Select the task to perform on the following files"
-msgstr ""
+msgstr "Виберіть завдання для виконання над наступними файлами"
 
 msgid "Directory not empty"
 msgstr "Каталог не порожній"
@@ -436,16 +443,16 @@ msgid "The selected directory is not empty"
 msgstr "Обраний каталог не порожній"
 
 msgid "What would you like to do in case of files with the same name?"
-msgstr ""
+msgstr "Що б ви хотіли зробити у випадку файлів з однаковими іменами?"
 
 msgid "Overwrite"
 msgstr "Перезаписати"
 
 msgid "Rename"
-msgstr ""
+msgstr "Перейменувати"
 
 msgid "Skip"
-msgstr ""
+msgstr "Пропустити"
 
 msgid "Cancel"
 msgstr "Скасувати"
@@ -460,7 +467,7 @@ msgid "A file with the given name already exists"
 msgstr "Файл із такою назвою вже існує"
 
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Що б ви хотіли зробити?"
 
 msgid "Non existing directory"
 msgstr "Неіснуючий каталог"
@@ -472,26 +479,28 @@ msgid "Do you want to create it?"
 msgstr "Ви хочете створити його?"
 
 msgid "Subdirectories"
-msgstr ""
+msgstr "Підкаталоги"
 
 msgid "Subdirectories have been found"
-msgstr ""
+msgstr "Підкаталоги знайдено"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr ""
+msgstr "Бажаєте додати файли PDF, знайдені в підкаталогах"
 
 msgid "Task failed"
 msgstr "Не вдалося виконати завдання"
 
 msgid "PDFsam can try to overcome the failure"
-msgstr ""
+msgstr "PDFsam може спробувати подолати збій"
 
 msgid ""
 "It may result in PDF files with partial or missing data, proceed anyway?"
 msgstr ""
+"Це може призвести до PDF-файлів з частковими або відсутніми даними, "
+"продовжити все одно?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "Видаляє всі повідомлення журналу"
 
 msgid "_Clear"
 msgstr "_Очистити"
@@ -500,7 +509,7 @@ msgid "_Save"
 msgstr "_Зберегти"
 
 msgid "C_lose"
-msgstr ""
+msgstr "З_акрити"
 
 msgid "Copy"
 msgstr "Копіювати"
@@ -518,7 +527,7 @@ msgid "Select where to save the log file"
 msgstr "Оберіть де зберігати файл логування"
 
 msgid "Logs"
-msgstr ""
+msgstr "Журнали"
 
 msgid "Application messages"
 msgstr "Повідомлення програми"
@@ -546,7 +555,7 @@ msgstr "Середовище"
 
 #, java-printf-format
 msgid "Vendor: %s"
-msgstr ""
+msgstr "Виробник: %s"
 
 #, java-printf-format
 msgid "Java runtime path: %s"
@@ -554,11 +563,11 @@ msgstr "Розташування середовища Java: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "Версія середовища виконання JavaFX: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "PDF-рушій (Sejda SDK) версія: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -574,7 +583,7 @@ msgid "Bug and feature requests"
 msgstr "Помилки та побажання"
 
 msgid "Documentation"
-msgstr ""
+msgstr "Документація"
 
 msgid "Contribute"
 msgstr "Підтримати"
@@ -601,7 +610,7 @@ msgid "About"
 msgstr "Про програму"
 
 msgid "Home"
-msgstr ""
+msgstr "Головна"
 
 msgid "Premium features"
 msgstr "Платні функції"
@@ -619,22 +628,24 @@ msgid "Set your preferred language (restart needed)"
 msgstr "Встановити основною мовою (необхідно перезапуск програми)"
 
 msgid "Startup tool:"
-msgstr ""
+msgstr "Стартовий інструмент:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
+"Встановити інструмент відкриватися при запуску програми (потрібен "
+"перезапуск)"
 
 msgid "Theme:"
 msgstr "Тема:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "Встановити тему програми"
 
 msgid "Font size:"
-msgstr ""
+msgstr "Розмір шрифту:"
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "Встановити розмір шрифту застосунку"
 
 msgid "Manually selected"
 msgstr "Вибрати вручну"
@@ -686,7 +697,7 @@ msgid "Load default workspace at startup:"
 msgstr "Встановити робочий простір за умовчуванням під час старту:"
 
 msgid "System default"
-msgstr ""
+msgstr "Системний за замовчуванням"
 
 msgid "Check for updates at startup"
 msgstr "Перевіряти на оновлення при старті"
@@ -717,10 +728,12 @@ msgstr ""
 "замовчуванням"
 
 msgid "Overwrite files"
-msgstr ""
+msgstr "Перезаписати файли"
 
 msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
+"Налаштувати, чи \"Перезаписати, якщо вже існує\" має бути увімкнено за "
+"замовчуванням"
 
 msgid "Play alert sounds"
 msgstr "Відтворювати звуки повідомлення"
@@ -729,12 +742,14 @@ msgid "Turn on or off alert sounds"
 msgstr "Включення або виключення звукових сигналів"
 
 msgid "Store passwords when saving a workspace file"
-msgstr ""
+msgstr "Зберігати паролі під час збереження файлу робочої області"
 
 msgid ""
 "If an encrypted PDF document has been opened with a password, save the "
 "password in the workspace file"
 msgstr ""
+"Якщо зашифрований PDF-документ було відкрито за допомогою пароля, збережіть "
+"пароль у файл робочої області"
 
 msgid "Show donation window"
 msgstr "Показувати віконце пожертв"
@@ -751,14 +766,18 @@ msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
+"Встановити, чи програма повинна завантажувати та відображати опис преміум-"
+"функцій на інформаційній панелі модулів"
 
 msgid "Ask for a confirmation when clearing the selection table"
-msgstr ""
+msgstr "Запитувати підтвердження при очищенні таблиці виділення"
 
 msgid ""
 "Set whether the application should ask for a confirmation when clearing the "
 "selection table"
 msgstr ""
+"Встановити, чи має додаток запитувати підтвердження при очищенні таблиці "
+"вибору"
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr "Використовувати  каталог обраного PDF документа як вихідний каталог"
@@ -789,19 +808,22 @@ msgid "Show errors"
 msgstr "Показати помилки"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "Вхідні параметри некоректні"
 
 msgid "Invalid parameters"
 msgstr "Неправильні параметри"
 
 msgid "Access denied"
-msgstr ""
+msgstr "Доступ заборонено"
 
 #, java-format
 msgid ""
 "Unable to access \"{0}\", please make sure you have write permissions or "
 "open the application messages for details."
 msgstr ""
+"Неможливо отримати доступ до \"{0}\", будь ласка, переконайтеся, що у вас є "
+"права на запис, або відкрийте повідомлення програми для отримання детальної "
+"інформації."
 
 #, java-format
 msgid "You performed {0} tasks with PDFsam, did it help?"
@@ -814,7 +836,7 @@ msgid "PDFsam worked hard!"
 msgstr "PDFsam працює тяжко!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "Розкажіть усім"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -830,14 +852,14 @@ msgid "You are running the latest version of PDFsam Basic"
 msgstr "Ви використовуєте оновлену версію PDFsam Basic"
 
 msgid "No update"
-msgstr ""
+msgstr "Немає оновлення"
 
 msgid "Open"
 msgstr "Відкрити"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "Файл \"{0}\" не існує або недійсний"
 
 msgid "Valid user password provided."
 msgstr "Вірний пароль користувача надано."
@@ -849,19 +871,19 @@ msgid "An error has occurred, click for more details."
 msgstr "Сталася помилка; клацніть, щоб отримати докладнішу інформацію."
 
 msgid "Split tools"
-msgstr ""
+msgstr "Інструменти розділення"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "Інструменти злиття"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "Інструменти конвертації"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "Інструменти редагування"
 
 msgid "Other tools"
-msgstr ""
+msgstr "Інші інструменти"
 
 msgid "Checking for updates"
 msgstr "Перевірка оновлень"
@@ -871,11 +893,11 @@ msgstr "Не вдалося знайти останню доступну вер�
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "Не вдалося знайти жодного дійсного PDF-файлу у списку: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "Не вдалося завантажити файл списку PDF з {0}"
 
 msgid "Loading pdf documents"
 msgstr "Завантаження pdf документа"
@@ -913,7 +935,7 @@ msgstr "Запит стану модулів"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "Неможливо зберегти робочу область до {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
@@ -927,16 +949,16 @@ msgid "Unable to load workspace from {0}"
 msgstr "Неможливо завантажити робочий простір {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "Світлий з синім"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "Темний з фіолетовим"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "Темний з бірюзовим"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "Світлий з бордовим"
 
 msgid "Close"
 msgstr "Закрити"
@@ -1000,10 +1022,10 @@ msgid "Duplicate"
 msgstr "Дублювати"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "Вибрані сторінки"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "Загальна кількість вибраних сторінок"
 
 msgid "Size"
 msgstr "Розмір"
@@ -1013,7 +1035,7 @@ msgstr "Змінено"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "Всього сторінок: {0}"
 
 msgid "Name"
 msgstr "Назва"
@@ -1043,7 +1065,7 @@ msgid "Removes every document"
 msgstr "Вилучити всі документи"
 
 msgid "C_lear all settings"
-msgstr ""
+msgstr "О_чистити всі налаштування"
 
 msgid "Moves up selected documents"
 msgstr "Перемістити вгору вибрані документи"
@@ -1058,24 +1080,28 @@ msgid "Move _Down"
 msgstr "Перемістити в_низ"
 
 msgid "Pace"
-msgstr ""
+msgstr "Темп"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
+"Двічі клацніть щоб встановити кількість сторінок після якої завдання "
+"переключиться до наступного файлу"
 
 msgid "Reverse"
-msgstr ""
+msgstr "Обернути"
 
 msgid "Pages"
 msgstr "Сторінки"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "Кількість загальних сторінок документа"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"Двічі клацніть, щоб встановити вибрані сторінки (напр.: 2 або 5-23 або 2,5-"
+"7,12-)"
 
 msgid "Page ranges"
 msgstr "Діапазон сторінок"
@@ -1152,7 +1178,7 @@ msgid "Add prefix"
 msgstr "Додати префікс до назви файлу"
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "ПРЕФІКС_ЗА_ЗАМОВЧУВАННЯМ"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "Створити PDF файли з таким префіксом:"
@@ -1171,7 +1197,7 @@ msgid "Run"
 msgstr "Виконати"
 
 msgid "Run the task"
-msgstr ""
+msgstr "Запустити завдання"
 
 msgid "Requested"
 msgstr "Запит"
@@ -1226,86 +1252,98 @@ msgstr "Неправильне число: {0}"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
 msgstr ""
+"Сторінки для вилучення (напр.: 2 або 5-23 або 2,5-7,12- або 3,остання)"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 " or 3,last)"
 msgstr ""
+"Розділені комами номери сторінок або діапазони для вилучення (наприклад: 2 "
+"або 5-23 або 2,5-7,12- або 3,остання)"
 
 msgid "Merge multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "Об'єднати кілька PDF-документів або їхні підрозділи"
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr ""
+msgstr "Для повторюваного файлу потрібне розширення .pdf"
 
 msgid "A .pdf destination file extension is required"
-msgstr ""
+msgstr "Потрібне розширення файлу призначення .pdf"
 
 msgid "Default PDF version:"
-msgstr ""
+msgstr "Типова версія PDF:"
 
 msgid "Default PDF version for generated PDF files"
-msgstr ""
+msgstr "Версія PDF за замовчуванням для згенерованих PDF-файлів"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "Типовий префікс:"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
 "files"
 msgstr ""
+"Типовий префікс для імен вихідних файлів, використовується в інструментах, "
+"які генерують кілька файлів"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
+"Встановити, чи \"Видалити закладки\" має бути увімкнено за замовчуванням"
 
 #, java-format
 msgid "Workspace loaded: {0}"
-msgstr ""
+msgstr "Робочу область завантажено: {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr ""
+msgstr "Цей файл вже існував і був пропущений: {0}"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "Дублювати вгорі"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "Дублювати вгору"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "Дублювати вниз"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "Дублювати внизу"
 
 #, java-format
 msgid "Error saving content to file {0}"
-msgstr ""
+msgstr "Помилка збереження вмісту у файл {0}"
 
 #, java-format
 msgid "File {0} saved"
-msgstr ""
+msgstr "Файл {0} збережено"
 
 msgid "Error saving content to clipboard"
-msgstr ""
+msgstr "Помилка збереження вмісту до буфера обміну"
 
 msgid "Follow us on Bluesky"
-msgstr ""
+msgstr "Підписуйтесь на нас у Bluesky"
 
 msgid "Font:"
-msgstr ""
+msgstr "Шрифт:"
 
 msgid "Sets the application font"
-msgstr ""
+msgstr "Встановлює шрифт програми"
 
 msgid "Default"
-msgstr ""
+msgstr "За замовчуванням"
 
 msgid "Light"
-msgstr ""
+msgstr "Світлий"
 
 msgid "Dark"
-msgstr ""
+msgstr "Темний"
 
 msgid "Unlock selected"
-msgstr ""
+msgstr "Розблокувати вибране"
+
+msgid "Workspace has changed"
+msgstr "Робоча область змінилася"
+
+msgid "Do you want to save it?"
+msgstr "Ви хочете зберегти його?"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-08-28 17:40+0200\n"
+"PO-Revision-Date: 2025-09-24 15:13+0200\n"
 "Last-Translator: SEO ARAM <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1266,3 +1266,9 @@ msgstr "어둡게"
 
 msgid "Unlock selected"
 msgstr "선택 항목 잠금 해제"
+
+msgid "Workspace has changed"
+msgstr "작업 공간이 변경되었습니다"
+
+msgid "Do you want to save it?"
+msgstr "저장하시겠습니까"

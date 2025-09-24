@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-09-23 09:21+0200\n"
+"PO-Revision-Date: 2025-09-24 15:12+0200\n"
 "Last-Translator: Botfai Tibor <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -604,8 +604,8 @@ msgstr "Támogatás"
 msgid "Social"
 msgstr "Közösségi szolgáltatások"
 
-msgid "Follow us on Twitter"
-msgstr "Kövessen a Twitteren"
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Kövessen a Twitteren"
 
 msgid "Like us on Facebook"
 msgstr "Kedveljen a Facebookon"
@@ -1334,3 +1334,30 @@ msgstr "Fájl {0} elmentve"
 
 msgid "Error saving content to clipboard"
 msgstr "Hiba a tartalom vágólapra mentésekor"
+
+msgid "Workspace has changed"
+msgstr "Munkaterület megváltozott"
+
+msgid "Do you want to save it?"
+msgstr "El szeretné menteni?"
+
+msgid "Follow us on Bluesky"
+msgstr "Kövessen minket Bluesky-n"
+
+msgid "Font:"
+msgstr "Betűtípus:"
+
+msgid "Sets the application font"
+msgstr "Beállítja az alkalmazás betűtípusát"
+
+msgid "Default"
+msgstr "Alapértelmezett"
+
+msgid "Light"
+msgstr "Világos"
+
+msgid "Dark"
+msgstr "Sötét"
+
+msgid "Unlock selected"
+msgstr "Kijelölt feloldása"
