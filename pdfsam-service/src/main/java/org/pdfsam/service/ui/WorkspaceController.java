@@ -35,6 +35,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Collection;
 import java.util.concurrent.StructuredTaskScope;
 
+import static java.util.Objects.nonNull;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
@@ -51,7 +52,6 @@ public class WorkspaceController {
     private final Collection<Tool> tools;
     private final WorkspaceService service;
     private final RecentWorkspacesService recentWorkspace;
-    private Workspace workspace;
 
     @Inject
     WorkspaceController(WorkspaceService service, RecentWorkspacesService recentWorkspace) {
@@ -76,13 +76,9 @@ public class WorkspaceController {
                 }));
                 scope.join();
                 scope.throwIfFailed();
-                if (workspace != null) {
-                    workspace = workspace.withFile(event.workspace());
-                    workspace.merge(event.data());
-                } else {
-                    workspace = new Workspace(event.data(), event.workspace());
-                }
-                service.saveWorkspace(workspace.data(), event.workspace());
+                app().runtimeState().mergeWorkspace(new Workspace(event.data(), event.workspace()));
+                Workspace workspace = app().runtimeState().workspace();
+                service.saveWorkspace(workspace.data(), workspace.file());
             } catch (Exception e) {
                 LOG.error(i18n().tr("Unable to save workspace to {0}", event.workspace().getName()), e);
             }
@@ -105,7 +101,7 @@ public class WorkspaceController {
                     scope.throwIfFailed();
                     recentWorkspace.addWorkspaceLastUsed(event.workspace());
                     eventStudio().broadcast(new WorkspaceLoadedEvent(event.workspace()));
-                    workspace = new Workspace(data, event.workspace());
+                    app().runtimeState().workspace(new Workspace(data, event.workspace()));
                     LOG.info(i18n().tr("Workspace loaded: {0}", event.workspace().getName()));
                 }
             } catch (Exception e) {
@@ -117,16 +113,17 @@ public class WorkspaceController {
     @EventListener
     public void onClose(WorkspaceCloseEvent event) {
         if (hasWorkspaceChanged()) {
-            eventStudio().broadcast(new ConfirmSaveWorkspaceRequest(workspace.file()));
+            eventStudio().broadcast(new ConfirmSaveWorkspaceRequest());
         }
     }
 
     private boolean hasWorkspaceChanged() {
-        if (workspace == null) {
-            return false;
+        Workspace workspace = app().runtimeState().workspace();
+        if (nonNull(workspace)) {
+            var request = new SaveWorkspaceRequest(workspace.file());
+            tools.forEach(t -> eventStudio().broadcast(request, t.id()));
+            return !workspace.containsAllIgnoreEmpty(request.data());
         }
-        SaveWorkspaceRequest swr = new SaveWorkspaceRequest(workspace.file());
-        tools.forEach(t -> eventStudio().broadcast(swr, t.id()));
-        return !workspace.equals(swr.data());
+        return false;
     }
 }

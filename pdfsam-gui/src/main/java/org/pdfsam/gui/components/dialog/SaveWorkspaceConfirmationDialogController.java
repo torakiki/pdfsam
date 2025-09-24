@@ -25,6 +25,7 @@ import org.pdfsam.injector.Auto;
 import org.pdfsam.model.ui.workspace.ConfirmSaveWorkspaceRequest;
 import org.pdfsam.model.ui.workspace.SaveWorkspaceRequest;
 
+import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
 /**
@@ -44,6 +45,6 @@ public class SaveWorkspaceConfirmationDialogController {
     @EventListener
     public void request(ConfirmSaveWorkspaceRequest event) {
         if (dialog.get().response())
-            eventStudio().broadcast(new SaveWorkspaceRequest(event.workspace()));
+            eventStudio().broadcast(new SaveWorkspaceRequest(app().runtimeState().workspace().file()));
     }
 }

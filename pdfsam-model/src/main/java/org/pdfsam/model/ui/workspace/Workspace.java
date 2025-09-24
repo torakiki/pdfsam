@@ -20,28 +20,37 @@ package org.pdfsam.model.ui.workspace;
 
 import java.io.File;
 import java.util.Map;
+import java.util.Objects;
+
+import static java.util.stream.Collectors.toMap;
+import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 /**
  * Data class to keep track of the loaded workspace and its source file.
- * 
+ *
  * @author Alessandro Parisi
  */
 public record Workspace(Map<String, Map<String, String>> data, File file) {
 
     public void merge(Map<String, Map<String, String>> otherData) {
-        data.putAll(otherData);
+        if (Objects.nonNull(otherData)) {
+            data.putAll(otherData);
+        }
     }
 
     /**
      * Checks if this workspace's data is equal to the given data by verifying that all tools' data in the latter
      * are present here and that every key-value pair is the same.
-     * 
-     * @see Map#equals(Object) 
+     *
+     * @see Map#equals(Object)
      */
-    public boolean equals(Map<String, Map<String, String>> otherData) {
+    public boolean containsAllIgnoreEmpty(Map<String, Map<String, String>> otherData) {
         for (Map.Entry<String, Map<String, String>> e : otherData.entrySet()) {
+
             Map<String, String> toolData = data.get(e.getKey());
-            if (toolData == null || !toolData.equals(e.getValue())) {
+            if (toolData == null || !toolData.equals(
+                    e.getValue().entrySet().stream().filter(entry -> isNotEmpty(entry.getValue()))
+                            .collect(toMap(Map.Entry::getKey, Map.Entry::getValue)))) {
                 return false;
             }
         }

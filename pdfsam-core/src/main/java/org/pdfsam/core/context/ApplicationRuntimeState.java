@@ -22,6 +22,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import org.apache.commons.lang3.StringUtils;
 import org.pdfsam.model.tool.Tool;
+import org.pdfsam.model.ui.workspace.Workspace;
 import org.pdfsam.theme.Theme;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +39,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+import static java.util.Objects.nonNull;
 import static java.util.Optional.empty;
 import static java.util.Optional.ofNullable;
 import static java.util.function.Function.identity;
@@ -53,6 +55,7 @@ public class ApplicationRuntimeState {
     private static final Logger LOG = LoggerFactory.getLogger(ApplicationRuntimeState.class);
 
     private Path defaultWorkingPath;
+    private Workspace workspace;
     private final SimpleObjectProperty<Optional<Path>> workingPath = new SimpleObjectProperty<>(empty());
     private final SimpleObjectProperty<Optional<Tool>> activeTool = new SimpleObjectProperty<>(empty());
     private final SimpleObjectProperty<Theme> theme = new SimpleObjectProperty<>();
@@ -111,6 +114,26 @@ public class ApplicationRuntimeState {
 
     public ObservableValue<Optional<Path>> workingPath() {
         return workingPath;
+    }
+
+    /**
+     * Merges the provided workspace into the current one.
+     */
+    public void mergeWorkspace(Workspace workspace) {
+        if (nonNull(this.workspace)) {
+            this.workspace = this.workspace.withFile(workspace.file());
+            this.workspace.merge(workspace.data());
+        } else {
+            this.workspace = workspace;
+        }
+    }
+
+    public void workspace(Workspace workspace) {
+        this.workspace = workspace;
+    }
+
+    public Workspace workspace() {
+        return this.workspace;
     }
 
     /**

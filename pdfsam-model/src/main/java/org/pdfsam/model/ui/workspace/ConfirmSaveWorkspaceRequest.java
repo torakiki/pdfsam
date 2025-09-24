@@ -18,11 +18,10 @@
  */
 package org.pdfsam.model.ui.workspace;
 
-import java.io.File;
-
 /**
  * Event to notify that the workspace changed and ask the user for confirmation before saving.
  *
  * @author Alessandro Parisi
  */
-public record ConfirmSaveWorkspaceRequest(File workspace) {}
+public record ConfirmSaveWorkspaceRequest() {
+}
