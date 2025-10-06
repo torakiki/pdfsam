@@ -260,7 +260,7 @@
         <sejda-io.version>4.0.0.M4</sejda-io.version>
         <ikonli.version>12.4.0</ikonli.version>
         <testfx.version>4.0.18</testfx.version>
-        <javafx.version>23.0.2</javafx.version>
+        <javafx.version>26-ea+10</javafx.version>
         <jakarta-el.version>4.0.2</jakarta-el.version>
         <jakarta.inject.version>2.0.1</jakarta.inject.version>
         <validation.api.version>3.0.2</validation.api.version>
