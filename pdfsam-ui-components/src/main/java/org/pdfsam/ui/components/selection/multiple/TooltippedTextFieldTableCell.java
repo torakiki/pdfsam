@@ -21,18 +21,19 @@ package org.pdfsam.ui.components.selection.multiple;
 import javafx.event.Event;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.util.StringConverter;
 import javafx.util.converter.DefaultStringConverter;
 
+import java.util.Objects;
+
 /**
- * Editable cell showing a tooltip. This is based on <a href="https://gist.github.com/james-d/be5bbd6255a4640a5357">...</a> to overcome the 4 years old
- * <a href="https://bugs.openjdk.java.net/browse/JDK-8089514">...</a>
+ * Editable cell showing a tooltip.
+ * <p></p>
+ * Commit and focus behavior handling is still buggy and needs to be managed by us with a listener on the text field
+ * and proper overrides. Waiting for PR: <a href="https://bugs.openjdk.org/browse/JDK-8089514">JDK-8089514</a>
  *
  * @author Andrea Vacondio
  */
@@ -45,41 +46,37 @@ class TooltippedTextFieldTableCell extends TooltippedTableCell<String> {
     public TooltippedTextFieldTableCell(String tooltipMessage) {
         super(tooltipMessage);
 
-        itemProperty().addListener((obx, oldItem, newItem) -> {
-            if (newItem == null) {
-                setText(null);
-            } else {
-                setText(converter.toString(newItem));
-            }
-        });
         setGraphic(textField);
         setContentDisplay(ContentDisplay.TEXT_ONLY);
 
         textField.setOnAction(evt -> commitEdit(this.converter.fromString(textField.getText())));
         textField.focusedProperty().addListener((obs, wasFocused, isNowFocused) -> {
             if (!isNowFocused) {
-                commitEdit(this.converter.fromString(textField.getText()));
+                // When the text field loses focus, the editing property flips to `false` and consequently
+                // the backed-in commitEdit(...) method will simply bail.
+                // To bypass this, we send a edit commit event.
+                String newItem = converter.fromString(textField.getText());
+                if (!isEditing() && !Objects.equals(getItem(), newItem)) {
+                    TableView<SelectionTableRowData> table = getTableView();
+                    TableColumn<SelectionTableRowData, String> column = getTableColumn();
+                    TableColumn.CellEditEvent<SelectionTableRowData, String> event = new TableColumn.CellEditEvent<>(table,
+                            new TablePosition<>(table, getIndex(), column), TableColumn.editCommitEvent(), newItem);
+                    Event.fireEvent(column, event);
+                } else {
+                    commitEdit(newItem);
+                }
             }
         });
-        textField.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ESCAPE) {
-                textField.setText(converter.toString(getItem()));
-                cancelEdit();
-                event.consume();
-            } else if (event.getCode() == KeyCode.RIGHT) {
-                getTableView().getSelectionModel().selectRightCell();
-                event.consume();
-            } else if (event.getCode() == KeyCode.LEFT) {
-                getTableView().getSelectionModel().selectLeftCell();
-                event.consume();
-            } else if (event.getCode() == KeyCode.UP) {
-                getTableView().getSelectionModel().selectAboveCell();
-                event.consume();
-            } else if (event.getCode() == KeyCode.DOWN) {
-                getTableView().getSelectionModel().selectBelowCell();
-                event.consume();
-            }
-        });
+    }
+
+    @Override
+    public void updateItem(String item, boolean empty) {
+        super.updateItem(item, empty);
+        if (empty) {
+            setText(null);
+        } else {
+            setText(converter.toString(item));
+        }
     }
 
     @Override
@@ -98,20 +95,6 @@ class TooltippedTextFieldTableCell extends TooltippedTableCell<String> {
 
     @Override
     public void commitEdit(String item) {
-
-        // This block is necessary to support commit on losing focus, because the baked-in mechanism
-        // sets our editing state to false before we can intercept the loss of focus.
-        // The default commitEdit(...) method simply bails if we are not editing...
-        if (!isEditing() && !item.equals(getItem())) {
-            TableView<SelectionTableRowData> table = getTableView();
-            if (table != null) {
-                TableColumn<SelectionTableRowData, String> column = getTableColumn();
-                CellEditEvent<SelectionTableRowData, String> event = new CellEditEvent<>(table,
-                        new TablePosition<>(table, getIndex(), column), TableColumn.editCommitEvent(), item);
-                Event.fireEvent(column, event);
-            }
-        }
-
         super.commitEdit(item);
         setContentDisplay(ContentDisplay.TEXT_ONLY);
     }
