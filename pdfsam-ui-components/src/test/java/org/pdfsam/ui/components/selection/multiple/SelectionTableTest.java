@@ -33,7 +33,6 @@ import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -618,7 +617,6 @@ public class SelectionTableTest {
     }
 
     @Test
-    @Disabled("TODO")
     public void editCommitOnFocusLost() {
         Optional<SelectionTableRowData> item = victim.getItems().stream()
                 .filter(i -> "temp.pdf".equals(i.descriptor().getFileName())).findFirst();
