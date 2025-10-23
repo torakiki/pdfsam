@@ -190,7 +190,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             contextMenu.getItems().add(setPageRangesItem);
         }
         if (hasPace) {
-            MenuItem setAsPaceItem = createMenuItem(i18n().tr("Set as pace for all"), UniconsLine.RIGHT_INDENT_ALT);
+            MenuItem setAsPaceItem = createMenuItem(i18n().tr("Set as pace for all"), UniconsLine.ELLIPSIS_V);
             setAsPaceItem.setOnAction(
                     e -> eventStudio().broadcast(new SetPaceRequest(getSelectionModel().getSelectedItem().pace.get()),
                             toolBinding()));
