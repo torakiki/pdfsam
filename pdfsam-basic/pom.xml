@@ -715,6 +715,11 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>org.pdfsam</groupId>
+            <artifactId>pdfsam-fonts</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.tinylog</groupId>
             <artifactId>slf4j-tinylog</artifactId>
             <scope>compile</scope>

@@ -184,6 +184,7 @@
         <module>pdfsam-tools/pdfsam-backpages</module>
         <module>pdfsam-test</module>
         <module>pdfsam-docs</module>
+        <module>pdfsam-fonts</module>
     </modules>
 
     <developers>
