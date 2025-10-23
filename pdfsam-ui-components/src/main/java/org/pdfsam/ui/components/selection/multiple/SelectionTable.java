@@ -70,6 +70,7 @@ import org.pdfsam.model.ui.dnd.FilesDroppedEvent;
 import org.pdfsam.model.ui.workspace.RestorableView;
 import org.pdfsam.ui.components.selection.PasswordFieldPopup;
 import org.pdfsam.ui.components.selection.RemoveSelectedEvent;
+import org.pdfsam.ui.components.selection.SetPaceRequest;
 import org.pdfsam.ui.components.selection.SetPageRangesRequest;
 import org.pdfsam.ui.components.selection.ShowPasswordFieldPopupRequest;
 import org.pdfsam.ui.components.selection.multiple.move.MoveSelectedRequest;
@@ -158,7 +159,8 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         passwordPopup = new PasswordFieldPopup(this.toolBinding);
 
         ContextMenu contextMenu = new ContextMenu();
-        initTopSectionContextMenu(contextMenu, Arrays.stream(columns).anyMatch(PageRangesColumn.class::isInstance));
+        initTopSectionContextMenu(contextMenu, Arrays.stream(columns).anyMatch(PageRangesColumn.class::isInstance),
+                Arrays.stream(columns).anyMatch(PaceColumn.class::isInstance));
         initItemsSectionContextMenu(contextMenu, canDuplicateItems, canMove);
         initBottomSectionContextMenu(contextMenu);
         setContextMenu(contextMenu);
@@ -166,7 +168,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         eventStudio().add(SelectionChangedEvent.class, e -> selectionChangedConsumer.accept(e), toolBinding);
     }
 
-    private void initTopSectionContextMenu(ContextMenu contextMenu, boolean hasRanges) {
+    private void initTopSectionContextMenu(ContextMenu contextMenu, boolean hasRanges, boolean hasPace) {
         MenuItem setDestinationItem = createMenuItem(i18n().tr("Set destination"), UniconsLine.CROSSHAIR);
         setDestinationItem.setOnAction(e -> eventStudio().broadcast(
                 requestDestination(getSelectionModel().getSelectedItem().descriptor().getFile(), toolBinding()),
@@ -186,6 +188,16 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             selectionChangedConsumer = selectionChangedConsumer.andThen(
                     e -> setPageRangesItem.setDisable(!e.isSingleSelection()));
             contextMenu.getItems().add(setPageRangesItem);
+        }
+        if (hasPace) {
+            MenuItem setAsPaceItem = createMenuItem(i18n().tr("Set as pace for all"), UniconsLine.RIGHT_INDENT_ALT);
+            setAsPaceItem.setOnAction(
+                    e -> eventStudio().broadcast(new SetPaceRequest(getSelectionModel().getSelectedItem().pace.get()),
+                            toolBinding()));
+            setAsPaceItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.SHORTCUT_DOWN));
+            selectionChangedConsumer = selectionChangedConsumer.andThen(
+                    e -> setAsPaceItem.setDisable(!e.isSingleSelection()));
+            contextMenu.getItems().add(setAsPaceItem);
         }
         contextMenu.getItems().add(new SeparatorMenuItem());
     }
@@ -565,6 +577,11 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     @EventListener
     public void onSetPageRanges(SetPageRangesRequest event) {
         getItems().forEach(i -> i.pageSelection.set(event.range()));
+    }
+
+    @EventListener
+    public void onSetPace(SetPaceRequest event) {
+        getItems().forEach(i -> i.pace.set(event.pace()));
     }
 
     @EventListener
