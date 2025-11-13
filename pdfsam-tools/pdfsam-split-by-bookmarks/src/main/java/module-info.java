@@ -32,6 +32,12 @@ import org.pdfsam.tools.splitbybookmarks.SplitByBookmarksTool;
     requires org.pdfsam.injector;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.unicons;
+    requires org.sejda.model;
+    requires org.sejda.commons;
+    requires org.sejda.core;
+    requires org.sejda.impl.sambox;
+    requires org.sejda.sambox;
+    requires org.slf4j;
 
     provides Tool with SplitByBookmarksTool;
 }
