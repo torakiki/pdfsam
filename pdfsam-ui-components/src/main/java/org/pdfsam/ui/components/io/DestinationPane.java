@@ -48,7 +48,14 @@ class DestinationPane extends VBox implements ResettableView {
         overwrite.getStyleClass().addAll(Style.WITH_HELP.css());
 
        // destination.getStyleClass().addAll(Style.VITEM.css());
-        getChildren().addAll(destination, overwrite);
+        getChildren().add(destination);
+
+        // Add info label for BrowsableOutputDirectoryField
+        if (destination instanceof BrowsableOutputDirectoryField dirField) {
+            getChildren().add(dirField.getInfoLabel());
+        }
+
+        getChildren().add(overwrite);
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.VCONTAINER.css());
     }
