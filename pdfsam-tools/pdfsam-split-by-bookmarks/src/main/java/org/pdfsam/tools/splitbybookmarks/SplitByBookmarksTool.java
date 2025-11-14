@@ -91,7 +91,7 @@ public class SplitByBookmarksTool implements Tool {
         @Provides
         @Named(TOOL_ID + "field")
         public BrowsableOutputDirectoryField destinationDirectoryField() {
-            return new BrowsableOutputDirectoryField();
+            return new BrowsableOutputDirectoryField(TOOL_ID);
         }
 
         @Provides

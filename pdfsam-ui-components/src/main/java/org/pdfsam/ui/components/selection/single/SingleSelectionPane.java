@@ -85,6 +85,7 @@ import static org.pdfsam.model.pdf.PdfDocumentDescriptor.newDescriptor;
 import static org.pdfsam.model.pdf.PdfDocumentDescriptor.newDescriptorNoPassword;
 import static org.pdfsam.model.ui.SetDestinationRequest.requestDestination;
 import static org.pdfsam.model.ui.SetDestinationRequest.requestFallbackDestination;
+import static org.pdfsam.model.ui.SetOutputDirectoryRequest.requestFallbackOutputDirectory;
 
 /**
  * Panel letting the user select a single input PDF document
@@ -103,6 +104,7 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
 
     private Consumer<PdfDocumentDescriptor> onLoaded = d -> {
         eventStudio().broadcast(requestFallbackDestination(d.getFile(), toolBinding()), toolBinding());
+        eventStudio().broadcast(requestFallbackOutputDirectory(d.getFile()), toolBinding());
         eventStudio().broadcast(new ChangedSelectedPdfVersionEvent(d.getVersion()), toolBinding());
     };
 
