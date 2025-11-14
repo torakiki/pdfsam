@@ -20,11 +20,10 @@ package org.pdfsam.tools.splitbybookmarks;
 
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
-import javafx.scene.Node;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
@@ -51,6 +50,8 @@ class SplitOptionsPane extends GridPane
 
     private final BookmarksLevelComboBox levelCombo = new BookmarksLevelComboBox();
     private final TextField regexpField = new TextField();
+    private final CheckBox hierarchicalOutputCheck = new CheckBox();
+    private final TextField overlapPagesField = new TextField();
 
     SplitOptionsPane() {
         getStyleClass().addAll(Style.CONTAINER.css());
@@ -81,23 +82,53 @@ class SplitOptionsPane extends GridPane
         GridPane.setValignment(helpIcon, VPos.CENTER);
         GridPane.setHalignment(helpIcon, HPos.LEFT);
         add(helpIcon, 2, 1);
+
+        hierarchicalOutputCheck.setId("hierarchicalOutput");
+        hierarchicalOutputCheck.setText(i18n().tr("Create hierarchical directory structure"));
+        GridPane.setValignment(hierarchicalOutputCheck, VPos.CENTER);
+        GridPane.setHalignment(hierarchicalOutputCheck, HPos.LEFT);
+        add(hierarchicalOutputCheck, 0, 2, 3, 1);
+        var hierarchicalHelpIcon = helpIcon("""
+                %s
+                %s
+                """.formatted(i18n().tr("When enabled, creates a directory for each top-level bookmark and places split files inside"),
+                i18n().tr("Example: Chapter_1/ contains 1_1.pdf, 1_2.pdf, etc.")));
+        GridPane.setValignment(hierarchicalHelpIcon, VPos.CENTER);
+        GridPane.setHalignment(hierarchicalHelpIcon, HPos.LEFT);
+        add(hierarchicalHelpIcon, 3, 2);
+
+        var overlapLabel = new Label(i18n().tr("Additional overlap pages:"));
+        GridPane.setValignment(overlapLabel, VPos.BOTTOM);
+        GridPane.setHalignment(overlapLabel, HPos.LEFT);
+        add(overlapLabel, 0, 3);
+        overlapPagesField.setId("overlapPages");
+        overlapPagesField.setPromptText("0");
+        overlapPagesField.setPrefWidth(100);
+        GridPane.setValignment(overlapPagesField, VPos.BOTTOM);
+        GridPane.setHalignment(overlapPagesField, HPos.LEFT);
+        add(overlapPagesField, 1, 3);
+        var overlapHelpIcon = helpIcon("""
+                %s
+                %s
+                %s
+                """.formatted(i18n().tr("Optional: additional pages to include beyond auto-detected overlaps"),
+                i18n().tr("Auto-detection includes pages where sections naturally flow together"),
+                i18n().tr("Example: use 1 or 2 for extra safety margin")));
+        GridPane.setValignment(overlapHelpIcon, VPos.CENTER);
+        GridPane.setHalignment(overlapHelpIcon, HPos.LEFT);
+        add(overlapHelpIcon, 2, 3);
     }
 
     void setValidBookmarkLevels(SortedSet<Integer> levels) {
         levelCombo.setValidBookmarkLevels(levels);
     }
 
-    private HBox createLine(Node... items) {
-        HBox item = new HBox(items);
-        item.getStyleClass().addAll(Style.VITEM.css());
-        item.getStyleClass().addAll(Style.HCONTAINER.css());
-        return item;
-    }
-
     @Override
     public void resetView() {
         regexpField.clear();
         levelCombo.resetView();
+        hierarchicalOutputCheck.setSelected(false);
+        overlapPagesField.clear();
     }
 
     @Override
@@ -106,17 +137,38 @@ class SplitOptionsPane extends GridPane
         if (isNotBlank(regexpField.getText())) {
             builder.regexp(regexpField.getText());
         }
+        builder.hierarchicalOutput(hierarchicalOutputCheck.isSelected());
+
+        // Auto-detect is now always enabled when hierarchical output is selected
+        builder.autoDetectOverlap(hierarchicalOutputCheck.isSelected());
+
+        if (isNotBlank(overlapPagesField.getText())) {
+            try {
+                int overlap = Integer.parseInt(overlapPagesField.getText().trim());
+                if (overlap >= 0) {
+                    builder.overlapPages(overlap);
+                } else {
+                    onError.accept(i18n().tr("Overlap pages must be a positive number"));
+                }
+            } catch (NumberFormatException e) {
+                onError.accept(i18n().tr("Invalid overlap pages value"));
+            }
+        }
     }
 
     @Override
     public void saveStateTo(Map<String, String> data) {
         data.put("regexp", defaultString(regexpField.getText()));
+        data.put("hierarchicalOutput", Boolean.toString(hierarchicalOutputCheck.isSelected()));
+        data.put("overlapPages", defaultString(overlapPagesField.getText()));
         levelCombo.saveStateTo(data);
     }
 
     @Override
     public void restoreStateFrom(Map<String, String> data) {
         regexpField.setText(Optional.ofNullable(data.get("regexp")).orElse(EMPTY));
+        hierarchicalOutputCheck.setSelected(Boolean.parseBoolean(data.get("hierarchicalOutput")));
+        overlapPagesField.setText(Optional.ofNullable(data.get("overlapPages")).orElse(EMPTY));
         levelCombo.restoreStateFrom(data);
     }
 }
