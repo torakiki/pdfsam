@@ -17,7 +17,7 @@ jobs:
     name: build ${{ matrix.os }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Import GPG key
         id: import_gpg
         uses: crazy-max/ghaction-import-gpg@v6
