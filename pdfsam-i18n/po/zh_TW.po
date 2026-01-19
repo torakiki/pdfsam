@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PDFSam 3\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2024-08-07 12:10+0200\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"PO-Revision-Date: 2026-01-03 13:06+0100\n"
 "Last-Translator: Elvin Lyu <Unknown>\n"
 "Language-Team: Chinese (Taiwan) (zh_TW@li.org)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgid "Extract"
 msgstr "擷取"
 
 msgid "Extract pages from PDF documents."
-msgstr "從 PDF檔擷取指定頁"
+msgstr "從 PDF檔擷取指定頁。"
 
 msgid "File names settings"
 msgstr "檔名設定"
@@ -75,7 +75,7 @@ msgstr "書籤文字必須符合的正規表達式"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
-msgstr "範例：使用 *Chapter.* 以符合包含 \"Chapter\" 的書籤"
+msgstr "範例：使用 .*Chapter.* 來比對含有「Chapter」字樣的書籤"
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "請選取或拖拉您要分割的 PDF 檔"
@@ -96,7 +96,7 @@ msgid "Split"
 msgstr "分割"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr "以給定的頁數分離 PDF 文件檔"
+msgstr "依指定頁碼拆分 PDF 檔案。"
 
 msgid "Every page"
 msgstr "每一頁"
@@ -150,7 +150,7 @@ msgid "Split by size"
 msgstr "依檔案大小分割"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr "以給定的檔案大小 （大約）分離 PDF 文件檔"
+msgstr "以給定的檔案大小 （大約）分離 PDF 文件檔。"
 
 msgid "Set the size to split at"
 msgstr "設定分割檔的大小"
@@ -173,13 +173,13 @@ msgstr "交替合併"
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
-msgstr "以自然或相反的順序合併兩個或多個 PDF 文件。"
+msgstr "合併兩個或多個 PDF 文件，交錯取頁，依自然順序或反向順序。"
 
 msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "點兩下以設定你要混和的頁面 (例: 2 或 5-23 或 2,5-7,12-)"
 
 msgid "Select a positive integer number as pace"
-msgstr "選擇一個正整數作為步幅"
+msgstr "選擇正整數作為步長"
 
 msgid "All pages"
 msgstr "所有頁面"
@@ -207,7 +207,7 @@ msgstr "旋轉多個 PDF 文件的頁面。"
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "雙擊滑鼠進行頁面旋轉(例: 2 or 5-23 or 2,5-7,12-)"
+msgstr "雙擊以設定您想旋轉的頁面 (例如: 2 或 5-23 或 2,5-7,12-)"
 
 msgid "Merge settings"
 msgstr "合併設定"
@@ -222,7 +222,7 @@ msgstr "若頁數為奇數則新增一空白頁"
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
-msgstr "在每個奇數頁的被合併文件後新增一空白頁"
+msgstr "如果文件頁數為奇數，則在每個合併文件後新增空白頁"
 
 msgid "Add a footer"
 msgstr "新增頁腳"
@@ -245,7 +245,7 @@ msgstr "頁面正規化："
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
-msgstr "調整頁面大小，使所有頁面與第一頁同寬。"
+msgstr "調整頁面大小，使所有頁面與第一頁同寬"
 
 msgid "Merge renaming existing fields"
 msgstr "合併並重新命名已存在的欄位"
@@ -293,11 +293,11 @@ msgid "Generate from documents titles"
 msgstr "從文件標題生成"
 
 msgid "Table of contents:"
-msgstr "表格內容"
+msgstr "目錄："
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
-msgstr "當表格內容應該要被加入到產生的 PDF 文件中時設定"
+msgstr "設定是否將目錄加入至產生的 PDF 文件"
 
 msgid "Merge"
 msgstr "合併"
@@ -306,7 +306,7 @@ msgid "Merge multiple PDF documents or subsections of them."
 msgstr "合併多個 PDF 文檔或其子部分。"
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr "選擇或拖放要重複頁面的PDF檔案。"
+msgstr "選擇或拖放要重複頁面的PDF檔案"
 
 msgid "Repeat these pages:"
 msgstr "重複這些頁面："
@@ -329,7 +329,7 @@ msgid "Invalid page number"
 msgstr "無效的頁數"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr "每\"n\"頁重複顯示所選頁面的原始文檔"
+msgstr "重複選取頁面，原始文件每隔 \"n\" 頁"
 
 msgid "The selected PDF file is invalid"
 msgstr "選取的 PDF 檔無效"
@@ -383,7 +383,7 @@ msgid "Workspace"
 msgstr "工作區"
 
 msgid "Manage your workspaces"
-msgstr "管理 workspaces"
+msgstr "管理您的工作區"
 
 msgid "Yes"
 msgstr "是"
@@ -458,7 +458,7 @@ msgid "Subdirectories have been found"
 msgstr "已找到子目錄"
 
 msgid "Do you want to add PDF files found in subdirectories?"
-msgstr "你要把PDF檔加入已找到的子目錄嗎？"
+msgstr "是否要新增在子資料夾中找到的PDF檔案"
 
 msgid "Task failed"
 msgstr "任務失敗"
@@ -554,7 +554,7 @@ msgid "Bug and feature requests"
 msgstr "錯誤回報及功能需求"
 
 msgid "Documentation"
-msgstr "文件"
+msgstr "說明文件"
 
 msgid "Contribute"
 msgstr "貢獻"
@@ -741,7 +741,7 @@ msgstr "顯示付費功能"
 msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
-msgstr "顯示付費版功能"
+msgstr "設定應用程式是否應擷取並在模組儀表板中顯示進階功能說明"
 
 msgid "Ask for a confirmation when clearing the selection table"
 msgstr "當清除選擇表格時要求確認"
@@ -801,7 +801,7 @@ msgid "PDFsam worked hard!"
 msgstr "PDFsam 辛苦了！"
 
 msgid "Spread the word!"
-msgstr "散播到全世界！"
+msgstr "分享出去！"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -833,7 +833,7 @@ msgid "This document is encrypted, click to provide a password."
 msgstr "本文件已加密，請點擊以輸入密碼。"
 
 msgid "An error has occurred, click for more details."
-msgstr "發生錯誤，點選以取得更多資訊"
+msgstr "發生錯誤，點選以取得更多資訊。"
 
 #, java-format
 msgid "Version {0}"
@@ -929,7 +929,7 @@ msgid "Dark with purple"
 msgstr "深紫"
 
 msgid "Dark with teal"
-msgstr "靛藍"
+msgstr "深色搭配青色"
 
 msgid "Light with maroon"
 msgstr "淺栗紅"
@@ -978,7 +978,7 @@ msgid "Drag and drop PDF files here"
 msgstr "請將 PDF 檔拖放至此處"
 
 msgid "Set as range for all"
-msgstr "設定為所有範圍"
+msgstr "針對所有設定為範圍"
 
 msgid "Move to Top"
 msgstr "移至頂端"
@@ -1051,7 +1051,7 @@ msgid "Move _Down"
 msgstr "下移 (_D)"
 
 msgid "Pace"
-msgstr "步進"
+msgstr "步調"
 
 msgid ""
 "Double click to set the number of pages after which the task will switch to "
@@ -1065,7 +1065,7 @@ msgid "Pages"
 msgstr "頁數"
 
 msgid "Number of total pages of the document"
-msgstr "文件頁面總數的頁數"
+msgstr "文件總頁數"
 
 msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr "雙擊滑鼠進行選擇頁面的設定(例: 2 或 5-23 或 2,5-7,12-)"
@@ -1137,7 +1137,7 @@ msgid "Add prefix"
 msgstr "新增前綴"
 
 msgid "Generated PDF documents name prefix:"
-msgstr "以這個名稱作為後綴生成 PDF 檔案："
+msgstr "已產生PDF文件名稱前綴："
 
 msgid "Prefix for the output files name."
 msgstr "輸出檔案的名稱前綴。"
@@ -1165,7 +1165,7 @@ msgstr "正在處理"
 
 #, java-format
 msgid "Running {0}%"
-msgstr "執行了 {0}%"
+msgstr "執行中 {0}%"
 
 #, java-format
 msgid "Error saving content to file {0}"
@@ -1222,7 +1222,7 @@ msgstr "無效的數字：{0}。"
 #~ msgstr "目標資料夾"
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr "PDF文件需要使用.pdf扩展名"
+msgstr "重複的檔案需要 .pdf 副檔名"
 
 msgid "A .pdf destination file extension is required"
 msgstr "需要PDF目标文件扩展名"
@@ -1237,7 +1237,7 @@ msgid "Duplicate Down"
 msgstr "向下复制"
 
 msgid "Duplicate at Bottom"
-msgstr "底部复制"
+msgstr "複製到底部"
 
 msgid "Follow us on Bluesky"
 msgstr "在 Bluesky 上關注我們"
@@ -1261,10 +1261,10 @@ msgid "Unlock selected"
 msgstr "解鎖選定"
 
 msgid "Workspace has changed"
-msgstr "Робоча область змінилася"
+msgstr "工作區已變更"
 
 msgid "Do you want to save it?"
-msgstr "Ви хочете зберегти його?"
+msgstr "您要儲存嗎"
 
 msgid "Set as pace for all"
-msgstr ""
+msgstr "設定為所有項目的步調"

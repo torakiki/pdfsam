@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-10-23 12:51+0200\n"
+"PO-Revision-Date: 2026-01-03 13:01+0100\n"
 "Last-Translator: Isaiah Pereira <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -74,7 +74,7 @@ msgid "Split at this bookmark level:"
 msgstr "Dividir neste nível de marcador de texto:"
 
 msgid "Matching regular expression:"
-msgstr "Procura pela expressão regular:"
+msgstr "Expressão regular para correspondência:"
 
 msgid "A regular expression the bookmark text has to match"
 msgstr "Uma expressão regular que o texto do marcador tem que corresponder"
@@ -126,7 +126,7 @@ msgid "Split after the following page numbers"
 msgstr "Dividir após as seguintes páginas"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr "Dividir números de página em (n1,n2,n3..)"
+msgstr "Páginas para dividir (n1,n2,n3..)"
 
 msgid "Invalid page numbers"
 msgstr "Números de páginas inválidos"
@@ -279,7 +279,7 @@ msgid "Flatten"
 msgstr "Achatar"
 
 msgid "Discard forms"
-msgstr "Formulários descartados"
+msgstr "Descartar formulários"
 
 msgid "Interactive forms (AcroForms):"
 msgstr "Formulários interativos (AcroForms)"
@@ -292,7 +292,7 @@ msgid "Retain bookmarks"
 msgstr "Manter marcações de texto"
 
 msgid "Discard bookmarks"
-msgstr "Descartar marcações de texto"
+msgstr "Descartar marcadores"
 
 msgid "Create one entry for each merged document"
 msgstr "Criar uma entrada para cada documento mesclado"
@@ -331,7 +331,7 @@ msgid "Merge multiple PDF documents or subsections of them."
 msgstr "Mesclar vários documentos PDF ou suas subseções."
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr "Selecione ou arraste o PDF de onde os arquivos serão repetidos"
+msgstr "Selecione ou arraste e solte o PDF cujas páginas serão repetidas"
 
 msgid "Repeat these pages:"
 msgstr "Repetir estas páginas:"
@@ -366,7 +366,7 @@ msgid "The number of pages must be a positive number"
 msgstr "O número de páginas deve ser um número positivo"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr "Selecione ou arraste o PDF de onde deseja inserir páginas"
+msgstr "Selecione ou arraste o PDF no qual deseja inserir páginas"
 
 msgid "A .pdf destination file extension is required"
 msgstr "É necessária uma extensão de arquivo de destino .pdf"
@@ -428,7 +428,7 @@ msgid "No"
 msgstr "Não"
 
 msgid "Confirm clearing"
-msgstr "Confirmação"
+msgstr "Confirmar limpeza"
 
 msgid "Do you confirm?"
 msgstr "Você confirma?"
@@ -437,7 +437,7 @@ msgid "Clear the tool settings"
 msgstr "Limpar as configurações de ferramentas"
 
 msgid "Clear the selection table"
-msgstr "Limpar arquivos selecionados"
+msgstr "Limpar tabela de seleção"
 
 msgid "Open with"
 msgstr "Abrir com"
@@ -544,7 +544,7 @@ msgid "Select where to save the log file"
 msgstr "Selecione onde deseja salvar o registro"
 
 msgid "Logs"
-msgstr "Registos"
+msgstr "Registros"
 
 msgid "Application messages"
 msgstr "Mensagens do aplicativo"
@@ -553,16 +553,16 @@ msgid "_Load"
 msgstr "_Carregar"
 
 msgid "Recen_ts"
-msgstr "Recen_ts"
+msgstr "Recen_tes"
 
 msgid "_Clear recents"
-msgstr "_Clear recents"
+msgstr "_Limpar recentes"
 
 msgid "Select the workspace file to save"
-msgstr "Selecione área de trabalho para salvar"
+msgstr "Selecione o arquivo de espaço de trabalho para salvar"
 
 msgid "Select the workspace to load"
-msgstr "Selecione área de trabalho para ler"
+msgstr "Selecione o espaço de trabalho para carregar"
 
 msgid "Subscribe to the official news feed"
 msgstr "Inscreva-se no canal oficial de notícias"
@@ -768,8 +768,7 @@ msgstr "Ativar a compressão de PDF"
 
 msgid "Set whether \"Compress output file\" should be enabled by default"
 msgstr ""
-"Selecionar caso \"Comprimir arquivo de saída\" deva ser permitido por padrão."
-""
+"Selecionar caso \"Comprimir arquivo de saída\" deva ser permitido por padrão"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr "Definir se \"Descartar marcadores\" deve ser habilitado por padrão"
@@ -814,8 +813,8 @@ msgid ""
 "Set whether the application should fetch and show premium features "
 "description in the modules dashboard"
 msgstr ""
-"Set whether the application should fetch and show premium features "
-"description in the modules dashboard"
+"Configurar se o aplicativo deve buscar e exibir a descrição dos recursos "
+"premium no painel de módulos"
 
 msgid "Ask for a confirmation when clearing the selection table"
 msgstr "Solicitar confirmação ao limpar a tabela de seleção"
@@ -834,7 +833,9 @@ msgid "Save default workspace on exit"
 msgstr "Salvar área de trabalho padrão ao sair"
 
 msgid "If a default workspace is set, save it on application exit"
-msgstr "Se uma área de trabalho padrão"
+msgstr ""
+"Se um espaço de trabalho padrão estiver definido, salve-o ao sair do "
+"aplicativo"
 
 msgid "Maximum number of rows mast be a positive number"
 msgstr "Número máximo de linhas deve ser um número positivo"
@@ -942,7 +943,7 @@ msgstr "Incapaz de encontrar algum PDF válido na lista: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr "Incapaz de encontrar algum PDF na lista: {0}"
+msgstr "Não foi possível carregar o arquivo de lista de PDFs de {0}"
 
 msgid "Loading pdf documents"
 msgstr "Carregando os arquivos em PDF"
@@ -1085,7 +1086,7 @@ msgid "Move to Bottom"
 msgstr "Mover para a base"
 
 msgid "Duplicate"
-msgstr "Duplicado"
+msgstr "Duplicar"
 
 msgid "Duplicate at Top"
 msgstr "Duplicar no Topo"
@@ -1161,8 +1162,8 @@ msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
-"Duplo clique para escolher o número de páginas após a tarefa irá mudar para "
-"o próximo arquivo"
+"Duplo clique para definir o número de páginas após as quais a tarefa passará "
+"para o próximo arquivo"
 
 msgid "Reverse"
 msgstr "Inverter"
@@ -1262,7 +1263,7 @@ msgid "Generated PDF documents name prefix:"
 msgstr "Prefixo dos documentos PDF gerados:"
 
 msgid "Prefix for the output files name."
-msgstr "Prefixo para o arquivo gerado."
+msgstr "Prefixo para o nome dos arquivos de saída."
 
 msgid "DEFAULT_PREFIX"
 msgstr "PREFIXO_PADRÃO"
