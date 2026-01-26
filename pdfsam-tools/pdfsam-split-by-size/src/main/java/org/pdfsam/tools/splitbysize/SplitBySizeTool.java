@@ -85,7 +85,7 @@ public class SplitBySizeTool implements Tool {
         @Provides
         @Named(TOOL_ID + "field")
         public BrowsableOutputDirectoryField destinationDirectoryField() {
-            BrowsableOutputDirectoryField field = new BrowsableOutputDirectoryField();
+            BrowsableOutputDirectoryField field = new BrowsableOutputDirectoryField(TOOL_ID);
             field.setId(TOOL_ID + "field");
             return field;
         }
