@@ -531,7 +531,7 @@
                                             <directory>${basedir}/src/dmg</directory>
                                             <includes>
                                                 <include>*.icns</include>
-                                                <include>**/*</include>
+                                                <include>resources/*</include>
                                             </includes>
                                         </resource>
                                     </resources>
