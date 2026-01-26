@@ -83,7 +83,7 @@
                                         <argument>
                                             java.base,java.logging,java.naming,java.sql,java.desktop,java.xml,java.management,jdk.unsupported,java.prefs,jdk.localedata
                                         </argument>
-                                        <argument>--include-locales=en-*,af,ar,bg,bs,ca,co,cs,da,de,el,es,eu,fi,fr,he,hi,hu,hr,ko,jp,it,lt,lv,ms,nl,nb,oc,pt-*,pl,pt,ro,ru,sk,sl,sr,sv,tr,zh-*,uk</argument>
+                                        <argument>--include-locales=en-*,af,ar,bg,bs,ca,co,cs,da,de,el,es,eu,fi,fr,he,hi,hu,hr,ko,jp,it,lo,lt,lv,ms,nl,nb,oc,pt-*,pl,pt,ro,ru,sk,sl,sr,sv,tr,zh-*,uk</argument>
                                         <argument>--output</argument>
                                         <argument>${project.build.directory}/assembled/runtime</argument>
                                         <argument>--compress</argument>

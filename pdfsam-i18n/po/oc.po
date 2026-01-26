@@ -2,20 +2,20 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the pdfsam package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"POT-Creation-Date: 2024-10-23 17:08+0200\n"
+"PO-Revision-Date: 2025-11-29 20:05+0000\n"
 "Last-Translator: Quentin PAGÈS <Unknown>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Launchpad-Export-Date: 2026-01-26 07:52+0000\n"
+"X-Generator: Launchpad (build 9fcfff1971229ac997140f06b41a902ac8ec69f4)\n"
 "Language: oc\n"
 
 msgid "No PDF document has been selected"
@@ -42,8 +42,8 @@ msgstr "Un fichièr separat per cada jòc de paginas"
 msgid "Each continuous series of pages will generate a separate PDF file"
 msgstr "Cada seria continua de paginas generarà un fichièr PDF separat"
 
-#~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
-#~ msgstr "Paginas d’extraire (ex : 2 o 5-23 o 2,5-7,12-)"
+msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
+msgstr "Paginas d'extraire (ex. : 2 o 5-23 o 2,5-7,12- o 3, darrièra)"
 
 msgid "Invalid page ranges"
 msgstr "Plaja de paginas invalida"
@@ -51,12 +51,12 @@ msgstr "Plaja de paginas invalida"
 msgid "Extract pages:"
 msgstr "Extraire paginas :"
 
-#~ msgid ""
-#~ "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-#~ ")"
-#~ msgstr ""
-#~ "Numèros de pagina separats per de virgula o plaja d’extraire (ex : 2 or 5-23 "
-#~ "or 2,5-7,12-)"
+msgid ""
+"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
+" or 3,last)"
+msgstr ""
+"Numèros o plajas de paginas d'extraire, separats per de virgulas (ex : 2 o 5-"
+"23 o 2, 5-7,12- o 3, darrièra)"
 
 msgid "Split by bookmarks"
 msgstr "Devesir per marcapagina"
@@ -118,7 +118,8 @@ msgstr "Paginas imparas"
 msgid "Split the document after the given page numbers"
 msgstr "Devesir un document PDF als numèros de pagina donats"
 
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Devesir lo PDF cada « n » paginas per crear de document de « n » paginas "
 "cadun"
@@ -154,7 +155,7 @@ msgid "Kilobytes"
 msgstr "Kilooctets"
 
 msgid "KB"
-msgstr "Ko"
+msgstr "ko"
 
 msgid "Split by size"
 msgstr "Devesir per talha"
@@ -187,7 +188,8 @@ msgstr ""
 "Fusionar dos o mai documents PDF en prenent las paginas alternativament en "
 "òrdre natural o inversat"
 
-msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Dobla clicatz per definir las paginas que volètz mesclar (ex. : 2 o 5-23 o "
 "2,5-7, 12-)"
@@ -248,7 +250,8 @@ msgid "Add a footer"
 msgstr "Apondre un pè de pagina"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr "Ajusta un pè de pagina amb lo nom del fichièr d’origina de la pagina."
+msgstr ""
+"Ajusta un pè de pagina amb lo nom del fichièr d’origina de la pagina."
 
 msgid "None"
 msgstr "Pas cap"
@@ -258,8 +261,7 @@ msgstr "Meteissa largor que la primièra pagina"
 
 msgid "Same width as first page (based on page orientation)"
 msgstr ""
-"Meteissa largor que la primièra pagina (basat sus l’orientacion de la "
-"pagina)"
+"Meteissa largor que la primièra pagina (basat sus l’orientacion de la pagina)"
 
 msgid "Pages normalization:"
 msgstr "Normalizacion de las paginas :"
@@ -271,11 +273,11 @@ msgstr ""
 "Indica se las paginas devon èsser retalhadas per qu’ajan la meteissa largor "
 "que la primièra pagina"
 
-msgid "Merge fields"
-msgstr "Fusionar los camps"
-
 msgid "Merge renaming existing fields"
 msgstr "Fusionar e renomenar los camps existents"
+
+msgid "Merge fields"
+msgstr "Fusionar los camps"
 
 msgid "Flatten"
 msgstr "Aplatir"
@@ -359,14 +361,17 @@ msgid "Repeat the selected pages every \"n\" pages of the original document"
 msgstr ""
 "Repetir las paginas seleccionadas cada « n » paginas del document original"
 
-msgid "The selected PDF file is invalid"
-msgstr "Lo fichièr PDF seleccionat es invalid"
+msgid "A .pdf extension is required for the repeating file"
+msgstr "Una extension .pdf es requerida pel fichièr repetitiu."
 
 msgid "The number of pages must be a positive number"
 msgstr "Lo nombre de paginas deu èsser un nombre positiu"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
 msgstr "Seleccionatz o depausatz lo PDF ont volètz inserir de paginas"
+
+msgid "A .pdf destination file extension is required"
+msgstr "Una extension de fichièr de destinacion .pdf es requerida."
 
 msgid "Insert and Repeat settings"
 msgstr "Inserir e repetir los paramètres"
@@ -605,8 +610,8 @@ msgstr "Far un don"
 msgid "Social"
 msgstr "Social"
 
-#~ msgid "Follow us on Twitter"
-#~ msgstr "Seguissètz-nos sus Twitter"
+msgid "Follow us on Twitter"
+msgstr "Seguissètz-nos sus Twitter"
 
 msgid "Like us on Facebook"
 msgstr "Aimatz nòstre Facebook"
@@ -700,7 +705,8 @@ msgstr "Sortida"
 msgid "Check for updates now"
 msgstr "Verificar las mesas a jorn ara"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Seleccionar lo repertòri ont los documents seràn enregistrats e cargats per "
 "defaut"
@@ -763,10 +769,10 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Remplaçar los fichièrs"
 
-msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
-"Indica se l’opcion « Remplaçar se ja existent » deu èsser activada per "
-"defaut"
+"Indica se l’opcion « Remplaçar se ja existent » deu èsser activada per defaut"
 
 msgid "Play alert sounds"
 msgstr "Legir los sons d’alerta"
@@ -1065,6 +1071,18 @@ msgstr "Desplaçar cap aval"
 msgid "Duplicate"
 msgstr "Duplicar"
 
+msgid "Duplicate at Top"
+msgstr "Duplicar ennaut"
+
+msgid "Duplicate Up"
+msgstr "Duplicar cap amont"
+
+msgid "Duplicate Down"
+msgstr "Duplicar enbàs"
+
+msgid "Duplicate at Bottom"
+msgstr "Duplicar cap aval"
+
 msgid "Selected pages"
 msgstr "Paginas seleccionadas"
 
@@ -1181,10 +1199,12 @@ msgstr "Remplaçar se ja existent"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
-""
 msgstr ""
 "Marcatz la casa se volètz subrecargar los fichièrs de sortida s’existisson "
 "ja."
+
+msgid "The selected PDF file is invalid"
+msgstr "Lo fichièr PDF seleccionat es invalid"
 
 msgid "Same as the input document"
 msgstr "Pariu coma lo document en entrada"
@@ -1245,16 +1265,17 @@ msgstr "Tractament"
 msgid "Running {0}%"
 msgstr "Execucion {0}%"
 
-#~ msgid "Error saving log file."
-#~ msgstr "Error d'enregistrament del fichièr de log."
+#, java-format
+msgid "Error saving content to file {0}"
+msgstr "Error al moment de la salvagarda del contengut dins lo fichièr {0}"
 
 #, java-format
-#~ msgid "File {0} saved."
-#~ msgstr "Fichièr {0} enregistrat."
+msgid "File {0} saved"
+msgstr "Fichièr {0} enregistrat"
 
-#, java-format
-msgid "Invalid range: {0}."
-msgstr "Plaja invalida : {0}"
+msgid "Error saving content to clipboard"
+msgstr ""
+"Error al moment de l'enregistrament del contengut dins lo quichapapièrs"
 
 #, java-format
 msgid ""
@@ -1263,6 +1284,10 @@ msgid ""
 msgstr ""
 "La definicion de la plaja es ambigüa : {0}. Emplegatz aquestes formats : [n] "
 "o [n1-n2] o [-n] o [n-]"
+
+#, java-format
+msgid "Invalid range: {0}."
+msgstr "Plaja invalida : {0}"
 
 #, java-format
 msgid "Invalid number: {0}."
@@ -1276,72 +1301,3 @@ msgstr "Nombre invalid : {0}."
 
 #~ msgid "Destination folder"
 #~ msgstr "Dorsièr de creacion"
-
-msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
-msgstr "Paginas d'extraire (ex: 2 o 5-23 o 2,5-7,12- o 3,darrièra)"
-
-msgid ""
-"Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
-" or 3,last)"
-msgstr ""
-"Numèros de pagina o intervales a extraire, separats per virgulas (ex: 2 o 5-"
-"23 o 2,5-7,12- o 3,darrièra)"
-
-msgid "A .pdf extension is required for the repeating file"
-msgstr "Una extension .pdf es requesida pel fichièr repetit"
-
-msgid "A .pdf destination file extension is required"
-msgstr "Una extension de fichièr de destinacion .pdf es requesida"
-
-msgid "Duplicate at Top"
-msgstr "Duplicar en cap"
-
-msgid "Duplicate Up"
-msgstr "Duplicar Amont"
-
-msgid "Duplicate Down"
-msgstr "Duplicar cap aval"
-
-msgid "Duplicate at Bottom"
-msgstr "Duplicar en bas"
-
-#, java-format
-msgid "Error saving content to file {0}"
-msgstr "Error d'enregistrament del contengut al fichièr {0}"
-
-#, java-format
-msgid "File {0} saved"
-msgstr "Fichièr {0} salvat"
-
-msgid "Error saving content to clipboard"
-msgstr "Error en registrar contengut al pòrta-papièrs"
-
-msgid "Follow us on Bluesky"
-msgstr "Seguissetz-nos sus Bluesky"
-
-msgid "Font:"
-msgstr "Polícia:"
-
-msgid "Sets the application font"
-msgstr "Definís la polícia de l'aplicacion"
-
-msgid "Default"
-msgstr "Per defaut"
-
-msgid "Light"
-msgstr "Clar"
-
-msgid "Dark"
-msgstr "Escur"
-
-msgid "Unlock selected"
-msgstr "Desblocar seleccionats"
-
-msgid "Workspace has changed"
-msgstr "Espaci de trabalh a cambiat"
-
-msgid "Do you want to save it?"
-msgstr "Volètz lo salvar?"
-
-msgid "Set as pace for all"
-msgstr ""

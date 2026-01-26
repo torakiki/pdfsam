@@ -51,7 +51,7 @@ public final class I18nContext {
             Locale.of("nb"), Locale.of("lt"), Locale.of("ms"), Locale.JAPANESE, Locale.ITALIAN, Locale.of("pl"),
             Locale.of("pt"), Locale.of("ro"), Locale.of("ru"), Locale.of("sk"), Locale.of("sl"), Locale.of("sr"),
             Locale.of("sv"), Locale.of("es"), Locale.of("tr"), Locale.of("uk"), Locale.of("fi"), Locale.of("ko"),
-            Locale.of("oc"));
+            Locale.of("oc"), Locale.of("lo"));
 
     private final SimpleObjectProperty<Locale> locale = new SimpleObjectProperty<>();
     private Optional<ResourceBundle> bundle = empty();

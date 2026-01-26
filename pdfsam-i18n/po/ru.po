@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"PO-Revision-Date: 2026-01-26 09:11+0100\n"
 "Last-Translator: Sergej <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-04-17 17:36+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Launchpad-Export-Date: 2026-01-26 07:52+0000\n"
+"X-Generator: Autopo v1.0.8-SNAPSHOT\n"
 "Language: ru\n"
 
 msgid "No PDF document has been selected"
@@ -69,20 +69,22 @@ msgstr ""
 "закладки"
 
 msgid "Regular expression the bookmark has to match"
-msgstr "Текст для выборки закладок"
+msgstr "Регулярное выражение которому должна соответствовать закладка"
 
 msgid "Split at this bookmark level:"
 msgstr "Разбить по уровням закладок:"
 
 msgid "Matching regular expression:"
-msgstr "Выбор закладок содержащих текст:"
+msgstr "Соответствующее регулярное выражение"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr "Выбираются закладки содержащие данный текст"
+msgstr "Регулярное выражение которому должен соответствовать текст закладки"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
-msgstr "Например напишите *Глава* для выбора закладок со словом \"Глава\""
+msgstr ""
+"Пример: использовать .*Chapter.* для поиска закладок содержащих слово "
+"\"Chapter\""
 
 msgid "Select or drag and drop the PDF you want to split"
 msgstr "Выберите или перетащите PDF файл который вы хотите разделить"
@@ -216,7 +218,7 @@ msgid "Rotate"
 msgstr "Повернуть"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr "Поворот страниц в многостраничном документе PDF."
+msgstr "Повернуть страницы нескольких PDF-документов."
 
 msgid ""
 "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
@@ -234,7 +236,7 @@ msgstr ""
 "2,5-7,12-)"
 
 msgid "Add a blank page if page number is odd"
-msgstr "Добавить пустую страницу в документах с нечетным количеством страниц"
+msgstr "Добавить пустую страницу если номер страницы нечетный"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
@@ -297,7 +299,8 @@ msgid "Create one entry for each merged document"
 msgstr "Создать одну запись для каждого объединенного документа"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr "Сохранять закладки как одну для каждого объединенного документа"
+msgstr ""
+"Сохранять закладки как одну запись для каждого объединенного документа"
 
 msgid "Bookmarks handling:"
 msgstr "Управление закладками:"
@@ -361,7 +364,7 @@ msgstr ""
 "Повторять выбранные страницы через каждые 'n' страниц исходного документа"
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr "Для повторяющегося файла требуется расширение .pdf"
+msgstr "Для выходного файла требуется расширение .pdf"
 
 msgid "The number of pages must be a positive number"
 msgstr "Количество страниц должно быть положительным числом"
@@ -371,10 +374,10 @@ msgstr ""
 "Выберите или перетащите PDF-файл, в который вы хотите вставить страницы"
 
 msgid "A .pdf destination file extension is required"
-msgstr "Требуется разрешение файла .pdf"
+msgstr "Необходимо расширение файла назначения .pdf"
 
 msgid "Insert and Repeat settings"
-msgstr "Вставить и повторить настройки"
+msgstr "Настройки вставки и повтора"
 
 msgid "Insert pages multiple times"
 msgstr "Вставить страницы несколько раз"
@@ -419,7 +422,7 @@ msgid "Exit the application"
 msgstr "Выйти из приложения"
 
 msgid "Workspace"
-msgstr "Рабочий профиль"
+msgstr "Рабочая область"
 
 msgid "Manage your workspaces"
 msgstr "Управление рабочими профилями"
@@ -440,7 +443,7 @@ msgid "Clear the tool settings"
 msgstr "Очистить настройки инструмента"
 
 msgid "Clear the selection table"
-msgstr "Очистить выбранную таблицу"
+msgstr "Очистить таблицу выделения"
 
 msgid "Open with"
 msgstr "Открыть с помощью"
@@ -547,7 +550,7 @@ msgid "Application messages"
 msgstr "Сообщения приложения"
 
 msgid "_Load"
-msgstr "_Загрузка"
+msgstr "_Загрузить"
 
 msgid "Recen_ts"
 msgstr "Недавние"
@@ -603,7 +606,7 @@ msgid "Contribute"
 msgstr "Внести свой вклад"
 
 msgid "Fork PDFsam on GitHub"
-msgstr "PDFsam на сайте GitHub"
+msgstr "Форк PDFsam на GitHub"
 
 msgid "Translate"
 msgstr "Перевести"
@@ -612,10 +615,10 @@ msgid "Donate"
 msgstr "Помочь проекту"
 
 msgid "Social"
-msgstr "Общественный"
+msgstr "Соцсети"
 
-#~ msgid "Follow us on Twitter"
-#~ msgstr "Следите за нами на Twitter"
+msgid "Follow us on Twitter"
+msgstr "Следите за нами на Twitter"
 
 msgid "Like us on Facebook"
 msgstr "Лайкай нас на Facebook"
@@ -624,7 +627,7 @@ msgid "About"
 msgstr "О программе"
 
 msgid "Home"
-msgstr "Панель модулей"
+msgstr "Главная"
 
 msgid "Premium features"
 msgstr "Дополнительные возможности"
@@ -703,14 +706,15 @@ msgid "Behavior"
 msgstr "Поведение приложения"
 
 msgid "Output"
-msgstr "Каталог для вывода результатов"
+msgstr "Вывод"
 
 msgid "Check for updates now"
 msgstr "Проверить наличие обновлений"
 
 msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
-"Выберите каталог, куда документы будут сохранятся и загружатся по умолчанию"
+"Выберите каталог в котором документы будут сохраняться и загружаться по "
+"умолчанию"
 
 msgid "Select a directory"
 msgstr "Выберите каталог"
@@ -730,7 +734,7 @@ msgid "Load default workspace at startup:"
 msgstr "Загрузить рабочий профиль при запуске:"
 
 msgid "System default"
-msgstr "Системные настройки"
+msgstr "Системное значение"
 
 msgid "Check for updates at startup"
 msgstr "Проверить наличие обновлений при запуске"
@@ -764,7 +768,7 @@ msgstr "Перезаписать файлы"
 
 msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
-"Установить включенным по умолчанию \"Перезаписать, если уже существует\"."
+"Установить должно ли быть включено по умолчанию Перезаписывать при наличии"
 
 msgid "Play alert sounds"
 msgstr "Воспроизводить звуковые предупреждения"
@@ -858,10 +862,10 @@ msgid "You performed {0} tasks with PDFsam, did it help?"
 msgstr "Вы выполнили {0} задач с PDFsam, это помогло?"
 
 msgid "Give something back"
-msgstr "Дайте что-нибудь взамен"
+msgstr "Поддержите нас"
 
 msgid "PDFsam worked hard!"
-msgstr "PDFsam работает для Вас!"
+msgstr "PDFsam хорошо поработал!"
 
 msgid "Spread the word!"
 msgstr "Расскажи миру!"
@@ -938,7 +942,7 @@ msgid "Documents loaded"
 msgstr "Документы загружены"
 
 msgid "Unable to retrieve premium features description"
-msgstr "Невозможно получить описание дполнительных модулей"
+msgstr "Не удалось получить описание премиум-функций"
 
 msgid "Fetching premium modules"
 msgstr "Получить дополнительные модули"
@@ -1140,8 +1144,8 @@ msgid ""
 "Double click to set the number of pages after which the task will switch to "
 "the next file"
 msgstr ""
-"Щелкните дважды мышью чтобы указать номера страниц после которых перейти к "
-"следующему файлу"
+"Дважды щелкните чтобы задать количество страниц после которого задача "
+"переключится на следующий файл"
 
 msgid "Reverse"
 msgstr "В обратном порядке"
@@ -1243,7 +1247,7 @@ msgid "Run the task"
 msgstr "Запустить задание"
 
 msgid "Requested"
-msgstr "Проверка файлов"
+msgstr "Запрошено"
 
 msgid "Completed"
 msgstr "Выполнено"
@@ -1321,33 +1325,3 @@ msgstr "Неверное число: {0}."
 
 #~ msgid "Output document pdf version:"
 #~ msgstr "Версия PDF готового документа:"
-
-msgid "Follow us on Bluesky"
-msgstr "Подпишитесь на нас в Bluesky"
-
-msgid "Font:"
-msgstr "Шрифт:"
-
-msgid "Sets the application font"
-msgstr "Устанавливает шрифт приложения"
-
-msgid "Default"
-msgstr "По умолчанию"
-
-msgid "Light"
-msgstr "Светлый"
-
-msgid "Dark"
-msgstr "Тёмная"
-
-msgid "Unlock selected"
-msgstr "Разблокировать выбранное"
-
-msgid "Workspace has changed"
-msgstr "Рабочая область изменилась"
-
-msgid "Do you want to save it?"
-msgstr "Вы хотите сохранить его?"
-
-msgid "Set as pace for all"
-msgstr ""
