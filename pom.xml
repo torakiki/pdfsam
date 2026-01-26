@@ -4,7 +4,7 @@
     <groupId>org.pdfsam</groupId>
     <artifactId>pdfsam-parent</artifactId>
     <packaging>pom</packaging>
-    <version>5.4.5-SNAPSHOT</version>
+    <version>5.4.5</version>
     <name>PDFsam</name>
     <description>A free open source desktop application to split and merge pdf documents</description>
     <url>https://pdfsam.org</url>
@@ -17,7 +17,7 @@
         <connection>scm:git:git@github.com:torakiki/pdfsam.git</connection>
         <developerConnection>scm:git:git@github.com:torakiki/pdfsam.git</developerConnection>
         <url>scm:git:git@github.com:torakiki/pdfsam.git</url>
-        <tag>v5.4.2</tag>
+        <tag>v5.4.5</tag>
     </scm>
 
     <licenses>
