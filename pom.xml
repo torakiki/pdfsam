@@ -263,7 +263,7 @@
         <testfx.version>4.0.18</testfx.version>
         <javafx.version>23.0.2</javafx.version>
         <jakarta-el.version>4.0.2</jakarta-el.version>
-        <jakarta.inject.version>2.0.1</jakarta.inject.version>
+        <jakarta.inject.version>2.0.1.MR</jakarta.inject.version>
         <validation.api.version>3.0.2</validation.api.version>
         <monocle.version>21</monocle.version>
         <maven.build.timestamp.format>dd-MMM-yyyy</maven.build.timestamp.format>
