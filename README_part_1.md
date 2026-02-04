@@ -24,34 +24,6 @@ PDFsam (PDF Split And Merge) Basic is a free, open-source, multi-platform deskto
 
 ### 1.4 Project Architecture
 
-PDFsam follows a modular multi-project Maven structure:
-
-```
-pdfsam/
-├── pdfsam-basic          # Main application entry point
-├── pdfsam-core           # Core utilities and support classes
-├── pdfsam-gui            # GUI components and controllers
-├── pdfsam-model          # Domain model classes
-├── pdfsam-service        # Business services
-├── pdfsam-persistence    # Data persistence layer
-├── pdfsam-themes         # UI themes
-├── pdfsam-i18n           # Internationalization
-├── pdfsam-fonts          # Font resources
-├── pdfsam-ui-components  # Reusable UI components
-├── pdfsam-test           # Test utilities
-└── pdfsam-tools/         # PDF manipulation tools
-    ├── pdfsam-merge
-    ├── pdfsam-rotate
-    ├── pdfsam-extract
-    ├── pdfsam-simple-split
-    ├── pdfsam-split-by-size
-    ├── pdfsam-split-by-bookmarks
-    ├── pdfsam-alternate-mix
-    └── pdfsam-backpages
-```
-
-The application relies heavily on the **Sejda** library for low-level PDF operations, providing a robust foundation for document manipulation.
-
 ---
 
 ## 2. Build Documentation
@@ -77,13 +49,13 @@ PDFsam uses Java 21's preview features (Foreign Function & Memory API), so the `
 
 ```bash
 # Compile the project
-./mvnw clean compile
+mvn clean compile
 
 # Package the application
-./mvnw clean package -DskipTests
+mvn clean package -DskipTests
 
 # Build with tests
-./mvnw clean install
+mvn clean install -DskipTests
 ```
 
 > **Note:** The build includes a profile that automatically configures the Java toolchain if running on an older JDK version.
@@ -94,13 +66,11 @@ After successful compilation, the application can be run using:
 
 ```bash
 cd pdfsam-basic
-mvn exec:java -Dexec.mainClass="org.pdfsam.basic.App"
 ```
 
-Alternatively, the packaged JAR can be executed:
-
 ```bash
-java --enable-preview -jar pdfsam-basic/target/pdfsam-basic-5.4.5-SNAPSHOT.jar
+mvn exec:exec
+```
 ```
 
 ### 2.5 IDE Setup
@@ -232,11 +202,20 @@ The `MergeParametersBuilder` class constructs parameters for PDF merge operation
 
 ### 5.1 New Test Files
 
-
+| File | Location | Team Member |
+|------|----------|-------------|
+| `ZhenyuMergePartitionTest.java` | `pdfsam-tools/pdfsam-merge/src/test/java/org/pdfsam/tools/merge/` | Zhenyu Song |
+| `KarryRotatePartitionTest.java` | `pdfsam-tools/pdfsam-rotate/src/test/java/org/pdfsam/tools/rotate/` | Zian Zhang |
+| `KingsonExtractPartitionTest.java` | `pdfsam-tools/pdfsam-extract/src/test/java/org/pdfsam/tools/extract/` | Kingson Zhang |
 
 ### 5.2 Running the Partition Tests
 
-
+```bash
+# Run individual partition tests
+mvn test -pl pdfsam-tools/pdfsam-merge -Dtest=ZhenyuMergePartitionTest
+mvn test -pl pdfsam-tools/pdfsam-rotate -Dtest=KarryRotatePartitionTest
+mvn test -pl pdfsam-tools/pdfsam-extract -Dtest=KingsonExtractPartitionTest
+```
 
 ---
 
