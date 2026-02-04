@@ -56,15 +56,17 @@ PDFsam uses Java 21's preview features (Foreign Function & Memory API), so the `
 ```bash
 # Compile the project
 mvn clean compile
+```
 
+```bash
 # Package the application
 mvn clean package -DskipTests
+```
 
+```bash
 # Build with tests
 mvn clean install -DskipTests
 ```
-
-> **Note:** The build includes a profile that automatically configures the Java toolchain if running on an older JDK version.
 
 ### 2.4 Running the Application
 
@@ -76,7 +78,6 @@ cd pdfsam-basic
 
 ```bash
 mvn exec:exec
-```
 ```
 
 ### 2.5 IDE Setup
