@@ -56,15 +56,17 @@ PDFsam uses Java 21's preview features (Foreign Function & Memory API), so the `
 ```bash
 # Compile the project
 mvn clean compile
+```
 
+```bash
 # Package the application
 mvn clean package -DskipTests
+```
 
+```bash
 # Build with tests
 mvn clean install -DskipTests
 ```
-
-> **Note:** The build includes a profile that automatically configures the Java toolchain if running on an older JDK version.
 
 ### 2.4 Running the Application
 
@@ -77,7 +79,6 @@ cd pdfsam-basic
 ```bash
 mvn exec:exec
 ```
-```
 
 ### 2.5 IDE Setup
 
@@ -86,6 +87,7 @@ For IntelliJ IDEA or Eclipse:
 1. Import as Maven project
 2. Enable preview features in compiler settings
 3. Set Java 21 as the project SDK
+4. Find and run ./pdfsam-basic/src/main/java/org/pdfsam/basic/App.java
 
 ---
 
@@ -155,21 +157,42 @@ This approach is essential because:
 
 #### 4.3.1 Feature Description
 
-The `MergeParametersBuilder` class constructs parameters for PDF merge operations. It handles:
-- Input PDF collection management
-- Output configuration
-- Outline (bookmark) policies
-- Form handling policies
-- Page normalization
-- Table of contents generation
+The feature under test is the **PDF Merge Configuration**, specifically the `MergeParametersBuilder` class. This component is responsible for collecting user inputs and settings to construct a valid `MergeParameters` object, which drives the actual merge process. It handles critical configuration options such as:
+- Input PDF files and their order.
+- Output file destination and overwrite policies.
+- Processing options (compression, versioning).
+- Content policies (Outline/Bookmarks, Table of Contents, AcroForms handling).
+- Page manipulation (normalization, blank pages for odd-numbered files).
 
 #### 4.3.2 Partitioning Scheme
 
+To ensure robust coverage of the configuration logic, the input space was partitioned based on **builder state complexity** and **input validity**:
 
+1.  **Default State Partition**: The builder is used without any explicit configuration.
+    -   *Goal*: specific verification of safe defaults.
+    -   *Representative Input*: An empty `MergeParametersBuilder` instance.
+2.  **Fully Configured Partition**: The builder is provided with explicit, non-default values for every available setting.
+    -   *Goal*: Verify that all user choices are correctly captured and propagated.
+    -   *Representative Input*: A builder with inputs, `PdfVersion.VERSION_1_6`, `OutlinePolicy.ONE_ENTRY_EACH_DOC`, `ToCPolicy.DOC_TITLES`, etc.
+3.  **Input Sequence Partition**: Multiple inputs added in a specific order.
+    -   *Goal*: specific verification that the merge order respects the user's input sequence.
+    -   *Representative Input*: Inputs `["1.pdf", "2.pdf", "3.pdf"]` added sequentially.
+4.  **Redundant/Edge-Case Input Partition**: Duplicate or redundant inputs.
+    -   *Goal*: specific verification of deduplication logic.
+    -   *Representative Input*: The same `PdfMergeInput` object added twice.
+5.  **Invalid Input Partition**: Null or missing values.
+    -   *Goal*: Ensure null safety and robustness.
+    -   *Representative Input*: `addInput(null)` and setting policies to `null`.
 
 #### 4.3.3 Test Implementation
 
+The partition tests are implemented in `ZhenyuMergePartitionTest.java` using JUnit 5 and Mockito.
 
+-   **`testDefaults()`**: Covers the *Default State Partition*. Asserts that a fresh builder produces parameters with expected defaults (e.g., `OutlinePolicy.RETAIN`, `ToCPolicy.NONE`, `isCompress` false).
+-   **`testFullConfiguration()`**: Covers the *Fully Configured Partition*. Sets every property (e.g., `compress(true)`, `version(1.6)`) and asserts the resulting `MergeParameters` object reflects these exact values.
+-   **`testAddInput_PreservesOrder()`**: Covers the *Input Sequence Partition*. Adds three mock inputs and verifies they appear in the exact same order in the final list.
+-   **`testAddInput_Deduplicates()`**: Covers *Redundant Input Partition*. Adds the same input object twice and asserts the list size is 1.
+-   **`testAddInput_IgnoresNull()`** and **`testNullPolicies_AreAllowed()`**: Covers the *Invalid Input Partition*. Verifies that adding `null` inputs serves no operation and that setting null policies doesn't crash the builder.
 
 ---
 
