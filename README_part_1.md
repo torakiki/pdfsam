@@ -317,13 +317,6 @@ The partition tests are implemented in `ZianRotatePartitionTest.java` using JUni
 
 ### 5.1 New Test Files
 
-<<<<<<< Updated upstream
-
-
-### 5.2 Running the Partition Tests
-
-
-=======
 | File | Location | Team Member |
 |------|----------|-------------|
 | `ZhenyuMergePartitionTest.java` | `pdfsam-tools/pdfsam-merge/src/test/java/org/pdfsam/tools/merge/` | Zhenyu Song |
@@ -338,7 +331,6 @@ mvn test -pl pdfsam-tools/pdfsam-merge -Dtest=ZhenyuMergePartitionTest
 mvn test -pl pdfsam-tools/pdfsam-rotate -Dtest=ZianRotatePartitionTest
 mvn test -pl pdfsam-tools/pdfsam-extract -Dtest=KingsonExtractPartitionTest
 ```
->>>>>>> Stashed changes
 
 ---
 
