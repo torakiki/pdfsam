@@ -1,10 +1,10 @@
 # Details
 
-Date : 2026-02-04 01:22:30
+Date : 2026-02-04 14:36:47
 
 Directory d:\\UCI MSWE\\261P\\pdfsam
 
-Total : 733 files,  35994 codes, 15003 comments, 6817 blanks, all 57814 lines
+Total : 734 files,  36281 codes, 15045 comments, 6869 blanks, all 58195 lines
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
@@ -17,7 +17,7 @@ Total : 733 files,  35994 codes, 15003 comments, 6817 blanks, all 57814 lines
 | [.github/workflows/release.yml](/.github/workflows/release.yml) | YAML | 67 | 0 | 9 | 76 |
 | [CONTRIBUTING.md](/CONTRIBUTING.md) | Markdown | 17 | 0 | 4 | 21 |
 | [README.md](/README.md) | Markdown | 31 | 0 | 13 | 44 |
-| [README\_part\_1.md](/README_part_1.md) | Markdown | 153 | 0 | 101 | 254 |
+| [README\_part\_1.md](/README_part_1.md) | Markdown | 312 | 0 | 118 | 430 |
 | [pdfsam-basic/pom.xml](/pdfsam-basic/pom.xml) | XML | 739 | 2 | 10 | 751 |
 | [pdfsam-basic/src/assembly/portable-linux.xml](/pdfsam-basic/src/assembly/portable-linux.xml) | XML | 14 | 0 | 0 | 14 |
 | [pdfsam-basic/src/assembly/portable-win.xml](/pdfsam-basic/src/assembly/portable-win.xml) | XML | 14 | 0 | 0 | 14 |
@@ -545,6 +545,7 @@ Total : 733 files,  35994 codes, 15003 comments, 6817 blanks, all 57814 lines
 | [pdfsam-tools/pdfsam-extract/src/test/java/org/pdfsam/tools/extract/ExtractOptionsPaneTest.java](/pdfsam-tools/pdfsam-extract/src/test/java/org/pdfsam/tools/extract/ExtractOptionsPaneTest.java) | Java | 90 | 21 | 13 | 124 |
 | [pdfsam-tools/pdfsam-extract/src/test/java/org/pdfsam/tools/extract/ExtractParametersBuilderTest.java](/pdfsam-tools/pdfsam-extract/src/test/java/org/pdfsam/tools/extract/ExtractParametersBuilderTest.java) | Java | 51 | 22 | 6 | 79 |
 | [pdfsam-tools/pdfsam-extract/src/test/java/org/pdfsam/tools/extract/ExtractSelectionPaneTest.java](/pdfsam-tools/pdfsam-extract/src/test/java/org/pdfsam/tools/extract/ExtractSelectionPaneTest.java) | Java | 68 | 21 | 12 | 101 |
+| [pdfsam-tools/pdfsam-extract/src/test/java/org/pdfsam/tools/extract/KingsonExtractPartitionTest.java](/pdfsam-tools/pdfsam-extract/src/test/java/org/pdfsam/tools/extract/KingsonExtractPartitionTest.java) | Java | 128 | 42 | 35 | 205 |
 | [pdfsam-tools/pdfsam-extract/src/test/java/org/pdfsam/tools/extract/TestCycles.java](/pdfsam-tools/pdfsam-extract/src/test/java/org/pdfsam/tools/extract/TestCycles.java) | Java | 12 | 21 | 5 | 38 |
 | [pdfsam-tools/pdfsam-extract/src/test/resources/tinylog-test.properties](/pdfsam-tools/pdfsam-extract/src/test/resources/tinylog-test.properties) | Java Properties | 5 | 0 | 0 | 5 |
 | [pdfsam-tools/pdfsam-merge/pom.xml](/pdfsam-tools/pdfsam-merge/pom.xml) | XML | 91 | 1 | 4 | 96 |
