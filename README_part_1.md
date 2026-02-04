@@ -47,7 +47,7 @@ PDFsam Basic provides the following core functionalities:
 ### 1.3 Technical Overview
 
 > [!IMPORTANT]
-> **Total Project Scale:** 733 files, **35,994 Logical Lines of Code (LLOC)**, and 15,003 comments.
+> **Total Project Scale:** 734 files, **36,281 Logical Lines of Code (LLOC)**, and 15,045 comments.
 
 <details>
 <summary>📊Click to View LOC Details</summary>
@@ -55,10 +55,10 @@ PDFsam Basic provides the following core functionalities:
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| Java | 621 | 29,387 | 14,692 | 6,064 | 50,143 |
+| Java | 622 | 29,515 | 14,734 | 6,099 | 50,348 |
 | XML | 45 | 4,087 | 48 | 153 | 4,288 |
 | PostCSS | 20 | 1,642 | 152 | 366 | 2,160 |
-| Markdown | 3 | 201 | 0 | 118 | 319 |
+| Markdown | 3 | 360 | 0 | 135 | 495 |
 | YAML | 5 | 176 | 14 | 45 | 235 |
 | Java Properties | 22 | 134 | 0 | 4 | 138 |
 | Batch | 4 | 107 | 33 | 39 | 179 |
@@ -324,7 +324,7 @@ This test suite implements a systematic **Input Domain Partitioning** strategy t
 * `[P1a]` Systematic Rotation (90°):** Validates the fundamental mapping of a quadrant clockwise rotation using `Rotation.DEGREES_90`. It ensures that the Builder correctly encapsulates the angular intent into the final task parameters.
 
 ###  Dimension 2: Predefined Page Selection Strategy
-* `[P1a]` (Identity Mapping):** Verifies the "Rotate All" logic using `PredefinedSetOfPages.ALL_PAGES`. For a standard 10-page document, it asserts that all 10 pages are correctly targeted for transformation.
+* `[P2a]` (Identity Mapping):** Verifies the "Rotate All" logic using `PredefinedSetOfPages.ALL_PAGES`. For a standard 10-page document, it asserts that all 10 pages are correctly targeted for transformation.
 * `[P2b]` (Odd Parity Filter):** Evaluates the parity-based filtering using `PredefinedSetOfPages.ODD_PAGES`. It confirms that for a 10-page document, only the 5 odd-indexed pages are selected.
 
 ###  Dimension 3: Parameter Precedence & Override Logic

@@ -1,20 +1,20 @@
 # Summary
 
-Date : 2026-02-04 01:22:30
+Date : 2026-02-04 14:36:47
 
 Directory d:\\UCI MSWE\\261P\\pdfsam
 
-Total : 733 files,  35994 codes, 15003 comments, 6817 blanks, all 57814 lines
+Total : 734 files,  36281 codes, 15045 comments, 6869 blanks, all 58195 lines
 
 Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| Java | 621 | 29,387 | 14,692 | 6,064 | 50,143 |
+| Java | 622 | 29,515 | 14,734 | 6,099 | 50,348 |
 | XML | 45 | 4,087 | 48 | 153 | 4,288 |
 | PostCSS | 20 | 1,642 | 152 | 366 | 2,160 |
-| Markdown | 3 | 201 | 0 | 118 | 319 |
+| Markdown | 3 | 360 | 0 | 135 | 495 |
 | YAML | 5 | 176 | 14 | 45 | 235 |
 | Java Properties | 22 | 134 | 0 | 4 | 138 |
 | Batch | 4 | 107 | 33 | 39 | 179 |
@@ -26,8 +26,8 @@ Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 733 | 35,994 | 15,003 | 6,817 | 57,814 |
-| . (Files) | 5 | 710 | 18 | 162 | 890 |
+| . | 734 | 36,281 | 15,045 | 6,869 | 58,195 |
+| . (Files) | 5 | 869 | 18 | 179 | 1,066 |
 | .github | 4 | 101 | 1 | 14 | 116 |
 | .github (Files) | 2 | 13 | 1 | 2 | 16 |
 | .github\\workflows | 2 | 88 | 0 | 12 | 100 |
@@ -286,7 +286,7 @@ Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-
 | pdfsam-themes\\src\\main\\resources\\themes\\light | 17 | 1,395 | 132 | 313 | 1,840 |
 | pdfsam-themes\\src\\test | 1 | 5 | 0 | 0 | 5 |
 | pdfsam-themes\\src\\test\\resources | 1 | 5 | 0 | 0 | 5 |
-| pdfsam-tools | 98 | 6,129 | 1,780 | 973 | 8,882 |
+| pdfsam-tools | 99 | 6,257 | 1,822 | 1,008 | 9,087 |
 | pdfsam-tools\\pdfsam-alternate-mix | 10 | 512 | 172 | 78 | 762 |
 | pdfsam-tools\\pdfsam-alternate-mix (Files) | 1 | 80 | 1 | 4 | 85 |
 | pdfsam-tools\\pdfsam-alternate-mix\\src | 9 | 432 | 171 | 74 | 677 |
@@ -321,9 +321,9 @@ Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-
 | pdfsam-tools\\pdfsam-backpages\\src\\test\\java\\org\\pdfsam\\tools | 3 | 162 | 57 | 25 | 244 |
 | pdfsam-tools\\pdfsam-backpages\\src\\test\\java\\org\\pdfsam\\tools\\backpages | 3 | 162 | 57 | 25 | 244 |
 | pdfsam-tools\\pdfsam-backpages\\src\\test\\resources | 1 | 5 | 0 | 0 | 5 |
-| pdfsam-tools\\pdfsam-extract | 12 | 678 | 218 | 107 | 1,003 |
+| pdfsam-tools\\pdfsam-extract | 13 | 806 | 260 | 142 | 1,208 |
 | pdfsam-tools\\pdfsam-extract (Files) | 1 | 91 | 1 | 4 | 96 |
-| pdfsam-tools\\pdfsam-extract\\src | 11 | 587 | 217 | 103 | 907 |
+| pdfsam-tools\\pdfsam-extract\\src | 12 | 715 | 259 | 138 | 1,112 |
 | pdfsam-tools\\pdfsam-extract\\src\\main | 6 | 361 | 132 | 67 | 560 |
 | pdfsam-tools\\pdfsam-extract\\src\\main\\java | 6 | 361 | 132 | 67 | 560 |
 | pdfsam-tools\\pdfsam-extract\\src\\main\\java (Files) | 1 | 18 | 18 | 3 | 39 |
@@ -331,12 +331,12 @@ Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-
 | pdfsam-tools\\pdfsam-extract\\src\\main\\java\\org\\pdfsam | 5 | 343 | 114 | 64 | 521 |
 | pdfsam-tools\\pdfsam-extract\\src\\main\\java\\org\\pdfsam\\tools | 5 | 343 | 114 | 64 | 521 |
 | pdfsam-tools\\pdfsam-extract\\src\\main\\java\\org\\pdfsam\\tools\\extract | 5 | 343 | 114 | 64 | 521 |
-| pdfsam-tools\\pdfsam-extract\\src\\test | 5 | 226 | 85 | 36 | 347 |
-| pdfsam-tools\\pdfsam-extract\\src\\test\\java | 4 | 221 | 85 | 36 | 342 |
-| pdfsam-tools\\pdfsam-extract\\src\\test\\java\\org | 4 | 221 | 85 | 36 | 342 |
-| pdfsam-tools\\pdfsam-extract\\src\\test\\java\\org\\pdfsam | 4 | 221 | 85 | 36 | 342 |
-| pdfsam-tools\\pdfsam-extract\\src\\test\\java\\org\\pdfsam\\tools | 4 | 221 | 85 | 36 | 342 |
-| pdfsam-tools\\pdfsam-extract\\src\\test\\java\\org\\pdfsam\\tools\\extract | 4 | 221 | 85 | 36 | 342 |
+| pdfsam-tools\\pdfsam-extract\\src\\test | 6 | 354 | 127 | 71 | 552 |
+| pdfsam-tools\\pdfsam-extract\\src\\test\\java | 5 | 349 | 127 | 71 | 547 |
+| pdfsam-tools\\pdfsam-extract\\src\\test\\java\\org | 5 | 349 | 127 | 71 | 547 |
+| pdfsam-tools\\pdfsam-extract\\src\\test\\java\\org\\pdfsam | 5 | 349 | 127 | 71 | 547 |
+| pdfsam-tools\\pdfsam-extract\\src\\test\\java\\org\\pdfsam\\tools | 5 | 349 | 127 | 71 | 547 |
+| pdfsam-tools\\pdfsam-extract\\src\\test\\java\\org\\pdfsam\\tools\\extract | 5 | 349 | 127 | 71 | 547 |
 | pdfsam-tools\\pdfsam-extract\\src\\test\\resources | 1 | 5 | 0 | 0 | 5 |
 | pdfsam-tools\\pdfsam-merge | 13 | 923 | 222 | 140 | 1,285 |
 | pdfsam-tools\\pdfsam-merge (Files) | 1 | 91 | 1 | 4 | 96 |
