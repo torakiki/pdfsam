@@ -680,6 +680,22 @@
                 </excludes>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <configuration>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>--enable-preview</argument>
+                        <argument>-Dprism.lcdtext=false</argument>
+                        <argument>-classpath</argument>
+                        <classpath />
+                        <argument>org.pdfsam.basic.App</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>
