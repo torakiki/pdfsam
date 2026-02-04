@@ -16,3 +16,4 @@ target/
 .DS_Store
 .idea/
 /.run/
+.vscode/
