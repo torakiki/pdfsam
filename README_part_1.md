@@ -73,11 +73,37 @@ The project is primarily written in Java (approx. 82%), consisting of roughly 35
 
 ### 1.4 Project Architecture
 
+PDFsam follows a modular multi-project Maven structure:
 
+```
+pdfsam/
+├── pdfsam-basic          # Main application entry point
+├── pdfsam-core           # Core utilities and support classes
+├── pdfsam-fonts          # Font resources
+├── pdfsam-gui            # GUI components and controllers
+├── pdfsam-i18n           # Internationalization
+├── pdfsam-model          # Domain model classes
+├── pdfsam-persistence    # Data persistence layer
+├── pdfsam-service        # Business services
+├── pdfsam-test           # Test utilities
+├── pdfsam-themes         # UI themes
+├── pdfsam-ui-components  # Reusable UI components
+└── pdfsam-tools/         # PDF manipulation tools
+    ├── pdfsam-merge
+    ├── pdfsam-rotate
+    ├── pdfsam-extract
+    ├── pdfsam-simple-split
+    ├── pdfsam-split-by-size
+    ├── pdfsam-split-by-bookmarks
+    ├── pdfsam-alternate-mix
+    └── pdfsam-backpages
+```
+
+The application relies heavily on the **Sejda** library for low-level PDF operations, providing a robust foundation for document manipulation.
 
 ---
 
-## 🛠️2. Build Documentation
+## 📝2. Build Documentation
 
 ### 2.1 Prerequisites
 
@@ -174,7 +200,10 @@ src/
 
 ### 3.3 Test Categories
 
+Our code creates a few new testing components. For the first lab testing, we will be primarily testing the pdf manipulation tools found in the tools folder, specifically the extract, merge, and rotate functionality. Below are following currently implemented. As the project continues, we will continue to add more testing.
 
+1. **Unit Tests**: Isolated component testing with mocks
+2. **Integration Tests**: Testing component interactions
 
 ### 3.4 Running Tests
 
@@ -326,15 +355,43 @@ The partition tests are implemented in `ZianRotatePartitionTest.java` using JUni
 
 #### 4.5.1 Feature Description
 
-
+The `ExtractParametersBuilder` class constructs parameters for extracting pages from PDFs. It handles:
+- Page selection expressions (ranges, individual pages, keywords)
+- Selection inversion
+- Separate file output per range
+- Optimization policies
+- Bookmark handling
 
 #### 4.5.2 Partitioning Scheme
 
+**Partition 1: Page Selection Type**
 
+| Partition | Description | Representative Value |
+|-----------|-------------|---------------------|
+| P1a: Single page | One page number | `"5"` |
+| P1b: Single range | Contiguous range | `"1-10"` |
+| P1c: Multiple ranges | Non-contiguous ranges | `"1-5,10-15,20"` |
+| P1d: Last keyword | Special 'last' page | `"last"` |
 
-#### 4.5.3 Test Implementation
+*Rationale*: Different selection types exercise different parsing and processing paths.
 
+**Partition 2: Selection Inversion**
 
+| Partition | Description | Representative Value |
+|-----------|-------------|---------------------|
+| P2a: Normal | Extract specified pages | `invertSelection = false` |
+| P2b: Inverted | Extract all EXCEPT specified | `invertSelection = true` |
+
+*Rationale*: Inversion fundamentally changes the extraction logic.
+
+**Partition 3: Output File Mode**
+
+| Partition | Description | Representative Value |
+|-----------|-------------|---------------------|
+| P3a: Single file | All pages in one output | `separateForEachRange = false` |
+| P3b: Separate files | One file per range | `separateForEachRange = true` |
+
+*Rationale*: Affects output file generation strategy.
 
 ---
 
@@ -361,4 +418,13 @@ mvn test -pl pdfsam-tools/pdfsam-extract -Dtest=KingsonExtractPartitionTest
 
 ## 🎯6. Conclusion
 
+This report documents our analysis of PDFsam Basic, a robust PDF manipulation tool with a well-structured codebase and comprehensive existing test suite. Through systematic partition testing, we have:
 
+1. **Identified key features** suitable for functional testing
+2. **Designed partitioning schemes** that provide systematic coverage of input domains
+3. **Implemented JUnit 5 tests** that exercise each partition with representative values
+4. **Documented our approach** to serve as a foundation for future testing efforts
+
+The partition testing methodology demonstrates its value in revealing potential edge cases and ensuring comprehensive coverage that ad-hoc testing might miss.
+
+The next addition to our testing will include Finite State Machine testing, which will test the different states of the program.
