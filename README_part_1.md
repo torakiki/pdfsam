@@ -24,6 +24,9 @@ PDFsam (PDF Split And Merge) Basic is a free, open-source, multi-platform deskto
 
 ### 1.4 Project Architecture
 
+<<<<<<< HEAD
+test
+=======
 PDFsam follows a modular multi-project Maven structure:
 
 ```
@@ -51,6 +54,7 @@ pdfsam/
 ```
 
 The application relies heavily on the **Sejda** library for low-level PDF operations, providing a robust foundation for document manipulation.
+>>>>>>> master
 
 ---
 
