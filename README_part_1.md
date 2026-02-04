@@ -34,9 +34,13 @@ PDFsam (PDF Split And Merge) Basic is a free, open-source, multi-platform deskto
 
 Before building PDFsam, ensure the following tools are installed:
 
-- **Java Development Kit (JDK)**: Version 21 or higher
-- **Apache Maven**: Version 3.8+ recommended
+- **Java Development Kit (JDK)**: Version 21 (NOT JDK 11)
+- **Apache Maven**: Build tool for dependency management
 - **Git**: For cloning the repository
+- **Gnu gettext**: Required for internationalization
+  - **Windows**: Download from [mlocati/gettext-iconv-windows](http://mlocati.github.io/gettext-iconv-windows/)
+  - **macOS**: Install via Homebrew (`brew install gettext`) or use Docker
+  - **Linux**: Usually pre-installed or available via package manager
 
 ### 2.2 Cloning the Repository
 
