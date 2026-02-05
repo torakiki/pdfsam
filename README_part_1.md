@@ -24,12 +24,7 @@ This report documents the systematic functional testing process of **PDFsam Basi
 <div style="page-break-after: always;"></div>
 
 ### 📂 Quick Navigation
-- [1. Introduction](#1-introduction) 
-- [2. Build Documentation](#2-build-documentation) 
-- [3. Existing Test Cases](#3-existing-test-cases)
-- [4. Partition Testing](#4-partition-testing) 
-- [5. Test Summary](#5-test-implementation-summary) 
-- [6. Conclusion](#6-conclusion)
+[TOC]
 
 <div style="page-break-after: always;"></div>
 
@@ -78,6 +73,8 @@ PDFsam Basic provides the following core functionalities:
 </details>
 
 The project is primarily written in Java (approx. 82%), consisting of roughly 35000 lines of code. [View LOC](./.VSCodeCounter)
+
+<div style="page-break-after: always;"></div>
 
 ### 1.4 Project Architecture
 
