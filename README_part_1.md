@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/Team-Kingson_%26_Zian_%26_Zhenyu-orange?style=flat-square">
 </p>
 
-**Repo Github Link**
+**Repo Github Link:**
 https://github.com/eric-song-dev/pdfsam
 
 **Team Members:** 
@@ -19,14 +19,19 @@ https://github.com/eric-song-dev/pdfsam
 * Zian Xu: zianx11@uci.edu
 * Zhenyu Song: zhenyus4@uci.edu
 
----
+This report documents the systematic functional testing process of **PDFsam Basic**, focusing on equivalence partitioning across core modules: Merge, Rotate, and Extract.
 
-> [!NOTE]
-> This report documents the systematic functional testing process of **PDFsam Basic**, focusing on equivalence partitioning across core modules: Merge, Rotate, and Extract.
+<div style="page-break-after: always;"></div>
 
 ### 📂 Quick Navigation
-- [1. Introduction](#1-introduction) | [2. Build Documentation](#2-build-documentation) | [3. Existing Test Cases](#3-existing-test-cases)
-- [4. Partition Testing](#4-partition-testing) | [5. Test Summary](#5-test-implementation-summary) | [6. Conclusion](#6-conclusion)
+- [1. Introduction](#1-introduction) 
+- [2. Build Documentation](#2-build-documentation) 
+- [3. Existing Test Cases](#3-existing-test-cases)
+- [4. Partition Testing](#4-partition-testing) 
+- [5. Test Summary](#5-test-implementation-summary) 
+- [6. Conclusion](#6-conclusion)
+
+<div style="page-break-after: always;"></div>
 
 ## 🚀1. Introduction
 
@@ -104,7 +109,7 @@ pdfsam/
 
 The application relies heavily on the **Sejda** library for low-level PDF operations, providing a robust foundation for document manipulation.
 
----
+<div style="page-break-after: always;"></div>
 
 ## 📝2. Build Documentation
 
@@ -158,6 +163,8 @@ cd pdfsam-basic
 mvn exec:exec
 ```
 
+<div style="page-break-after: always;"></div>
+
 ### 2.5 IDE Setup
 
 For IntelliJ IDEA or Eclipse:
@@ -167,7 +174,7 @@ For IntelliJ IDEA or Eclipse:
 3. Set Java 21 as the project SDK
 4. Find and run ./pdfsam-basic/src/main/java/org/pdfsam/basic/App.java
 
----
+<div style="page-break-after: always;"></div>
 
 ## 🧪3. Existing Test Cases
 
@@ -208,6 +215,8 @@ Our code creates a few new testing components. For the first lab testing, we wil
 1. **Unit Tests**: Isolated component testing with mocks
 2. **Integration Tests**: Testing component interactions
 
+<div style="page-break-after: always;"></div>
+
 ### 3.4 Running Tests
 
 ```bash
@@ -226,7 +235,7 @@ cd pdfsam-tools/pdfsam-rotate
 mvn test -Dtest=RotateParametersBuilderTest
 ```
 
----
+<div style="page-break-after: always;"></div>
 
 ## ✨4. Partition Testing
 
@@ -264,7 +273,7 @@ This approach is essential because:
 - Identifies missing test cases
 - Focuses testing effort on distinct behaviors
 
----
+<div style="page-break-after: always;"></div>
 
 ### 4.3 Zhenyu's Partition Testing: Merge Feature
 
@@ -307,7 +316,7 @@ The partition tests are implemented in `ZhenyuMergePartitionTest.java` using JUn
 -   **`testAddInput_Deduplicates()`**: Covers *Redundant Input Partition*. Adds the same input object twice and asserts the list size is 1.
 -   **`testAddInput_IgnoresNull()`** and **`testNullPolicies_AreAllowed()`**: Covers the *Invalid Input Partition*. Verifies that adding `null` inputs serves no operation and that setting null policies doesn't crash the builder.
 
----
+<div style="page-break-after: always;"></div>
 
 ### 4.4 Zian's Partition Testing: Rotate Feature
 
@@ -352,7 +361,7 @@ The partition tests are implemented in `ZianRotatePartitionTest.java` using JUni
 - **`noInputs()` and `multipleSources()`**: Cover the *Input Cardinality Partition*. These tests establish the system's boundary behavior, asserting that `hasInput()` returns `false` when empty and correctly tracks the size of the input set when multiple PDF sources are injected.
 - **`combinedPartitions()`**: Covers the *Integration Scenario*. This comprehensive test validates a complex state where multiple files are processed simultaneously using heterogeneous strategies—one file with a custom range and another using a predefined set—ensuring the builder maintains state integrity across bulk operations.
 
----
+<div style="page-break-after: always;"></div>
 
 ### 4.5 Kingson's Partition Testing: Extract Feature
 
@@ -396,7 +405,7 @@ The `ExtractParametersBuilder` class constructs parameters for extracting pages 
 
 *Rationale*: Affects output file generation strategy.
 
----
+<div style="page-break-after: always;"></div>
 
 ## 📋5. Test Implementation Summary
 
@@ -417,7 +426,7 @@ mvn test -pl pdfsam-tools/pdfsam-rotate -Dtest=ZianRotatePartitionTest
 mvn test -pl pdfsam-tools/pdfsam-extract -Dtest=KingsonExtractPartitionTest
 ```
 
----
+<div style="page-break-after: always;"></div>
 
 ## 🎯6. Conclusion
 
