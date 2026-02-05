@@ -11,6 +11,9 @@
   <img src="https://img.shields.io/badge/Team-Kingson_%26_Zian_%26_Zhenyu-orange?style=flat-square">
 </p>
 
+**Repo Github Link**
+https://github.com/eric-song-dev/pdfsam
+
 **Team Members:** 
 * Kingson Zhang: kxzhang@uci.edu
 * Zian Xu: zianx11@uci.edu
