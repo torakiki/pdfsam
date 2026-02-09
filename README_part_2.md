@@ -28,7 +28,7 @@ This report documents the systematic Finite State Machine (FSM) testing process 
 
 <div style="page-break-after: always;"></div>
 
-## 🎯 1. Finite Models in Testing (10%)
+## 🎯 1. Finite Models in Testing
 
 ### 1.1 What Are Finite Models?
 
@@ -121,11 +121,13 @@ flowchart LR
 
 ## 4. Zhenyu's FSM: Footer Task Execution UI
 
+**Test File**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/tool/ZhenyuFooterFSMTest.java">pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/tool/ZhenyuFooterFSMTest.java</a>
+
 ### 4.1 Feature Description
 
 The **Footer Task Execution UI** manages the visual state of task execution in PDFsam's footer component. It tracks task progress from request to completion/failure through event-driven state transitions.
 
-**Location**: `pdfsam-ui-components/src/main/java/org/pdfsam/ui/components/tool/Footer.java`
+**Feature File**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-ui-components/src/main/java/org/pdfsam/ui/components/tool/Footer.java">pdfsam-ui-components/src/main/java/org/pdfsam/ui/components/tool/Footer.java</a>
 
 ### 4.2 FSM Model Design
 
@@ -155,6 +157,8 @@ public enum TaskExecutionState {
 
 This design allows the FSM to validate transitions programmatically and throw exceptions for invalid state changes.
 
+<div style="page-break-after: always;"></div>
+
 ### 4.3 FSM Diagram
 
 ```mermaid
@@ -178,6 +182,8 @@ stateDiagram-v2
     note right of FAILED : Final state
 ```
 
+<div style="page-break-after: always;"></div>
+
 ### 4.4 State Descriptions
 
 | State | Run Button | Final? | Description |
@@ -200,9 +206,11 @@ stateDiagram-v2
 | T6 | COMPLETED | IDLE | Ready for next task |
 | T7 | FAILED | IDLE | Ready for retry |
 
+<div style="page-break-after: always;"></div>
+
 ### 4.6 Test Implementation
 
-**Test File**: `pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/tool/ZhenyuFooterFSMTest.java`
+**Test File**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/tool/ZhenyuFooterFSMTest.java">pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/tool/ZhenyuFooterFSMTest.java</a>
 
 #### Test Coverage Summary
 
@@ -289,64 +297,7 @@ void happyPath() {
 
 ```bash
 $ mvn test -pl pdfsam-ui-components -Dtest=ZhenyuFooterFSMTest                                                                                
-[INFO] Scanning for projects...
-[WARNING]
-[WARNING] Some problems were encountered while building the effective model for org.pdfsam:pdfsam-basic:jar:5.4.5-SNAPSHOT
-[WARNING] 'profiles.profile[win].plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.codehaus.mojo:exec-maven-plugin @ line 259, column 14
-[WARNING] 'profiles.profile[win].plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.codehaus.mojo:exec-maven-plugin @ line 330, column 29
-[WARNING] 'profiles.profile[mac].plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.codehaus.mojo:exec-maven-plugin @ line 614, column 29
-[WARNING]
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING]
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING]
-[INFO]
-[INFO] ------------------< org.pdfsam:pdfsam-ui-components >-------------------
-[INFO] Building PDFsam JavaFx components 5.4.5-SNAPSHOT
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO]
-[INFO] --- resources:3.4.0:resources (default-resources) @ pdfsam-ui-components ---
-[INFO] skip non existing resourceDirectory /Users/ericsong/OpenSource/pdfsam/pdfsam-ui-components/src/main/resources
-[INFO]
-[INFO] --- compiler:3.14.1:compile (default-compile) @ pdfsam-ui-components ---
-[INFO] Nothing to compile - all classes are up to date.
-[INFO]
-[INFO] --- resources:3.4.0:testResources (default-testResources) @ pdfsam-ui-components ---
-[INFO] Copying 1 resource from src/test/resources to target/test-classes
-[INFO]
-[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ pdfsam-ui-components ---
-[INFO] Nothing to compile - all classes are up to date.
-[INFO]
-[INFO] --- surefire:3.5.4:test (default-test) @ pdfsam-ui-components ---
-[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
-[INFO]
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-Initializing JavaFX thread
-Feb 08, 2026 11:29:12 PM com.sun.javafx.application.PlatformImpl startup
-WARNING: Unsupported JavaFX configuration: classes were loaded from 'unnamed module @20d3d15a'
-JavaFX initialized
-[INFO] Running Zhenyu's Footer FSM Test
-[INFO] Running FSM Model Validation
-Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
-OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-WARNING: A Java agent has been loaded dynamically (/Users/ericsong/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.7/byte-buddy-agent-1.17.7.jar)
-WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
-WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
-WARNING: Dynamic loading of agents will be disallowed by default in a future release
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.624 s -- in FSM Model Validation
-[INFO] Running Complete Paths
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in Complete Paths
-[INFO] Running Invalid Transitions
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s -- in Invalid Transitions
-[INFO] Running Transition Coverage
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in Transition Coverage
-[INFO] Running State Coverage
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in State Coverage
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.715 s -- in Zhenyu's Footer FSM Test
-[INFO]
+...
 [INFO] Results:
 [INFO]
 [INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0
@@ -367,9 +318,9 @@ WARNING: Dynamic loading of agents will be disallowed by default in a future rel
 
 | File | Location | Author |
 |------|----------|--------|
-| `KingsonPdfLoadingStatusFSMTest.java` | `pdfsam-model/src/test/java/org/pdfsam/model/pdf/` | Kingson Zhang |
-| `ZianValidationStateFSMTest.java` | `pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/support/` | Zian Xu |
-| `ZhenyuFooterFSMTest.java` | `pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/tool/` | Zhenyu Song |
+|  | `pdfsam-model/src/test/java/org/pdfsam/model/pdf/` | Kingson Zhang |
+|  | `pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/support/` | Zian Xu |
+| <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/tool/ZhenyuFooterFSMTest.java">ZhenyuFooterFSMTest.java</a> | `pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/tool/` | Zhenyu Song |
 
 ### 5.2 Running the FSM Tests
 
