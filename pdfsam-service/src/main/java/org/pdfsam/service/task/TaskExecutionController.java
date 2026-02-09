@@ -33,6 +33,9 @@ import org.sejda.model.notification.event.PercentageOfWorkDoneChangedEvent;
 import org.sejda.model.notification.event.TaskExecutionCompletedEvent;
 import org.sejda.model.notification.event.TaskExecutionFailedEvent;
 import org.sejda.model.notification.event.TaskExecutionStartedEvent;
+import org.sejda.model.parameter.SplitByOutlineLevelParameters;
+import org.sejda.model.parameter.base.TaskParameters;
+import org.sejda.model.task.NotifiableTaskMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -85,8 +88,50 @@ public class TaskExecutionController {
         LOG.trace("Task execution request received");
         usageService.incrementUsageFor(event.toolId());
         currentModule = event.toolId();
-        executor.execute(() -> executionService.execute(event.parameters()));
+
+        TaskParameters params = event.parameters();
+
+        // Check if this is a hierarchical split request
+        if (isHierarchicalSplitRequest(params)) {
+            LOG.debug("Executing hierarchical split task");
+            executor.execute(() -> executeHierarchicalSplit(params));
+        } else {
+            executor.execute(() -> executionService.execute(params));
+        }
         LOG.trace("Task execution submitted");
+    }
+
+    private boolean isHierarchicalSplitRequest(TaskParameters params) {
+        // Check if this is a hierarchical split request by checking the class name
+        // We use the class name to avoid a circular dependency on the tool module
+        return params.getClass().getSimpleName().equals("HierarchicalSplitByOutlineLevelParameters");
+    }
+
+    private void executeHierarchicalSplit(TaskParameters params) {
+        if (!(params instanceof SplitByOutlineLevelParameters)) {
+            LOG.error("Invalid parameters type for hierarchical split");
+            GlobalNotificationContext.getContext()
+                    .notifyListeners(new TaskExecutionFailedEvent(
+                            new IllegalArgumentException("Invalid parameters type for hierarchical split"),
+                            NotifiableTaskMetadata.NULL));
+            return;
+        }
+
+        try {
+            // Use reflection to instantiate and execute the hierarchical task
+            Class<?> taskClass = Class.forName(
+                    "org.pdfsam.tools.splitbybookmarks.HierarchicalSplitByBookmarksTask");
+            Object task = taskClass.getDeclaredConstructor().newInstance();
+
+            // Execute the task
+            java.lang.reflect.Method executeMethod = taskClass.getMethod("execute",
+                    SplitByOutlineLevelParameters.class);
+            executeMethod.invoke(task, params);
+        } catch (Exception e) {
+            LOG.error("Failed to execute hierarchical split task", e);
+            GlobalNotificationContext.getContext()
+                    .notifyListeners(new TaskExecutionFailedEvent(e, NotifiableTaskMetadata.NULL));
+        }
     }
 
     @EventListener
