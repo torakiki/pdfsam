@@ -97,25 +97,176 @@ flowchart LR
 
 ## 3. Zian's FSM: Form Validation State
 
+**Test File**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/support/ZianValidationStateFSMTest.java">pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/support/ZianValidationStateFSMTest.java</a>
+
 ### 3.1 Feature Description
 
+The **Validation State** system manages form field validation in PDFsam's UI. It tracks whether user input has been validated and the result of that validation.
 
+**Location**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/support/FXValidationSupportTest.java">pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/support/FXValidationSupportTest.java</a>
 
-### 3.2 FSM Diagram
+### 3.2 FSM Model Design
 
+```java
+public enum ValidationState {
+NOT_VALIDATED(false),
+VALID(false),     
+INVALID(false);
+    
+    private Set<ValidationState> validDestinations;
+    
+    static {
+        NOT_VALIDATED.validDestinations = Set.of(NOT_VALIDATED, VALID, INVALID);
+        
+        VALID.validDestinations = Set.of(VALID, INVALID, NOT_VALIDATED);
+        
+        INVALID.validDestinations = Set.of(INVALID, VALID, NOT_VALIDATED);
+    }
 
+    public boolean canMoveTo(ValidationState dest) { 
+        return validDestinations.contains(dest); 
+    }
+}
+```
 
-### 3.3 State Descriptions
+<div style="page-break-after: always;"></div>
 
+### 3.3 FSM Diagram
 
+<div align="center">
+  <img src="images/fsm_final.svg" width="70%" alt="Final FSM Design" style="border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <p><i>Figure 1: Hand-tuned State Transition Diagram for FXValidationSupport</i></p>
+</div>
 
-### 3.4 Transition Table
+### 3.4 State Descriptions
 
+| State | Description |
+|-------|-------------|
+| `NOT_VALIDATED` | Initial state, no validation performed yet |
+| `VALID` | Input passed the current validator |
+| `INVALID` | Input failed the current validator |
 
+### 3.5 Transition Table
 
-### 3.5 Test Cases
+| ID    | From | To | Trigger |
+|-------|------|-----|---------|
+| T1    | NOT_VALIDATED | VALID | `validate()` with valid input |
+| T2    | NOT_VALIDATED | INVALID | `validate()` with invalid input |
+| T3    | VALID | INVALID | `validate()` with invalid input |
+| T5,T7 | VALID | NOT_VALIDATED | `setValidator()` or `makeNotValidated()` |
+| T4    | INVALID | VALID | `validate()` with valid input |
+| T6,T8 | INVALID | NOT_VALIDATED | `setValidator()` or `makeNotValidated()` |
 
+<div style="page-break-after: always;"></div>
 
+### 3.6 Test Cases
+
+**Test File**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/support/ZianValidationStateFSMTest.java">pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/support/ZianValidationStateFSMTest.java</a>
+
+#### Test Coverage Summary
+
+| CATEGORY       | IDS     | SCOPE
+|----------------|---------|-----------------------------------------
+| State Coverage | S1-S3   | Initial, Valid, and Invalid states
+| Transitions    | T1-T8   | All valid FSM edges including Reset
+| Self-Loops     | L1-L4   | Event suppression (e.g., VALID -> VALID)
+| Workflows      | W1-W4   | Full cycles and Validator changes
+| Edge Cases     | E1-E3   | Null inputs and idempotent reset checks
+
+#### Example Test Cases
+
+**State Coverage Test:**
+```java
+@Test
+@DisplayName("S1: NOT_VALIDATED state - initial state")
+void testNotValidatedState() {
+    assertEquals(ValidationState.NOT_VALIDATED,
+            validator.validationStateProperty().get());
+}
+```
+
+**Valid Transition Test:**
+```java
+@Test
+@DisplayName("T1: NOT_VALIDATED -> VALID")
+void testNotValidatedToValid() {
+    ChangeListener<ValidationState> listener = mock(ChangeListener.class);
+    validator.validationStateProperty().addListener(listener);
+    validator.setValidator(Validators.nonBlank());
+
+    validator.validate("valid input");
+
+    verify(listener).changed(any(ObservableValue.class),
+            eq(ValidationState.NOT_VALIDATED), eq(ValidationState.VALID));
+    assertEquals(ValidationState.VALID,
+            validator.validationStateProperty().get());
+}
+```
+
+**Self-Loop Test:**
+```java
+@Test
+@DisplayName("L1: VALID -> VALID (re-validate with valid input)")
+void testValidToValid() {
+    validator.setValidator(Validators.nonBlank());
+    validator.validate("valid1");
+    assertEquals(ValidationState.VALID, validator.validationStateProperty().get());
+
+    ChangeListener<ValidationState> listener = mock(ChangeListener.class);
+    validator.validationStateProperty().addListener(listener);
+
+    validator.validate("valid2");
+
+    // No state change should occur for self-loop
+    verify(listener, never()).changed(any(), any(), any());
+    assertEquals(ValidationState.VALID, validator.validationStateProperty().get());
+}
+```
+
+**Complete Workflow Test:**
+```java
+@Test
+@DisplayName("W1: Full validation cycle: NOT_VALIDATED -> VALID -> INVALID -> VALID")
+void testFullValidationCycle() {
+    validator.setValidator(Validators.nonBlank());
+
+    // Initial state
+    assertEquals(ValidationState.NOT_VALIDATED,
+            validator.validationStateProperty().get());
+
+    // First validation - valid
+    validator.validate("valid");
+    assertEquals(ValidationState.VALID,
+            validator.validationStateProperty().get());
+
+    // Re-validate - invalid
+    validator.validate("");
+    assertEquals(ValidationState.INVALID,
+            validator.validationStateProperty().get());
+
+    // Re-validate - valid again
+    validator.validate("valid again");
+    assertEquals(ValidationState.VALID,
+            validator.validationStateProperty().get());
+}
+```
+
+#### Test Results
+
+```bash
+$ mvn test -pl pdfsam-ui-components -Dtest=ZianValidationStateFSMTest                                                                                
+...
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.638 s
+[INFO] Finished at: 2026-02-09T12:03:50-08:00
+[INFO] ------------------------------------------------------------------------```
+```
 
 <div style="page-break-after: always;"></div>
 
@@ -319,7 +470,7 @@ $ mvn test -pl pdfsam-ui-components -Dtest=ZhenyuFooterFSMTest
 | File | Location | Author |
 |------|----------|--------|
 |  | `pdfsam-model/src/test/java/org/pdfsam/model/pdf/` | Kingson Zhang |
-|  | `pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/support/` | Zian Xu |
+| <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/support/ZianValidationStateFSMTest.java">ZianValidationStateFSMTest.java</a> | `pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/support/` | Zian Xu |
 | <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/tool/ZhenyuFooterFSMTest.java">ZhenyuFooterFSMTest.java</a> | `pdfsam-ui-components/src/test/java/org/pdfsam/ui/components/tool/` | Zhenyu Song |
 
 ### 5.2 Running the FSM Tests
@@ -346,4 +497,9 @@ mvn test -pl pdfsam-model,pdfsam-ui-components -Dtest="*FSMTest"
 
 ### Key Takeaways
 
+- FSM testing provides **systematic coverage** that random testing cannot guarantee
+- State and transition coverage help identify **missing error handling** and **invalid state combinations**
+- FSM diagrams serve as both **documentation** and **test case derivation source**
+
+The FSM tests complement the **partition testing** from Part 1, providing a different perspective on the same codebase.
 

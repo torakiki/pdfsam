@@ -209,7 +209,7 @@ public class ZianValidationStateFSMTest {
     class SelfLoopTests {
 
         @Test
-        @DisplayName("Self-loop: VALID -> VALID (re-validate with valid input)")
+        @DisplayName("L1: VALID -> VALID (re-validate with valid input)")
         void testValidToValid() {
             validator.setValidator(Validators.nonBlank());
             validator.validate("valid1");
@@ -226,7 +226,7 @@ public class ZianValidationStateFSMTest {
         }
 
         @Test
-        @DisplayName("Self-loop: INVALID -> INVALID (re-validate with invalid input)")
+        @DisplayName("L2: INVALID -> INVALID (re-validate with invalid input)")
         void testInvalidToInvalid() {
             validator.setValidator(Validators.nonBlank());
             validator.validate("");
@@ -243,7 +243,7 @@ public class ZianValidationStateFSMTest {
         }
 
         @Test
-        @DisplayName("Self-loop: NOT_VALIDATED -> NOT_VALIDATED (via makeNotValidated)")
+        @DisplayName("L3: NOT_VALIDATED -> NOT_VALIDATED (via makeNotValidated)")
         void testNotValidatedToNotValidated() {
             assertEquals(ValidationState.NOT_VALIDATED, validator.validationStateProperty().get());
 
@@ -257,7 +257,7 @@ public class ZianValidationStateFSMTest {
         }
 
         @Test
-        @DisplayName("Self-loop: NOT_VALIDATED -> NOT_VALIDATED (via setValidator)")
+        @DisplayName("L4: NOT_VALIDATED -> NOT_VALIDATED (via setValidator)")
         void testNotValidatedToNotValidatedViaSetValidator() {
             assertEquals(ValidationState.NOT_VALIDATED, validator.validationStateProperty().get());
 
@@ -278,7 +278,7 @@ public class ZianValidationStateFSMTest {
     class WorkflowTests {
 
         @Test
-        @DisplayName("Full validation cycle: NOT_VALIDATED -> VALID -> INVALID -> VALID")
+        @DisplayName("W1: Full validation cycle: NOT_VALIDATED -> VALID -> INVALID -> VALID")
         void testFullValidationCycle() {
             validator.setValidator(Validators.nonBlank());
 
@@ -303,7 +303,7 @@ public class ZianValidationStateFSMTest {
         }
 
         @Test
-        @DisplayName("Reset cycle: VALID -> NOT_VALIDATED -> INVALID")
+        @DisplayName("W2: Reset cycle: VALID -> NOT_VALIDATED -> INVALID")
         void testResetCycle() {
             validator.setValidator(Validators.nonBlank());
 
@@ -324,7 +324,7 @@ public class ZianValidationStateFSMTest {
         }
 
         @Test
-        @DisplayName("Validator change resets state")
+        @DisplayName("W3: Validator change resets state")
         void testValidatorChangeResetsState() {
             // Start with nonBlank validator
             validator.setValidator(Validators.nonBlank());
@@ -344,7 +344,7 @@ public class ZianValidationStateFSMTest {
         }
 
         @Test
-        @DisplayName("Default validator (always valid)")
+        @DisplayName("W4: Default validator (always valid)")
         void testDefaultAlwaysValidValidator() {
             // Without setting a validator, default is always valid
             validator.validate("anything");
@@ -368,13 +368,13 @@ public class ZianValidationStateFSMTest {
     class EdgeCaseTests {
 
         @Test
-        @DisplayName("Null validator throws exception")
+        @DisplayName("E1: Null validator throws exception")
         void testNullValidatorThrows() {
             assertThrows(IllegalArgumentException.class, () -> validator.setValidator(null));
         }
 
         @Test
-        @DisplayName("Validate with null input")
+        @DisplayName("E2: Validate with null input")
         void testValidateWithNullInput() {
             validator.setValidator(Validators.nonBlank());
 
@@ -384,7 +384,7 @@ public class ZianValidationStateFSMTest {
         }
 
         @Test
-        @DisplayName("Setting the same validator instance still resets state")
+        @DisplayName("E3: Setting the same validator instance still resets state")
         void testSetSameValidatorResetsState() {
             org.pdfsam.core.support.validation.Validator<String> sameValidator = Validators.nonBlank();
             validator.setValidator(sameValidator);
