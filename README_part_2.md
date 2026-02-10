@@ -129,6 +129,8 @@ INVALID(false);
 }
 ```
 
+Note: All states in this model are non-terminal (isFinal = false) because the UI validation process is inherently cyclic—users can continuously modify inputs and reset the state.
+
 <div style="page-break-after: always;"></div>
 
 ### 3.3 FSM Diagram
