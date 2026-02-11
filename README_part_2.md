@@ -75,23 +75,114 @@ flowchart LR
 
 ### 2.1 Feature Description
 
+We selected the **`PdfDescriptorLoadingStatus`** enum, which models the lifecycle of PDF document loading in PDFsam.
 
+| Property | Value |
+|----------|-------|
+| **Location** | [PdfDescriptorLoadingStatus.java](pdfsam-model/src/main/java/org/pdfsam/model/pdf/PdfDescriptorLoadingStatus.java) |
+| **Type** | Java Enum with FSM semantics |
+| **Used By** | `PdfDocumentDescriptor`, `LoadingStatusIndicatorUpdater`, `SelectionTable` |
+
+This component is ideal for FSM modeling because:
+
+1. **Explicit State Machine Implementation**: The enum defines states with a `validNext` set controlling transitions
+2. **Transition Validation**: Built-in `canMoveTo()` and `moveTo()` methods enforce valid transitions
+3. **Terminal State Detection**: `isFinal()` method identifies states with no outgoing transitions
 
 ### 2.2 FSM Diagram
 
+```mermaid
+stateDiagram-v2
+    [*] --> INITIAL
 
+    INITIAL --> REQUESTED : Load requested
+    INITIAL --> WITH_ERRORS : Immediate error
+
+    REQUESTED --> LOADING : Loading starts
+    REQUESTED --> WITH_ERRORS : Pre-load error
+
+    LOADING --> LOADED : Success (no encryption)
+    LOADING --> LOADED_WITH_USER_PWD_DECRYPTION : Success (with password)
+    LOADING --> ENCRYPTED : Document encrypted
+    LOADING --> WITH_ERRORS : Load failed
+
+    ENCRYPTED --> REQUESTED : Password provided, retry
+    ENCRYPTED --> WITH_ERRORS : Password error
+
+    LOADED --> [*]
+    LOADED_WITH_USER_PWD_DECRYPTION --> [*]
+    WITH_ERRORS --> [*]
+```
 
 ### 2.3 State Descriptions
 
-
+| State | Icon | Description | Terminal? |
+|-------|------|-------------|-----------|
+| **INITIAL** | - | Document just added, no load attempted | No |
+| **REQUESTED** | 🕐 | Load request submitted | No |
+| **LOADING** | ▶ | Actively loading document | No |
+| **LOADED** | - | Successfully loaded, no password needed | **Yes** |
+| **LOADED_WITH_USER_PWD_DECRYPTION** | 🔓 | Successfully loaded with user password | **Yes** |
+| **ENCRYPTED** | 🔒 | Document is encrypted, password required | No |
+| **WITH_ERRORS** | ⚠️ | Error occurred during loading | **Yes** |
 
 ### 2.4 Transition Table
 
-
+| From \ To | INITIAL | REQUESTED | LOADING | LOADED | LOADED_PWD | ENCRYPTED | WITH_ERRORS |
+|-----------|:-------:|:---------:|:-------:|:------:|:----------:|:---------:|:-----------:|
+| **INITIAL** | - | ✓ | - | - | - | - | ✓ |
+| **REQUESTED** | - | - | ✓ | - | - | - | ✓ |
+| **LOADING** | - | - | - | ✓ | ✓ | ✓ | ✓ |
+| **ENCRYPTED** | - | ✓ | - | - | - | - | ✓ |
+| **LOADED** | - | - | - | - | - | - | - |
+| **LOADED_PWD** | - | - | - | - | - | - | - |
+| **WITH_ERRORS** | - | - | - | - | - | - | - |
 
 ### 2.5 Test Cases
 
+#### Test File Location
 
+| File | Location |
+|------|----------|
+| [PdfLoadingStatusFSMTest.java](pdfsam-model/src/test/java/org/pdfsam/model/pdf/PdfLoadingStatusFSMTest.java) | `pdfsam-model/src/test/java/org/pdfsam/model/pdf/` | 
+
+#### Test Coverage Strategy
+Test that all 7 states exist and have expected properties (icons, descriptions, styles).
+
+#### Transition Coverage Tests
+Test all 11 valid transitions:
+
+| Test | From | To |
+|------|------|----|
+| `testInitialToRequested` | INITIAL | REQUESTED |
+| `testInitialToWithErrors` | INITIAL | WITH_ERRORS |
+| `testRequestedToLoading` | REQUESTED | LOADING |
+| `testRequestedToWithErrors` | REQUESTED | WITH_ERRORS |
+| `testLoadingToLoaded` | LOADING | LOADED |
+| `testLoadingToLoadedWithPwd` | LOADING | LOADED_WITH_USER_PWD_DECRYPTION |
+| `testLoadingToEncrypted` | LOADING | ENCRYPTED |
+| `testLoadingToWithErrors` | LOADING | WITH_ERRORS |
+| `testEncryptedToRequested` | ENCRYPTED | REQUESTED |
+| `testEncryptedToWithErrors` | ENCRYPTED | WITH_ERRORS |
+
+#### Invalid Transition Tests
+Verify `IllegalStateException` is thrown for invalid transitions.
+
+#### Terminal State Tests
+Verify `isFinal()` returns true only for LOADED, LOADED_WITH_USER_PWD_DECRYPTION, and WITH_ERRORS.
+
+#### Path Tests
+Test complete loading paths as integration-style tests.
+
+### 4.3 Running the Tests
+
+```bash
+# Build the project first
+JAVA_HOME=$(/usr/libexec/java_home -v 21) mvn install -DskipTests
+
+# Run FSM tests
+JAVA_HOME=$(/usr/libexec/java_home -v 21) mvn test -pl pdfsam-model -Dtest=PdfLoadingStatusFSMTest
+```
 
 <div style="page-break-after: always;"></div>
 
