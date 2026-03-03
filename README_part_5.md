@@ -195,7 +195,76 @@ void stubRecordsMultipleIncrements() {
 
 ## 🔧 5. Zian's Stubbing: UpdateService
 
+**Test File**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/test/java/org/pdfsam/service/ZianPart5Test.java">ZianPart5Test.java</a>
 
+### 5.1 Existing Stub Found
+
+**Location**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/test/java/org/pdfsam/service/update/DefaultUpdateServiceTest.java">DefaultUpdateServiceTest.java</a>
+
+In `DefaultUpdateServiceTest`, `AppBrand` is mocked as a stub to return a local file URL instead of a remote server:
+
+```java
+@BeforeEach
+public void setUp() {
+    appBrand = mock(AppBrand.class);
+    this.mapper = JsonMapper.builder().addModule(new Jdk8Module()).addModule(new JavaTimeModule())
+            .enable(DeserializationFeature.FAIL_ON_NUMBERS_FOR_ENUMS).enable(SerializationFeature.INDENT_OUTPUT)
+            .disable(SerializationFeature.WRITE_DATE_TIMESTAMPS_AS_NANOSECONDS)
+            .visibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)
+            .serializationInclusion(JsonInclude.Include.NON_EMPTY)
+            .build();
+    victim = new DefaultUpdateService(appBrand, mapper);
+}
+
+// Stub provides a local file URL instead of real server
+public void pasitiveCheckForUpdates(@TempDir Path folder) throws IOException {
+    var file = Files.createTempFile(folder, null, null);
+    Files.copy(getClass().getResourceAsStream("/test_current_version.json"), file,
+            StandardCopyOption.REPLACE_EXISTING);
+    when(appBrand.property(BrandableProperty.CURRENT_VERSION_URL)).thenReturn(file.toFile().toURI().toString());
+    assertEquals("3.0.0", victim.getLatestVersion());
+}
+```
+
+**Why it is used**: `DefaultUpdateService.getLatestVersion()` fetches version info from a remote URL. By stubbing `AppBrand` to return a local file path, the test avoids network dependency while still exercising the JSON parsing logic.
+
+### 5.2 New Stub Implementation
+
+The existing consumer of `UpdateService` in PDFsam is `UpdatesController`, but its `checkForUpdates()` method also uses a virtual thread with `eventStudio().broadcast()`, making synchronous stub testing impractical. We created a simple `UpdateChecker` wrapper to demonstrate the stub pattern cleanly.
+
+A manual `StubUpdateService` returning a fixed version string:
+
+```java
+static class StubUpdateService implements UpdateService {
+    private final String version;
+    StubUpdateService(String version) { this.version = version; }
+
+    @Override
+    public String getLatestVersion() { return version; }
+}
+```
+
+### 5.3 Stub Test Cases
+
+```java
+@Test
+void stubNewerVersion() {
+    StubUpdateService stub = new StubUpdateService("6.0.0");
+    UpdateChecker checker = new UpdateChecker(stub, "5.4.5");
+
+    assertTrue(checker.isUpdateAvailable());
+    assertEquals("Update available: 6.0.0", checker.getUpdateMessage());
+}
+
+@Test
+void stubSameVersion() {
+    StubUpdateService stub = new StubUpdateService("5.4.5");
+    UpdateChecker checker = new UpdateChecker(stub, "5.4.5");
+
+    assertFalse(checker.isUpdateAvailable());
+    assertEquals("You are using the latest version.", checker.getUpdateMessage());
+}
+```
 
 <div style="page-break-after: always;"></div>
 
@@ -345,7 +414,76 @@ void statusUpdaterLogs() {
 
 ## ⚠️ 8. Zian's Bad Testable Design
 
+### 8.1 Problem Identification
 
+**Location**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/main/java/org/pdfsam/service/update/DefaultUpdateService.java">DefaultUpdateService.java</a> (Lines 54–65)
+
+```java
+@Override
+public String getLatestVersion() {
+    try {
+        return objectMapper.readValue(
+            new URL(String.format(                              // ← Hardcoded URL creation
+                appBrand.property(BrandableProperty.CURRENT_VERSION_URL),
+                appBrand.property(BrandableProperty.VERSION))), Map.class)
+            .getOrDefault(CURRENT_VERSION_KEY, "").toString();
+    } catch (IOException e) {
+        LOG.warn(i18n().tr("Unable to find the latest available version."), e);
+    }
+    return EMPTY;
+}
+```
+
+**Why this is bad testable design:**
+
+| Issue | Impact |
+|-------|--------|
+| `new URL(...)` hardcoded inside method | Cannot intercept or replace the data source |
+| Reads from network/file URL directly | Tests require a valid file path or network; brittle |
+| Error handling only testable via real I/O failure | Cannot simulate `IOException` in a controlled way |
+
+### 8.2 Proposed Fix: Injectable VersionDataProvider
+
+```java
+interface VersionDataProvider {
+    InputStream fetchVersionData() throws IOException;
+}
+
+static class TestableUpdateService implements UpdateService {
+    private final VersionDataProvider dataProvider;
+    private final ObjectMapper objectMapper;
+
+    @Override
+    public String getLatestVersion() {
+        try (InputStream is = dataProvider.fetchVersionData()) {
+            Map<String, Object> map = objectMapper.readValue(is, Map.class);
+            return map.getOrDefault("currentVersion", "").toString();
+        } catch (IOException e) { /* log */ }
+        return "";
+    }
+}
+```
+
+### 8.3 Test Cases for the Fix
+
+```java
+@Test
+void readVersionFromProvider() {
+    VersionDataProvider provider = () ->
+        new ByteArrayInputStream("{\"currentVersion\":\"6.0.0\"}".getBytes());
+    TestableUpdateService service = new TestableUpdateService(provider, objectMapper);
+
+    assertEquals("6.0.0", service.getLatestVersion());
+}
+
+@Test
+void returnsEmptyOnError() {
+    VersionDataProvider provider = () -> { throw new IOException("Network error"); };
+    TestableUpdateService service = new TestableUpdateService(provider, objectMapper);
+
+    assertEquals("", service.getLatestVersion());
+}
+```
 
 <div style="page-break-after: always;"></div>
 
@@ -476,7 +614,44 @@ void executeCalledOncePerRequest() {
 
 ## 🔬 12. Zian's Mocking
 
+**Test File**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/test/java/org/pdfsam/service/ZianPart5Test.java">ZianPart5Test.java</a>
 
+### 12.1 Feature Mocked
+
+`StageServiceController` — handles events related to window stage status by delegating to `StageService`.
+
+**Why mocking is needed**: The controller receives events and forwards them to the service. Without mocking, we'd need a real `DefaultStageService` with a `DefaultEntityRepository`, which requires Java Preferences. Mocking lets us verify:
+- Events are correctly forwarded to `service.save()`
+- Status values are passed through without modification
+- `CleanupRequest` triggers `service.clear()`
+
+### 12.2 Mock Test Cases
+
+```java
+@Test
+void requestForwardsToSave() {
+    SetLatestStageStatusRequest event = new SetLatestStageStatusRequest(StageStatus.NULL);
+    controller.requestStageStatus(event);
+
+    verify(mockService).save(StageStatus.NULL);  // Exact status forwarded
+}
+
+@Test
+void requestPassesCorrectStatus() {
+    StageStatus status = new StageStatus(100, 200, 800, 600);
+    controller.requestStageStatus(new SetLatestStageStatusRequest(status));
+
+    verify(mockService).save(status);
+    verifyNoMoreInteractions(mockService);  // Only save, nothing else
+}
+
+@Test
+void broadcastCleanupTriggersClear() {
+    eventStudio().broadcast(new CleanupRequest());  // Via event bus
+
+    verify(mockService).clear();  // Behavior: clear() was called
+}
+```
 
 <div style="page-break-after: always;"></div>
 
@@ -484,20 +659,20 @@ void executeCalledOncePerRequest() {
 
 ### 13.1 New Test Files
 
-| File | Location | Author |
-|------|----------|--------|
+| File                                                                                                                                                        | Location | Author |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------|
 | <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/test/java/org/pdfsam/service/ZhenyuPart5Test.java">ZhenyuPart5Test.java</a> | `pdfsam-service/src/test/java/org/pdfsam/service/` | Zhenyu Song |
-|  |  | Kingson Zhang |
-|  |  | Zian Xu |
+|                                                                                                                                                             |  | Kingson Zhang |
+| <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/test/java/org/pdfsam/service/ZianPart5Test.java">ZianPart5Test.java</a>     | `pdfsam-service/src/test/java/org/pdfsam/service/` | Zian Xu |
 
 ### 13.2 Test Breakdown
 
 | Member | Stubbing Tests | Bad Design Tests | Mocking Tests | Total |
-|--------|:-:|:-:|:-:|:-:|
-| **Zhenyu Song** | 3 | 5 | 4 | **12** |
-| **Kingson Zhang** |  |  |  |  |
-| **Zian Xu** |  |  |  |  |
-| **Total** |  |  |  |  |
+|--------|:--------------:|:----------------:|:-------------:|:-:|
+| **Zhenyu Song** |       3        |        5         |       4       | **12** |
+| **Kingson Zhang** |                |                  |               |  |
+| **Zian Xu** |       3        |        4         |       5       | **12** |
+| **Total** |                |                  |               |  |
 
 ### 13.3 Running the Tests
 
@@ -539,7 +714,18 @@ $ mvn test -pl pdfsam-service -Dtest="KingsonPart5Test"
 ```bash
 $ mvn test -pl pdfsam-service -Dtest="ZianPart5Test"
 
-
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.445 s -- in Mocking: Verify StageServiceController interactions with Mockito
+[INFO] Running Bad Testable Design Fix: Injectable VersionDataProvider
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.618 s -- in Bad Testable Design Fix: Injectable VersionDataProvider
+[INFO] Running Stubbing: StubUpdateService with UpdateChecker
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in Stubbing: StubUpdateService with UpdateChecker
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.117 s -- in org.pdfsam.service.ZianPart5Test
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] BUILD SUCCESS
 ```
 
 <div style="page-break-after: always;"></div>
