@@ -190,6 +190,70 @@ void stubRecordsMultipleIncrements() {
 ## 🔧 4. Kingson's Stubbing: NewsService
 
 
+**Test File**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/test/java/org/pdfsam/service/KingsonPart5Test.java">KingsonPart5Test.java</a>
+
+### 4.1 Existing Stub Found
+
+**Location**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/test/java/org/pdfsam/service/news/DefaultNewsServiceTest.java">DefaultNewsServiceTest.java</a>
+
+In `DefaultNewsServiceTest`, `PreferencesRepository` is mocked as a stub to provide controlled responses:
+
+```java
+repo = mock(PreferencesRepository.class);
+victim = new DefaultNewsService(appBrand, mapper, repo);
+
+// Used as a stub — returns canned value
+when(repo.getInt(LATEST_NEWS_ID, -1)).thenReturn(5);
+```
+
+**Why it is used**: `DefaultNewsService` reads/writes to the Java Preferences API. The mock provides predictable values so the test can verify the service's behavior around exception handling and data persistence without a real preferences store.
+
+### 4.2 New Stub Implementation
+
+The existing consumer of `NewsService` in PDFsam is `NewsController`, but its `fetchLatestNews()` method launches a virtual thread and broadcasts results via `eventStudio()`, making it difficult to test synchronously with a simple stub. Therefore, we created a lightweight `NewsChecker` helper that consumes `NewsService` synchronously, allowing us to clearly demonstrate the stub pattern.
+
+A manual `StubNewsService` returning hardcoded news data without network access:
+
+```java
+static class StubNewsService implements NewsService {
+    private final List<NewsData> stubbedNews;
+    private int latestNewsSeen = -1;
+    private int latestImportantNewsSeen = -1;
+
+    StubNewsService(List<NewsData> news) { this.stubbedNews = news; }
+
+    @Override public List<NewsData> getLatestNews() { return stubbedNews; }
+    @Override public int getLatestNewsSeen() { return latestNewsSeen; }
+    @Override public void setLatestNewsSeen(int id) { this.latestNewsSeen = id; }
+    // ...
+}
+```
+
+### 4.3 Stub Test Cases
+
+```java
+@Test
+void stubReturnsUnseenImportantNews() {
+    List<NewsData> news = List.of(
+        new NewsData(1, "Title 1", "Content 1", LocalDate.now(), "http://link1.com", true));
+    StubNewsService stub = new StubNewsService(news);
+    NewsChecker checker = new NewsChecker(stub);
+
+    assertTrue(checker.hasUnseenImportantNews());
+    assertEquals(1, checker.getNewsCount());
+}
+
+@Test
+void stubAfterMarkAllSeen() {
+    // After marking all as seen, no unseen important news
+    StubNewsService stub = new StubNewsService(List.of(
+        new NewsData(10, "Important", "Content", LocalDate.now(), "http://link.com", true)));
+    NewsChecker checker = new NewsChecker(stub);
+    checker.markAllSeen();
+
+    assertFalse(checker.hasUnseenImportantNews());
+}
+```
 
 <div style="page-break-after: always;"></div>
 
@@ -408,7 +472,70 @@ void statusUpdaterLogs() {
 
 ## ⚠️ 7. Kingson's Bad Testable Design
 
+### 7.1 Problem Identification
 
+**Location**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/main/java/org/pdfsam/service/task/TaskExecutionController.java">TaskExecutionController.java</a> (Line 57)
+
+```java
+public class TaskExecutionController {
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
+    // ...
+    public void request(TaskExecutionRequest event) {
+        executor.execute(() -> executionService.execute(event.parameters()));
+    }
+}
+```
+
+**Why this is bad testable design:**
+
+| Issue | Impact |
+|-------|--------|
+| `ExecutorService` created as field initializer | Cannot be replaced via constructor or setter |
+| Asynchronous execution | Tests are non-deterministic — task may not complete before assertion |
+| No shutdown control in tests | Tests cannot verify task ordering or completion timing |
+
+### 7.2 Proposed Fix: Inject ExecutorService via Constructor
+
+```java
+static class TestableTaskExecutionController {
+    private final TaskExecutionService executionService;
+    private final UsageService usageService;
+    private final ExecutorService executor;
+
+    // Injectable ExecutorService for testability
+    TestableTaskExecutionController(TaskExecutionService executionService,
+                                     UsageService usageService,
+                                     ExecutorService executor) {
+        this.executionService = executionService;
+        this.usageService = usageService;
+        this.executor = executor;
+    }
+}
+```
+
+### 7.3 SynchronousExecutorService for Deterministic Tests
+
+```java
+static class SynchronousExecutorService extends AbstractExecutorService {
+    @Override
+    public void execute(Runnable command) { command.run(); } // Runs immediately
+    // ...
+}
+```
+
+### 7.4 Test Cases for the Fix
+
+```java
+@Test
+void synchronousExecution() {
+    TaskParameters params = mock(TaskParameters.class);
+    controller.request(new TaskExecutionRequest("merge", params));
+
+    // With synchronous executor, execution happens immediately — deterministic
+    verify(mockExecutionService).execute(params);
+    verify(mockUsageService).incrementUsageFor("merge");
+}
+```
 
 <div style="page-break-after: always;"></div>
 
@@ -608,7 +735,43 @@ void executeCalledOncePerRequest() {
 
 ## 🔬 11. Kingson's Mocking
 
+**Test File**: <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/test/java/org/pdfsam/service/KingsonPart5Test.java">KingsonPart5Test.java</a>
 
+### 11.1 Feature Mocked
+
+`DefaultRecentWorkspacesService` — manages recently used workspaces with a `PreferencesRepository` for persistence.
+
+**Why mocking is needed**: The existing tests in `DefaultRecentWorkspacesServiceTest` use a *real* `PreferencesRepository`, which writes to actual Java Preferences. With Mockito, we can:
+- Verify the constructor properly reads from the repository
+- Verify `onShutdown()` persists data in the correct order (clean first, then save)
+- Verify `clear()` delegates to `repo.clean()`
+
+### 11.2 Mock Test Cases
+
+```java
+@Test
+void constructorPopulatesCache() {
+    when(mockRepo.keys()).thenReturn(new String[]{"k1"});
+    when(mockRepo.getString("k1", "")).thenReturn("/path/to/workspace.json");
+
+    var service = new DefaultRecentWorkspacesService(mockRepo);
+
+    verify(mockRepo).keys();                  // Behavior: keys() was called
+    verify(mockRepo).getString("k1", "");     // Behavior: each key was read
+    assertEquals(1, service.getRecentlyUsedWorkspaces().size());
+}
+
+@Test
+void onShutdownPersists() {
+    var service = new DefaultRecentWorkspacesService(mockRepo);
+    service.addWorkspaceLastUsed(new File("/path/to/workspace1.json"));
+
+    service.onShutdown(new ShutdownEvent());
+
+    verify(mockRepo, times(1)).clean();  // Clean before saving
+    verify(mockRepo).saveString(anyString(), eq("/path/to/workspace1.json"));
+}
+```
 
 <div style="page-break-after: always;"></div>
 
@@ -662,7 +825,7 @@ void broadcastCleanupTriggersClear() {
 | File                                                                                                                                                        | Location | Author |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------|
 | <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/test/java/org/pdfsam/service/ZhenyuPart5Test.java">ZhenyuPart5Test.java</a> | `pdfsam-service/src/test/java/org/pdfsam/service/` | Zhenyu Song |
-|                                                                                                                                                             |  | Kingson Zhang |
+| <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/test/java/org/pdfsam/service/KingsonPart5Test.java">KingsonPart5Test.java</a> | `pdfsam-service/src/test/java/org/pdfsam/service/` | Kingson Zhang |
 | <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-service/src/test/java/org/pdfsam/service/ZianPart5Test.java">ZianPart5Test.java</a>     | `pdfsam-service/src/test/java/org/pdfsam/service/` | Zian Xu |
 
 ### 13.2 Test Breakdown
@@ -670,9 +833,9 @@ void broadcastCleanupTriggersClear() {
 | Member | Stubbing Tests | Bad Design Tests | Mocking Tests | Total |
 |--------|:--------------:|:----------------:|:-------------:|:-:|
 | **Zhenyu Song** |       3        |        5         |       4       | **12** |
-| **Kingson Zhang** |                |                  |               |  |
+| **Kingson Zhang** | 3 | 3 | 3 | **9** |
 | **Zian Xu** |       3        |        4         |       5       | **12** |
-| **Total** |                |                  |               |  |
+| **Total** |9|12|12|**33**|
 
 ### 13.3 Running the Tests
 
@@ -732,4 +895,23 @@ $ mvn test -pl pdfsam-service -Dtest="ZianPart5Test"
 
 ## 🎯 14. Conclusion
 
+This report demonstrates the application of **testable design principles**, **stubbing**, and **mocking** to PDFsam Basic:
 
+| Section | Member | Technique | Target |
+|---------|--------|-----------|--------|
+| Stubbing | Zhenyu | Manual `StubUsageService` | `TaskExecutionController` |
+| Stubbing | Kingson | Manual `StubNewsService` | News checking logic |
+| Stubbing | Zian | Manual `StubUpdateService` | Update checking logic |
+| Bad Design | Zhenyu | Fix `private static` method | `DefaultPdfLoadService.fxMoveStatusTo()` |
+| Bad Design | Kingson | Fix hardcoded `ExecutorService` | `TaskExecutionController` |
+| Bad Design | Zian | Fix hardcoded URL creation | `DefaultUpdateService.getLatestVersion()` |
+| Mocking | Zhenyu | Mockito verify `UsageService` | `TaskExecutionController.request()` |
+| Mocking | Kingson | Mockito verify `PreferencesRepository` | `DefaultRecentWorkspacesService` |
+| Mocking | Zian | Mockito verify `StageService` | `StageServiceController` |
+
+### Key Takeaways
+
+- **Interface-based design** in PDFsam enables easy stubbing and mocking
+- **Dependency injection** allows test doubles to replace real dependencies
+- **Bad testable design** patterns (static methods, hardcoded objects, embedded I/O) can be fixed by extracting dependencies into injectable interfaces
+- **Mockito mocking** provides **behavior verification** that cannot be achieved with state-based assertions alone
