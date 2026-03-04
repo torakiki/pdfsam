@@ -871,7 +871,18 @@ $ mvn test -pl pdfsam-service -Dtest="ZhenyuPart5Test"
 ```bash
 $ mvn test -pl pdfsam-service -Dtest="KingsonPart5Test"
 
-
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.027 s -- in Mocking: Verify DefaultRecentWorkspacesService with Mockito
+[INFO] Running Bad Testable Design Fix: Injectable ExecutorService
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.222 s -- in Bad Testable Design Fix: Injectable ExecutorService
+[INFO] Running Stubbing: StubNewsService with NewsChecker
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s -- in Stubbing: StubNewsService with NewsChecker
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.303 s -- in org.pdfsam.service.KingsonPart5Test
+[INFO] 
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] BUILD SUCCESS
 ```
 
 ```bash
@@ -905,7 +916,7 @@ This report demonstrates the application of **testable design principles**, **st
 | Bad Design | Zhenyu | Fix `private static` method | `DefaultPdfLoadService.fxMoveStatusTo()` |
 | Bad Design | Kingson | Fix hardcoded `ExecutorService` | `TaskExecutionController` |
 | Bad Design | Zian | Fix hardcoded URL creation | `DefaultUpdateService.getLatestVersion()` |
-| Mocking | Zhenyu | Mockito verify `UsageService` | `TaskExecutionController.request()` |
+| Mocking | Zhenyu | Mockito verify `TaskExecutionService` | `TaskExecutionController.request()` |
 | Mocking | Kingson | Mockito verify `PreferencesRepository` | `DefaultRecentWorkspacesService` |
 | Mocking | Zian | Mockito verify `StageService` | `StageServiceController` |
 
