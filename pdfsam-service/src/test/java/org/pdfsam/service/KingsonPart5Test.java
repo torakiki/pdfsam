@@ -9,30 +9,38 @@
  */
 package org.pdfsam.service;
 
+import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import org.pdfsam.model.news.NewsData;
 import org.pdfsam.model.tool.TaskExecutionRequest;
 import org.pdfsam.persistence.PreferencesRepository;
+import org.pdfsam.service.KingsonPart5Test.NewsChecker;
+import org.pdfsam.service.KingsonPart5Test.StubNewsService;
+import org.pdfsam.service.KingsonPart5Test.SynchronousExecutorService;
+import org.pdfsam.service.KingsonPart5Test.TestableTaskExecutionController;
 import org.pdfsam.service.news.NewsService;
 import org.pdfsam.service.tool.UsageService;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.sejda.core.service.TaskExecutionService;
 import org.sejda.model.parameter.base.AbstractParameters;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.TimeUnit;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 /**
  * Part 5 test class for Kingson Zhang.
@@ -352,21 +360,30 @@ public class KingsonPart5Test {
 
             verify(mockRepo).clean();
         }
-
+        
         @Test
         @DisplayName("onShutdown persists cached workspaces via repo.saveString()")
         void onShutdownPersists() {
+            // 1. Setup the mock
             when(mockRepo.keys()).thenReturn(new String[] {});
 
             var service = new org.pdfsam.service.ui.DefaultRecentWorkspacesService(mockRepo);
-            service.addWorkspaceLastUsed(new java.io.File("/path/to/workspace1.json"));
+            
+            // 2. Use a File object to ensure the path is consistent with the OS
+            java.io.File workspaceFile = new java.io.File("/path/to/workspace1.json");
+            service.addWorkspaceLastUsed(workspaceFile);
 
+            // 3. Trigger the event
             service.onShutdown(new org.pdfsam.model.lifecycle.ShutdownEvent());
 
-            // Verify clean was called before saving
+            // 4. Verify clean was called
             verify(mockRepo, times(1)).clean();
-            // Verify saveString was called with the workspace path
-            verify(mockRepo).saveString(anyString(), eq("/path/to/workspace1.json"));
-        }
+            
+            // 5. FIX: Match the path using the File's absolute path to handle OS differences
+            verify(mockRepo).saveString(
+                anyString(), 
+                eq(workspaceFile.getAbsolutePath())
+        );
+}
     }
 }
