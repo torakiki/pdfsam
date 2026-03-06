@@ -481,7 +481,6 @@ stateDiagram-v2
     
     IDLE --> REQUESTED : T1 - TaskExecutionRequest
     REQUESTED --> RUNNING : T2 - PercentageOfWorkDoneChangedEvent
-    REQUESTED --> FAILED : Early validation error
     
     RUNNING --> RUNNING : T3 - Progress update (self-loop)
     RUNNING --> COMPLETED : T4 - TaskExecutionCompletedEvent
