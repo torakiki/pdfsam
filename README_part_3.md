@@ -93,8 +93,23 @@ We ran `mvn clean test` with JaCoCo on three non-GUI modules **before** adding a
 ### 2.1 Running Baseline Coverage
 
 ```bash
-# Run tests with JaCoCo
+# Run all tests with JaCoCo
 mvn clean test jacoco:report -pl pdfsam-model,pdfsam-core,pdfsam-persistence -am '-Dtest=!ZhenyuWhiteBoxTest,!KingsonWhiteBoxTest,!ZianWhiteBoxTest' '-Dsurefire.failIfNoSpecifiedTests=false'
+
+# Run individual test files
+mvn clean test jacoco:report -pl pdfsam-model -am '-Dtest=!ZhenyuWhiteBoxTest' '-Dsurefire.failIfNoSpecifiedTests=false'
+mvn clean test jacoco:report -pl pdfsam-core -am '-Dtest=!KingsonWhiteBoxTest' '-Dsurefire.failIfNoSpecifiedTests=false'
+mvn clean test jacoco:report -pl pdfsam-persistence -am '-Dtest=!ZianWhiteBoxTest' '-Dsurefire.failIfNoSpecifiedTests=false'
+
+# View CSV reports
+cat pdfsam-model/target/site/jacoco/jacoco.csv
+cat pdfsam-core/target/site/jacoco/jacoco.csv
+cat pdfsam-persistence/target/site/jacoco/jacoco.csv
+
+# View HTML reports
+open pdfsam-model/target/site/jacoco/index.html
+open pdfsam-core/target/site/jacoco/index.html
+open pdfsam-persistence/target/site/jacoco/index.html
 
 # Create backup directory
 mkdir -p saved-reports/baseline/model saved-reports/baseline/core saved-reports/baseline/persistence
