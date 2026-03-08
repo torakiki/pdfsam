@@ -34,7 +34,37 @@ This report documents the application of **static analysis** tools to **PDFsam B
 
 ## 🎯 1. Static Analysis: Goals, Purposes, and Use
 
+### 1.1 What Is Static Analysis?
 
+**Static analysis** is a method of examining source code or compiled bytecode *without executing* the program. Static analyzers systematically search for patterns that indicate potential bugs, security vulnerabilities, code quality issues, or deviations from best practices. Unlike dynamic testing (which runs the code with specific inputs), static analysis reasons about *all possible* execution paths.
+
+### 1.2 Why Static Analysis Matters
+
+| Benefit | Description |
+|---------|-------------|
+| **Early Bug Detection** | Identifies defects before code is even run — Microsoft reports that most bugs are found through static analysis |
+| **Broad Coverage** | Analyzes all code paths, including rarely-executed error-handling and edge-case branches |
+| **Security** | Detects vulnerabilities (injection, XSS, insecure crypto) that may escape functional testing |
+| **Consistency** | Enforces coding standards and best practices uniformly across the entire codebase |
+| **Cost Efficiency** | Finding bugs statically is far cheaper than finding them in production |
+| **Automation** | Integrates into CI pipelines (e.g., GitHub Actions) for continuous quality monitoring |
+
+### 1.3 Static Analysis vs. Dynamic Testing
+
+| Aspect | Static Analysis | Dynamic Testing |
+|--------|----------------|-----------------|
+| **Execution** | No code execution | Runs the code |
+| **Approach** | Pessimistic — flags anything *potentially* wrong | Optimistic — only finds bugs that trigger during test runs |
+| **Coverage** | All code paths (including dead code) | Only paths exercised by test cases |
+| **False Positives** | Can produce false alarms | Findings are actual failures (if test is correct) |
+| **False Negatives** | May miss runtime-specific issues | Misses any untested path |
+
+### 1.4 Tools Used in This Report
+
+| Tool | Type | Analysis Level | Integration |
+|------|------|---------------|-------------|
+| **CodeQL** | Semantic code analysis | Source code (AST + data flow) | GitHub Code Scanning |
+| **SpotBugs** | Bytecode analysis | Compiled `.class` files | Maven plugin |
 
 <div style="page-break-after: always;"></div>
 
@@ -152,9 +182,7 @@ We used the SpotBugs Maven plugin (version 4.8.6.6) to analyze the project's com
 
 ```bash
 # Run SpotBugs on all non-GUI modules
-mvn compile com.github.spotbugs:spotbugs-maven-plugin:4.8.6.6:spotbugs \
-    -pl pdfsam-model,pdfsam-core,pdfsam-persistence,pdfsam-service \
-    -am -Dmaven.antrun.skip=true -DskipTests
+mvn compile com.github.spotbugs:spotbugs-maven-plugin:4.8.6.6:spotbugs -pl pdfsam-model,pdfsam-core,pdfsam-persistence,pdfsam-service -am "-Dmaven.antrun.skip=true" "-DskipTests"
 
 # View the XML report
 cat pdfsam-model/target/spotbugsXml.xml
@@ -227,7 +255,38 @@ CodeQL appropriately recommends transitioning to authenticated, non-deterministi
 
 ### 4.3 Zian's CodeQL Finding
 
+| Property | Value |
+|----------|-------|
+| **Rule** | `java/useless-null-check` |
+| **Severity** | Warning |
+| **File** | <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-ui-components/src/main/java/org/pdfsam/ui/components/selection/multiple/TooltippedTableCell.java#L44">TooltippedTableCell.java</a> |
+| **Module** | `pdfsam-ui-components` |
 
+#### What the Warning Says
+
+CodeQL identifies a redundant and misleading null check on a field variable in `TooltippedTableCell.java`:
+
+```java
+// TooltippedTableCell.java, Lines 42-49
+@Override
+public void updateItem(T item, boolean empty) {
+    super.updateItem(item, empty);
+    if (nonNull(item) && nonNull(tooltip)) {    // ← CodeQL: Useless null check
+        setTooltip(tooltip);
+    } else {
+        setTooltip(null);
+        }
+    // ...
+    }
+```
+
+According to CodeQL (CWE-561), the `nonNull(tooltip)` check is useless because `tooltip` is assigned a newly created object (e.g., `new Tooltip(...)`). An object returned by the `new` keyword in Java can never be `null`, meaning this part of the conditional statement will always evaluate to `true`.
+
+#### Is This an Actual Problem?
+
+**No, this is not a severe bug, but it is a code logic issue that indicates a misunderstanding.** A null check on a newly instantiated variable is superfluous and misleading to other developers reading the code, as it implies the reference could somehow be null, creating confusion about the lifecycle of the `tooltip` object.
+
+While the program's behavior doesn't change, dead logic wastes cognitive space and slightly inflates compiled bytecode. The fix is to simply remove the `nonNull(tooltip)` condition from the `if` statement, streamlining the logic to just check `if (nonNull(item))`.
 
 <div style="page-break-after: always;"></div>
 
@@ -265,7 +324,31 @@ The fix would be to either synchronize *all* accesses to `runtimeState` or decla
 
 ### 5.3 Zian's SpotBugs Finding
 
+| Property | Value |
+|----------|-------|
+| **Bug Type** | `DM_DEFAULT_ENCODING` |
+| **Category** | Internationalization (I18N) |
+| **Priority** | 1 (High — SpotBugs' highest severity) |
+| **File** | <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-core/src/main/java/org/pdfsam/core/context/ApplicationContext.java">ApplicationContext.java</a> |
+| **Module** | `pdfsam-core` |
 
+#### What the Warning Says
+
+SpotBugs reports: *"Found reliance on default encoding in `org.pdfsam.core.context.ApplicationContext.lambda$registerScene$7(String)`: `String.getBytes()`"*
+
+Somewhere in `ApplicationContext.registerScene()`, the code calls `String.getBytes()` without specifying a character encoding. This uses the platform's default encoding, which varies across operating systems:
+- Windows: `windows-1252`
+- Linux: `UTF-8`
+- macOS: `UTF-8`
+
+#### Is This an Actual Problem?
+
+**Yes, this is a real portability issue.** If the same PDFsam binary is run on different operating systems, `String.getBytes()` may produce different byte arrays for the same input string. This can cause:
+- Corrupted data when the bytes are later decoded with a different encoding
+- Different hash values on different platforms
+- Subtle bugs that only manifest on specific OS configurations
+
+The fix is straightforward: replace `str.getBytes()` with `str.getBytes(StandardCharsets.UTF_8)` to ensure consistent encoding regardless of platform.
 
 <div style="page-break-after: always;"></div>
 
@@ -348,9 +431,7 @@ Together, they provide defense-in-depth against a wide spectrum of code quality 
 
 ```bash
 # Run SpotBugs on all non-GUI modules
-mvn compile com.github.spotbugs:spotbugs-maven-plugin:4.8.6.6:spotbugs \
-    -pl pdfsam-model,pdfsam-core,pdfsam-persistence,pdfsam-service \
-    -am -Dmaven.antrun.skip=true -DskipTests
+mvn compile com.github.spotbugs:spotbugs-maven-plugin:4.8.6.6:spotbugs -pl pdfsam-model,pdfsam-core,pdfsam-persistence,pdfsam-service -am "-Dmaven.antrun.skip=true" "-DskipTests"
 
 # View SpotBugs XML reports
 cat pdfsam-model/target/spotbugsXml.xml
@@ -404,6 +485,6 @@ Each team member analyzed one finding per tool:
 |--------|---------------|------------------|
 | **Zhenyu Song** | Weak cryptographic algorithm `AES/ECB/PKCS5Padding` in `EncryptionUtils` | Inconsistent synchronization of `runtimeState` in `ApplicationContext` |
 | **Kingson Zhang** |  |  |
-| **Zian Xu** |  |  |
+| **Zian Xu** | Useless null check in `TooltippedTableCell` | Reliance on default encoding `String.getBytes()` in `ApplicationContext` |
 
 Static analysis complements the testing efforts from other parts by catching an entirely different class of defects — those that are difficult or impossible to find through execution-based testing alone.
