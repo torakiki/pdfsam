@@ -1,4 +1,4 @@
-# SWE 261P Software Testing and Analysis - Part 4 Report
+**# SWE 261P Software Testing and Analysis - Part 4 Report**
 ## PDFsam Basic: Continuous Integration
 
 ![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)
