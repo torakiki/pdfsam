@@ -249,7 +249,31 @@ CodeQL appropriately recommends transitioning to authenticated, non-deterministi
 
 ---
 
-### 4.2 Kingson's CodeQL Finding
+### 4.2 Kingson's CodeQL Finding: Inefficient Regular Expression (ReDoS)
+
+| Property | Value |
+|----------|-------|
+| **Rule** | `java/redos` |
+| **Severity** | High |
+| **File** | <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-tools/pdfsam-simple-split/src/main/java/org/pdfsam/tools/split/SplitAfterRadioButton.java#L57">SplitAfterRadioButton.java</a> |
+| **Module** | `pdfsam-tools/pdfsam-simple-split` |
+
+#### What the Warning Says
+
+CodeQL flags an inefficient regular expression used for validating input page numbers in `SplitAfterRadioButton.java`:
+
+```java
+// SplitAfterRadioButton.java, Line 57
+this.field.setValidator(Validators.regexMatching("^([1-9]\\d*(\\s*,\\s*)?)+$")); // ← CodeQL: Inefficient regex
+```
+
+According to CodeQL (CWE-1333, CWE-400), this regular expression is vulnerable to **Regular Expression Denial of Service (ReDoS)**. The specific part `([1-9]\\d*(\\s*,\\s*)?)+` contains repetitions (`+` and `*`) that interact in a way that creates ambiguity. For strings starting with '1' and containing many repetitions of '1', the regular expression engine (which uses a backtracking non-deterministic finite automata) may take an exponential amount of time to evaluate, leading to performance degradation or a DoS attack.
+
+#### Is This an Actual Problem?
+
+**Yes, this is a real vulnerability, though impact is limited in a desktop client.** A malicious actor could craft a specific, long input string (e.g., `"11111111111111111111111111"`) that forces the regex engine to backtrack exponentially, freezing the UI thread for an unacceptable amout of time while evaluating the input.
+
+While the risk is lower because PDFsam is a desktop application (the user is only DOSing themselves), the performance issue is real. The fix is to rewrite the regular expression to remove the ambiguity between repetitions. A safer alternative would be to split the string by commas and then validate the individual components (e.g., `[1-9]\d*`), or use a stricter regex like `^[1-9]\d*(?:\s*,\s*[1-9]\d*)*$`.
 
 ---
 
@@ -319,6 +343,33 @@ The fix would be to either synchronize *all* accesses to `runtimeState` or decla
 ---
 
 ### 5.2 Kingson's SpotBugs Finding
+
+| Property | Value |
+|----------|-------|
+| **Bug Type** | `SING_SINGLETON_HAS_NONPRIVATE_CONSTRUCTOR` |
+| **Category** | Correctness (CORRECTNESS) |
+| **Priority** | 2 (Medium) |
+| **File** | <a href="https://github.com/eric-song-dev/pdfsam/blob/master/pdfsam-core/src/main/java/org/pdfsam/core/context/ApplicationContext.java">ApplicationContext.java</a> |
+| **Module** | `pdfsam-core` |
+
+#### What the Warning Says
+
+SpotBugs reports: *"Class (org.pdfsam.core.context.ApplicationContext) using singleton design pattern has non-private constructor."*
+
+`ApplicationContext` follows the singleton pattern (only one instance should exist), but its constructor is not declared `private`. This means other code could potentially create additional instances, breaking the singleton guarantee:
+
+```java
+public class ApplicationContext {
+    // Constructor is package-private, not private
+    ApplicationContext() {  // ← Should be private for a true singleton
+        // ...
+    }
+}
+```
+
+#### Is This an Actual Problem?
+
+**Partially.** The constructor is package-private (default access), not `public`, so only classes in the same package can create new instances. In practice, PDFsam uses Jakarta CDI for dependency injection, which manages the singleton lifecycle at the framework level. However, leaving the constructor non-private is still a violation of the singleton pattern: any future class added to the `org.pdfsam.core.context` package could accidentally instantiate a second `ApplicationContext`. Making the constructor `private` and relying solely on CDI would be the safer approach.
 
 ---
 
@@ -484,7 +535,7 @@ Each team member analyzed one finding per tool:
 | Member | CodeQL Finding | SpotBugs Finding |
 |--------|---------------|------------------|
 | **Zhenyu Song** | Weak cryptographic algorithm `AES/ECB/PKCS5Padding` in `EncryptionUtils` | Inconsistent synchronization of `runtimeState` in `ApplicationContext` |
-| **Kingson Zhang** |  |  |
+| **Kingson Zhang** | Inefficient regular expression (ReDoS) in `SplitAfterRadioButton` | Singleton with non-private constructor in `ApplicationContext` |
 | **Zian Xu** | Useless null check in `TooltippedTableCell` | Reliance on default encoding `String.getBytes()` in `ApplicationContext` |
 
 Static analysis complements the testing efforts from other parts by catching an entirely different class of defects — those that are difficult or impossible to find through execution-based testing alone.
