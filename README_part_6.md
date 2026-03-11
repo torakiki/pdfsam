@@ -247,7 +247,7 @@ According to CodeQL (CWE-327), cryptographic algorithm `AES/ECB/PKCS5Padding` is
 
 CodeQL appropriately recommends transitioning to authenticated, non-deterministic encryption modes like **GCM** (Galois/Counter Mode). A better instantiation would be `Cipher.getInstance("AES/GCM/NoPadding")`, alongside a secure randomly generated Initialization Vector (IV) to prevent replay vulnerabilities.
 
----
+<div style="page-break-after: always;"></div>
 
 ### 4.2 Kingson's CodeQL Finding: Inefficient Regular Expression (ReDoS)
 
@@ -275,7 +275,7 @@ According to CodeQL (CWE-1333, CWE-400), this regular expression is vulnerable t
 
 While the risk is lower because PDFsam is a desktop application (the user is only DOSing themselves), the performance issue is real. The fix is to rewrite the regular expression to remove the ambiguity between repetitions. A safer alternative would be to split the string by commas and then validate the individual components (e.g., `[1-9]\d*`), or use a stricter regex like `^[1-9]\d*(?:\s*,\s*[1-9]\d*)*$`.
 
----
+<div style="page-break-after: always;"></div>
 
 ### 4.3 Zian's CodeQL Finding
 
