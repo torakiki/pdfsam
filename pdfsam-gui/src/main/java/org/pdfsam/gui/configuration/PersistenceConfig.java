@@ -45,7 +45,7 @@ public class PersistenceConfig {
                 .enable(DeserializationFeature.FAIL_ON_NUMBERS_FOR_ENUMS).enable(SerializationFeature.INDENT_OUTPUT)
                 .disable(SerializationFeature.WRITE_DATE_TIMESTAMPS_AS_NANOSECONDS)
                 .visibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)
-                .serializationInclusion(JsonInclude.Include.NON_EMPTY)
+                .defaultPropertyInclusion(JsonInclude.Value.ALL_NON_EMPTY)
                 .build();
     }
 

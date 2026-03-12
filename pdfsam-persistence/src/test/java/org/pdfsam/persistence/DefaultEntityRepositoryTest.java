@@ -19,7 +19,7 @@
 package org.pdfsam.persistence;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -47,7 +47,8 @@ public class DefaultEntityRepositoryTest {
         var mapper = JsonMapper.builder().enable(DeserializationFeature.FAIL_ON_NUMBERS_FOR_ENUMS)
                 .disable(SerializationFeature.WRITE_DATE_TIMESTAMPS_AS_NANOSECONDS)
                 .visibility(PropertyAccessor.FIELD, Visibility.ANY)
-                .configure(MapperFeature.CAN_OVERRIDE_ACCESS_MODIFIERS, false).serializationInclusion(Include.ALWAYS)
+                .configure(MapperFeature.CAN_OVERRIDE_ACCESS_MODIFIERS, false)
+                .defaultPropertyInclusion(JsonInclude.Value.ALL_ALWAYS)
                 .build();
         victim = new DefaultEntityRepository<>("/test/org/pdfsam/entity", mapper, Entity.class);
     }

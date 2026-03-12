@@ -52,11 +52,14 @@ class HomeTile extends StackPane {
             top.setGraphic(graphic);
         }
         var bottom = new Label(description);
+        bottom.setMinHeight(Region.USE_PREF_SIZE);
         bottom.getStyleClass().add("description");
         var vbox = new VBox(top, bottom);
         vbox.getStyleClass().add("right");
 
         invisibleButton.getStyleClass().add("home-tile-invisible-button");
+        invisibleButton.setAccessibleText(title);
+        invisibleButton.setAccessibleHelp(description);
         invisibleButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
         var categoryMark = new Region();

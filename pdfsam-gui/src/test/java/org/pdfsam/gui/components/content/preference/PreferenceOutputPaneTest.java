@@ -33,6 +33,7 @@ import org.sejda.model.pdf.PdfVersion;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
+import org.testfx.util.WaitForAsyncUtils;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
@@ -84,24 +85,28 @@ public class PreferenceOutputPaneTest {
     @Test
     public void clickCompression() {
         robot.clickOn("#compressionEnabled");
+        WaitForAsyncUtils.waitForFxEvents();
         verify(persistentSettings).set(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED, false);
     }
 
     @Test
     public void clickSmart() {
         robot.clickOn("#smartRadio");
+        WaitForAsyncUtils.waitForFxEvents();
         verify(persistentSettings).set(BooleanPersistentProperty.SMART_OUTPUT, true);
     }
 
     @Test
     public void clickOverwrite() {
         robot.clickOn("#overwriteOutput");
+        WaitForAsyncUtils.waitForFxEvents();
         verify(persistentSettings).set(BooleanPersistentProperty.OVERWRITE_OUTPUT, true);
     }
 
     @Test
     public void discardBookmarks() {
         robot.clickOn("#discardBookmarks");
+        WaitForAsyncUtils.waitForFxEvents();
         verify(persistentSettings).set(BooleanPersistentProperty.DISCARD_BOOKMARKS, true);
     }
 

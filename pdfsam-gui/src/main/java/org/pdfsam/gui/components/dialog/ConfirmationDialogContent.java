@@ -18,6 +18,7 @@
  */
 package org.pdfsam.gui.components.dialog;
 
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -41,7 +42,9 @@ class ConfirmationDialogContent extends HBox {
         messageContent.getStyleClass().add("-pdfsam-dialog-message");
         VBox messages = new VBox(messageTitle, messageContent);
         messages.getStyleClass().add("-pdfsam-dialog-messages");
-        getChildren().addAll(FontIcon.of(icon, 42), messages);
+        var fontIcon = FontIcon.of(icon, 42);
+        fontIcon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
+        getChildren().addAll(fontIcon, messages);
         getStyleClass().addAll("-pdfsam-dialog-content");
     }
 

@@ -20,6 +20,7 @@ package org.pdfsam.gui.components.content.news;
 
 import javafx.application.Platform;
 import javafx.geometry.Pos;
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -49,8 +50,13 @@ public class NewsPanel extends VBox {
         getStyleClass().add("news-panel");
         getStyleClass().addAll(Style.CONTAINER.css());
         newsPanel.getStyleClass().add("news-panel-content");
-        Button closeButton = new Button("", FontIcon.of(UniconsLine.TIMES));
+        newsPanel.setAccessibleRole(AccessibleRole.PARENT);
+        newsPanel.setAccessibleText(i18n().tr("News items"));
+        var closeIcon = FontIcon.of(UniconsLine.TIMES);
+        closeIcon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
+        var closeButton = new Button("", closeIcon);
         closeButton.getStyleClass().addAll("close-button");
+        closeButton.setAccessibleText(i18n().tr("Close news panel"));
         closeButton.setOnAction(e -> eventStudio().broadcast(HideNewsPanelRequest.INSTANCE));
         Label titleLabel = new Label(i18n().tr("What's new"));
         titleLabel.setPrefWidth(Integer.MAX_VALUE);

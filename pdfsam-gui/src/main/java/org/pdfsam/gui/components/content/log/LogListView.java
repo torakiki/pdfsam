@@ -33,6 +33,7 @@ import static java.util.Optional.ofNullable;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.core.context.IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * {@link ListView} showing log messages
@@ -48,6 +49,7 @@ class LogListView extends ListView<LogMessage> {
         eventStudio().add(MaxLogRowsChangedEvent.class,
                 e -> items.setMaxCapacity(app().persistentSettings().get(LOGVIEW_ROWS_NUMBER)));
         setId("log-view");
+        setAccessibleText(i18n().tr("Log messages"));
         setItems(items);
         getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         setCellFactory(list -> new TextCell());
@@ -63,9 +65,11 @@ class LogListView extends ListView<LogMessage> {
             }
             if (nonNull(item)) {
                 setText(item.message());
+                setAccessibleText(item.level().name() + ": " + item.message());
                 getStyleClass().add(item.level().style());
             } else {
                 setText("");
+                setAccessibleText(null);
             }
         }
     }

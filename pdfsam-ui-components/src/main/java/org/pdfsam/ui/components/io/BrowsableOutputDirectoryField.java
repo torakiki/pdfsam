@@ -52,6 +52,8 @@ public class BrowsableOutputDirectoryField extends BrowsableDirectoryField
     BrowsableOutputDirectoryField(ApplicationContext context) {
         context.persistentSettings().get(WORKING_PATH).ifPresent(getTextField()::setText);
         getTextField().setValidator(and(nonBlank(), v -> !Files.isRegularFile(Paths.get(v))));
+        setFieldPromptAndAccessibleText(i18n().tr("Output directory"));
+        setBrowseButtonAccessibleText(i18n().tr("Browse for output directory"));
     }
 
     @Override

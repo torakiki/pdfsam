@@ -33,9 +33,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
-import java.util.concurrent.StructuredTaskScope;
 
 import static java.util.Objects.nonNull;
+import static java.util.concurrent.StructuredTaskScope.Joiner.allSuccessfulOrThrow;
+import static java.util.concurrent.StructuredTaskScope.open;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
@@ -68,14 +69,13 @@ public class WorkspaceController {
     @EventListener
     public void saveWorkspace(SaveWorkspaceRequest event) {
         Thread.ofVirtual().name("save-workspace-thread").start(() -> {
-            try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+            try (var scope = open(allSuccessfulOrThrow())) {
                 LOG.debug(i18n().tr("Requesting modules state"));
                 tools.forEach(m -> scope.fork(() -> {
                     eventStudio().broadcast(event, m.id());
                     return null;
                 }));
                 scope.join();
-                scope.throwIfFailed();
                 app().runtimeState().mergeWorkspace(new Workspace(event.data(), event.workspace()));
                 Workspace workspace = app().runtimeState().workspace();
                 service.saveWorkspace(workspace.data(), workspace.file());
@@ -89,7 +89,7 @@ public class WorkspaceController {
     public void loadWorkspace(LoadWorkspaceRequest event) {
         Thread.ofVirtual().name("load-workspace-thread").start(() -> {
             LOG.debug(i18n().tr("Loading workspace from {0}", event.workspace().getName()));
-            try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+            try (var scope = open(allSuccessfulOrThrow())) {
                 var data = service.loadWorkspace(event.workspace());
                 if (!data.isEmpty()) {
                     var response = new LoadWorkspaceResponse(event.workspace(), data);
@@ -98,7 +98,6 @@ public class WorkspaceController {
                         return null;
                     }));
                     scope.join();
-                    scope.throwIfFailed();
                     recentWorkspace.addWorkspaceLastUsed(event.workspace());
                     eventStudio().broadcast(new WorkspaceLoadedEvent(event.workspace()));
                     app().runtimeState().workspace(new Workspace(data, event.workspace()));

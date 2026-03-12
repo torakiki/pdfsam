@@ -19,6 +19,8 @@
 package org.pdfsam.ui.components.tool;
 
 import javafx.geometry.Pos;
+import javafx.scene.AccessibleAttribute;
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
@@ -59,11 +61,14 @@ public class Footer extends HBox implements ToolBound {
         this.ownerModule = defaultString(ownerModule);
         this.openButton = openButton;
         this.runButton = runButton;
+        this.setAccessibleRole(AccessibleRole.TOOL_BAR);
+        this.setAccessibleRoleDescription(i18n().tr("Task footer"));
         this.getStyleClass().addAll("footer-pane");
         this.statusLabel.getStyleClass().add("status-label");
         this.statusLabel.setVisible(false);
         this.bar.setMaxWidth(Double.MAX_VALUE);
         this.bar.getStyleClass().add("pdfsam-footer-bar");
+        this.bar.setAccessibleText(i18n().tr("Task progress"));
         this.statusLabel.setMaxHeight(Double.MAX_VALUE);
         VBox progressPane = new VBox(statusLabel, bar);
         progressPane.getStyleClass().add("progress-pane");
@@ -81,6 +86,8 @@ public class Footer extends HBox implements ToolBound {
                 statusLabel.setVisible(true);
                 statusLabel.setText(i18n().tr("Requested"));
                 bar.setProgress(0);
+                bar.setAccessibleText(i18n().tr("Task progress: {0}", i18n().tr("Requested")));
+                bar.notifyAccessibleAttributeChanged(AccessibleAttribute.TEXT);
             }
         });
         eventStudio().addAnnotatedListeners(this);
@@ -104,15 +111,23 @@ public class Footer extends HBox implements ToolBound {
     public void onTaskCompleted(TaskExecutionCompletedEvent event) {
         failed.setVisible(false);
         openButton.setVisible(true);
+        openButton.requestFocus();
+        openButton.notifyAccessibleAttributeChanged(AccessibleAttribute.FOCUSED);
         statusLabel.setText(i18n().tr("Completed"));
         bar.setProgress(1);
+        bar.setAccessibleText(i18n().tr("Task progress: {0}", i18n().tr("Completed")));
+        bar.notifyAccessibleAttributeChanged(AccessibleAttribute.TEXT);
     }
 
     @EventListener
     public void onTaskFailed(TaskExecutionFailedEvent event) {
         openButton.setVisible(false);
         failed.setVisible(true);
+        failed.requestFocus();
+        failed.notifyAccessibleAttributeChanged(AccessibleAttribute.FOCUSED);
         statusLabel.setText(i18n().tr("Failed"));
+        bar.setAccessibleText(i18n().tr("Task progress: {0}", i18n().tr("Failed")));
+        bar.notifyAccessibleAttributeChanged(AccessibleAttribute.TEXT);
     }
 
     @EventListener
@@ -120,9 +135,14 @@ public class Footer extends HBox implements ToolBound {
         statusLabel.setText(i18n().tr("Running"));
         if (event.isUndetermined()) {
             bar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
+            bar.setAccessibleText(i18n().tr("Task status: {0}", i18n().tr("Running")));
+            bar.notifyAccessibleAttributeChanged(AccessibleAttribute.TEXT);
         } else {
             bar.setProgress(event.getPercentage().divide(new BigDecimal(100), RoundingMode.HALF_UP).doubleValue());
-            statusLabel.setText(i18n().tr("Running {0}%", Integer.toString(event.getPercentage().intValue())));
+            String percentage = Integer.toString(event.getPercentage().intValue());
+            statusLabel.setText(i18n().tr("Running {0}%", percentage));
+            bar.setAccessibleText(i18n().tr("Task status: {0}%", percentage));
+            bar.notifyAccessibleAttributeChanged(AccessibleAttribute.TEXT);
         }
     }
 }

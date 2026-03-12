@@ -1,4 +1,3 @@
-package org.pdfsam.gui.components.sidebar;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 10/01/23
@@ -17,17 +16,21 @@ package org.pdfsam.gui.components.sidebar;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.gui.components.sidebar;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.css.PseudoClass;
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.Tooltip;
+import org.kordamp.ikonli.javafx.FontIcon;
 import org.pdfsam.model.ui.ContentItem;
 import org.pdfsam.model.ui.SetActiveContentItemRequest;
 
 import static java.util.Optional.ofNullable;
 import static java.util.function.Predicate.not;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.i18n.I18nContext.i18n;
 import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
@@ -59,6 +62,12 @@ public class SelectableSidebarButton extends SidebarButton implements Selectable
         protected void invalidated() {
             pseudoClassStateChanged(SELECTED_PSEUDOCLASS_STATE, get());
             setDisable(get());
+            if (get()) {
+                setAccessibleRoleDescription(
+                        SelectableSidebarButton.super.getText() + " (" + i18n().tr("selected") + ")");
+            } else {
+                setAccessibleRoleDescription(null);
+            }
         }
     };
 
@@ -94,7 +103,10 @@ public class SelectableSidebarButton extends SidebarButton implements Selectable
         var button = new SelectableSidebarButton(item.id(), item.name());
         button.setOnAction(e -> eventStudio().broadcast(new SetActiveContentItemRequest(item.id())));
         button.setGraphic(item.graphic());
-        ofNullable(item.description()).filter(not(String::isBlank)).map(Tooltip::new).ifPresent(button::setTooltip);
+        if (item.graphic() instanceof FontIcon icon) {
+            icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
+        }
+        button.setTooltip(new Tooltip(ofNullable(item.description()).filter(not(String::isBlank)).orElse(item.name())));
         return button;
     }
 

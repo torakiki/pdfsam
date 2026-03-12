@@ -24,9 +24,9 @@ import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
 
 import java.util.Comparator;
+import java.util.Objects;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
-import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNoneBlank;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
@@ -36,7 +36,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
  * @author Andrea Vacondio
  */
 public class PageRangesColumn implements SelectionTableColumn<String> {
-    private String tooltipMessage = i18n().tr("Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)");
+    private String tooltipMessage = i18n().tr("Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)");
 
     public PageRangesColumn() {
         // nothing
@@ -60,7 +60,7 @@ public class PageRangesColumn implements SelectionTableColumn<String> {
 
     @Override
     public String getTextValue(String item) {
-        return defaultString(item, EMPTY);
+        return Objects.toString(item, EMPTY);
     }
 
     @Override

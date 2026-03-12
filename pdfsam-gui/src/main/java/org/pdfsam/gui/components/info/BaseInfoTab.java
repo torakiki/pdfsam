@@ -26,6 +26,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import org.apache.commons.lang3.StringUtils;
 
 import static org.pdfsam.i18n.I18nContext.i18n;
 
@@ -47,9 +48,11 @@ class BaseInfoTab extends Tab {
         ColumnConstraints column2 = new ColumnConstraints();
         column2.setPercentWidth(75);
         grid.getColumnConstraints().addAll(column1, column2);
+        grid.setAccessibleRoleDescription(i18n().tr("Properties table"));
         ScrollPane scroll = new ScrollPane(grid);
         scroll.setFitToHeight(true);
         scroll.setFitToWidth(true);
+        scroll.setAccessibleText(i18n().tr("Properties"));
         setContent(scroll);
     }
 
@@ -57,18 +60,26 @@ class BaseInfoTab extends Tab {
         return grid;
     }
 
-    protected static Label createTitleLabel(String text) {
-        Label ret = new Label(i18n().tr(text) + ":");
-        ret.getStyleClass().add("info-property");
-        GridPane.setHalignment(ret, HPos.RIGHT);
-        GridPane.setValignment(ret, VPos.TOP);
-        return ret;
+    protected static Label createTitleLabel(String text, Label titleFor) {
+        var label = new Label(i18n().tr(text) + ":");
+        label.getStyleClass().add("info-property");
+        label.setLabelFor(titleFor);
+        GridPane.setHalignment(label, HPos.RIGHT);
+        GridPane.setValignment(label, VPos.TOP);
+        return label;
     }
 
     protected static Label createValueLabel() {
-        Label ret = new Label();
-        ret.getStyleClass().add("info-property-value");
-        ret.setWrapText(true);
-        return ret;
+        var label = new Label();
+        label.textProperty().addListener((obs, oldVal, newVal) -> {
+            if (StringUtils.isNotBlank(newVal)) {
+                label.setAccessibleText(newVal);
+            } else {
+                label.setAccessibleText(i18n().tr("Empty"));
+            }
+        });
+        label.getStyleClass().add("info-property-value");
+        label.setWrapText(true);
+        return label;
     }
 }

@@ -24,9 +24,9 @@ import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
 
 import java.util.Comparator;
+import java.util.Objects;
 
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
-import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
@@ -52,7 +52,7 @@ public class PaceColumn implements SelectionTableColumn<String> {
 
     @Override
     public String getTextValue(String item) {
-        return defaultString(item, "1");
+        return Objects.toString(item, "1");
     }
 
     @Override

@@ -65,6 +65,7 @@ public class PrefixPane extends GridPane
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
         var label = new Label(i18n().tr("Generated PDF documents name prefix:"));
+        label.setLabelFor(field);
         GridPane.setValignment(label, VPos.BOTTOM);
         GridPane.setHalignment(label, HPos.LEFT);
         add(label, 0, 0);

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-10-23 12:45+0200\n"
+"PO-Revision-Date: 2026-02-24 16:57+0100\n"
 "Last-Translator: Charudutt Marathe <Unknown>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: hi\n"
 
 msgid "No PDF document has been selected"
@@ -170,8 +170,8 @@ msgstr "विभाजित करने के लिए आकार से�
 msgid "Size must be a number"
 msgstr "आकार एक संख्या होना चाहिए"
 
-msgid "Split at this size:"
-msgstr "इस आकार में विभाजित करें:"
+#~ msgid "Split at this size:"
+#~ msgstr "इस आकार में विभाजित करें:"
 
 msgid "Invalid split size"
 msgstr "अमान्य विभाजन आकार"
@@ -209,8 +209,8 @@ msgstr "१८० औंश घड़ी की दिशा  में"
 msgid "90 degrees counterclockwise"
 msgstr "९० औंश घडी की विरूद्ध दिशा में"
 
-msgid "Rotate "
-msgstr "घुमाएँ "
+#~ msgid "Rotate "
+#~ msgstr "घुमाएँ "
 
 msgid "Rotate settings"
 msgstr "घुमाने के लिये सेटिंग्स"
@@ -221,11 +221,11 @@ msgstr "घुमाएँ"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "एकाधिक PDF दस्तावेज़ों के पृष्ठ घुमाएँ।"
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"उन पृष्ठों को सेट करने के लिए डबल क्लिक करें जिन्हें आप घुमाना चाहते हैं "
-"(उदाहरण: 2 या 5-23 या 2,5-7,12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "उन पृष्ठों को सेट करने के लिए डबल क्लिक करें जिन्हें आप घुमाना चाहते हैं "
+#~ "(उदाहरण: 2 या 5-23 या 2,5-7,12-)"
 
 msgid "Merge settings"
 msgstr "मर्ज (एकत्रित) करने के लिये सेटिंग्स"
@@ -262,8 +262,8 @@ msgstr "प्रथम पृष्ठ के समान चौड़ाई"
 msgid "Same width as first page (based on page orientation)"
 msgstr "प्रथम पृष्ठ के समान चौड़ाई (पृष्ठ अभिविन्यास (ऑरीएंटेशन) के आधार पर)"
 
-msgid "Pages normalization:"
-msgstr "पेज सामान्यीकरण:"
+#~ msgid "Pages normalization:"
+#~ msgstr "पेज सामान्यीकरण:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -284,8 +284,8 @@ msgstr "समतल"
 msgid "Discard forms"
 msgstr "प्रपत्र त्यागें (डिस्कार्ड  फ़ॉर्म्ज़)"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "इंटरएक्टिव फॉर्म (एक्रोफॉर्म):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "इंटरएक्टिव फॉर्म (एक्रोफॉर्म):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
@@ -305,8 +305,8 @@ msgstr ""
 "प्रत्येक मर्ज (एकत्रित) किए गए दस्तावेज़ के लिए बुकमार्क को एक प्रविष्टि के "
 "रूप में रखें"
 
-msgid "Bookmarks handling:"
-msgstr "बुकमार्क प्रबंधन:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "बुकमार्क प्रबंधन:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "यदि एक या अधिक इनपुट दस्तावेज़ों में बुकमार्क हों तो क्या करें"
@@ -320,8 +320,8 @@ msgstr "फ़ाइल नामों से उत्पन्न (जेन�
 msgid "Generate from documents titles"
 msgstr "दस्तावेज़ शीर्षकों से उत्पन्न (जेनरेट) करें"
 
-msgid "Table of contents:"
-msgstr "विषयसूची: (सामग्री की एक तालिका)"
+#~ msgid "Table of contents:"
+#~ msgstr "विषयसूची: (सामग्री की एक तालिका)"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -632,35 +632,35 @@ msgstr "मुख्य पृष्ठ"
 msgid "Premium features"
 msgstr "प्रीमियम (विशेष) सुविधाएँ"
 
-msgid "Log register rows:"
-msgstr "लॉग रजिस्टर पंक्तियाँ:"
+#~ msgid "Log register rows:"
+#~ msgstr "लॉग रजिस्टर पंक्तियाँ:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "लॉग रजिस्टर द्वारा प्रदर्शित पंक्तियों की अधिकतम संख्या"
 
-msgid "Language:"
-msgstr "भाषा:"
+#~ msgid "Language:"
+#~ msgstr "भाषा:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr ""
 "अपनी पसंदीदा भाषा सेट करें (पुनः आरंभ (रीस्टार्ट) करने की आवश्यकता है)"
 
-msgid "Startup tool:"
-msgstr "स्टार्टअप टूल:"
+#~ msgid "Startup tool:"
+#~ msgstr "स्टार्टअप टूल:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "एप्लिकेशन स्टार्टअप पर खोलने के लिए टूल सेट करें (पुनरारंभ (रीस्टार्ट) "
 "आवश्यक)"
 
-msgid "Theme:"
-msgstr "थीम:"
+#~ msgid "Theme:"
+#~ msgstr "थीम:"
 
 msgid "Set the application theme"
 msgstr "एप्लिकेशन थीम सेट करें"
 
-msgid "Font size:"
-msgstr "अक्षरों (फ़ॉंट) का आकार:"
+#~ msgid "Font size:"
+#~ msgstr "अक्षरों (फ़ॉंट) का आकार:"
 
 msgid "Set the application font size"
 msgstr "एप्लिकेशन का फ़ॉन्ट आकार सेट करें"
@@ -1056,8 +1056,8 @@ msgstr "उपयोगकर्ता पासवर्ड दर्ज कर
 msgid "Unlock"
 msgstr "अनलॉक करें (ताला  खोले)"
 
-msgid "Drag and drop PDF files here"
-msgstr "पीडीएफ फाइलों को यहां खींचें और छोड़ें"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "पीडीएफ फाइलों को यहां खींचें और छोड़ें"
 
 msgid "Set as range for all"
 msgstr "सभी के लिए सीमा के रूप में सेट करें"
@@ -1163,9 +1163,9 @@ msgstr "पृष्ठ"
 msgid "Number of total pages of the document"
 msgstr "दस्तावेज़ के कुल पृष्ठों की संख्या"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"चयनित पेज सेट करने के लिए डबल क्लिक करें (उदाहरण: 2 या 5-23 या 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "चयनित पेज सेट करने के लिए डबल क्लिक करें (उदाहरण: 2 या 5-23 या 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "पृष्ठ श्रेणियाँ"
@@ -1301,8 +1301,8 @@ msgstr "अमान्य संख्या: {0}."
 msgid "Follow us on Bluesky"
 msgstr "Bluesky पर हमें फॉलो करें"
 
-msgid "Font:"
-msgstr "फ़ॉन्ट:"
+#~ msgid "Font:"
+#~ msgstr "फ़ॉन्ट:"
 
 msgid "Sets the application font"
 msgstr "एप्लिकेशन फ़ॉन्ट सेट करता है"
@@ -1327,3 +1327,318 @@ msgstr "क्या आप इसे सहेजना चाहते है�
 
 msgid "Set as pace for all"
 msgstr "सभी के लिए मानक के रूप में सेट करें"
+
+msgid "Split at this bookmark level"
+msgstr "इस बुकमार्क स्तर पर बांटें"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "बुकमार्क गहराई स्तर चुनें जिस पर दस्तावेज़ को विभाजित करना है"
+
+msgid "Bookmark level"
+msgstr "बुकमार्क स्तर"
+
+msgid "Bookmark level selector"
+msgstr "बुकमार्क स्तर चयनकर्ता"
+
+msgid "Select a bookmark level"
+msgstr "एक बुकमार्क स्तर चुनें"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "पृष्ठों के पूर्वनिर्धारित सेट के बाद PDF को विभाजित करने के लिए चुनें"
+
+msgid "Predefined set of pages to split after"
+msgstr "पूर्व-निर्धारित पृष्ठों का सेट जिनके बाद विभाजित करना है"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr ""
+"चुनें कि किस पूर्वनिर्धारित पृष्ठ सेट के बाद विभाजित करना है (विषम पृष्ठ, सम "
+"पृष्ठ या प्रत्येक पृष्ठ)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "दस्तावेज़ को विशिष्ट पृष्ठ संख्याओं के बाद विभाजित करने के लिए चुनें"
+
+msgid "Page numbers to split at"
+msgstr "विभाजित करने के लिए पृष्ठ संख्याएँ"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "कॉमा से अलग किए गए धनात्मक पृष्ठ संख्याएँ दर्ज करें (उदा. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "दस्तावेज़ को हर 'n' पृष्ठों पर विभाजित करने के लिए चुनें"
+
+msgid "Number of pages for split"
+msgstr "विभाजन हेतु पृष्ठों की संख्या"
+
+msgid "Enter a positive number of pages"
+msgstr "पृष्ठों की एक धनात्मक संख्या दर्ज करें"
+
+msgid "Split at this size"
+msgstr "इस आकार पर विभाजित करें"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "अधिकतम फ़ाइल आकार के लिए एक धनात्मक पूर्णांक दर्ज करें"
+
+msgid "Size unit for the split file size"
+msgstr "विभाजित फ़ाइल आकार की इकाई"
+
+msgid "Page selection for rotation"
+msgstr "घूर्णन के लिए पृष्ठ चयन"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "पृष्ठों को घुमाने के लिए चुनें: सभी, सम, या विषम"
+
+msgid "Rotation angle"
+msgstr "घूर्णन कोण"
+
+msgid "Choose the rotation angle to apply"
+msgstr "लागू करने के लिए घूर्णन कोण चुनें"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "घुमाने के लिए पृष्ठ सेट करें (उदा: 2 या 5-23 या 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "पृष्ठ सामान्यीकरण"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "संवादात्मक फ़ॉर्म (एक्रोफ़ॉर्म)"
+
+msgid "Bookmarks handling"
+msgstr "बुकमार्क प्रबंधन"
+
+msgid "Table of contents"
+msgstr "विषय-सूची"
+
+msgid "Repeating PDF file"
+msgstr "पुनरावृत्त PDF फ़ाइल"
+
+msgid "There are news available"
+msgstr "समाचार उपलब्ध हैं"
+
+msgid "selected"
+msgstr "चयनित"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (अधिसूचना के साथ)"
+
+msgid "Collapse the sidebar"
+msgstr "साइडबार सिकोड़ें"
+
+msgid "Expand the sidebar"
+msgstr "साइडबार का विस्तार करें"
+
+msgid "PDF files to open"
+msgstr "पीडीएफ फाइलें खोलने के लिए"
+
+msgid "file list"
+msgstr "फ़ाइल सूची"
+
+msgid "Available tasks"
+msgstr "उपलब्ध कार्य"
+
+msgid "Log messages"
+msgstr "लॉग संदेश"
+
+msgid "Save the log messages to a text file"
+msgstr "लॉग संदेशों को एक टेक्स्ट फ़ाइल में सहेजें"
+
+msgid "Close the log panel"
+msgstr "लॉग पैनल बंद करें"
+
+msgid "News items"
+msgstr "समाचार मदें"
+
+msgid "Close news panel"
+msgstr "समाचार पैनल बंद करें"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "सहायता के लिए {0}"
+
+msgid "Log register rows"
+msgstr "रजिस्टर पंक्तियों का लॉग"
+
+msgid "Language"
+msgstr "भाषा"
+
+msgid "Startup tool"
+msgstr "शुरुआती उपकरण"
+
+msgid "Theme"
+msgstr "थीम"
+
+msgid "Font"
+msgstr "फ़ॉन्ट"
+
+msgid "Font size"
+msgstr "फ़ॉन्ट आकार"
+
+msgid "Default PDF version"
+msgstr "पूर्वनिर्धारित पीडीएफ संस्करण"
+
+msgid "Manually select the output destination directory"
+msgstr "मैन्युअल रूप से आउटपुट गंतव्य निर्देशिका चुनें"
+
+msgid "Default prefix"
+msgstr "पूर्वनिर्धारित उपसर्ग"
+
+msgid "Default prefix for output file names"
+msgstr "आउटपुट फ़ाइल नामों के लिए डिफ़ॉल्ट उपसर्ग"
+
+msgid "Right click to add special prefix keywords"
+msgstr "दायाँ क्लिक करके विशेष उपसर्ग कीवर्ड जोड़ें"
+
+msgid "Properties table"
+msgstr "गुण तालिका"
+
+msgid "Properties"
+msgstr "गुणधर्म"
+
+msgid "Empty"
+msgstr "खाली"
+
+msgid "Notification"
+msgstr "सूचना"
+
+msgid "Close notification"
+msgstr "सूचना बंद करें"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "यूआरएल {0} खोलें"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "चयनित PDF दस्तावेज़ हटाएँ"
+
+msgid "PDF encryption status"
+msgstr "पीडीएफ एन्क्रिप्शन स्थिति"
+
+msgid "PDF document password"
+msgstr "PDF दस्तावेज़ पासवर्ड"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr ""
+"PDF फ़ाइलों को यहाँ खींचें और छोड़ें या ऊपर दिए गए जोड़ें बटन का उपयोग करें"
+
+msgid "PDF documents selection table"
+msgstr "PDF दस्तावेज़ चयन तालिका"
+
+msgid "PDF selection table"
+msgstr "PDF चयन तालिका"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "PDF दस्तावेज़ चयन तालिका, {0} दस्तावेज़"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} चयनित पृष्ठ"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "आकार: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "संशोधित: {0}"
+
+msgid "Number of total pages"
+msgstr "कुल पृष्ठ संख्या"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "फ़ाइल नाम: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "पंक्ति {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} पृष्ठ"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "चयनित पृष्ठ सेट करें (उदाहरण: 2 या 5-23 या 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "एक PDF गंतव्य फ़ाइल चुनें"
+
+msgid "Browse for destination PDF file"
+msgstr "गंतव्य पीडीएफ फाइल के लिए ब्राउज़ करें"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "{0} के लिए ब्राउज़ करें"
+
+msgid "Compress the output PDF file"
+msgstr "आउटपुट पीडीएफ फाइल को संपीड़ित करें"
+
+msgid "Select a PDF file"
+msgstr "एक PDF फ़ाइल चुनें"
+
+msgid "Browse for source PDF file"
+msgstr "स्रोत PDF फ़ाइल चुनें"
+
+msgid "Output PDF version"
+msgstr "आउटपुट पीडीएफ संस्करण"
+
+msgid "Output PDF version selector"
+msgstr "आउटपुट पीडीएफ संस्करण चयनकर्ता"
+
+msgid "Output directory"
+msgstr "आउटपुट डायरेक्टरी"
+
+msgid "Browse for output directory"
+msgstr "आउटपुट फ़ोल्डर के लिए ब्राउज़ करें"
+
+msgid "Browse for directory"
+msgstr "निर्देशिका ब्राउज़ करें"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "अमान्य मान: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr ""
+"चयनित होने पर, आउटपुट फ़ाइल के लिए PDF संस्करण {0} या उच्चतर आवश्यक है"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"विशेष उपसर्ग कीवर्ड जैसे टाइमस्टैम्प या फ़ाइल नाम जोड़ने के लिए दायाँ क्लिक "
+"करें"
+
+msgid "Open the task output file"
+msgstr "कार्य आउटपुट फ़ाइल खोलें"
+
+msgid "Open the task output directory"
+msgstr "कार्य आउटपुट डायरेक्टरी खोलें"
+
+msgid "Task footer"
+msgstr "कार्य फ़ुटर"
+
+msgid "Task progress"
+msgstr "कार्य प्रगति"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "कार्य प्रगति: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "कार्य स्थिति: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "कार्य स्थिति: {0}%"

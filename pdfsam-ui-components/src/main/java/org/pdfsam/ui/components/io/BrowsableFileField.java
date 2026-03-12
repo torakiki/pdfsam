@@ -65,14 +65,15 @@ public class BrowsableFileField extends BrowsableField {
         setBrowseWindowTitle(i18n().tr("Select a file"));
         getBrowseButton().setOnAction(handler);
         getTextField().setOnAction(handler);
-        this.fileType = ObjectUtils.defaultIfNull(fileType, FileType.ALL);
-        this.openType = ObjectUtils.defaultIfNull(openType, OpenType.OPEN);
+        this.fileType = ObjectUtils.getIfNull(fileType, FileType.ALL);
+        this.openType = ObjectUtils.getIfNull(openType, OpenType.OPEN);
         if (FileType.ALL != fileType) {
-            getTextField().setPromptText(
-                    String.format("%s: %s", i18n().tr("Select a file"), fileType.getFilter().getExtensions()));
+            var prompt = String.format("%s: %s", i18n().tr("Select a file"), fileType.getFilter().getExtensions());
+            setFieldPromptAndAccessibleText(prompt);
         } else {
-            getTextField().setPromptText(i18n().tr("Select a file"));
+            setFieldPromptAndAccessibleText(i18n().tr("Select a file"));
         }
+        setBrowseButtonAccessibleText(i18n().tr("Browse for {0}", getTextField().getPromptText()));
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));
         setOnDragDropped(e -> dragConsume(e, this.onDragDropped()));
     }

@@ -46,7 +46,9 @@ class PreferenceAppearencePane extends GridPane {
             @Named("themeCombo") PreferenceComboBox<ComboItem<String>> themeCombo,
             @Named("fontFamilyCombo") PreferenceComboBox<ComboItem<String>> fontFamilyCombo,
             @Named("fontSizeCombo") PreferenceComboBox<ComboItem<String>> fontSizeCombo) {
-        add(new Label(i18n().tr("Language:")), 0, 0);
+        var languageLabel = new Label(i18n().tr("Language") + ":");
+        languageLabel.setLabelFor(localeCombo);
+        add(languageLabel, 0, 0);
         i18n().getSupported().stream().map(ComboItem::fromLocale).sorted(Comparator.comparing(ComboItem::description))
                 .forEach(localeCombo.getItems()::add);
 
@@ -56,32 +58,45 @@ class PreferenceAppearencePane extends GridPane {
         localeCombo.setMaxWidth(Double.POSITIVE_INFINITY);
         setFillWidth(localeCombo, true);
         add(localeCombo, 1, 0);
+        localeCombo.setAccessibleText(i18n().tr("Language"));
         add(helpIcon(i18n().tr("Set your preferred language (restart needed)")), 2, 0);
 
-        add(new Label(i18n().tr("Startup tool:")), 0, 1);
+        var startupToolLabel = new Label(i18n().tr("Startup tool") + ":");
+        startupToolLabel.setLabelFor(startupTool);
+        add(startupToolLabel, 0, 1);
         startupTool.setMaxWidth(Double.POSITIVE_INFINITY);
         setFillWidth(startupTool, true);
         add(startupTool, 1, 1);
+        startupTool.setAccessibleText(i18n().tr("Startup tool"));
         add(helpIcon(i18n().tr("Set the tool to open at application startup (restart needed)")), 2, 1);
 
-        add(new Label(i18n().tr("Theme:")), 0, 2);
+        var themeLabel = new Label(i18n().tr("Theme") + ":");
+        themeLabel.setLabelFor(themeCombo);
+        add(themeLabel, 0, 2);
         themeCombo.setMaxWidth(Double.POSITIVE_INFINITY);
         setFillWidth(themeCombo, true);
         add(themeCombo, 1, 2);
+        themeCombo.setAccessibleText(i18n().tr("Theme"));
         add(helpIcon(i18n().tr("Set the application theme")), 2, 2);
 
-        add(new Label(i18n().tr("Font:")), 0, 3);
+        var fontLabel = new Label(i18n().tr("Font") + ":");
+        fontLabel.setLabelFor(fontFamilyCombo);
+        add(fontLabel, 0, 3);
         fontFamilyCombo.setMaxWidth(Double.POSITIVE_INFINITY);
         setFillWidth(fontFamilyCombo, true);
         add(fontFamilyCombo, 1, 3);
+        fontFamilyCombo.setAccessibleText(i18n().tr("Font"));
         add(helpIcon(i18n().tr("Sets the application font")), 2, 3);
 
-        add(new Label(i18n().tr("Font size:")), 0, 4);
+        var fontSizeLabel = new Label(i18n().tr("Font size") + ":");
+        fontSizeLabel.setLabelFor(fontSizeCombo);
+        add(fontSizeLabel, 0, 4);
         fontSizeCombo.setMaxWidth(Double.POSITIVE_INFINITY);
         setFillWidth(fontSizeCombo, true);
         add(fontSizeCombo, 1, 4);
+        fontSizeCombo.setAccessibleText(i18n().tr("Font size"));
         add(helpIcon(i18n().tr("Set the application font size")), 2, 4);
-        
+
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
     }

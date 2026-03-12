@@ -1,4 +1,3 @@
-package org.pdfsam.gui.components.sidebar;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 20/01/23
@@ -17,9 +16,11 @@ package org.pdfsam.gui.components.sidebar;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.gui.components.sidebar;
 
 import jakarta.inject.Inject;
 import javafx.geometry.Side;
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.Tooltip;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.unicons.UniconsLine;
@@ -37,7 +38,10 @@ public class WorkspaceButton extends SidebarButton {
     @Inject
     public WorkspaceButton(WorkspaceMenu workspaceMenu) {
         super(i18n().tr("Workspace"));
-        setGraphic(new FontIcon(UniconsLine.SUITCASE));
+        var icon = new FontIcon(UniconsLine.SUITCASE);
+        icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
+        setGraphic(icon);
+        setAccessibleRole(AccessibleRole.MENU_BUTTON);
         setTooltip(new Tooltip(i18n().tr("Manage your workspaces")));
         setOnAction(e -> workspaceMenu.show(this, Side.RIGHT, 0, 0));
     }

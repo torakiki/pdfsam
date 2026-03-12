@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"PO-Revision-Date: 2026-02-24 16:58+0100\n"
 "Last-Translator: Loge Xu <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: zh_CN\n"
 
 msgid "No PDF document has been selected"
@@ -160,8 +160,8 @@ msgstr "设置分割的大小"
 msgid "Size must be a number"
 msgstr "大小必须是数字"
 
-msgid "Split at this size:"
-msgstr "按此大小分割："
+#~ msgid "Split at this size:"
+#~ msgstr "按此大小分割："
 
 msgid "Invalid split size"
 msgstr "无效的分割大小"
@@ -195,8 +195,8 @@ msgstr "顺时针旋转180度"
 msgid "90 degrees counterclockwise"
 msgstr "逆时针旋转90度"
 
-msgid "Rotate "
-msgstr "旋转 "
+#~ msgid "Rotate "
+#~ msgstr "旋转 "
 
 msgid "Rotate settings"
 msgstr "旋转设置"
@@ -207,9 +207,9 @@ msgstr "旋转"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "旋转多个PDF文档的页面"
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "双击以设置要旋转的页面（如：2 或 5-23 或 2,5-7,12-）"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "双击以设置要旋转的页面（如：2 或 5-23 或 2,5-7,12-）"
 
 msgid "Merge settings"
 msgstr "合并设置"
@@ -241,8 +241,8 @@ msgstr "与第一页宽度相同"
 msgid "Same width as first page (based on page orientation)"
 msgstr "与第一页宽度相同（基于页面方向）"
 
-msgid "Pages normalization:"
-msgstr "页面规范化"
+#~ msgid "Pages normalization:"
+#~ msgstr "页面规范化"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -261,8 +261,8 @@ msgstr "平坦"
 msgid "Discard forms"
 msgstr "丢弃表单"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "互动式表单（AcroForms）："
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "互动式表单（AcroForms）："
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr "在一个或多个输入文档含有 Acro Forms 时怎么做"
@@ -279,8 +279,8 @@ msgstr "为每一个合并的文档创建一个条目"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "将每一个合并的文档中的书签保留为一个条目"
 
-msgid "Bookmarks handling:"
-msgstr "书签处理："
+#~ msgid "Bookmarks handling:"
+#~ msgstr "书签处理："
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "在一个或多个输入文档含有书签时怎么做"
@@ -294,8 +294,8 @@ msgstr "从文件名生成"
 msgid "Generate from documents titles"
 msgstr "从文档标题生成"
 
-msgid "Table of contents:"
-msgstr "目录："
+#~ msgid "Table of contents:"
+#~ msgstr "目录："
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -588,32 +588,32 @@ msgstr "首页"
 msgid "Premium features"
 msgstr "高级版特性"
 
-msgid "Log register rows:"
-msgstr "日志记录器行数"
+#~ msgid "Log register rows:"
+#~ msgstr "日志记录器行数"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "日志记录器显示的最大行数"
 
-msgid "Language:"
-msgstr "语言/Language："
+#~ msgid "Language:"
+#~ msgstr "语言/Language："
 
 msgid "Set your preferred language (restart needed)"
 msgstr "设置首选语言（需要重新启动）"
 
-msgid "Startup tool:"
-msgstr "启动工具:"
+#~ msgid "Startup tool:"
+#~ msgstr "启动工具:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr "程序启动时启动该工具(需要重新启动)"
 
-msgid "Theme:"
-msgstr "主题："
+#~ msgid "Theme:"
+#~ msgstr "主题："
 
 msgid "Set the application theme"
 msgstr "设置程序主题"
 
-msgid "Font size:"
-msgstr "字体大小:"
+#~ msgid "Font size:"
+#~ msgstr "字体大小:"
 
 msgid "Set the application font size"
 msgstr "设置程序的字体大小"
@@ -976,8 +976,8 @@ msgstr "输入用户密码"
 msgid "Unlock"
 msgstr "解锁"
 
-msgid "Drag and drop PDF files here"
-msgstr "拖拽PDF文件到这里"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "拖拽PDF文件到这里"
 
 msgid "Set as range for all"
 msgstr "将此页面范围应用到所有"
@@ -1069,8 +1069,8 @@ msgstr "页数"
 msgid "Number of total pages of the document"
 msgstr "文档的总页数"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "双击设置选中的页面（如：2 或 5-23 或 2,5-7,12-）"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "双击设置选中的页面（如：2 或 5-23 或 2,5-7,12-）"
 
 msgid "Page ranges"
 msgstr "页面范围"
@@ -1259,8 +1259,8 @@ msgstr "保存内容到剪贴板时出错"
 msgid "Follow us on Bluesky"
 msgstr "在 Bluesky 上关注我们"
 
-msgid "Font:"
-msgstr "字体："
+#~ msgid "Font:"
+#~ msgstr "字体："
 
 msgid "Sets the application font"
 msgstr "设置应用程序字体"
@@ -1284,4 +1284,313 @@ msgid "Do you want to save it?"
 msgstr "您要保存吗？"
 
 msgid "Set as pace for all"
-msgstr ""
+msgstr "设为所有步调"
+
+msgid "Split at this bookmark level"
+msgstr "按此书签级别拆分"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "选择拆分文档的书签深度级别"
+
+msgid "Bookmark level"
+msgstr "书签级别"
+
+msgid "Bookmark level selector"
+msgstr "书签层级选择"
+
+msgid "Select a bookmark level"
+msgstr "选择书签级别"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "选择在预设页数后拆分 PDF"
+
+msgid "Predefined set of pages to split after"
+msgstr "预设拆分页码"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr "选择预设的拆分模式（奇数页、偶数页或每页）"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "选择在指定页码后拆分文档"
+
+msgid "Page numbers to split at"
+msgstr "拆分页码"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "输入逗号分隔的正页码 (例如 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "选择按每 'n' 页拆分文档"
+
+msgid "Number of pages for split"
+msgstr "拆分页数"
+
+msgid "Enter a positive number of pages"
+msgstr "输入正数页数"
+
+msgid "Split at this size"
+msgstr "按此大小分割"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "输入正整数作为最大文件大小"
+
+msgid "Size unit for the split file size"
+msgstr "分割文件大小单位"
+
+msgid "Page selection for rotation"
+msgstr "旋转页面选择"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "选择要旋转的页面: 全部, 偶数, 或 奇数"
+
+msgid "Rotation angle"
+msgstr "旋转角度"
+
+msgid "Choose the rotation angle to apply"
+msgstr "选择要应用的旋转角度"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "设置要旋转的页面 (例如: 2 或 5-23 或 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "页面标准化"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "交互式表单 (Acro 表单)"
+
+msgid "Bookmarks handling"
+msgstr "书签管理"
+
+msgid "Table of contents"
+msgstr "目录"
+
+msgid "Repeating PDF file"
+msgstr "重复PDF文件"
+
+msgid "There are news available"
+msgstr "有新闻可用"
+
+msgid "selected"
+msgstr "选中"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (带通知)"
+
+msgid "Collapse the sidebar"
+msgstr "折叠侧边栏"
+
+msgid "Expand the sidebar"
+msgstr "展开侧边栏"
+
+msgid "PDF files to open"
+msgstr "要打开的PDF文件"
+
+msgid "file list"
+msgstr "文件列表"
+
+msgid "Available tasks"
+msgstr "可用任务"
+
+msgid "Log messages"
+msgstr "日志消息"
+
+msgid "Save the log messages to a text file"
+msgstr "保存日志消息到文本文件"
+
+msgid "Close the log panel"
+msgstr "关闭日志面板"
+
+msgid "News items"
+msgstr "新闻项"
+
+msgid "Close news panel"
+msgstr "关闭新闻面板"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "关于 {0}"
+
+msgid "Log register rows"
+msgstr "记录注册行"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Startup tool"
+msgstr "启动工具"
+
+msgid "Theme"
+msgstr "主题"
+
+msgid "Font"
+msgstr "字体"
+
+msgid "Font size"
+msgstr "字体大小"
+
+msgid "Default PDF version"
+msgstr "默认 PDF 版本"
+
+msgid "Manually select the output destination directory"
+msgstr "手动选择输出目标目录"
+
+msgid "Default prefix"
+msgstr "默认前缀"
+
+msgid "Default prefix for output file names"
+msgstr "输出文件名默认前缀"
+
+msgid "Right click to add special prefix keywords"
+msgstr "右键点击添加特殊前缀关键词"
+
+msgid "Properties table"
+msgstr "属性表"
+
+msgid "Properties"
+msgstr "属性"
+
+msgid "Empty"
+msgstr "空"
+
+msgid "Notification"
+msgstr "通知"
+
+msgid "Close notification"
+msgstr "关闭通知"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "打开网址 {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "清除选定的 PDF 文档"
+
+msgid "PDF encryption status"
+msgstr "PDF加密状态"
+
+msgid "PDF document password"
+msgstr "PDF文档密码"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "将 PDF 文件拖放到此处或使用上方的添加按钮"
+
+msgid "PDF documents selection table"
+msgstr "PDF文档选择表格"
+
+msgid "PDF selection table"
+msgstr "PDF选择表格"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "PDF文档选择列表, {0} 份文档"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} 已选页面"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "大小: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "修改时间: {0}"
+
+msgid "Number of total pages"
+msgstr "总页数"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "文件名: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "行 {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} 页"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "设置选定页面 (例如: 2 或 5-23 或 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "选择 PDF 目标文件"
+
+msgid "Browse for destination PDF file"
+msgstr "选择目标 PDF 文件"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "浏览 {0}"
+
+msgid "Compress the output PDF file"
+msgstr "压缩输出的 PDF 文件"
+
+msgid "Select a PDF file"
+msgstr "选择 PDF 文件"
+
+msgid "Browse for source PDF file"
+msgstr "浏览源 PDF 文件"
+
+msgid "Output PDF version"
+msgstr "输出 PDF 版本"
+
+msgid "Output PDF version selector"
+msgstr "输出 PDF 版本选择"
+
+msgid "Output directory"
+msgstr "输出目录"
+
+msgid "Browse for output directory"
+msgstr "浏览输出目录"
+
+msgid "Browse for directory"
+msgstr "浏览目录"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "无效值: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "选中时，输出文件需要 PDF 版本 {0} 或更高"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr "右键添加特殊前缀关键字，如时间戳或文件名"
+
+msgid "Open the task output file"
+msgstr "打开任务输出文件"
+
+msgid "Open the task output directory"
+msgstr "打开任务输出目录"
+
+msgid "Task footer"
+msgstr "任务底部"
+
+msgid "Task progress"
+msgstr "任务进度"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "任务进度: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "任务状态: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "任务状态: {0}%"

@@ -46,8 +46,12 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
 
     public SplitAfterPredefinedSetOfPagesRadioButton(ComboBox<ComboItem<PredefinedSetOfPages>> combo) {
         super(i18n().tr("Split after"));
+        this.setAccessibleHelp(i18n().tr("Select to split the PDF after a predefined set of pages"));
         this.combo = combo;
         combo.getSelectionModel().selectFirst();
+        combo.setAccessibleText(i18n().tr("Predefined set of pages to split after"));
+        combo.setAccessibleHelp(
+                i18n().tr("Choose which predefined set of pages to split after (odd pages, even pages or every page)"));
     }
 
     @Override

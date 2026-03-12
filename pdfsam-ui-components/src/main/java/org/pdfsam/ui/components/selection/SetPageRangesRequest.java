@@ -18,8 +18,9 @@
  */
 package org.pdfsam.ui.components.selection;
 
+import java.util.Objects;
+
 import static org.apache.commons.lang3.StringUtils.EMPTY;
-import static org.apache.commons.lang3.StringUtils.defaultString;
 
 /**
  * Request to set all page ranges to the given value
@@ -29,6 +30,6 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 public record SetPageRangesRequest(String range) {
 
     public SetPageRangesRequest(String range) {
-        this.range = defaultString(range, EMPTY);
+        this.range = Objects.toString(range, EMPTY);
     }
 }

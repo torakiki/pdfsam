@@ -22,6 +22,7 @@ import javafx.application.Platform;
 import javafx.beans.binding.IntegerExpression;
 import javafx.beans.binding.NumberBinding;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.scene.AccessibleAttribute;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import org.apache.commons.lang3.StringUtils;
@@ -64,8 +65,11 @@ public class MultipleSelectionPane extends BorderPane implements ToolBound, Rest
     public void showTotalPagesLabel() {
         var total = new Label();
         total.setId("total-label");
-        totalValue.addListener((observable, oldValue, newValue) -> Platform.runLater(
-                () -> total.setText(i18n().tr("Total pages: {0}", newValue.toString()))));
+        total.setAccessibleRoleDescription(i18n().tr("Number of total pages"));
+        totalValue.addListener((observable, oldValue, newValue) -> Platform.runLater(() -> {
+            total.setText(i18n().tr("Total pages: {0}", newValue.toString()));
+            total.notifyAccessibleAttributeChanged(AccessibleAttribute.TEXT);
+        }));
         totalValue.set(0);
         setBottom(total);
         eventStudio().add(PdfLoadRequest.class, this::onTableItemsChange, toolBinding(), Integer.MAX_VALUE,

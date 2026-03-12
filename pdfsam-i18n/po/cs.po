@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-10-23 12:32+0200\n"
+"PO-Revision-Date: 2026-02-24 16:37+0100\n"
 "Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-04-17 17:36+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: cs\n"
 
 msgid "No PDF document has been selected"
@@ -164,8 +164,8 @@ msgstr "Zvolte velikost souboru"
 msgid "Size must be a number"
 msgstr "Velikost musí být číslo"
 
-msgid "Split at this size:"
-msgstr "Rozdělit na velikost:"
+#~ msgid "Split at this size:"
+#~ msgstr "Rozdělit na velikost:"
 
 msgid "Invalid split size"
 msgstr "Chybná velikost rozdělování"
@@ -203,8 +203,8 @@ msgstr "o 180°"
 msgid "90 degrees counterclockwise"
 msgstr "o -90°"
 
-msgid "Rotate "
-msgstr "Obrátit "
+#~ msgid "Rotate "
+#~ msgstr "Obrátit "
 
 msgid "Rotate settings"
 msgstr "Nastavení rotace"
@@ -215,11 +215,11 @@ msgstr "Otočení"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Otočit stránky u více PDF."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Poklepáním nastavte stránky, které chcete otočit (např. 2 nebo 5-23 nebo 2,5-"
-"7,12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Poklepáním nastavte stránky, které chcete otočit (např. 2 nebo 5-23 nebo 2,5-"
+#~ "7,12-)"
 
 msgid "Merge settings"
 msgstr "Nastavení slučování"
@@ -254,8 +254,8 @@ msgstr "Stejná šířka jako má první stránka"
 msgid "Same width as first page (based on page orientation)"
 msgstr "Stejná šířka jako má první stránka (na základě orientace stránky)"
 
-msgid "Pages normalization:"
-msgstr "Normalizace stránek:"
+#~ msgid "Pages normalization:"
+#~ msgstr "Normalizace stránek:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -276,8 +276,8 @@ msgstr "Sloučit"
 msgid "Discard forms"
 msgstr "Zrušit formuláře"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Interaktivní formuláře (AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Interaktivní formuláře (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
@@ -296,8 +296,8 @@ msgstr "Vytvořit položku pro každý sloučený dokument"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Zachovat záložky jako jednu položku pro každý sloučený dokument"
 
-msgid "Bookmarks handling:"
-msgstr "Manipulace se záložkami:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Manipulace se záložkami:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
@@ -312,8 +312,8 @@ msgstr "Generova z názvu souborů"
 msgid "Generate from documents titles"
 msgstr "Generovat z titulů dokumentů"
 
-msgid "Table of contents:"
-msgstr "Obsah:"
+#~ msgid "Table of contents:"
+#~ msgstr "Obsah:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -615,33 +615,33 @@ msgstr "Domovská složka"
 msgid "Premium features"
 msgstr "Prémiové funkce"
 
-msgid "Log register rows:"
-msgstr "Délka logu:"
+#~ msgid "Log register rows:"
+#~ msgstr "Délka logu:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Maximální počet řádků zobrazených v logu"
 
-msgid "Language:"
-msgstr "Jazyk:"
+#~ msgid "Language:"
+#~ msgstr "Jazyk:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Vyberte jazyk (projeví se po restartu)"
 
-msgid "Startup tool:"
-msgstr "Nástroj po spuštění"
+#~ msgid "Startup tool:"
+#~ msgstr "Nástroj po spuštění"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Nastavit nástroj, který se otevřel při spuštění aplikace (nutný restart)"
 
-msgid "Theme:"
-msgstr "Motiv:"
+#~ msgid "Theme:"
+#~ msgstr "Motiv:"
 
 msgid "Set the application theme"
 msgstr "Nastavit motiv aplikace"
 
-msgid "Font size:"
-msgstr "Velikost písma:"
+#~ msgid "Font size:"
+#~ msgstr "Velikost písma:"
 
 msgid "Set the application font size"
 msgstr "Nastavit velikost písma aplikace"
@@ -1026,8 +1026,8 @@ msgstr "Zadejte uživatelské heslo"
 msgid "Unlock"
 msgstr "Odemknout"
 
-msgid "Drag and drop PDF files here"
-msgstr "Přetáhněte PDF zde"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Přetáhněte PDF zde"
 
 msgid "Set as range for all"
 msgstr "Nastavit jako rozsah pro vše"
@@ -1132,9 +1132,9 @@ msgstr "Počet stran"
 msgid "Number of total pages of the document"
 msgstr "Celkový počet stran dokumentu"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Poklepáním nastavte vybrané stránky (např. 2 nebo 5-23 nebo 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Poklepáním nastavte vybrané stránky (např. 2 nebo 5-23 nebo 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Rozsahy stran"
@@ -1298,8 +1298,8 @@ msgstr "Neplatné číslo: {0}."
 msgid "Follow us on Bluesky"
 msgstr "Sledujte nás na Bluesky"
 
-msgid "Font:"
-msgstr "Písmo:"
+#~ msgid "Font:"
+#~ msgstr "Písmo:"
 
 msgid "Sets the application font"
 msgstr "Nastaví písmo aplikace"
@@ -1324,3 +1324,317 @@ msgstr "Chcete to uložit?"
 
 msgid "Set as pace for all"
 msgstr "Nastavit jako vzor pro všechny"
+
+msgid "Split at this bookmark level"
+msgstr "Rozdělit podle této úrovně záložek"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "Vyberte úroveň hloubky záložky pro rozdělení dokumentu"
+
+msgid "Bookmark level"
+msgstr "Úroveň záložky"
+
+msgid "Bookmark level selector"
+msgstr "Volič úrovně záložky"
+
+msgid "Select a bookmark level"
+msgstr "Zvolit úroveň záložky"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "Vyberte pro rozdělení PDF po předdefinované sadě stránek"
+
+msgid "Predefined set of pages to split after"
+msgstr "Předdefinovaná sada stránek pro rozdělení za nimi"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr ""
+"Vyberte, po které předdefinované sadě stránek se má rozdělit (liché stránky, "
+"sudé stránky nebo každá stránka)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Vyberte pro rozdělení dokumentu po konkrétních číslech stránek"
+
+msgid "Page numbers to split at"
+msgstr "Čísla stránek pro rozdělení"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "Zadejte čárkou oddělená kladná čísla stránek (Např. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Zvolte rozdělení dokumentu každých 'n' stránek"
+
+msgid "Number of pages for split"
+msgstr "Počet stránek pro rozdělení"
+
+msgid "Enter a positive number of pages"
+msgstr "Zadejte kladné číslo stran"
+
+msgid "Split at this size"
+msgstr "Rozdělit na tuto velikost"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Zadejte kladné celé číslo pro maximální velikost souboru"
+
+msgid "Size unit for the split file size"
+msgstr "Jednotka velikosti rozděleného souboru"
+
+msgid "Page selection for rotation"
+msgstr "Výběr stránek pro otočení"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Vyberte, které stránky otočit: všechny, sudé, nebo liché"
+
+msgid "Rotation angle"
+msgstr "Úhel otočení"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Zvolte úhel otočení k použití"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Nastavte stránky, které chcete otočit (např.: 2 nebo 5-23 nebo 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Normalizace stránek"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Interaktivní formuláře (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Správa záložek"
+
+msgid "Table of contents"
+msgstr "Obsah"
+
+msgid "Repeating PDF file"
+msgstr "Opakující se soubor PDF"
+
+msgid "There are news available"
+msgstr "Jsou dostupné novinky"
+
+msgid "selected"
+msgstr "vybráno"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (s oznámením)"
+
+msgid "Collapse the sidebar"
+msgstr "Sbalit postranní panel"
+
+msgid "Expand the sidebar"
+msgstr "Rozbalit postranní panel"
+
+msgid "PDF files to open"
+msgstr "Soubory PDF k otevření"
+
+msgid "file list"
+msgstr "seznam souborů"
+
+msgid "Available tasks"
+msgstr "Dostupné úkoly"
+
+msgid "Log messages"
+msgstr "Zprávy protokolu"
+
+msgid "Save the log messages to a text file"
+msgstr "Uložit zprávy protokolu do textového souboru"
+
+msgid "Close the log panel"
+msgstr "Zavřít panel protokolu"
+
+msgid "News items"
+msgstr "Novinky"
+
+msgid "Close news panel"
+msgstr "Zavřít panel novinek"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Nápověda pro {0}"
+
+msgid "Log register rows"
+msgstr "Řádky protokolu"
+
+msgid "Language"
+msgstr "Jazyk"
+
+msgid "Startup tool"
+msgstr "Spouštěcí nástroj"
+
+msgid "Theme"
+msgstr "Motiv"
+
+msgid "Font"
+msgstr "Písmo"
+
+msgid "Font size"
+msgstr "Velikost písma"
+
+msgid "Default PDF version"
+msgstr "Výchozí verze PDF"
+
+msgid "Manually select the output destination directory"
+msgstr "Ručně vyberte výstupní cílový adresář"
+
+msgid "Default prefix"
+msgstr "Výchozí předpona"
+
+msgid "Default prefix for output file names"
+msgstr "Výchozí předpona pro názvy výstupních souborů"
+
+msgid "Right click to add special prefix keywords"
+msgstr "Pravým kliknutím přidáte speciální klíčová slova s předponou"
+
+msgid "Properties table"
+msgstr "Tabulka vlastností"
+
+msgid "Properties"
+msgstr "Vlastnosti"
+
+msgid "Empty"
+msgstr "Prázdný"
+
+msgid "Notification"
+msgstr "Oznámení"
+
+msgid "Close notification"
+msgstr "Zavřít oznámení"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Otevřít URL {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr "Panel nástrojů pro výběr PDF dokumentu"
+
+msgid "Clear the selected PDF document"
+msgstr "Vymazat vybraný PDF dokument"
+
+msgid "PDF encryption status"
+msgstr "stav šifrování PDF"
+
+msgid "PDF document password"
+msgstr "Heslo PDF dokumentu"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "Přetáhněte soubory PDF sem nebo použijte tlačítko Přidat výše"
+
+msgid "PDF documents selection table"
+msgstr "Tabulka výběru PDF dokumentů"
+
+msgid "PDF selection table"
+msgstr "PDF výběrová tabulka"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "Tabulka výběru PDF dokumentů, {0} dokumentů"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} vybraných stránek"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Velikost: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Upraveno: {0}"
+
+msgid "Number of total pages"
+msgstr "Počet celkových stránek"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Název souboru: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Řádek {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr "Panel nástrojů pro výběr dokumentu"
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} stran"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Nastavit vybrané stránky (např.: 2 nebo 5-23 nebo 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Vyberte cílový soubor PDF"
+
+msgid "Browse for destination PDF file"
+msgstr "Vybrat cílový soubor PDF"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Vyhledat {0}"
+
+msgid "Compress the output PDF file"
+msgstr "Komprimovat výstupní soubor PDF"
+
+msgid "Select a PDF file"
+msgstr "Vybrat soubor PDF"
+
+msgid "Browse for source PDF file"
+msgstr "Procházet zdrojový soubor PDF"
+
+msgid "Output PDF version"
+msgstr "Verze výstupního PDF"
+
+msgid "Output PDF version selector"
+msgstr "Výběr výstupní verze PDF"
+
+msgid "Output directory"
+msgstr "Výstupní adresář"
+
+msgid "Browse for output directory"
+msgstr "Procházet výstupní adresář"
+
+msgid "Browse for directory"
+msgstr "Vybrat adresář"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Neplatná hodnota: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "Při výběru vyžaduje verzi PDF {0} nebo vyšší pro výstupní soubor"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Pravým tlačítkem přidáte speciální předponová klíčová slova například "
+"časovou značku nebo název souboru"
+
+msgid "Open the task output file"
+msgstr "Otevřít výstupní soubor úlohy"
+
+msgid "Open the task output directory"
+msgstr "Otevřít adresář výstupu úlohy"
+
+msgid "Task footer"
+msgstr "Patička úkolu"
+
+msgid "Task progress"
+msgstr "Průběh úkolu"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Průběh úlohy: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Stav úlohy: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Stav úlohy: {0}%"

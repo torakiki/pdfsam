@@ -25,7 +25,6 @@ import org.pdfsam.ui.components.selection.multiple.LoadingColumn;
 import org.pdfsam.ui.components.selection.multiple.LongColumn;
 import org.pdfsam.ui.components.selection.multiple.MultipleSelectionPane;
 import org.pdfsam.ui.components.selection.multiple.PageRangesColumn;
-import org.pdfsam.ui.components.selection.multiple.SelectionTableColumn;
 import org.sejda.conversion.exception.ConversionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,11 +46,10 @@ public class RotateSelectionPane extends MultipleSelectionPane
     private static final Logger LOG = LoggerFactory.getLogger(RotateSelectionPane.class);
 
     public RotateSelectionPane(String ownerModule) {
-        super(ownerModule, false, false,
-                new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME, LongColumn.SIZE,
-                        IntColumn.PAGES, new PageRangesColumn(
-                        i18n().tr("Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)")),
-                        LongColumn.LAST_MODIFIED });
+        super(ownerModule, false, false, new LoadingColumn(ownerModule), FileColumn.NAME, LongColumn.SIZE,
+                IntColumn.PAGES,
+                new PageRangesColumn(i18n().tr("Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)")),
+                LongColumn.LAST_MODIFIED);
     }
 
     @Override

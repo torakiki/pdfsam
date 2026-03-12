@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.components.tool;
 
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.Button;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.unicons.UniconsLine;
@@ -40,7 +41,9 @@ class TaskFailedButton extends Button {
         getStyleClass().add("footer-failed-button");
         setText(i18n().tr("Show errors"));
         //TODO set -fx-icon-size to 1.6em
-        setGraphic(FontIcon.of(UniconsLine.TIMES_CIRCLE));
+        var icon = FontIcon.of(UniconsLine.TIMES_CIRCLE);
+        icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
+        setGraphic(icon);
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);
         setOnAction(e -> eventStudio().broadcast(new ShowLogMessagesRequest()));

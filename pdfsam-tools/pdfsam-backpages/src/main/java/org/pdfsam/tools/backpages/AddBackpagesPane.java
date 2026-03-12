@@ -1,4 +1,3 @@
-package org.pdfsam.tools.backpages;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 22/11/22
@@ -17,6 +16,7 @@ package org.pdfsam.tools.backpages;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.tools.backpages;
 
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
@@ -65,15 +65,24 @@ public class AddBackpagesPane extends VBox
         this.backpagesSourceField.setPromptText(
                 i18n().tr("Select or drag and drop the PDF whose pages will be repeated"));
         this.backpagesSourceField.setId("backpagesSource");
+        this.backpagesSourceField.setAccessibleText(i18n().tr("Repeating PDF file"));
+        this.backpagesSourceField.setAccessibleRoleDescription(i18n().tr("Repeating PDF file"));
 
         var options = new GridPane();
         options.getStyleClass().addAll(Style.GRID.css());
 
         var repeatLabel = new Label(i18n().tr("Repeat these pages:"));
+        repeatLabel.setLabelFor(range);
         GridPane.setValignment(repeatLabel, VPos.BOTTOM);
         GridPane.setHalignment(repeatLabel, HPos.LEFT);
         options.add(repeatLabel, 0, 0);
 
+        var rangeHelp = """
+                %s.
+                %s
+                """.formatted(
+                i18n().tr("Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-7,12-)"),
+                i18n().tr("Leave it empty to use all the pages of the PDF file"));
         this.range.setOnEnterValidation(true);
         this.range.setEnableInvalidStyle(true);
         this.range.setPromptText(i18n().tr("Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"));
@@ -87,24 +96,22 @@ public class AddBackpagesPane extends VBox
         this.range.setErrorMessage(i18n().tr("Invalid page ranges"));
         this.range.setId("selectedBackpages");
         this.range.setPrefWidth(350);
+        this.range.setAccessibleHelp(rangeHelp);
         GridPane.setValignment(range, VPos.BOTTOM);
         GridPane.setHalignment(range, HPos.LEFT);
         options.add(range, 1, 0);
 
-        var rangeHelpIcon = helpIcon("""
-                %s.
-                %s
-                """.formatted(
-                i18n().tr("Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-7,12-)"),
-                i18n().tr("Leave it empty to use all the pages of the PDF file")));
+        var rangeHelpIcon = helpIcon(rangeHelp);
         GridPane.setValignment(rangeHelpIcon, VPos.CENTER);
         options.add(rangeHelpIcon, 2, 0);
 
         var paceLabel = new Label(i18n().tr("Repeat every \"n\" pages:"));
+        paceLabel.setLabelFor(pace);
         GridPane.setValignment(paceLabel, VPos.BOTTOM);
         GridPane.setHalignment(paceLabel, HPos.LEFT);
         options.add(paceLabel, 0, 1);
 
+        var paceHelp = i18n().tr("Repeat the selected pages every \"n\" pages of the original document");
         this.pace.setText("1");
         this.pace.setOnEnterValidation(true);
         this.pace.setEnableInvalidStyle(true);
@@ -113,16 +120,16 @@ public class AddBackpagesPane extends VBox
         this.pace.setErrorMessage(i18n().tr("Invalid page number"));
         this.pace.setId("repeatPace");
         this.pace.setPrefWidth(350);
+        this.pace.setAccessibleHelp(paceHelp);
         GridPane.setValignment(pace, VPos.BOTTOM);
         GridPane.setHalignment(pace, HPos.LEFT);
         options.add(pace, 1, 1);
 
-        var stepHelpIcon = helpIcon(i18n().tr("Repeat the selected pages every \"n\" pages of the original document"));
+        var stepHelpIcon = helpIcon(paceHelp);
         GridPane.setValignment(stepHelpIcon, VPos.CENTER);
         options.add(stepHelpIcon, 2, 1);
 
         this.getChildren().addAll(backpagesSourceField, options);
-
     }
 
     @Override

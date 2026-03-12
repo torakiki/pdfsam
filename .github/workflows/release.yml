@@ -12,12 +12,12 @@ jobs:
   os_matrix:
     strategy:
       matrix:
-        os: [ macos-latest, ubuntu-latest, macos-13 ]
+        os: [ macos-latest, macos-15-intel, ubuntu-latest ]
     runs-on: ${{ matrix.os }}
     name: build ${{ matrix.os }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Import GPG key
         id: import_gpg
         uses: crazy-max/ghaction-import-gpg@v6
@@ -27,14 +27,14 @@ jobs:
           fingerprint: ${{ secrets.GPG_SUB_FINGERPRINT }}
       - name: Set up Apple certs
         if: runner.os == 'macOS'
-        uses: apple-actions/import-codesign-certs@v5
+        uses: apple-actions/import-codesign-certs@v6
         with:
           p12-file-base64: ${{ secrets.APPLE_CERT_P12 }}
           p12-password: ${{ secrets.APPLE_CERT_P12_PWD }}
       - name: Set up JDK
         uses: actions/setup-java@v5
         with:
-          java-version: 21
+          java-version: 25
           distribution: 'liberica'
       - name: Install gettext on Ubuntu
         if: matrix.os == 'ubuntu-latest'
@@ -42,6 +42,10 @@ jobs:
 
       - name: Install gettext on macOS
         if: matrix.os == 'macos-latest'
+        run: brew install gettext
+
+      - name: Install gettext on macOS Intel
+        if: matrix.os == 'macos-15-intel'
         run: brew install gettext
 
       - name: Install scoop on Windows

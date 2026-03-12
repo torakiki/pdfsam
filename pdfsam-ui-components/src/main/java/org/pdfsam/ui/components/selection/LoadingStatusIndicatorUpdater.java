@@ -65,8 +65,10 @@ public class LoadingStatusIndicatorUpdater implements Consumer<PdfDescriptorLoad
         }
         if (nonNull(t) && isNotBlank(t.getDescription())) {
             indicator.setTooltip(new Tooltip(t.getDescription()));
+            indicator.setAccessibleText(t.getDescription());
         } else {
             indicator.setTooltip(null);
+            indicator.setAccessibleText(null);
         }
     }
 }

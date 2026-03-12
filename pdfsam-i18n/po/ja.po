@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2025-10-23 12:56+0200\n"
+"PO-Revision-Date: 2026-02-24 17:13+0100\n"
 "Last-Translator: seki-arxiv <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: ja\n"
 
 msgid "No PDF document has been selected"
@@ -160,8 +160,8 @@ msgstr "分割するサイズを設定"
 msgid "Size must be a number"
 msgstr "サイズは数字にする必要があります"
 
-msgid "Split at this size:"
-msgstr "このサイズで分割:"
+#~ msgid "Split at this size:"
+#~ msgstr "このサイズで分割:"
 
 msgid "Invalid split size"
 msgstr "分割サイズは無効です"
@@ -195,8 +195,8 @@ msgstr "180度"
 msgid "90 degrees counterclockwise"
 msgstr "反時計回りに90度"
 
-msgid "Rotate "
-msgstr "回転 "
+#~ msgid "Rotate "
+#~ msgstr "回転 "
 
 msgid "Rotate settings"
 msgstr "回転の設定"
@@ -207,9 +207,9 @@ msgstr "回転"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "複数の PDF 文書のページを回転させます。"
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "ダブルクリックして、回転したいページをセットします (例: 「2」「5-23」「2,5-7,12-」)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "ダブルクリックして、回転したいページをセットします (例: 「2」「5-23」「2,5-7,12-」)"
 
 msgid "Merge settings"
 msgstr "結合設定"
@@ -241,8 +241,8 @@ msgstr "先頭ページと同じ幅"
 msgid "Same width as first page (based on page orientation)"
 msgstr "先頭ページと同じ幅 (ページ向きに従う)"
 
-msgid "Pages normalization:"
-msgstr "ページ幅の統一"
+#~ msgid "Pages normalization:"
+#~ msgstr "ページ幅の統一"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -261,8 +261,8 @@ msgstr "フラット化"
 msgid "Discard forms"
 msgstr "フォームを破棄"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "インタラクティブフォーム (AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "インタラクティブフォーム (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr "1 または複数の入力文書に Acro Form が含まれている場合に行うこと"
@@ -279,8 +279,8 @@ msgstr "結合された文書それぞれにエントリを 1 つ作成"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "結合された文書それぞれに 1 つのエントリーとしてしおりを保持します"
 
-msgid "Bookmarks handling:"
-msgstr "しおりの処理:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "しおりの処理:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "1 または複数の入力文書にしおりが含まれている場合に行うこと"
@@ -294,8 +294,8 @@ msgstr "ファイル名から生成"
 msgid "Generate from documents titles"
 msgstr "文書タイトルから生成"
 
-msgid "Table of contents:"
-msgstr "目次:"
+#~ msgid "Table of contents:"
+#~ msgstr "目次:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -588,32 +588,32 @@ msgstr "Home"
 msgid "Premium features"
 msgstr "プレミアム機能"
 
-msgid "Log register rows:"
-msgstr "ログ登録行:"
+#~ msgid "Log register rows:"
+#~ msgstr "ログ登録行:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "ログレジスターによって表示される行の最大数"
 
-msgid "Language:"
-msgstr "言語："
+#~ msgid "Language:"
+#~ msgstr "言語："
 
 msgid "Set your preferred language (restart needed)"
 msgstr "使用言語の設定（要リスタート）"
 
-msgid "Startup tool:"
-msgstr "スターアップツール:"
+#~ msgid "Startup tool:"
+#~ msgstr "スターアップツール:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr "アプリケーション起動時にツールを開くように設定する (要再起動)"
 
-msgid "Theme:"
-msgstr "テーマ:"
+#~ msgid "Theme:"
+#~ msgstr "テーマ:"
 
 msgid "Set the application theme"
 msgstr "アプリケーションテーマの設定"
 
-msgid "Font size:"
-msgstr "フォントサイズ:"
+#~ msgid "Font size:"
+#~ msgstr "フォントサイズ:"
 
 msgid "Set the application font size"
 msgstr "アプリケーションフォントサイズの設定"
@@ -976,8 +976,8 @@ msgstr "ユーザー パスワードを入力"
 msgid "Unlock"
 msgstr "ロックを解除"
 
-msgid "Drag and drop PDF files here"
-msgstr "ここに PDF ファイルをドラッグ＆ドロップします"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "ここに PDF ファイルをドラッグ＆ドロップします"
 
 msgid "Set as range for all"
 msgstr "範囲をすべてとして設定"
@@ -1069,8 +1069,8 @@ msgstr "ページ"
 msgid "Number of total pages of the document"
 msgstr "文書のページ総数"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "ダブルクリックして選択したページをセットします (例: 2 or 5-23 or 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "ダブルクリックして選択したページをセットします (例: 2 or 5-23 or 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "ページの範囲"
@@ -1242,8 +1242,8 @@ msgstr "クリップボードにコンテンツを保存中にエラーが発生
 msgid "Follow us on Bluesky"
 msgstr "Blueskyでフォローする"
 
-msgid "Font:"
-msgstr "フォント:"
+#~ msgid "Font:"
+#~ msgstr "フォント:"
 
 msgid "Sets the application font"
 msgstr "アプリケーションのフォントを設定します"
@@ -1268,3 +1268,312 @@ msgstr "保存しますか？"
 
 msgid "Set as pace for all"
 msgstr "すべての人のペースを設定する"
+
+msgid "Split at this bookmark level"
+msgstr "このブックマークレベルで分割"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "ドキュメントを分割するブックマークの深さレベルを選択"
+
+msgid "Bookmark level"
+msgstr "ブックマークレベル"
+
+msgid "Bookmark level selector"
+msgstr "ブックマークレベルセレクター"
+
+msgid "Select a bookmark level"
+msgstr "ブックマークレベルを選択"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "事前設定されたページでPDFを分割"
+
+msgid "Predefined set of pages to split after"
+msgstr "分割位置の定義済みページセット"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr "分割するページの区切り方を選択 (奇数ページ、偶数ページ、全ページ)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "指定したページ番号の後にドキュメントを分割"
+
+msgid "Page numbers to split at"
+msgstr "分割するページ番号"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "正のページ番号をカンマ区切りで入力してください (例: 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "文書を'n'ページごとに分割する"
+
+msgid "Number of pages for split"
+msgstr "分割ページ数"
+
+msgid "Enter a positive number of pages"
+msgstr "正のページ数を入力してください"
+
+msgid "Split at this size"
+msgstr "このサイズで分割"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "最大ファイルサイズに正の整数を入力してください"
+
+msgid "Size unit for the split file size"
+msgstr "分割ファイルサイズ単位"
+
+msgid "Page selection for rotation"
+msgstr "ページの回転選択"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "回転するページを選択: 全て、偶数、奇数"
+
+msgid "Rotation angle"
+msgstr "回転角度"
+
+msgid "Choose the rotation angle to apply"
+msgstr "適用する回転角度を選択"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "回転するページを設定 (例: 2 または 5-23 または 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "ページの標準化"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "インタラクティブフォーム (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "ブックマーク処理"
+
+msgid "Table of contents"
+msgstr "目次"
+
+msgid "Repeating PDF file"
+msgstr "繰り返しPDFファイル"
+
+msgid "There are news available"
+msgstr "新着情報があります"
+
+msgid "selected"
+msgstr "選択済み"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (通知あり)"
+
+msgid "Collapse the sidebar"
+msgstr "サイドバーを折りたたむ"
+
+msgid "Expand the sidebar"
+msgstr "サイドバーを展開"
+
+msgid "PDF files to open"
+msgstr "開くPDFファイル"
+
+msgid "file list"
+msgstr "ファイル一覧"
+
+msgid "Available tasks"
+msgstr "利用可能なタスク"
+
+msgid "Log messages"
+msgstr "ログメッセージ"
+
+msgid "Save the log messages to a text file"
+msgstr "ログメッセージをテキストファイルに保存"
+
+msgid "Close the log panel"
+msgstr "ログパネルを閉じる"
+
+msgid "News items"
+msgstr "お知らせ"
+
+msgid "Close news panel"
+msgstr "ニュースパネルを閉じる"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "{0} のヘルプ"
+
+msgid "Log register rows"
+msgstr "ログ登録行"
+
+msgid "Language"
+msgstr "言語"
+
+msgid "Startup tool"
+msgstr "起動ツール"
+
+msgid "Theme"
+msgstr "テーマ"
+
+msgid "Font"
+msgstr "フォント"
+
+msgid "Font size"
+msgstr "フォントサイズ"
+
+msgid "Default PDF version"
+msgstr "既定のPDFバージョン"
+
+msgid "Manually select the output destination directory"
+msgstr "手動で出力先ディレクトリを選択"
+
+msgid "Default prefix"
+msgstr "既定のプレフィックス"
+
+msgid "Default prefix for output file names"
+msgstr "出力ファイル名の既定の接頭辞"
+
+msgid "Right click to add special prefix keywords"
+msgstr "右クリックで特殊なプレフィックスキーワードを追加"
+
+msgid "Properties table"
+msgstr "プロパティテーブル"
+
+msgid "Properties"
+msgstr "プロパティ"
+
+msgid "Empty"
+msgstr "空"
+
+msgid "Notification"
+msgstr "通知"
+
+msgid "Close notification"
+msgstr "通知を閉じる"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "URL {0} を開く"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "選択中のPDFドキュメントを閉じる"
+
+msgid "PDF encryption status"
+msgstr "PDF暗号化状態"
+
+msgid "PDF document password"
+msgstr "PDFドキュメントパスワード"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "PDFファイルをここにドラッグ＆ドロップするか、上記の追加ボタンを使用"
+
+msgid "PDF documents selection table"
+msgstr "PDFファイル選択一覧"
+
+msgid "PDF selection table"
+msgstr "PDF選択テーブル"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "PDFドキュメント選択テーブル, {0} 個のドキュメント"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} 選択ページ"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "サイズ: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "更新日時: {0}"
+
+msgid "Number of total pages"
+msgstr "総ページ数"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "ファイル名: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "行 {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} ページ"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "選択ページを設定 (例: 2 または 5-23 または 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "出力先PDFファイルを選択"
+
+msgid "Browse for destination PDF file"
+msgstr "保存先PDFファイルを参照"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "{0}を参照"
+
+msgid "Compress the output PDF file"
+msgstr "出力PDFファイルを圧縮"
+
+msgid "Select a PDF file"
+msgstr "PDFファイルを選択"
+
+msgid "Browse for source PDF file"
+msgstr "ソースPDFファイルを参照"
+
+msgid "Output PDF version"
+msgstr "出力PDFバージョン"
+
+msgid "Output PDF version selector"
+msgstr "出力PDFバージョン選択"
+
+msgid "Output directory"
+msgstr "出力先"
+
+msgid "Browse for output directory"
+msgstr "出力ディレクトリを参照"
+
+msgid "Browse for directory"
+msgstr "フォルダーを参照"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "無効な値: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "選択時、出力ファイルにはPDFバージョン{0}以上が必要です"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr "右クリックでタイムスタンプやファイル名などの特殊なプレフィックスキーワードを追加します"
+
+msgid "Open the task output file"
+msgstr "タスクの出力ファイルを開く"
+
+msgid "Open the task output directory"
+msgstr "タスク出力ディレクトリを開く"
+
+msgid "Task footer"
+msgstr "タスクフッター"
+
+msgid "Task progress"
+msgstr "タスク進捗"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "タスクの進捗: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "タスクステータス：{0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "進行状況: {0}%"

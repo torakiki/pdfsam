@@ -47,6 +47,8 @@ class PdfVersionConstrainedCheckBox extends CheckBox implements ToolBound {
         this.constraint = constraint;
         this.setGraphic(helpIcon(i18n().tr("PDF version required: {0}", this.constraint.getVersionString())));
         this.getStyleClass().addAll(Style.WITH_HELP.css());
+        setAccessibleHelp(i18n().tr("When selected, requires PDF version {0} or higher for the output file",
+                this.constraint.getVersionString()));
 
         selectedProperty().addListener((o, oldVal, newVal) -> {
             if (newVal) {

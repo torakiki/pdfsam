@@ -27,6 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.List;
 
 import static java.util.Objects.nonNull;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
@@ -60,23 +61,24 @@ public class NativeOpenUrlController {
     private void fallbackOpen(NativeOpenUrlRequest event) {
         LOG.info("Unable to open url using HostServices, trying fallback");
         try {
-            Runtime.getRuntime().exec(getOpenCmd(event.url()));
+            new ProcessBuilder(getOpenCmd(event.url())).start();
         } catch (IOException e) {
-            LOG.warn("Unable to open '" + event.url() + "', please copy and paste the url to your browser", e);
+            LOG.warn("Unable to open '{}', please copy and paste the url to your browser", event.url(), e);
         }
     }
 
-    private static String getOpenCmd(String url) throws IOException {
+    private static List<String> getOpenCmd(String url) throws IOException {
         String os = System.getProperty("os.name").toLowerCase();
         if (os.contains("mac")) {
-            return String.format("%s %s", "open", url);
+            return List.of("open", url);
         }
         if (os.contains("win")) {
-            return String.format("%s %s", "explorer", url);
+            return List.of("explorer", url);
         }
         if (os.contains("nix") || os.contains("nux") || os.indexOf("aix") > 0) {
-            return String.format("%s %s", "xdg-open", url);
+            return List.of("xdg-open", url);
         }
         throw new IOException("Unable to identify the open command for the OS " + os);
     }
+
 }

@@ -3,8 +3,8 @@ name: PDFsam Basic
 applicationSuite: PDFsam
 url: https://github.com/torakiki/pdfsam
 landingURL: https://pdfsam.org
-softwareVersion: v5.3.2
-releaseDate: 2025-07-24
+softwareVersion: v5.4.5
+releaseDate: 2026-01-27
 logo: https://raw.githubusercontent.com/torakiki/pdfsam/master/pdfsam-docs/graphics/basic.svg
 platforms:
   - windows

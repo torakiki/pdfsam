@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.components.tool;
 
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -47,10 +48,13 @@ public class RunButton extends Button {
                 i18n().tr("Run the task") + " (" + RunButtonTriggerRequest.KEY_CODE_COMBINATION.getDisplayText()
                         + ")"));
         //TODO set -fx-icon-size to 2.0em
-        setGraphic(FontIcon.of(UniconsLine.PLAY));
+        var icon = FontIcon.of(UniconsLine.PLAY);
+        icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
+        setGraphic(icon);
         setMaxHeight(Double.MAX_VALUE);
         setPrefHeight(Double.MAX_VALUE);
         setDefaultButton(true);
+        setAccessibleText(i18n().tr("Run the task"));
         eventStudio().addAnnotatedListeners(this);
     }
 

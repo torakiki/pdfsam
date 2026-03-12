@@ -1,4 +1,3 @@
-package org.pdfsam.ui.components.selection.multiple;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 15/12/22
@@ -17,6 +16,7 @@ package org.pdfsam.ui.components.selection.multiple;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.ui.components.selection.multiple;
 
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableCell;
@@ -75,8 +75,11 @@ public class SelectedPagesColumn implements SelectionTableColumn<Integer> {
             void onUpdateItem(Integer item, boolean empty) {
                 if (empty || item == null) {
                     setText("");
+                    setAccessibleText(null);
                 } else {
-                    setText(getTextValue(item));
+                    var pages = getTextValue(item);
+                    setText(pages);
+                    setAccessibleText(i18n().tr("{0} selected pages", pages));
                 }
             }
         };

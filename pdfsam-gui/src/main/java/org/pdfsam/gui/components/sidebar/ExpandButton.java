@@ -20,12 +20,14 @@ package org.pdfsam.gui.components.sidebar;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.geometry.Insets;
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.SVGPath;
 import org.pdfsam.core.context.BooleanPersistentProperty;
 
 import static org.pdfsam.core.context.ApplicationContext.app;
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Toggle button to expand/collapse the sidebar
@@ -41,13 +43,16 @@ class ExpandButton extends HBox {
         toggle.getStyleClass().addAll("sidebar-expand-toggle");
         expand.setContent("M8.59 16.58L13.17 12L8.59 7.41L10 6l6 6l-6 6l-1.41-1.42Z");
         expand.getStyleClass().add("sidebar-button-arrow");
+        expand.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
         toggle.setGraphic(expand);
         toggle.selectedProperty().addListener((observable, oldValue, newValue) -> {
             app().persistentSettings().set(BooleanPersistentProperty.SIDEBAR_EXPANDED_STATE, newValue);
             if (newValue) {
                 toggle.setRotate(180);
+                toggle.setAccessibleText(i18n().tr("Collapse the sidebar"));
             } else {
                 toggle.setRotate(0);
+                toggle.setAccessibleText(i18n().tr("Expand the sidebar"));
             }
         });
         toggle.setSelected(app().persistentSettings().get(BooleanPersistentProperty.SIDEBAR_EXPANDED_STATE));

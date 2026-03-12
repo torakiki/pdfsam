@@ -57,14 +57,18 @@ class MergeOptionsPane extends VBox
 
     MergeOptionsPane() {
         super(5);
+        var blankIfOddHelp = i18n().tr(
+                "Adds a blank page after each merged document if the document has an odd number of pages");
         blankIfOdd = new CheckBox(i18n().tr("Add a blank page if page number is odd"));
-        blankIfOdd.setGraphic(helpIcon(
-                i18n().tr("Adds a blank page after each merged document if the document has an odd number of pages")));
+        blankIfOdd.setGraphic(helpIcon(blankIfOddHelp));
+        blankIfOdd.setAccessibleHelp(blankIfOddHelp);
         blankIfOdd.getStyleClass().addAll(Style.WITH_HELP.css());
         blankIfOdd.setId("blankIfOddCheck");
 
+        var footerHelp = i18n().tr("Adds a page footer with the name of the file the page belonged to.");
         footer = new CheckBox(i18n().tr("Add a footer"));
-        footer.setGraphic(helpIcon(i18n().tr("Adds a page footer with the name of the file the page belonged to.")));
+        footer.setGraphic(helpIcon(footerHelp));
+        footer.setAccessibleHelp(footerHelp);
         footer.getStyleClass().addAll(Style.WITH_HELP.css());
         footer.setId("footerCheck");
 
@@ -76,12 +80,16 @@ class MergeOptionsPane extends VBox
         pageNormalization.getItems().add(new ComboItem<>(PageNormalizationPolicy.SAME_WIDTH_ORIENTATION_BASED,
                 i18n().tr("Same width as first page (based on page orientation)")));
         pageNormalization.setId("normalizeCheck");
-        options.add(new Label(i18n().tr("Pages normalization:")), 0, 0);
+        pageNormalization.setAccessibleText(i18n().tr("Pages normalization"));
+        var pageNormalizationHelp = i18n().tr(
+                "Set whether pages should be resized to all have the same width as the first one");
+        pageNormalization.setAccessibleHelp(pageNormalizationHelp);
+        var pageNormalizationLabel = new Label(i18n().tr("Pages normalization") + ":");
+        pageNormalizationLabel.setLabelFor(pageNormalization);
+        options.add(pageNormalizationLabel, 0, 0);
         pageNormalization.setMaxWidth(Double.POSITIVE_INFINITY);
         options.add(pageNormalization, 1, 0);
-        options.add(
-                helpIcon(i18n().tr("Set whether pages should be resized to all have the same width as the first one")),
-                2, 0);
+        options.add(helpIcon(pageNormalizationHelp), 2, 0);
 
         acroForms.getItems().add(new ComboItem<>(AcroFormPolicy.MERGE_RENAMING_EXISTING_FIELDS,
                 i18n().tr("Merge renaming existing fields")));
@@ -89,10 +97,15 @@ class MergeOptionsPane extends VBox
         acroForms.getItems().add(new ComboItem<>(AcroFormPolicy.FLATTEN, i18n().tr("Flatten")));
         acroForms.getItems().add(new ComboItem<>(AcroFormPolicy.DISCARD, i18n().tr("Discard forms")));
         acroForms.setId("acroFormsCombo");
-        options.add(new Label(i18n().tr("Interactive forms (AcroForms):")), 0, 1);
+        acroForms.setAccessibleText(i18n().tr("Interactive forms (AcroForms)"));
+        var acroFormsHelp = i18n().tr("What to do in case one or more input documents contain Acro Forms");
+        acroForms.setAccessibleHelp(acroFormsHelp);
+        var acroFormsLabel = new Label(i18n().tr("Interactive forms (AcroForms)") + ":");
+        acroFormsLabel.setLabelFor(acroForms);
+        options.add(acroFormsLabel, 0, 1);
         acroForms.setMaxWidth(Double.POSITIVE_INFINITY);
         options.add(acroForms, 1, 1);
-        options.add(helpIcon(i18n().tr("What to do in case one or more input documents contain Acro Forms")), 2, 1);
+        options.add(helpIcon(acroFormsHelp), 2, 1);
 
         outline.getItems().add(new ComboItem<>(OutlinePolicy.RETAIN, i18n().tr("Retain bookmarks")));
         outline.getItems().add(new ComboItem<>(OutlinePolicy.DISCARD, i18n().tr("Discard bookmarks")));
@@ -101,20 +114,29 @@ class MergeOptionsPane extends VBox
         outline.getItems().add(new ComboItem<>(OutlinePolicy.RETAIN_AS_ONE_ENTRY,
                 i18n().tr("Retain bookmarks as one entry for each merged document")));
         outline.setId("outlineCombo");
-        options.add(new Label(i18n().tr("Bookmarks handling:")), 0, 2);
+        outline.setAccessibleText(i18n().tr("Bookmarks handling"));
+        var outlineHelp = i18n().tr("What to do in case one or more input documents contain bookmarks");
+        outline.setAccessibleHelp(outlineHelp);
+        var outlineLabel = new Label(i18n().tr("Bookmarks handling") + ":");
+        outlineLabel.setLabelFor(outline);
+        options.add(outlineLabel, 0, 2);
         outline.setMaxWidth(Double.POSITIVE_INFINITY);
         options.add(outline, 1, 2);
-        options.add(helpIcon(i18n().tr("What to do in case one or more input documents contain bookmarks")), 2, 2);
+        options.add(helpIcon(outlineHelp), 2, 2);
 
         toc.getItems().add(new ComboItem<>(ToCPolicy.NONE, i18n().tr("Don't generate")));
         toc.getItems().add(new ComboItem<>(ToCPolicy.FILE_NAMES, i18n().tr("Generate from file names")));
         toc.getItems().add(new ComboItem<>(ToCPolicy.DOC_TITLES, i18n().tr("Generate from documents titles")));
         toc.setId("tocCombo");
-        options.add(new Label(i18n().tr("Table of contents:")), 0, 3);
+        toc.setAccessibleText(i18n().tr("Table of contents"));
+        var tocHelp = i18n().tr("Set if a table of contents should be added to the generated PDF document");
+        toc.setAccessibleHelp(tocHelp);
+        var tocLabel = new Label(i18n().tr("Table of contents") + ":");
+        tocLabel.setLabelFor(toc);
+        options.add(tocLabel, 0, 3);
         toc.setMaxWidth(Double.POSITIVE_INFINITY);
         options.add(toc, 1, 3);
-        options.add(helpIcon(i18n().tr("Set if a table of contents should be added to the generated PDF document")), 2,
-                3);
+        options.add(helpIcon(tocHelp), 2, 3);
         options.getStyleClass().addAll(Style.GRID.css());
 
         getStyleClass().addAll(Style.CONTAINER.css());

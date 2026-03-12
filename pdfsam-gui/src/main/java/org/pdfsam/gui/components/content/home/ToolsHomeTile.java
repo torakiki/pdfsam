@@ -18,6 +18,7 @@
  */
 package org.pdfsam.gui.components.content.home;
 
+import javafx.scene.AccessibleRole;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -35,6 +36,7 @@ import java.util.function.Function;
 
 import static java.util.Optional.ofNullable;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Tile for the home panel that displays details about the {@link Tool}. Clicking the tile will send a request to open/show the tool panel
@@ -52,8 +54,11 @@ class ToolsHomeTile extends HomeTile {
         setOnAction(e -> eventStudio().broadcast(new SetActiveContentItemRequest(id)));
 
         ofNullable(tool.descriptor().supportUrl()).ifPresent(url -> {
+            var helpIcon = FontIcon.of(UniconsLine.QUESTION_CIRCLE, 18);
+            helpIcon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
             var helpButton = UrlButton.urlButton(null, url, null, "btn", "home-tools-help-button");
-            helpButton.setGraphic(FontIcon.of(UniconsLine.QUESTION_CIRCLE, 18));
+            helpButton.setGraphic(helpIcon);
+            helpButton.setAccessibleText(i18n().tr("Help for {0}", tool.descriptor().name()));
             addBottomPanel(helpButton);
         });
         setOnDragOver(e -> dragConsume(e, this.onDragOverConsumer()));

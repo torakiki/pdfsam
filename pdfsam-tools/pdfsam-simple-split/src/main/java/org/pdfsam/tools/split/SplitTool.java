@@ -19,6 +19,7 @@
 package org.pdfsam.tools.split;
 
 import jakarta.inject.Named;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -78,6 +79,7 @@ public class SplitTool implements Tool {
     public Node graphic() {
         var icon = new FontIcon(UniconsLine.IMAGE_BROKEN);
         icon.getStyleClass().addAll(this.descriptor().category().styleClass(), "tool-icon");
+        icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
         return icon;
     }
 

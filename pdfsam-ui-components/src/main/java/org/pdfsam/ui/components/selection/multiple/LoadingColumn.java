@@ -116,7 +116,7 @@ public class LoadingColumn extends BaseToolBound implements SelectionTableColumn
         @Override
         public void updateItem(final PdfDescriptorLoadingStatus item, boolean empty) {
             super.updateItem(item, empty);
-            LOG.trace("Updating idicator for new status {} for row {}", item, getTableRow().getIndex());
+            LOG.trace("Updating indicator for new status {} for row {}", item, getTableRow().getIndex());
             updater.accept(item);
         }
 

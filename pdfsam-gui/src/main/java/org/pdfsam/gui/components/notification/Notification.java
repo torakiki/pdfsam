@@ -22,9 +22,11 @@ import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -35,6 +37,7 @@ import org.pdfsam.ui.components.support.Style;
 import java.util.UUID;
 
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.i18n.I18nContext.i18n;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
@@ -52,8 +55,13 @@ class Notification extends VBox {
         getStyleClass().add("notification");
         getStyleClass().addAll(Style.CONTAINER.css());
         setId(UUID.randomUUID().toString());
+        setAccessibleRole(AccessibleRole.TEXT);
+        setAccessibleText(title);
+        setAccessibleRoleDescription(i18n().tr("Notification"));
         var closeButton = new Button("", FontIcon.of(UniconsLine.TIMES));
         closeButton.getStyleClass().addAll("close-button");
+        closeButton.setAccessibleText(i18n().tr("Close notification"));
+        closeButton.setTooltip(new Tooltip(i18n().tr("Close notification")));
         closeButton.setOnAction(e -> eventStudio().broadcast(new RemoveNotificationRequest(getId())));
         Label titleLabel = new Label(title);
         titleLabel.setPrefWidth(Integer.MAX_VALUE);

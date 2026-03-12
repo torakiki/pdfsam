@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"PO-Revision-Date: 2026-02-24 17:18+0100\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: ms\n"
 
 msgid "No PDF document has been selected"
@@ -166,8 +166,8 @@ msgstr "Tetapkan saiz untuk dipisahkan"
 msgid "Size must be a number"
 msgstr "Saiz mesti dalam bentuk nombor"
 
-msgid "Split at this size:"
-msgstr "Pisah mengikut saiz ini:"
+#~ msgid "Split at this size:"
+#~ msgstr "Pisah mengikut saiz ini:"
 
 msgid "Invalid split size"
 msgstr "Saiz pisah tidak sah"
@@ -205,8 +205,8 @@ msgstr "180 darjah ikut jam"
 msgid "90 degrees counterclockwise"
 msgstr "90 darjah lawan jam"
 
-msgid "Rotate "
-msgstr "Putar "
+#~ msgid "Rotate "
+#~ msgstr "Putar "
 
 msgid "Rotate settings"
 msgstr "Tetapan putar"
@@ -217,11 +217,11 @@ msgstr "Putar"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Putar halaman dokumen PDF berbilang."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dwi-klik untuk menetapkan halaman yang mahu diputarkan (cth: 2 atau 5-24 "
-"atau 2,5-7,12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Dwi-klik untuk menetapkan halaman yang mahu diputarkan (cth: 2 atau 5-24 "
+#~ "atau 2,5-7,12-)"
 
 msgid "Merge settings"
 msgstr "Tetapan gabung"
@@ -259,8 +259,8 @@ msgstr "Lebar sama dengan halaman pertama"
 msgid "Same width as first page (based on page orientation)"
 msgstr "Lebar sama seperti halaman pertama (berdasarkan orientasi halaman)"
 
-msgid "Pages normalization:"
-msgstr "Normalisasi Halaman:"
+#~ msgid "Pages normalization:"
+#~ msgstr "Normalisasi Halaman:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -281,8 +281,8 @@ msgstr "Ratakan"
 msgid "Discard forms"
 msgstr "Singkir borang"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Borang interaktif (AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Borang interaktif (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
@@ -303,8 +303,8 @@ msgstr ""
 "Kekalkan tanda buku sebagai satu masukan untuk setiap dokumen yang "
 "digabungkan"
 
-msgid "Bookmarks handling:"
-msgstr "Pengendalian tanda buku:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Pengendalian tanda buku:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
@@ -320,8 +320,8 @@ msgstr "Jana daripada nama fail"
 msgid "Generate from documents titles"
 msgstr "Jana daripada tajuk dokumen"
 
-msgid "Table of contents:"
-msgstr "Senarai kandungan:"
+#~ msgid "Table of contents:"
+#~ msgstr "Senarai kandungan:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -623,34 +623,34 @@ msgstr "Utama"
 msgid "Premium features"
 msgstr "Ciri-ciri premium"
 
-msgid "Log register rows:"
-msgstr "Baris daftar log:"
+#~ msgid "Log register rows:"
+#~ msgstr "Baris daftar log:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Bilangan baris maksimum yang dipaparkan dalam daftar Log"
 
-msgid "Language:"
-msgstr "Bahasa:"
+#~ msgid "Language:"
+#~ msgstr "Bahasa:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Tetapkan bahasa pilihan anda (mula semula diperlukan)"
 
-msgid "Startup tool:"
-msgstr "Alat Mula:"
+#~ msgid "Startup tool:"
+#~ msgstr "Alat Mula:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Tetapkan alat untuk dibuka semasa permulaan aplikasi (perlu dimulakan "
 "semula)"
 
-msgid "Theme:"
-msgstr "Tema:"
+#~ msgid "Theme:"
+#~ msgstr "Tema:"
 
 msgid "Set the application theme"
 msgstr "Tetapkan tema aplikasi"
 
-msgid "Font size:"
-msgstr "Saiz fon:"
+#~ msgid "Font size:"
+#~ msgstr "Saiz fon:"
 
 msgid "Set the application font size"
 msgstr "Tetapkan saiz fon aplikasi"
@@ -1005,8 +1005,8 @@ msgstr "Masukkan kata laluan pengguna"
 msgid "Unlock"
 msgstr "Nyahkunci"
 
-msgid "Drag and drop PDF files here"
-msgstr "Seret dan lepas fail PDF di sini"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Seret dan lepas fail PDF di sini"
 
 msgid "Set as range for all"
 msgstr "Tetapkan sebagai julat untuk semua"
@@ -1103,9 +1103,9 @@ msgstr "Halaman"
 msgid "Number of total pages of the document"
 msgstr "Bilangan jumlah muka surat dokumen"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dwi-klik untuk menetapkan halaman terpilih (cth: 2 atau 5-23 atau 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Dwi-klik untuk menetapkan halaman terpilih (cth: 2 atau 5-23 atau 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Julat halaman"
@@ -1314,8 +1314,8 @@ msgstr "Ralat menyimpan kandungan ke papan keratan"
 msgid "Follow us on Bluesky"
 msgstr "Ikuti kami di Bluesky"
 
-msgid "Font:"
-msgstr "Fon:"
+#~ msgid "Font:"
+#~ msgstr "Fon:"
 
 msgid "Sets the application font"
 msgstr "Menetapkan fon aplikasi"
@@ -1339,4 +1339,320 @@ msgid "Do you want to save it?"
 msgstr "Adakah Anda ingin menyimpannya?"
 
 msgid "Set as pace for all"
+msgstr "Tetapkan sebagai rentak untuk semua"
+
+msgid "Split at this bookmark level"
+msgstr "Pisahkan pada tahap penanda buku ini"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "Pilih tahap kedalaman penanda buku untuk membahagikan dokumen"
+
+msgid "Bookmark level"
+msgstr "Tahap penanda buku"
+
+msgid "Bookmark level selector"
+msgstr "Pemilih Aras Penanda Halaman"
+
+msgid "Select a bookmark level"
+msgstr "Pilih tahap penanda buku"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "Pilih untuk memisahkan PDF selepas set halaman yang telah ditetapkan"
+
+msgid "Predefined set of pages to split after"
+msgstr "Set halaman pratakrif untuk dibahagi selepas"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
 msgstr ""
+"Pilih set halaman pratakrif untuk dipecahkan selepas (halaman ganjil, "
+"halaman genap atau setiap halaman)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Pilih untuk memisahkan dokumen selepas nombor halaman tertentu"
+
+msgid "Page numbers to split at"
+msgstr "Nombor halaman untuk pembahagian"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "Masukkan nombor halaman positif yang dipisahkan koma (Cth. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Pilih untuk memisah dokumen setiap 'n' halaman"
+
+msgid "Number of pages for split"
+msgstr "Bilangan halaman untuk pembahagian"
+
+msgid "Enter a positive number of pages"
+msgstr "Masukkan nombor positif halaman"
+
+msgid "Split at this size"
+msgstr "Pisahkan pada saiz ini"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Masukkan integer positif untuk saiz fail maksimum"
+
+msgid "Size unit for the split file size"
+msgstr "Unit ukuran untuk saiz fail terpisah"
+
+msgid "Page selection for rotation"
+msgstr "Pemilihan halaman untuk putaran"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Pilih halaman mana untuk diputar: semua, genap, atau ganjil"
+
+msgid "Rotation angle"
+msgstr "Sudut Putaran"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Pilih sudut putaran untuk diaplikasikan"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Tetapkan halaman yang anda ingin putar (cth: 2 atau 5-23 atau 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Normalisasi Halaman"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Borang interaktif (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Pengendalian Penanda Halaman"
+
+msgid "Table of contents"
+msgstr "Isi Kandungan"
+
+msgid "Repeating PDF file"
+msgstr "Fail PDF berulang"
+
+msgid "There are news available"
+msgstr "Terdapat berita baharu tersedia"
+
+msgid "selected"
+msgstr "terpilih"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (dengan notifikasi)"
+
+msgid "Collapse the sidebar"
+msgstr "Kecutkan bar sisi"
+
+msgid "Expand the sidebar"
+msgstr "Kembangkan bar sisi"
+
+msgid "PDF files to open"
+msgstr "Fail PDF untuk dibuka"
+
+msgid "file list"
+msgstr "senarai fail"
+
+msgid "Available tasks"
+msgstr "Tugas Tersedia"
+
+msgid "Log messages"
+msgstr "Mesej Log"
+
+msgid "Save the log messages to a text file"
+msgstr "Simpan mesej log ke fail teks"
+
+msgid "Close the log panel"
+msgstr "Tutup panel log"
+
+msgid "News items"
+msgstr "Item berita"
+
+msgid "Close news panel"
+msgstr "Tutup panel berita"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Bantuan untuk {0}"
+
+msgid "Log register rows"
+msgstr "baris daftar log"
+
+msgid "Language"
+msgstr "Bahasa"
+
+msgid "Startup tool"
+msgstr "Alat permulaan"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "Font"
+msgstr "Fon"
+
+msgid "Font size"
+msgstr "Saiz fon"
+
+msgid "Default PDF version"
+msgstr "Versi PDF Lalai"
+
+msgid "Manually select the output destination directory"
+msgstr "Pilih secara manual direktori destinasi output"
+
+msgid "Default prefix"
+msgstr "Awalan lalai"
+
+msgid "Default prefix for output file names"
+msgstr "Awalan lalai untuk nama fail keluaran"
+
+msgid "Right click to add special prefix keywords"
+msgstr "Klik kanan untuk menambah kata kunci awalan khas"
+
+msgid "Properties table"
+msgstr "Jadual Sifat"
+
+msgid "Properties"
+msgstr "Ciri-ciri"
+
+msgid "Empty"
+msgstr "Kosong"
+
+msgid "Notification"
+msgstr "Pemberitahuan"
+
+msgid "Close notification"
+msgstr "Tutup pemberitahuan"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Buka url {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "Tutup dokumen PDF yang dipilih"
+
+msgid "PDF encryption status"
+msgstr "Status penyulitan PDF"
+
+msgid "PDF document password"
+msgstr "Kata laluan dokumen PDF"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "Seret dan lepas fail PDF di sini atau gunakan butang Tambah di atas"
+
+msgid "PDF documents selection table"
+msgstr "Jadual pemilihan dokumen PDF"
+
+msgid "PDF selection table"
+msgstr "Jadual pilihan PDF"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "Jadual pemilihan dokumen PDF, {0} dokumen"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} halaman dipilih"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Saiz: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Diubah: {0}"
+
+msgid "Number of total pages"
+msgstr "Bilangan jumlah halaman"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Nama fail: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Baris {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} halaman"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Tetapkan halaman terpilih (cth: 2 atau 5-23 atau 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Pilih fail destinasi PDF"
+
+msgid "Browse for destination PDF file"
+msgstr "Cari fail PDF destinasi"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Semak imbas untuk {0}"
+
+msgid "Compress the output PDF file"
+msgstr "Mampatkan fail PDF keluaran"
+
+msgid "Select a PDF file"
+msgstr "Pilih fail PDF"
+
+msgid "Browse for source PDF file"
+msgstr "Semak imbas untuk fail PDF sumber"
+
+msgid "Output PDF version"
+msgstr "Versi PDF Keluaran"
+
+msgid "Output PDF version selector"
+msgstr "Pemilih versi PDF output"
+
+msgid "Output directory"
+msgstr "Direktori Keluaran"
+
+msgid "Browse for output directory"
+msgstr "Semak imbas untuk direktori keluaran"
+
+msgid "Browse for directory"
+msgstr "Semak imbas direktori"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Nilai tidak sah: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr ""
+"Apabila dipilih, memerlukan versi PDF {0} atau lebih tinggi untuk fail "
+"output"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Klik kanan untuk menambah kata kunci awalan khas seperti cap masa atau nama "
+"fail"
+
+msgid "Open the task output file"
+msgstr "Buka fail output tugas"
+
+msgid "Open the task output directory"
+msgstr "Buka direktori output tugas"
+
+msgid "Task footer"
+msgstr "Pengaki Tugas"
+
+msgid "Task progress"
+msgstr "Kemajuan tugas"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Kemajuan tugas: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Status tugas: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Status tugas: {0}%"

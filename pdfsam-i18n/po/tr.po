@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"PO-Revision-Date: 2026-02-24 17:02+0100\n"
 "Last-Translator: Andrea Vacondio <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: tr\n"
 
 msgid "No PDF document has been selected"
@@ -171,8 +171,8 @@ msgstr "Bölümleme yapılacak boyutu belirle"
 msgid "Size must be a number"
 msgstr "Boyut bir sayı olmalıdır"
 
-msgid "Split at this size:"
-msgstr "Bu boyuta ulaşınca böl:"
+#~ msgid "Split at this size:"
+#~ msgstr "Bu boyuta ulaşınca böl:"
 
 msgid "Invalid split size"
 msgstr "Geçersiz ayırma boyutu"
@@ -210,8 +210,8 @@ msgstr "180 derece saat yönüne"
 msgid "90 degrees counterclockwise"
 msgstr "90 derece saat yönünün tersine"
 
-msgid "Rotate "
-msgstr "Döndür "
+#~ msgid "Rotate "
+#~ msgstr "Döndür "
 
 msgid "Rotate settings"
 msgstr "Döndürme ayarları"
@@ -222,11 +222,11 @@ msgstr "Döndür"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Birden fazla dokümanın sayfalarını döndür."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Döndürmek istediğiniz sayfaları (örn: 2 veya 5-23 veya 2,5-7,12-) belirtmek "
-"için çift tıklayın"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Döndürmek istediğiniz sayfaları (örn: 2 veya 5-23 veya 2,5-7,12-) belirtmek "
+#~ "için çift tıklayın"
 
 msgid "Merge settings"
 msgstr "Birleştirme ayarları"
@@ -262,8 +262,8 @@ msgstr "İlk sayfa ile aynı genişlikte"
 msgid "Same width as first page (based on page orientation)"
 msgstr "İlk sayfa ile aynı genişlik"
 
-msgid "Pages normalization:"
-msgstr "Sayfa normalizasyonu:"
+#~ msgid "Pages normalization:"
+#~ msgstr "Sayfa normalizasyonu:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -284,8 +284,8 @@ msgstr "Düzleştir"
 msgid "Discard forms"
 msgstr "Formları gözardı et"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Etkileşimli formlar (AcroForms)"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Etkileşimli formlar (AcroForms)"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
@@ -305,8 +305,8 @@ msgid "Retain bookmarks as one entry for each merged document"
 msgstr ""
 "Birleştirilen her dökümana ait bir girdi olacak şekilde yer imlerini koru"
 
-msgid "Bookmarks handling:"
-msgstr "Yer imleri yönetimi:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Yer imleri yönetimi:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
@@ -321,8 +321,8 @@ msgstr "Dosya adından oluştur"
 msgid "Generate from documents titles"
 msgstr "Dokümanların başlıklarından oluştur"
 
-msgid "Table of contents:"
-msgstr "İçindekiler:"
+#~ msgid "Table of contents:"
+#~ msgstr "İçindekiler:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -643,22 +643,22 @@ msgstr "Ana Dizin"
 msgid "Premium features"
 msgstr "Premium özellikler"
 
-msgid "Log register rows:"
-msgstr "Günlük kayıt satırları:"
+#~ msgid "Log register rows:"
+#~ msgstr "Günlük kayıt satırları:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Günlük kaydı tarafından görüntülenen maksimum kayıt sayısı"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
-msgid "Language:"
-msgstr "Dil:"
+#~ msgid "Language:"
+#~ msgstr "Dil:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Tercih ettiğiniz dili seçin (yeniden başlatmak gerekir)"
 
-msgid "Startup tool:"
-msgstr "Başlangıç aracı:"
+#~ msgid "Startup tool:"
+#~ msgstr "Başlangıç aracı:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
@@ -666,14 +666,14 @@ msgstr ""
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
-msgid "Theme:"
-msgstr "Tema:"
+#~ msgid "Theme:"
+#~ msgstr "Tema:"
 
 msgid "Set the application theme"
 msgstr "Uygulama temasını ayarla"
 
-msgid "Font size:"
-msgstr "Yazı tipi boyutu:"
+#~ msgid "Font size:"
+#~ msgstr "Yazı tipi boyutu:"
 
 msgid "Set the application font size"
 msgstr "Uygulama yazı tipi boyutunu ayarlar"
@@ -1063,8 +1063,8 @@ msgstr "Kullanıcı parolası girin"
 msgid "Unlock"
 msgstr "Kilidi aç"
 
-msgid "Drag and drop PDF files here"
-msgstr "PDF dosyalarını buraya sürükle bırak"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "PDF dosyalarını buraya sürükle bırak"
 
 msgid "Set as range for all"
 msgstr "Tümü için aralık olarak belirle"
@@ -1183,10 +1183,10 @@ msgstr "Sayfalar"
 msgid "Number of total pages of the document"
 msgstr "Dökümanın toplam sayfa sayısı"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Seçili sayfaları (örn: 2 veya 5-23 veya 2,5-7,12-) belirtmek için çift "
-"tıklayın"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Seçili sayfaları (örn: 2 veya 5-23 veya 2,5-7,12-) belirtmek için çift "
+#~ "tıklayın"
 
 msgid "Page ranges"
 msgstr "Sayfa aralığı"
@@ -1366,8 +1366,8 @@ msgstr "Geçersiz numara: {0}."
 msgid "Follow us on Bluesky"
 msgstr "Bizi Bluesky'da takip edin"
 
-msgid "Font:"
-msgstr "Yazı Tipi:"
+#~ msgid "Font:"
+#~ msgstr "Yazı Tipi:"
 
 msgid "Sets the application font"
 msgstr "Uygulama yazı tipini ayarlar"
@@ -1391,4 +1391,321 @@ msgid "Do you want to save it?"
 msgstr "Kaydetmek istiyor musunuz?"
 
 msgid "Set as pace for all"
+msgstr "Tümü için örnek yap"
+
+msgid "Split at this bookmark level"
+msgstr "Bu yer imi seviyesinde böl"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "Belgenin bölüneceği yer imi derinlik seviyesini seçin"
+
+msgid "Bookmark level"
+msgstr "Yer İşareti seviyesi"
+
+msgid "Bookmark level selector"
+msgstr "Yer İşareti Seviye Seçici"
+
+msgid "Select a bookmark level"
+msgstr "Yer imi seviyesi seçin"
+
+msgid "Select to split the PDF after a predefined set of pages"
 msgstr ""
+"PDF'i önceden belirlenmiş sayfa aralıklarından sonra bölmek için seçin"
+
+msgid "Predefined set of pages to split after"
+msgstr "Bölme noktası olarak ön tanımlı sayfa kümesi"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr ""
+"Hangi önceden tanımlanmış sayfa kümesinden sonra bölüneceğini seçin (tek "
+"sayfalar, çift sayfalar veya her sayfa)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Belgeyi belirli sayfa numaralarından sonra bölmek için seçin"
+
+msgid "Page numbers to split at"
+msgstr "Bölünecek sayfa numaraları"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "Virgülle ayrılmış pozitif sayfa numaraları girin (Örn. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Belgeyi her 'n' sayfada bir bölmek için seçin"
+
+msgid "Number of pages for split"
+msgstr "Bölme Başına Sayfa Sayısı"
+
+msgid "Enter a positive number of pages"
+msgstr "Pozitif bir sayfa sayısı girin"
+
+msgid "Split at this size"
+msgstr "Bu boyutta böl"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Maksimum dosya boyutu için pozitif bir tam sayı girin"
+
+msgid "Size unit for the split file size"
+msgstr "Bölünmüş dosya boyutu için boyut birimi"
+
+msgid "Page selection for rotation"
+msgstr "Döndürme için sayfa seçimi"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Hangi sayfaları döndüreceğinizi seçin: tümü, çift veya tek"
+
+msgid "Rotation angle"
+msgstr "Döndürme açısı"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Uygulanacak döndürme açısını seçin"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Döndürmek istediğiniz sayfaları ayarlayın (örn: 2 veya 5-23 veya 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Sayfalar normalizasyonu"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Etkileşimli formlar (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Yer İmleri yönetimi"
+
+msgid "Table of contents"
+msgstr "İçindekiler"
+
+msgid "Repeating PDF file"
+msgstr "Yinelenen PDF dosyası"
+
+msgid "There are news available"
+msgstr "Haberler mevcut"
+
+msgid "selected"
+msgstr "seçili"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (bildirimli)"
+
+msgid "Collapse the sidebar"
+msgstr "Yan çubuğu daralt"
+
+msgid "Expand the sidebar"
+msgstr "Yan paneli genişlet"
+
+msgid "PDF files to open"
+msgstr "Açılacak PDF dosyaları"
+
+msgid "file list"
+msgstr "dosya listesi"
+
+msgid "Available tasks"
+msgstr "Mevcut görevler"
+
+msgid "Log messages"
+msgstr "Günlük mesajları"
+
+msgid "Save the log messages to a text file"
+msgstr "Günlük mesajlarını bir metin dosyasına kaydet"
+
+msgid "Close the log panel"
+msgstr "Günlük panelini kapat"
+
+msgid "News items"
+msgstr "Haber Öğeleri"
+
+msgid "Close news panel"
+msgstr "Haber panelini kapat"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Yardım için {0}"
+
+msgid "Log register rows"
+msgstr "Günlük kayıt satırları"
+
+msgid "Language"
+msgstr "Dil"
+
+msgid "Startup tool"
+msgstr "Başlangıç aracı"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "Font"
+msgstr "Yazı Tipi"
+
+msgid "Font size"
+msgstr "Yazı tipi boyutu"
+
+msgid "Default PDF version"
+msgstr "Varsayılan PDF sürümü"
+
+msgid "Manually select the output destination directory"
+msgstr "Elle çıktı hedef dizinini seçin"
+
+msgid "Default prefix"
+msgstr "Varsayılan ön ek"
+
+msgid "Default prefix for output file names"
+msgstr "Çıktı dosyası adları için varsayılan önek"
+
+msgid "Right click to add special prefix keywords"
+msgstr "Özel önek anahtar kelimeler eklemek için sağ tıklayın"
+
+msgid "Properties table"
+msgstr "Özellikler tablosu"
+
+msgid "Properties"
+msgstr "Özellikler"
+
+msgid "Empty"
+msgstr "Boş"
+
+msgid "Notification"
+msgstr "Bildirim"
+
+msgid "Close notification"
+msgstr "Bildirimi kapat"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "URL'yi aç {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "Seçili PDF belgesini temizle"
+
+msgid "PDF encryption status"
+msgstr "PDF şifreleme durumu"
+
+msgid "PDF document password"
+msgstr "PDF belgesi şifresi"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr ""
+"PDF dosyalarını buraya sürükleyip bırakın veya yukarıdaki Ekle düğmesini "
+"kullanın"
+
+msgid "PDF documents selection table"
+msgstr "PDF belgeleri seçim tablosu"
+
+msgid "PDF selection table"
+msgstr "PDF seçim tablosu"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "PDF belgeleri seçim tablosu, {0} belge"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} seçili sayfalar"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Boyut: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Değiştirilme tarihi: {0}"
+
+msgid "Number of total pages"
+msgstr "Toplam sayfa sayısı"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Dosya adı: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Satır {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} sayfa"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Seçili sayfaları ayarla (örn: 2 veya 5-23 veya 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Bir PDF hedef dosya seçin"
+
+msgid "Browse for destination PDF file"
+msgstr "Hedef PDF dosyasına gözat"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Gözat {0} için"
+
+msgid "Compress the output PDF file"
+msgstr "Çıktı PDF dosyasını sıkıştır"
+
+msgid "Select a PDF file"
+msgstr "Bir PDF dosyası seçin"
+
+msgid "Browse for source PDF file"
+msgstr "Kaynak PDF dosyasına gözat"
+
+msgid "Output PDF version"
+msgstr "Çıktı PDF sürümü"
+
+msgid "Output PDF version selector"
+msgstr "Çıktı PDF sürümü seçici"
+
+msgid "Output directory"
+msgstr "Çıkış dizini"
+
+msgid "Browse for output directory"
+msgstr "Çıkış dizinine gözat"
+
+msgid "Browse for directory"
+msgstr "Klasöre göz at"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Geçersiz değer: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "Seçildiğinde, çıktı dosyası için PDF sürüm {0} veya üzeri gerektirir"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Zaman damgası veya dosya adı gibi özel önek anahtar kelimeleri eklemek için "
+"sağ tıklayın"
+
+msgid "Open the task output file"
+msgstr "Görev çıktı dosyasını aç"
+
+msgid "Open the task output directory"
+msgstr "Görevin çıktı dizinini aç"
+
+msgid "Task footer"
+msgstr "Görev altbilgisi"
+
+msgid "Task progress"
+msgstr "Görev ilerlemesi"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Görev ilerlemesi: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Görev durumu: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Görev durumu: {0}%"

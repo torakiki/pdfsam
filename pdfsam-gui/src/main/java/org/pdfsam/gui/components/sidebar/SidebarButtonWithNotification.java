@@ -1,4 +1,3 @@
-package org.pdfsam.gui.components.sidebar;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 13/01/23
@@ -17,13 +16,16 @@ package org.pdfsam.gui.components.sidebar;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.gui.components.sidebar;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.event.ActionEvent;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
+import static org.pdfsam.i18n.I18nContext.i18n;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
@@ -45,12 +47,16 @@ class SidebarButtonWithNotification<T extends SidebarButton> extends StackPane {
         this.wrapped = wrapped;
         this.graphic = notificationGraphic;
         this.notificationType = notificationType;
+        this.setFocusTraversable(false);
+        this.setAccessibleRole(AccessibleRole.BUTTON);
+        this.setAccessibleText(wrapped.getAccessibleText());
         notificationGraphic.setVisible(false);
         setStyle("-fx-background-color: rgba(0, 0, 0, 0);");
         var notification = new Pane();
         notification.getStyleClass().addAll("sidebar-button-notification-container", notificationType.getCssClass());
         notification.getChildren().add(notificationGraphic);
         notification.setMouseTransparent(true);
+        notification.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
         wrapped.addEventHandler(ActionEvent.ACTION, e -> this.graphic.setVisible(false));
         this.getChildren().addAll(wrapped, notification);
         //keep the notification indicator in the correct place
@@ -60,8 +66,10 @@ class SidebarButtonWithNotification<T extends SidebarButton> extends StackPane {
         this.graphic.visibleProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 this.wrapped.getStyleClass().add(notificationType.getCssClass());
+                this.wrapped.setAccessibleText(i18n().tr("{0} (with notification)", this.wrapped.getText()));
             } else {
                 this.wrapped.getStyleClass().remove(notificationType.getCssClass());
+                this.wrapped.setAccessibleText(this.wrapped.getText());
             }
         });
     }
@@ -84,12 +92,11 @@ class SidebarButtonWithNotification<T extends SidebarButton> extends StackPane {
 
     /**
      * Makes a notification node out of the input node
-     *
-     * @param node
-     * @return
      */
     public static Node notificationOf(Node node) {
         node.getStyleClass().add("notification");
+        node.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
+        node.setAccessibleText("");
         return node;
     }
 }

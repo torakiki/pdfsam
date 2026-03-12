@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.components.support;
 
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.Tooltip;
@@ -65,6 +66,9 @@ public final class Views {
         var tooltip = new Tooltip(text);
         var icon = FontIcon.of(UniconsLine.QUESTION_CIRCLE);
         icon.getStyleClass().add("help-icon");
+        icon.setAccessibleRole(AccessibleRole.TEXT);
+        icon.setAccessibleText(text);
+        icon.setFocusTraversable(true);
         tooltip.setHideDelay(Duration.millis(100));
         tooltip.setShowDelay(Duration.millis(0));
         tooltip.setShowDuration(Duration.seconds(10));

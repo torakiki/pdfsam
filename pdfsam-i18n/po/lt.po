@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"PO-Revision-Date: 2026-02-24 17:15+0100\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: lt\n"
 
 msgid "No PDF document has been selected"
@@ -164,8 +164,8 @@ msgstr "Nustatykite dydį, ties kuriuo skaidyti"
 msgid "Size must be a number"
 msgstr "Dydis turi būti skaičius"
 
-msgid "Split at this size:"
-msgstr "Padalinti šiuo dydžiu:"
+#~ msgid "Split at this size:"
+#~ msgstr "Padalinti šiuo dydžiu:"
 
 msgid "Invalid split size"
 msgstr "Neteisingas skaidymo dydis"
@@ -203,8 +203,8 @@ msgstr "180 laipsnių pagal laikrodžio rodyklę"
 msgid "90 degrees counterclockwise"
 msgstr "90 laipsnių prieš laikrodžio rodyklę"
 
-msgid "Rotate "
-msgstr "Pasukti "
+#~ msgid "Rotate "
+#~ msgstr "Pasukti "
 
 msgid "Rotate settings"
 msgstr "Pasukimo nustatymai"
@@ -215,11 +215,11 @@ msgstr "Pasukti"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Pasukti kelių PDF dokumentų puslapius."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dukart spustelėkite, kad nustatytumėte puslapius, kuriuos norite pasukti "
-"(pvz.: 2 arba 5-23 arba 2,5-7,12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Dukart spustelėkite, kad nustatytumėte puslapius, kuriuos norite pasukti "
+#~ "(pvz.: 2 arba 5-23 arba 2,5-7,12-)"
 
 msgid "Merge settings"
 msgstr "Sujungimo nustatymai"
@@ -256,8 +256,8 @@ msgstr "Toks pat plotis kaip pirmame puslapyje"
 msgid "Same width as first page (based on page orientation)"
 msgstr "Toks pat plotis kaip pirmame puslapyje (pagal puslapio orientaciją)"
 
-msgid "Pages normalization:"
-msgstr "Puslapių normalizavimas:"
+#~ msgid "Pages normalization:"
+#~ msgstr "Puslapių normalizavimas:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -278,8 +278,8 @@ msgstr "Sulyginti"
 msgid "Discard forms"
 msgstr "Atmesti formas"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Interaktyvios formos (AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Interaktyvios formos (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr "Ką daryti, jei vienas ar daugiau įvesties dokumentų turi Acro formas"
@@ -296,8 +296,8 @@ msgstr "Sukurti po įrašą kiekvienam sujungtam dokumentui"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Išlaikyti žymes kaip vieną įrašą kiekvienam sujungtam dokumentui"
 
-msgid "Bookmarks handling:"
-msgstr "Žymių tvarkymas:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Žymių tvarkymas:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "Ką daryti, jei vienas ar keli įvesties dokumentai turi žymeles"
@@ -311,8 +311,8 @@ msgstr "Generuoti iš failų pavadinimų"
 msgid "Generate from documents titles"
 msgstr "Generuoti iš dokumentų pavadinimų"
 
-msgid "Table of contents:"
-msgstr "Turinys:"
+#~ msgid "Table of contents:"
+#~ msgstr "Turinys:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -612,34 +612,34 @@ msgstr "Pradžia"
 msgid "Premium features"
 msgstr "Premium ypatybės"
 
-msgid "Log register rows:"
-msgstr "Žurnalo registro eilutės:"
+#~ msgid "Log register rows:"
+#~ msgstr "Žurnalo registro eilutės:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Didžiausias žurnalo registro rodomų eilučių skaičius"
 
-msgid "Language:"
-msgstr "Kalba:"
+#~ msgid "Language:"
+#~ msgstr "Kalba:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Nustatyti Jūsų mėgstamą kalbą (reikės paleisti programą iš naujo)"
 
-msgid "Startup tool:"
-msgstr "Paleidimo įrankis:"
+#~ msgid "Startup tool:"
+#~ msgstr "Paleidimo įrankis:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Nustatyti, kad įrankis atsidarytų paleidus programą (reikia paleisti iš "
 "naujo)"
 
-msgid "Theme:"
-msgstr "Tema:"
+#~ msgid "Theme:"
+#~ msgstr "Tema:"
 
 msgid "Set the application theme"
 msgstr "Nustatyti programos temą"
 
-msgid "Font size:"
-msgstr "Šrifto dydis:"
+#~ msgid "Font size:"
+#~ msgstr "Šrifto dydis:"
 
 msgid "Set the application font size"
 msgstr "Nustatyti programos šrifto dydį"
@@ -996,8 +996,8 @@ msgstr "Įveskite vartotojo slaptažodį"
 msgid "Unlock"
 msgstr "Atrakinti"
 
-msgid "Drag and drop PDF files here"
-msgstr "Vilkite ir numeskite PDF failus čia"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Vilkite ir numeskite PDF failus čia"
 
 msgid "Set as range for all"
 msgstr "Nustatyti kaip diapazoną visiems"
@@ -1094,10 +1094,10 @@ msgstr "Puslapiai"
 msgid "Number of total pages of the document"
 msgstr "Dokumento bendras puslapių skaičius"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dukart spustelėkite norėdami nustatyti pasirinktus puslapius (pvz.: 2 arba 5-"
-"23 arba 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Dukart spustelėkite norėdami nustatyti pasirinktus puslapius (pvz.: 2 arba 5-"
+#~ "23 arba 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Puslapių diapazonai"
@@ -1340,8 +1340,8 @@ msgstr "Klaida išsaugant turinį į iškarpinę"
 msgid "Follow us on Bluesky"
 msgstr "Sekite mus „Bluesky“"
 
-msgid "Font:"
-msgstr "Šriftas:"
+#~ msgid "Font:"
+#~ msgstr "Šriftas:"
 
 msgid "Sets the application font"
 msgstr "Nustato programos šriftą"
@@ -1365,4 +1365,323 @@ msgid "Do you want to save it?"
 msgstr "Vai vēlaties to saglabāt?"
 
 msgid "Set as pace for all"
+msgstr "Nustatyti kaip standartą visiems"
+
+msgid "Split at this bookmark level"
+msgstr "Padalinti šiame žymės lygyje"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "Pasirinkite žymės gylio lygį, kuriame skaidyti dokumentą"
+
+msgid "Bookmark level"
+msgstr "Žymės lygis"
+
+msgid "Bookmark level selector"
+msgstr "Žymės lygio pasirinkiklis"
+
+msgid "Select a bookmark level"
+msgstr "Pasirinkite žymės lygį"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "Pasirinkite padalinti PDF po iš anksto nustatyto puslapių rinkinio"
+
+msgid "Predefined set of pages to split after"
+msgstr "Iš anksto nustatytas puslapių rinkinys, po kurių skaidyti"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
 msgstr ""
+"Pasirinkite, kurį iš anksto nustatytą puslapių rinkinį skaidyti po "
+"(nelyginių puslapių, lyginių puslapių arba kiekvieno puslapio)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Pasirinkite padalinti dokumentą po konkrečių puslapių numerių"
+
+msgid "Page numbers to split at"
+msgstr "Puslapių numeriai ties kuriais skaidyti"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr ""
+"Įveskite kableliais atskirtus teigiamus puslapių numerius (Pvz. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Pasirinkite padalinti dokumentą kas 'n' puslapių"
+
+msgid "Number of pages for split"
+msgstr "Puslapių skaičius padalijimui"
+
+msgid "Enter a positive number of pages"
+msgstr "Įveskite teigiamą puslapių skaičių"
+
+msgid "Split at this size"
+msgstr "Padalinti ties šiuo dydžiu"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Įveskite teigiamą sveikąjį skaičių maksimaliam failo dydžiui"
+
+msgid "Size unit for the split file size"
+msgstr "Padalinto failo dydžio vienetas"
+
+msgid "Page selection for rotation"
+msgstr "Puslapio pasirinkimas pasukimui"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr ""
+"Pasirinkite, kuriuos puslapius pasukti: visus, lyginius arba nelyginius"
+
+msgid "Rotation angle"
+msgstr "Pasukimo kampas"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Pasirinkite sukimo kampą pritaikyti"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Nurodykite puslapius, kuriuos norite pasukti (pvz.: 2 arba 5-23 arba 2,5-"
+"7,12-)"
+
+msgid "Pages normalization"
+msgstr "Puslapių normalizavimas"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Interaktyvios formos (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Žymių tvarkymas"
+
+msgid "Table of contents"
+msgstr "Turinys"
+
+msgid "Repeating PDF file"
+msgstr "Pasikartojantis PDF failas"
+
+msgid "There are news available"
+msgstr "Yra naujienų"
+
+msgid "selected"
+msgstr "pasirinkta"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (su pranešimu)"
+
+msgid "Collapse the sidebar"
+msgstr "Sutraukti šoninę juostą"
+
+msgid "Expand the sidebar"
+msgstr "Išskleisti šoninę juostą"
+
+msgid "PDF files to open"
+msgstr "PDF failai atidarymui"
+
+msgid "file list"
+msgstr "failų sąrašas"
+
+msgid "Available tasks"
+msgstr "Prieinamos užduotys"
+
+msgid "Log messages"
+msgstr "Žurnalo pranešimai"
+
+msgid "Save the log messages to a text file"
+msgstr "Išsaugoti žurnalo pranešimus į tekstinį failą"
+
+msgid "Close the log panel"
+msgstr "Uždaryti žurnalo skydelį"
+
+msgid "News items"
+msgstr "Naujienos"
+
+msgid "Close news panel"
+msgstr "Uždaryti naujienų skydelį"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Pagalba apie {0}"
+
+msgid "Log register rows"
+msgstr "Registro žurnalo eilutės"
+
+msgid "Language"
+msgstr "Kalba"
+
+msgid "Startup tool"
+msgstr "Paleidimo įrankis"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "Font"
+msgstr "Šriftas"
+
+msgid "Font size"
+msgstr "Šrifto dydis"
+
+msgid "Default PDF version"
+msgstr "Numatytoji PDF versija"
+
+msgid "Manually select the output destination directory"
+msgstr "Rankiniu būdu pasirinkti išvesties paskirties katalogą"
+
+msgid "Default prefix"
+msgstr "Numatytasis priešdėlis"
+
+msgid "Default prefix for output file names"
+msgstr "Numatytasis išvesties failų pavadinimų priešdėlis"
+
+msgid "Right click to add special prefix keywords"
+msgstr ""
+"Dešiniuoju pelės mygtuku spustelėkite, kad pridėtumėte specialius priešdėlio "
+"raktinius žodžius"
+
+msgid "Properties table"
+msgstr "Savybių lentelė"
+
+msgid "Properties"
+msgstr "Savybės"
+
+msgid "Empty"
+msgstr "Tuščias"
+
+msgid "Notification"
+msgstr "Pranešimas"
+
+msgid "Close notification"
+msgstr "Uždaryti pranešimą"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Atidaryti URL {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "Pašalinti pasirinktą PDF dokumentą"
+
+msgid "PDF encryption status"
+msgstr "PDF šifravimo būsena"
+
+msgid "PDF document password"
+msgstr "PDF dokumento slaptažodis"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "Nuvilkite PDF failus čia arba naudokite mygtuką Pridėti viršuje"
+
+msgid "PDF documents selection table"
+msgstr "PDF dokumentų pasirinkimo lentelė"
+
+msgid "PDF selection table"
+msgstr "PDF pasirinkimo lentelė"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "PDF dokumentų pasirinkimo lentelė, {0} dokumentų"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} pasirinktų puslapių"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Dydis: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Pakeista: {0}"
+
+msgid "Number of total pages"
+msgstr "Viso puslapių"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Failo pavadinimas: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Eilutė {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} puslapiai"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Nustatyti pasirinktus puslapius (pvz.: 2 arba 5-23 arba 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Pasirinkite PDF paskirties failą"
+
+msgid "Browse for destination PDF file"
+msgstr "Ieškoti paskirties PDF failo"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Naršyti, ieškant {0}"
+
+msgid "Compress the output PDF file"
+msgstr "Suspausti išvesties PDF failą"
+
+msgid "Select a PDF file"
+msgstr "Pasirinkite PDF failą"
+
+msgid "Browse for source PDF file"
+msgstr "Naršyti šaltinio PDF failą"
+
+msgid "Output PDF version"
+msgstr "Išvesties PDF versija"
+
+msgid "Output PDF version selector"
+msgstr "Išvesties PDF versijos parinkiklis"
+
+msgid "Output directory"
+msgstr "Išvesties katalogas"
+
+msgid "Browse for output directory"
+msgstr "Naršyti išvesties aplanką"
+
+msgid "Browse for directory"
+msgstr "Naršyti katalogą"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Neteisinga reikšmė: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "Pasirinkus, reikalinga PDF versija {0} arba naujesnė išvesties failui"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Dešiniuoju spustelėkite, kad pridėtumėte specialius priešdėlio raktinius "
+"žodžius, pvz., laiko žymą arba failo pavadinimą"
+
+msgid "Open the task output file"
+msgstr "Atidaryti užduoties išvesties failą"
+
+msgid "Open the task output directory"
+msgstr "Atidaryti užduoties išvesties katalogą"
+
+msgid "Task footer"
+msgstr "Užduoties poraštė"
+
+msgid "Task progress"
+msgstr "Užduoties eiga"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Užduoties eiga: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Užduoties būsena: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Užduoties būsena: {0}%"

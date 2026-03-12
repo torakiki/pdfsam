@@ -18,6 +18,7 @@
  */
 package org.pdfsam.ui.components.commons;
 
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.Button;
 import org.kordamp.ikonli.Ikon;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -26,13 +27,14 @@ import org.pdfsam.ui.components.support.Style;
 
 import static java.util.Objects.nonNull;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
+import static org.pdfsam.i18n.I18nContext.i18n;
 import static org.sejda.commons.util.RequireUtils.requireNotBlank;
 
 /**
  * Button opening the default browser to the configured url when pressed
- * 
+ *
  * @author Andrea Vacondio
- * 
+ *
  */
 public class UrlButton extends Button {
 
@@ -55,20 +57,21 @@ public class UrlButton extends Button {
     /**
      * Factory method to create an {@link UrlButton}
      *
-     * @param text
-     *            optional button text
+     * @param text  optional button text
      * @param url
-     * @param icon
-     *            optional icon
-     * @param style
-     *            optional style classes
+     * @param icon  optional icon
+     * @param style optional style classes
      */
     public static UrlButton urlButton(String text, String url, Ikon icon, String... style) {
         requireNotBlank(url, "URL cannot be blank");
         UrlButton button = new UrlButton(text);
+        button.setAccessibleRole(AccessibleRole.HYPERLINK);
+        button.setAccessibleHelp(i18n().tr("Open the url {0}", url));
         button.setOnAction(e -> eventStudio().broadcast(new NativeOpenUrlRequest(url)));
         if (nonNull(icon)) {
-            button.setGraphic(FontIcon.of(icon));
+            var fontIcon = FontIcon.of(icon);
+            fontIcon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
+            button.setGraphic(fontIcon);
         }
         if (nonNull(style) && style.length > 0) {
             button.getStyleClass().addAll(style);

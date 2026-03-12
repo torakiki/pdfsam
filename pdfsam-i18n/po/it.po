@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-10-23 12:38+0200\n"
+"PO-Revision-Date: 2026-02-24 16:37+0100\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Language: it\n"
 
@@ -168,8 +168,8 @@ msgstr "Imposta la dimensione a cui dividere"
 msgid "Size must be a number"
 msgstr "La dimensione deve essere un numero"
 
-msgid "Split at this size:"
-msgstr "Dividi a questa dimensione:"
+#~ msgid "Split at this size:"
+#~ msgstr "Dividi a questa dimensione:"
 
 # F:\pdfsam\workspace-enhanced\pdfsam-split\src\java\org\pdfsam\plugin\split\GUI\SplitMainGUI.java:364
 msgid "Invalid split size"
@@ -207,8 +207,8 @@ msgstr "180 gradi"
 msgid "90 degrees counterclockwise"
 msgstr "90 gradi in senso antiorario"
 
-msgid "Rotate "
-msgstr "Ruota "
+#~ msgid "Rotate "
+#~ msgstr "Ruota "
 
 msgid "Rotate settings"
 msgstr "Impostazioni rotazione"
@@ -219,11 +219,11 @@ msgstr "Ruota"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Ruota le pagine di più documenti PDF."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Doppio clic per impostare le pagine che si vuole ruotare (es: 2 o 5-23 o 2,5-"
-"7,12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Doppio clic per impostare le pagine che si vuole ruotare (es: 2 o 5-23 o 2,5-"
+#~ "7,12-)"
 
 msgid "Merge settings"
 msgstr "Impostazioni unione"
@@ -261,8 +261,8 @@ msgid "Same width as first page (based on page orientation)"
 msgstr ""
 "Stessa larghezza della prima pagina (in base all'orientamento della pagina)"
 
-msgid "Pages normalization:"
-msgstr "Normalizzazione delle pagine:"
+#~ msgid "Pages normalization:"
+#~ msgstr "Normalizzazione delle pagine:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -283,8 +283,8 @@ msgstr "Appiattisci"
 msgid "Discard forms"
 msgstr "Scarta moduli"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Moduli interattivi (AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Moduli interattivi (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr "Cosa fare nel caso i documenti contengano moduli Acro"
@@ -301,8 +301,8 @@ msgstr "Crea una voce per ogni documento unito"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Mantieni segnalibri creando una voce per ogni documento unito"
 
-msgid "Bookmarks handling:"
-msgstr "Gestione segnalibri:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Gestione segnalibri:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "Cosa fare nel caso i documenti contengano segnalibri"
@@ -316,8 +316,8 @@ msgstr "Genera dai nomi dei file"
 msgid "Generate from documents titles"
 msgstr "Genera dai titoli dei documenti"
 
-msgid "Table of contents:"
-msgstr "Tabella dei contenuti:"
+#~ msgid "Table of contents:"
+#~ msgstr "Tabella dei contenuti:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -640,22 +640,22 @@ msgstr "Pagina iniziale"
 msgid "Premium features"
 msgstr "Funzionalità premium"
 
-msgid "Log register rows:"
-msgstr "Righe registro eventi:"
+#~ msgid "Log register rows:"
+#~ msgstr "Righe registro eventi:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Numero massimo di righe visualizzate nel registro"
 
 # F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:123
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
-msgid "Language:"
-msgstr "Linguaggio:"
+#~ msgid "Language:"
+#~ msgstr "Linguaggio:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Imposta la lingua preferita (riavvio necessario)"
 
-msgid "Startup tool:"
-msgstr "Strumento di avvio:"
+#~ msgid "Startup tool:"
+#~ msgstr "Strumento di avvio:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
@@ -664,14 +664,14 @@ msgstr ""
 
 # F:\workspace_pdfsame_enanched\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:120
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
-msgid "Theme:"
-msgstr "Tema:"
+#~ msgid "Theme:"
+#~ msgstr "Tema:"
 
 msgid "Set the application theme"
 msgstr "Imposta il tema dell'applicazione"
 
-msgid "Font size:"
-msgstr "Dimensioni dei caratteri:"
+#~ msgid "Font size:"
+#~ msgstr "Dimensioni dei caratteri:"
 
 msgid "Set the application font size"
 msgstr "Imposta la dimensione del carattere dell'applicazione"
@@ -1076,8 +1076,8 @@ msgstr "Inserisci la password utente"
 msgid "Unlock"
 msgstr "Sblocca"
 
-msgid "Drag and drop PDF files here"
-msgstr "Trascina e rilascia qui i file PDF"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Trascina e rilascia qui i file PDF"
 
 msgid "Set as range for all"
 msgstr "Imposta intervallo per tutti"
@@ -1197,8 +1197,8 @@ msgstr "Pagine"
 msgid "Number of total pages of the document"
 msgstr "Numero di pagine totali del documento"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Doppio clic per impostare le pagine (es: 2 o 5-23 o 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Doppio clic per impostare le pagine (es: 2 o 5-23 o 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Intervalli di pagine"
@@ -1376,8 +1376,8 @@ msgstr "Numero non valido: {0}"
 msgid "Follow us on Bluesky"
 msgstr "Seguici su Bluesky"
 
-msgid "Font:"
-msgstr "Carattere:"
+#~ msgid "Font:"
+#~ msgstr "Carattere:"
 
 msgid "Sets the application font"
 msgstr "Imposta il carattere dell'applicazione"
@@ -1402,3 +1402,323 @@ msgstr "Vuoi salvarlo?"
 
 msgid "Set as pace for all"
 msgstr "Imposta come passo per tutti"
+
+msgid "Split at this bookmark level"
+msgstr "Dividi a questo livello di segnalibro"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr ""
+"Seleziona il livello di profondità del segnalibro al quale dividere il "
+"documento"
+
+msgid "Bookmark level"
+msgstr "Livello segnalibro"
+
+msgid "Bookmark level selector"
+msgstr "Selettore livello segnalibro"
+
+msgid "Select a bookmark level"
+msgstr "Seleziona un livello di segnalibro"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "Seleziona per dividere il PDF dopo un insieme predefinito di pagine"
+
+msgid "Predefined set of pages to split after"
+msgstr "Set predefinito di pagine dopo le quali dividere"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr ""
+"Scegli dopo quale set predefinito di pagine dividere (pagine dispari, pari o "
+"ogni pagina)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Seleziona per dividere il documento dopo numeri di pagina specifici"
+
+msgid "Page numbers to split at"
+msgstr "Numeri di pagina in cui dividere"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr ""
+"Inserisci numeri di pagina positivi separati da virgola (Es. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Seleziona per dividere il documento ogni 'n' pagine"
+
+msgid "Number of pages for split"
+msgstr "Numero di pagine per la divisione"
+
+msgid "Enter a positive number of pages"
+msgstr "Inserire un numero positivo di pagine"
+
+msgid "Split at this size"
+msgstr "Dividi a questa dimensione"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Inserire un numero intero positivo per la dimensione massima del file"
+
+msgid "Size unit for the split file size"
+msgstr "Unità di misura per la dimensione del file diviso"
+
+msgid "Page selection for rotation"
+msgstr "Selezione pagina per rotazione"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Scegli quali pagine ruotare: tutte, pari o dispari"
+
+msgid "Rotation angle"
+msgstr "Angolo di rotazione"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Scegli l'angolo di rotazione da applicare"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Imposta le pagine che vuoi ruotare (es: 2 o 5-23 o 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Normalizzazione pagine"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Moduli interattivi (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Gestione segnalibri"
+
+msgid "Table of contents"
+msgstr "Sommario"
+
+msgid "Repeating PDF file"
+msgstr "Ripetizione file PDF"
+
+msgid "There are news available"
+msgstr "Sono disponibili novità"
+
+msgid "selected"
+msgstr "selezionato"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (con notifica)"
+
+msgid "Collapse the sidebar"
+msgstr "Comprimi la barra laterale"
+
+msgid "Expand the sidebar"
+msgstr "Espandi la barra laterale"
+
+msgid "PDF files to open"
+msgstr "File PDF da aprire"
+
+msgid "file list"
+msgstr "elenco file"
+
+msgid "Available tasks"
+msgstr "Attività disponibili"
+
+msgid "Log messages"
+msgstr "Messaggi di log"
+
+msgid "Save the log messages to a text file"
+msgstr "Salva i messaggi di log in un file di testo"
+
+msgid "Close the log panel"
+msgstr "Chiudi il pannello del registro"
+
+msgid "News items"
+msgstr "Notizie"
+
+msgid "Close news panel"
+msgstr "Chiudi pannello notizie"
+
+#~ msgid "About panel"
+#~ msgstr "Pannello Informazioni"
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Guida per {0}"
+
+msgid "Log register rows"
+msgstr "Righe del registro di log"
+
+msgid "Language"
+msgstr "Lingua"
+
+msgid "Startup tool"
+msgstr "Strumento di avvio"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "Font"
+msgstr "Carattere"
+
+msgid "Font size"
+msgstr "Dimensione carattere"
+
+msgid "Default PDF version"
+msgstr "Versione PDF predefinita"
+
+msgid "Manually select the output destination directory"
+msgstr "Seleziona manualmente la directory di destinazione dell'output"
+
+msgid "Default prefix"
+msgstr "Prefisso predefinito"
+
+msgid "Default prefix for output file names"
+msgstr "Prefisso predefinito per i nomi dei file di output"
+
+msgid "Right click to add special prefix keywords"
+msgstr ""
+"Fai clic con il pulsante destro del mouse per aggiungere parole chiave "
+"speciali come prefisso"
+
+msgid "Properties table"
+msgstr "Tabella proprietà"
+
+msgid "Properties"
+msgstr "Proprietà"
+
+msgid "Empty"
+msgstr "Vuoto"
+
+msgid "Notification"
+msgstr "Notifica"
+
+msgid "Close notification"
+msgstr "Chiudi notifica"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Apri l'url {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr "Barra degli strumenti di selezione del documento PDF"
+
+msgid "Clear the selected PDF document"
+msgstr "Cancella il documento PDF selezionato"
+
+msgid "PDF encryption status"
+msgstr "Stato crittografia PDF"
+
+msgid "PDF document password"
+msgstr "Password del documento PDF"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "Trascina e rilascia i file PDF qui o usa il pulsante Aggiungi sopra"
+
+msgid "PDF documents selection table"
+msgstr "Tabella di selezione documenti PDF"
+
+msgid "PDF selection table"
+msgstr "Tabella di selezione PDF"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "Tabella di selezione documenti PDF, {0} documenti"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} pagine selezionate"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Dimensione: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Modificato: {0}"
+
+msgid "Number of total pages"
+msgstr "Numero di pagine totali"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Nome file: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Riga {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr "Barra degli strumenti di selezione del documento"
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} pagine"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Imposta le pagine selezionate (es: 2 o 5-23 o 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Seleziona un file PDF di destinazione"
+
+msgid "Browse for destination PDF file"
+msgstr "Sfoglia per il file PDF di destinazione"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Sfoglia per {0}"
+
+msgid "Compress the output PDF file"
+msgstr "Comprimi il file PDF di output"
+
+msgid "Select a PDF file"
+msgstr "Seleziona un file PDF"
+
+msgid "Browse for source PDF file"
+msgstr "Sfoglia per il file PDF di origine"
+
+msgid "Output PDF version"
+msgstr "Versione PDF di output"
+
+msgid "Output PDF version selector"
+msgstr "Selettore versione PDF di output"
+
+msgid "Output directory"
+msgstr "Cartella di output"
+
+msgid "Browse for output directory"
+msgstr "Sfoglia per la directory di output"
+
+msgid "Browse for directory"
+msgstr "Sfoglia per directory"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Valore non valido: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr ""
+"Quando selezionato, richiede la versione PDF {0} o superiore per il file di "
+"output"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Fai clic con il pulsante destro del mouse per aggiungere parole chiave "
+"speciali come timestamp o nome file"
+
+msgid "Open the task output file"
+msgstr "Apri il file di output dell'attività"
+
+msgid "Open the task output directory"
+msgstr "Apri la cartella di output dell'attività"
+
+msgid "Task footer"
+msgstr "Piè di pagina attività"
+
+msgid "Task progress"
+msgstr "Avanzamento attività"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Avanzamento attività: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Stato attività: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Stato attività: {0}%"

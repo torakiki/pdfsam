@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"PO-Revision-Date: 2026-02-24 17:03+0100\n"
 "Last-Translator: kn2296 <Unknown>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: th\n"
 
 msgid "No PDF document has been selected"
@@ -37,10 +37,10 @@ msgid "Output settings"
 msgstr "การตั้งค่าเอาต์พุต"
 
 msgid "A separate file for each set of pages"
-msgstr ""
+msgstr "หนึ่งไฟล์ต่อหนึ่งชุดหน้า"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
+msgstr "ชุดหน้าต่อเนื่องแต่ละชุดจะสร้างไฟล์ PDF แยกต่างหาก"
 
 #~ msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12-)"
 #~ msgstr "หน้าที่จะแยก (เช่น 2 หรือ 5-23 หรือ 2,5-7,12-)"
@@ -57,117 +57,117 @@ msgstr "แยกหน้า:"
 #~ msgstr ""
 
 msgid "Split by bookmarks"
-msgstr ""
+msgstr "แยกตามบุ๊กมาร์ก"
 
 msgid ""
 "Split a PDF document at bookmarked pages by specifying a bookmark level."
-msgstr ""
+msgstr "แยกเอกสาร PDF ตามหน้าบุ๊กมาร์กโดยระบุระดับบุ๊กมาร์ก"
 
 msgid "Regular expression the bookmark has to match"
-msgstr ""
+msgstr "นิพจน์ปรกติที่บุ๊กมาร์กต้องตรงกัน"
 
 msgid "Split at this bookmark level:"
-msgstr ""
+msgstr "แยกที่ระดับบุ๊กมาร์กนี้:"
 
 msgid "Matching regular expression:"
-msgstr ""
+msgstr "นิพจน์ปรกติที่ตรงกัน:"
 
 msgid "A regular expression the bookmark text has to match"
-msgstr ""
+msgstr "นิพจน์ปรกติที่ข้อความบุ๊กมาร์กต้องตรงตาม"
 
 msgid ""
 "Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""
-msgstr ""
+msgstr "ตัวอย่าง: ใช้ .*Chapter.* เพื่อจับคู่บุ๊กมาร์กที่มีคำว่า \"Chapter\""
 
 msgid "Select or drag and drop the PDF you want to split"
-msgstr ""
+msgstr "เลือกหรือลากและวางไฟล์ PDF ที่คุณต้องการแยก"
 
 msgid "Split settings"
-msgstr ""
+msgstr "การตั้งค่าแยก"
 
 msgid "Invalid bookmarks level"
-msgstr ""
+msgstr "ระดับบุ๊กมาร์กไม่ถูกต้อง"
 
 msgid "Split after"
-msgstr ""
+msgstr "แยกหลัง"
 
 msgid "No page selected"
-msgstr ""
+msgstr "ไม่ได้เลือกหน้า"
 
 msgid "Split"
 msgstr "แยก"
 
 msgid "Split a PDF document at the given page numbers."
-msgstr ""
+msgstr "แยกเอกสาร PDF ตามหมายเลขหน้าที่ระบุ"
 
 msgid "Every page"
-msgstr ""
+msgstr "ทุกหน้า"
 
 msgid "Even pages"
-msgstr ""
+msgstr "หน้าคู่"
 
 msgid "Odd pages"
-msgstr ""
+msgstr "หน้าคี่"
 
 msgid "Split the document after the given page numbers"
-msgstr ""
+msgstr "แยกเอกสารหลังหมายเลขหน้าที่กำหนด"
 
 msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
-msgstr ""
+msgstr "แยกไฟล์ PDF ทุก \"n\" หน้า สร้างเอกสารแต่ละไฟล์มี \"n\" หน้า"
 
 msgid "Split after the following page numbers"
-msgstr ""
+msgstr "แยกหลังหมายเลขหน้าต่อไปนี้"
 
 msgid "Page numbers to split at (n1,n2,n3..)"
-msgstr ""
+msgstr "หมายเลขหน้าสำหรับแยก (n1,n2,n3..)"
 
 msgid "Invalid page numbers"
-msgstr ""
+msgstr "หมายเลขหน้าไม่ถูกต้อง"
 
 msgid "Only valid positive page numbers are allowed"
-msgstr ""
+msgstr "อนุญาตเฉพาะหมายเลขหน้าจำนวนเต็มบวกที่ถูกต้อง"
 
 msgid "Split by every \"n\" pages"
-msgstr ""
+msgstr "แยกทุกๆ \"n\" หน้า"
 
 msgid "Number of pages"
-msgstr ""
+msgstr "จำนวนหน้า"
 
 msgid "Invalid number of pages"
-msgstr ""
+msgstr "จำนวนหน้าไม่ถูกต้อง"
 
 msgid "Megabytes"
-msgstr ""
+msgstr "เมกะไบต์"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "Kilobytes"
-msgstr ""
+msgstr "กิโลไบต์"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "Split by size"
-msgstr ""
+msgstr "แยกตามขนาด"
 
 msgid "Split a PDF document in files of the given size (roughly)."
-msgstr ""
+msgstr "แยกเอกสาร PDF เป็นไฟล์ตามขนาดที่กำหนด (โดยประมาณ)"
 
 msgid "Set the size to split at"
-msgstr ""
+msgstr "ตั้งค่าขนาดที่จะแบ่ง"
 
 msgid "Size must be a number"
-msgstr ""
+msgstr "ขนาดต้องเป็นตัวเลข"
 
-msgid "Split at this size:"
-msgstr ""
+#~ msgid "Split at this size:"
+#~ msgstr ""
 
 msgid "Invalid split size"
 msgstr "ขนาดไฟล์ที่แยกผิดพลาด"
 
 msgid "Destination file"
-msgstr ""
+msgstr "ไฟล์ปลายทาง"
 
 msgid "Alternate Mix"
 msgstr "Alternate Mix"
@@ -175,183 +175,190 @@ msgstr "Alternate Mix"
 msgid ""
 "Merge two or more PDF documents taking pages alternately in natural or "
 "reverse order."
-msgstr ""
+msgstr "รวมเอกสาร PDF สองฉบับขึ้นไป โดยสลับหน้าตามลำดับปกติหรือย้อนกลับ"
 
 msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"ดับเบิลคลิกเพื่อกำหนดหน้าที่คุณต้องการรวม (เช่น: 2 หรือ 5-23 หรือ 2,5-7,12-)"
 
 msgid "Select a positive integer number as pace"
-msgstr ""
+msgstr "เลือกจำนวนเต็มบวกเป็นค่าก้าว"
 
 msgid "All pages"
-msgstr ""
+msgstr "ทุกหน้า"
 
 msgid "90 degrees clockwise"
-msgstr ""
+msgstr "90 องศาตามเข็มนาฬิกา"
 
 msgid "180 degrees clockwise"
-msgstr ""
+msgstr "180 องศาตามเข็มนาฬิกา"
 
 msgid "90 degrees counterclockwise"
-msgstr ""
+msgstr "90 องศา ทวนเข็มนาฬิกา"
 
-msgid "Rotate "
-msgstr ""
+#~ msgid "Rotate "
+#~ msgstr ""
 
 msgid "Rotate settings"
-msgstr ""
+msgstr "ตั้งค่าการหมุน"
 
 msgid "Rotate"
-msgstr ""
+msgstr "หมุน"
 
 msgid "Rotate the pages of multiple PDF documents."
-msgstr ""
+msgstr "หมุนหน้าของเอกสาร PDF หลายฉบับ"
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
 
 msgid "Merge settings"
-msgstr ""
+msgstr "ตั้งค่าการผสาน"
 
 msgid ""
 "Double click to set pages you want to merge (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
+"ดับเบิลคลิกเพื่อกำหนดหน้าที่คุณต้องการรวม (เช่น: 2 หรือ 5-23 หรือ 2,5-7,12-)"
 
 msgid "Add a blank page if page number is odd"
-msgstr ""
+msgstr "เพิ่มหน้าว่างถ้าเลขหน้าเป็นเลขคี่"
 
 msgid ""
 "Adds a blank page after each merged document if the document has an odd "
 "number of pages"
 msgstr ""
+"เพิ่มหน้าว่างหลังเอกสารที่ผสานแต่ละฉบับ หากเอกสารมีจำนวนหน้าเป็นเลขคี่"
 
 msgid "Add a footer"
-msgstr ""
+msgstr "เพิ่มส่วนท้ายกระดาษ"
 
 msgid "Adds a page footer with the name of the file the page belonged to."
-msgstr ""
+msgstr "เพิ่มส่วนท้ายหน้าพร้อมชื่อไฟล์ที่หน้านั้นเป็นของ"
 
 msgid "None"
 msgstr "ไม่มี"
 
 msgid "Same width as first page"
-msgstr ""
+msgstr "ความกว้างเท่าหน้าแรก"
 
 msgid "Same width as first page (based on page orientation)"
-msgstr ""
+msgstr "ความกว้างเท่าหน้าแรก (อิงตามการวางแนวหน้ากระดาษ)"
 
-msgid "Pages normalization:"
-msgstr ""
+#~ msgid "Pages normalization:"
+#~ msgstr ""
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
 "one"
-msgstr ""
+msgstr "ตั้งค่าว่าจะปรับขนาดหน้าให้มีความกว้างเท่ากันทั้งหมดกับหน้าแรก"
 
 msgid "Merge fields"
-msgstr ""
+msgstr "ผสานเขตข้อมูล"
 
 msgid "Merge renaming existing fields"
-msgstr ""
+msgstr "รวมเปลี่ยนชื่อฟิลด์ที่มีอยู่"
 
 msgid "Flatten"
-msgstr ""
+msgstr "รวม"
 
 msgid "Discard forms"
-msgstr ""
+msgstr "ทิ้งแบบฟอร์ม"
 
-msgid "Interactive forms (AcroForms):"
-msgstr ""
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr ""
 
 msgid "What to do in case one or more input documents contain Acro Forms"
-msgstr ""
+msgstr "จะทำอย่างไรในกรณีที่เอกสารนำเข้าตั้งแต่หนึ่งฉบับขึ้นไปมี Acro Forms"
 
 msgid "Retain bookmarks"
-msgstr ""
+msgstr "คงบุ๊กมาร์ก"
 
 msgid "Discard bookmarks"
 msgstr "ยกเลิกบุ๊กมาร์ก"
 
 msgid "Create one entry for each merged document"
-msgstr ""
+msgstr "สร้างหนึ่งรายการสำหรับเอกสารที่ผสานแต่ละฉบับ"
 
 msgid "Retain bookmarks as one entry for each merged document"
-msgstr ""
+msgstr "เก็บที่คั่นหน้าเป็นรายการเดียวสำหรับเอกสารที่ผสานแต่ละฉบับ"
 
-msgid "Bookmarks handling:"
-msgstr ""
+#~ msgid "Bookmarks handling:"
+#~ msgstr ""
 
 msgid "What to do in case one or more input documents contain bookmarks"
-msgstr ""
+msgstr "จะจัดการอย่างไรหากเอกสารนำเข้าอย่างน้อยหนึ่งฉบับมีบุ๊กมาร์ก"
 
 msgid "Don't generate"
-msgstr ""
+msgstr "ไม่ต้องสร้าง"
 
 msgid "Generate from file names"
-msgstr ""
+msgstr "สร้างจากชื่อไฟล์"
 
 msgid "Generate from documents titles"
-msgstr ""
+msgstr "สร้างจากหัวข้อเอกสาร"
 
-msgid "Table of contents:"
-msgstr ""
+#~ msgid "Table of contents:"
+#~ msgstr ""
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
-msgstr ""
+msgstr "ตั้งค่าให้เพิ่มสารบัญในเอกสาร PDF ที่สร้างขึ้น"
 
 msgid "Merge"
-msgstr ""
+msgstr "รวม"
 
 #~ msgid "Merge together multiple PDF documents or subsections of them."
 #~ msgstr ""
 
 msgid "Select or drag and drop the PDF whose pages will be repeated"
-msgstr ""
+msgstr "เลือกหรือลากและวางไฟล์ PDF ที่ต้องการทำซ้ำหน้า"
 
 msgid "Repeat these pages:"
-msgstr ""
+msgstr "ทำซ้ำหน้าเหล่านี้:"
 
 msgid "Pages to repeat (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
+msgstr "หน้าที่ต้องการทำซ้ำ (เช่น: 2 หรือ 5-23 หรือ 2,5-7,12-)"
 
 msgid ""
 "Comma separated page numbers or ranges to be repeated (ex: 2 or 5-23 or 2,5-"
 "7,12-)"
 msgstr ""
+"หมายเลขหน้าหรือช่วงที่คั่นด้วยเครื่องหมายจุลภาคที่จะทำซ้ำ (เช่น 2 หรือ 5-23 "
+"หรือ 2,5-7,12-)"
 
 msgid "Leave it empty to use all the pages of the PDF file"
-msgstr ""
+msgstr "เว้นว่างไว้เพื่อใช้ทุกหน้าของไฟล์ PDF"
 
 msgid "Repeat every \"n\" pages:"
-msgstr ""
+msgstr "ทำซ้ำทุก n หน้า:"
 
 msgid "Invalid page number"
-msgstr ""
+msgstr "หมายเลขหน้าไม่ถูกต้อง"
 
 msgid "Repeat the selected pages every \"n\" pages of the original document"
-msgstr ""
+msgstr "ทำซ้ำหน้ากระดาษที่เลือกทุกๆ \"n\" หน้าของเอกสารต้นฉบับ"
 
 msgid "The selected PDF file is invalid"
 msgstr "ไฟล์ PDF ที่เลือกไม่ถูกต้อง"
 
 msgid "The number of pages must be a positive number"
-msgstr ""
+msgstr "จำนวนหน้าต้องเป็นจำนวนเต็มบวก"
 
 msgid "Select or drag and drop the PDF you want to insert pages to"
-msgstr ""
+msgstr "เลือกหรือลากและวางไฟล์ PDF ที่ต้องการแทรกหน้า"
 
 msgid "Insert and Repeat settings"
-msgstr ""
+msgstr "แทรกและทำซ้ำการตั้งค่า"
 
 msgid "Insert pages multiple times"
-msgstr ""
+msgstr "แทรกหน้าหลายครั้ง"
 
 msgid ""
 "Insert the pages of a PDF document A into another document B, repeating it "
 "after a certain number of pages, resulting in B1 A B2 A B3 A etc."
 msgstr ""
+"แทรกหน้าจากเอกสาร PDF A ลงในเอกสาร B โดยทำซ้ำหลังจากจำนวนหน้าที่กำหนด "
+"ได้ผลลัพธ์เป็น B1 A B2 A B3 A เป็นต้น"
 
 #, java-format
 msgid "Started in {0}"
@@ -367,10 +374,10 @@ msgid "No PDF found"
 msgstr "ไม่พบ PDF"
 
 msgid "Tools"
-msgstr ""
+msgstr "เครื่องมือ"
 
 msgid "News"
-msgstr ""
+msgstr "ข่าว"
 
 msgid "What's new"
 msgstr "มีอะไรใหม่"
@@ -379,13 +386,13 @@ msgid "Exit"
 msgstr "ออก"
 
 msgid "Exit the application"
-msgstr ""
+msgstr "ออกจากโปรแกรม"
 
 msgid "Workspace"
 msgstr "พื้นที่ทำงาน"
 
 msgid "Manage your workspaces"
-msgstr ""
+msgstr "จัดการพื้นที่ทำงานของคุณ"
 
 msgid "Yes"
 msgstr "ใช่"
@@ -400,7 +407,7 @@ msgid "Do you confirm?"
 msgstr "คุณยืนยัน?"
 
 msgid "Clear the tool settings"
-msgstr ""
+msgstr "ล้างการตั้งค่าเครื่องมือ"
 
 msgid "Clear the selection table"
 msgstr "ล้างตารางการเลือก"
@@ -473,7 +480,7 @@ msgid ""
 msgstr "อาจส่งผลให้ไฟล์ PDF มีข้อมูลบางส่วนหรือขาดหายไปดำเนินการต่อไปหรือไม่?"
 
 msgid "Removes all the log messages"
-msgstr ""
+msgstr "ลบข้อความบันทึกทั้งหมด"
 
 msgid "_Clear"
 msgstr "_ล้าง"
@@ -482,7 +489,7 @@ msgid "_Save"
 msgstr "_บันทึก"
 
 msgid "C_lose"
-msgstr ""
+msgstr "C_ปิด"
 
 msgid "Copy"
 msgstr "คัดลอก"
@@ -500,19 +507,19 @@ msgid "Select where to save the log file"
 msgstr "เลือกตำแหน่งที่จะบันทึกไฟล์บันทึก"
 
 msgid "Logs"
-msgstr ""
+msgstr "บันทึก"
 
 msgid "Application messages"
 msgstr "ข้อความ"
 
 msgid "_Load"
-msgstr ""
+msgstr "_โหลด"
 
 msgid "Recen_ts"
-msgstr ""
+msgstr "ล่าสุ_ด"
 
 msgid "_Clear recents"
-msgstr ""
+msgstr "ล้างรายการล่าสุด"
 
 msgid "Select the workspace file to save"
 msgstr "เลือก workspace เพื่อบันทึก"
@@ -536,11 +543,11 @@ msgstr "Java runtime path: %s"
 
 #, java-printf-format
 msgid "JavaFX runtime version: %s"
-msgstr ""
+msgstr "เวอร์ชันรันไทม์ JavaFX: %s"
 
 #, java-printf-format
 msgid "PDF engine (Sejda SDK) version: %s"
-msgstr ""
+msgstr "เอนจิน PDF (Sejda SDK) เวอร์ชัน: %s"
 
 #, java-format
 msgid "Max memory {0}"
@@ -583,40 +590,40 @@ msgid "About"
 msgstr "เกี่ยวกับ"
 
 msgid "Home"
-msgstr ""
+msgstr "หน้าแรก"
 
 msgid "Premium features"
 msgstr "คุณสมบัติระดับพรีเมียม"
 
-msgid "Log register rows:"
-msgstr "เข้าสู่ระบบลงทะเบียนแถว:"
+#~ msgid "Log register rows:"
+#~ msgstr "เข้าสู่ระบบลงทะเบียนแถว:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "จำนวนแถวสูงสุดที่แสดงโดย Log register"
 
-msgid "Language:"
-msgstr "ภาษา:"
+#~ msgid "Language:"
+#~ msgstr "ภาษา:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "ตั้งค่าภาษาที่ต้องการ (ต้องเรียกใช้งานโปรแกรมใหม่)"
 
-msgid "Startup tool:"
-msgstr ""
+#~ msgid "Startup tool:"
+#~ msgstr ""
 
 msgid "Set the tool to open at application startup (restart needed)"
-msgstr ""
+msgstr "ตั้งค่าเครื่องมือให้เปิดเมื่อเริ่มต้นแอปพลิเคชัน (ต้องรีสตาร์ท)"
 
-msgid "Theme:"
-msgstr "ธีม:"
+#~ msgid "Theme:"
+#~ msgstr "ธีม:"
 
 msgid "Set the application theme"
-msgstr ""
+msgstr "ตั้งค่าธีมแอปพลิเคชัน"
 
-msgid "Font size:"
-msgstr ""
+#~ msgid "Font size:"
+#~ msgstr ""
 
 msgid "Set the application font size"
-msgstr ""
+msgstr "ตั้งค่าขนาดตัวอักษรของแอปพลิเคชัน"
 
 msgid "Manually selected"
 msgstr "เลือกเอง"
@@ -663,7 +670,7 @@ msgid "Load default workspace at startup:"
 msgstr "โหลดพื้นที่ทำงานเริ่มต้นเมื่อเริ่มต้น:"
 
 msgid "System default"
-msgstr ""
+msgstr "ค่าเริ่มต้นระบบ"
 
 msgid "Check for updates at startup"
 msgstr "เช็คอัพเดตตอนเริ่มโปรแกรม"
@@ -765,7 +772,7 @@ msgid "Show errors"
 msgstr "แสดงข้อผิดพลาดต่าง ๆ"
 
 msgid "Input parameters are invalid"
-msgstr ""
+msgstr "พารามิเตอร์ที่ป้อนไม่ถูกต้อง"
 
 msgid "Invalid parameters"
 msgstr "พารามิเตอร์ไม่ถูกต้อง"
@@ -789,23 +796,23 @@ msgid "Give something back"
 msgstr "ให้บางสิ่งกลับมา"
 
 msgid "PDFsam worked hard!"
-msgstr ""
+msgstr "PDFsam ทำงานหนักมาก!"
 
 msgid "Spread the word!"
-msgstr ""
+msgstr "บอกต่อ"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
-msgstr ""
+msgstr "PDFsam {0} มีให้ดาวน์โหลด"
 
 msgid "Download"
 msgstr "ดาวน์โหลด"
 
 msgid "New version available"
-msgstr ""
+msgstr "เวอร์ชันใหม่พร้อมใช้งาน"
 
 msgid "You are running the latest version of PDFsam Basic"
-msgstr ""
+msgstr "คุณกำลังใช้งานเวอร์ชันล่าสุดของ PDFsam Basic"
 
 msgid "No update"
 msgstr "ไม่มีการอัปเดต"
@@ -815,131 +822,131 @@ msgstr "เปิด"
 
 #, java-format
 msgid "File \"{0}\" does not exist or is invalid"
-msgstr ""
+msgstr "ไฟล์ {0} ไม่มีอยู่จริงหรือไม่ถูกต้อง"
 
 msgid "Valid user password provided."
-msgstr ""
+msgstr "ระบุรหัสผ่านผู้ใช้ถูกต้อง"
 
 msgid "This document is encrypted, click to provide a password."
-msgstr ""
+msgstr "เอกสารนี้ถูกเข้ารหัส คลิกเพื่อป้อนรหัสผ่าน"
 
 msgid "An error has occurred, click for more details."
-msgstr ""
+msgstr "เกิดข้อผิดพลาด คลิกเพื่อดูรายละเอียดเพิ่มเติม"
 
 msgid "Split tools"
-msgstr ""
+msgstr "เครื่องมือแยก"
 
 msgid "Merge tools"
-msgstr ""
+msgstr "เครื่องมือรวม"
 
 msgid "Convert tools"
-msgstr ""
+msgstr "เครื่องมือแปลง"
 
 msgid "Edit tools"
-msgstr ""
+msgstr "เครื่องมือแก้ไข"
 
 msgid "Other tools"
-msgstr ""
+msgstr "เครื่องมืออื่นๆ"
 
 msgid "Checking for updates"
-msgstr ""
+msgstr "กำลังตรวจสอบอัปเดต"
 
 msgid "Unable to find the latest available version."
-msgstr ""
+msgstr "ไม่พบเวอร์ชันล่าสุดที่พร้อมใช้งาน"
 
 #, java-format
 msgid "Unable to find any valid PDF file in the list: {0}"
-msgstr ""
+msgstr "ไม่พบไฟล์ PDF ที่ถูกต้องใดๆ ในรายการ: {0}"
 
 #, java-format
 msgid "Unable to load PDF list file from {0}"
-msgstr ""
+msgstr "ไม่สามารถโหลดไฟล์รายการ PDF จาก {0}"
 
 msgid "Loading pdf documents"
-msgstr ""
+msgstr "กำลังโหลดเอกสาร PDF"
 
 msgid "Documents loaded"
-msgstr ""
+msgstr "เอกสารโหลดแล้ว"
 
 msgid "Unable to retrieve premium features description"
-msgstr ""
+msgstr "ไม่สามารถดึงข้อมูลคำอธิบายคุณสมบัติพรีเมียม"
 
 msgid "Fetching premium modules"
-msgstr ""
+msgstr "กำลังโหลดโมดูลพรีเมียม"
 
 msgid "Unable to retrieve premium modules"
-msgstr ""
+msgstr "ไม่สามารถดึงข้อมูลโมดูลพรีเมียมได้"
 
 msgid "Unable to retrieve latest news"
-msgstr ""
+msgstr "ไม่สามารถดึงข่าวสารล่าสุดได้"
 
 msgid "Fetching latest news"
-msgstr ""
+msgstr "กำลังดึงข้อมูลข่าวสารล่าสุด"
 
 msgid "Unable to retrieve the latest news"
-msgstr ""
+msgstr "ไม่สามารถดึงข่าวสารล่าสุดได้"
 
 #, java-format
 msgid "Saving workspace data to {0}"
-msgstr ""
+msgstr "กำลังบันทึกข้อมูลพื้นที่ทำงานไปยัง {0}"
 
 msgid "Workspace saved"
-msgstr ""
+msgstr "พื้นที่ทำงานบันทึกแล้ว"
 
 msgid "Requesting modules state"
-msgstr ""
+msgstr "กำลังร้องขอสถานะโมดูล"
 
 #, java-format
 msgid "Unable to save workspace to {0}"
-msgstr ""
+msgstr "ไม่สามารถบันทึกเวิร์กสเปซที่ {0}"
 
 #, java-format
 msgid "Loading workspace from {0}"
-msgstr ""
+msgstr "กำลังโหลดพื้นที่ทำงานจาก {0}"
 
 #~ msgid "Workspace loaded"
 #~ msgstr ""
 
 #, java-format
 msgid "Unable to load workspace from {0}"
-msgstr ""
+msgstr "ไม่สามารถโหลดเวิร์กสเปซจาก {0}"
 
 msgid "Light with blue"
-msgstr ""
+msgstr "โทนสว่างสีน้ำเงิน"
 
 msgid "Dark with purple"
-msgstr ""
+msgstr "เข้มกับม่วง"
 
 msgid "Dark with teal"
-msgstr ""
+msgstr "เข้มกับเขียวอมน้ำเงิน"
 
 msgid "Light with maroon"
-msgstr ""
+msgstr "อ่อนกับมารูน"
 
 msgid "Close"
 msgstr "ปิด"
 
 msgid "The selected PDF document is invalid"
-msgstr ""
+msgstr "เอกสาร PDF ที่เลือกไม่ถูกต้อง"
 
 msgid "Select the PDF file"
-msgstr ""
+msgstr "เลือกไฟล์ PDF"
 
 msgid "_Select PDF"
-msgstr ""
+msgstr "_เลือก PDF"
 
 #~ msgid "Clear all settings"
 #~ msgstr ""
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
-msgstr ""
+msgstr "หน้า: {0}, เวอร์ชัน PDF: {1}"
 
 msgid "Loading..."
 msgstr "กำลังทำการโหลด..."
 
 msgid "Document properties"
-msgstr ""
+msgstr "คุณสมบัติเอกสาร"
 
 msgid "Remove"
 msgstr "ลบออก"
@@ -956,8 +963,8 @@ msgstr "ป้อนรหัสผ่านผู้ใช้"
 msgid "Unlock"
 msgstr "ปลดล็อก"
 
-msgid "Drag and drop PDF files here"
-msgstr "ลากและวางไฟล์ PDF ที่นี่"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "ลากและวางไฟล์ PDF ที่นี่"
 
 msgid "Set as range for all"
 msgstr "กำหนดเป็นช่วงสำหรับทั้งหมด"
@@ -978,10 +985,10 @@ msgid "Duplicate"
 msgstr "ทำซ้ำ"
 
 msgid "Selected pages"
-msgstr ""
+msgstr "หน้าที่เลือก"
 
 msgid "Total number of selected pages"
-msgstr ""
+msgstr "จำนวนหน้าที่เลือกทั้งหมด"
 
 msgid "Size"
 msgstr "ขนาด"
@@ -991,7 +998,7 @@ msgstr "ถูกแก้ไข"
 
 #, java-format
 msgid "Total pages: {0}"
-msgstr ""
+msgstr "รวมหน้า: {0}"
 
 msgid "Name"
 msgstr "ชื่อ"
@@ -1050,10 +1057,10 @@ msgid "Pages"
 msgstr "หน้า"
 
 msgid "Number of total pages of the document"
-msgstr ""
+msgstr "จำนวนหน้าทั้งหมดของเอกสาร"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "ดับเบิลคลิกเพื่อตั้งค่าหน้าที่เลือก (เช่น 2 หรือ 5-23 หรือ 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "ดับเบิลคลิกเพื่อตั้งค่าหน้าที่เลือก (เช่น 2 หรือ 5-23 หรือ 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "ช่วงหน้า"
@@ -1098,59 +1105,59 @@ msgid "Version {0}"
 msgstr "Version {0}"
 
 msgid "Same as the input document"
-msgstr ""
+msgstr "เช่นเดียวกับเอกสารต้นฉบับ"
 
 msgid "An existing output directory is required"
-msgstr ""
+msgstr "ต้องระบุโฟลเดอร์ปลายทางที่มีอยู่"
 
 msgid "The output directory is required"
-msgstr ""
+msgstr "ต้องระบุโฟลเดอร์ปลายทาง"
 
 msgid "Select an existing directory"
-msgstr ""
+msgstr "เลือกโฟลเดอร์ที่มีอยู่"
 
 msgid "Select"
-msgstr ""
+msgstr "เลือก"
 
 msgid "Browse"
 msgstr "เรียกดู"
 
 #, java-format
 msgid "PDF version required: {0}"
-msgstr ""
+msgstr "จำเป็นต้องใช้ PDF เวอร์ชัน: {0}"
 
 msgid "Prefix for the generated files names"
-msgstr ""
+msgstr "คำนำหน้าสำหรับชื่อไฟล์ที่สร้างขึ้น"
 
 msgid "Add prefix"
-msgstr ""
+msgstr "เพิ่มคำนำหน้า"
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "ค่าเริ่มต้นคำนำหน้า"
 
 msgid "Generated PDF documents name prefix:"
-msgstr ""
+msgstr "คำนำหน้าชื่อไฟล์ PDF ที่สร้าง:"
 
 msgid "Prefix for the output files name."
-msgstr ""
+msgstr "คำนำหน้าชื่อไฟล์ผลลัพธ์"
 
 msgid "Some special keywords are replaced with runtime values."
-msgstr ""
+msgstr "คำสำคัญพิเศษบางคำจะถูกแทนที่ด้วยค่ารันไทม์"
 
 msgid "Right click to add these keywords."
-msgstr ""
+msgstr "คลิกขวาเพื่อเพิ่มคำสำคัญเหล่านี้"
 
 msgid "Run"
 msgstr "เรียกใช้งาน"
 
 msgid "Run the task"
-msgstr ""
+msgstr "เรียกใช้งาน"
 
 msgid "Requested"
-msgstr ""
+msgstr "ร้องขอ"
 
 msgid "Completed"
-msgstr ""
+msgstr "เสร็จสมบูรณ์"
 
 msgid "Failed"
 msgstr "ล้มเหลว"
@@ -1160,7 +1167,7 @@ msgstr "กำลังทำงาน"
 
 #, java-format
 msgid "Running {0}%"
-msgstr ""
+msgstr "กำลังทำงาน {0}%"
 
 #~ msgid "Error saving log file."
 #~ msgstr ""
@@ -1171,17 +1178,19 @@ msgstr ""
 
 #, java-format
 msgid "Invalid range: {0}."
-msgstr ""
+msgstr "ช่วงไม่ถูกต้อง: {0}"
 
 #, java-format
 msgid ""
 "Ambiguous page range definition: {0}. Use following formats: [n] or [n1-n2] "
 "or [-n] or [n-]"
 msgstr ""
+"การกำหนดช่วงหน้าไม่ชัดเจน: {0} ใช้รูปแบบต่อไปนี้: [n] หรือ [n1-n2] หรือ [-n] "
+"หรือ [n-]"
 
 #, java-format
 msgid "Invalid number: {0}."
-msgstr ""
+msgstr "ตัวเลขไม่ถูกต้อง: {0}."
 
 #~ msgid "Split even pages"
 #~ msgstr "แยกทุกสองหน้าเป็นหนึ่งไฟล์"
@@ -1202,96 +1211,411 @@ msgstr ""
 #~ msgstr "โฟลเดอร์เป้าหมาย"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
-msgstr ""
+msgstr "หน้าที่จะแยก (เช่น: 2 หรือ 5-23 หรือ 2,5-7,12- หรือ 3,สุดท้าย)"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 " or 3,last)"
 msgstr ""
+"หมายเลขหน้าหรือช่วงที่คั่นด้วยจุลภาคเพื่อแยก (ตัวอย่าง: 2 หรือ 5-23 หรือ 2,5-"
+"7,12- หรือ 3,สุดท้าย)"
 
 msgid "Merge multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "รวมเอกสาร PDF หลายฉบับ หรือส่วนย่อยของเอกสารเหล่านั้น"
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr ""
+msgstr "นามสกุล .pdf จำเป็นสำหรับไฟล์ที่ซ้ำกัน"
 
 msgid "A .pdf destination file extension is required"
-msgstr ""
+msgstr "ไฟล์ปลายทางต้องมีนามสกุล .pdf"
 
 msgid "Default PDF version:"
-msgstr ""
+msgstr "เวอร์ชัน PDF เริ่มต้น:"
 
 msgid "Default PDF version for generated PDF files"
-msgstr ""
+msgstr "เวอร์ชัน PDF เริ่มต้นสำหรับไฟล์ PDF ที่สร้างขึ้น"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "คำนำหน้าเริ่มต้น:"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
 "files"
 msgstr ""
+"คำนำหน้าเริ่มต้นสำหรับชื่อไฟล์ผลลัพธ์ ใช้ในเครื่องมือที่สร้างไฟล์หลายไฟล์"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
+msgstr "ตั้งค่าให้ \"ทิ้งบุ๊กมาร์ก\" เปิดใช้งานโดยค่าเริ่มต้น"
 
 #, java-format
 msgid "Workspace loaded: {0}"
-msgstr ""
+msgstr "พื้นที่ทำงานโหลดแล้ว: {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr ""
+msgstr "ไฟล์ต่อไปนี้มีอยู่แล้วและถูกข้ามไป: {0}"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "ทำซ้ำด้านบน"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "ทำซ้ำขึ้น"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "ทำซ้ำลง"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "ทำซ้ำที่ด้านล่าง"
 
 #, java-format
 msgid "Error saving content to file {0}"
-msgstr ""
+msgstr "ข้อผิดพลาดในการบันทึกเนื้อหาลงในไฟล์ {0}"
 
 #, java-format
 msgid "File {0} saved"
-msgstr ""
+msgstr "ไฟล์ {0} บันทึกแล้ว"
 
 msgid "Error saving content to clipboard"
-msgstr ""
+msgstr "ข้อผิดพลาดในการบันทึกเนื้อหาลงคลิปบอร์ด"
 
 msgid "Follow us on Bluesky"
-msgstr ""
+msgstr "ติดตามเราบน Bluesky"
 
-msgid "Font:"
-msgstr ""
+#~ msgid "Font:"
+#~ msgstr ""
 
 msgid "Sets the application font"
-msgstr ""
+msgstr "ตั้งค่าแบบอักษรของแอปพลิเคชัน"
 
 msgid "Default"
-msgstr ""
+msgstr "ค่าเริ่มต้น"
 
 msgid "Light"
-msgstr ""
+msgstr "สว่าง"
 
 msgid "Dark"
-msgstr ""
+msgstr "มืด"
 
 msgid "Unlock selected"
-msgstr ""
+msgstr "ปลดล็อกที่เลือก"
 
 msgid "Workspace has changed"
-msgstr ""
+msgstr "พื้นที่ทำงานมีการเปลี่ยนแปลง"
 
 msgid "Do you want to save it?"
-msgstr ""
+msgstr "คุณต้องการบันทึกหรือไม่"
 
 msgid "Set as pace for all"
+msgstr "ตั้งเป็นจังหวะสำหรับทั้งหมด"
+
+msgid "Split at this bookmark level"
+msgstr "แยกที่ระดับบุ๊กมาร์กนี้"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "เลือกระดับความลึกของบุ๊กมาร์กที่จะใช้แยกเอกสาร"
+
+msgid "Bookmark level"
+msgstr "ระดับบุ๊กมาร์ก"
+
+msgid "Bookmark level selector"
+msgstr "ตัวเลือกระดับคั่นหน้า"
+
+msgid "Select a bookmark level"
+msgstr "เลือกระดับบุ๊กมาร์ก"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "เลือกเพื่อแยก PDF หลังจากชุดหน้าที่กำหนดไว้ล่วงหน้า"
+
+msgid "Predefined set of pages to split after"
+msgstr "ชุดหน้าสำเร็จรูปสำหรับแยกหลังจาก"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
 msgstr ""
+"เลือกชุดหน้ากระดาษที่กำหนดไว้ล่วงหน้าเพื่อแบ่งหลังจาก (หน้าคี่ หน้าคู่ "
+"หรือทุกหน้า)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "เลือกแยกเอกสารหลังจากหน้าที่ระบุ"
+
+msgid "Page numbers to split at"
+msgstr "เลขหน้าที่จะแยก"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "ป้อนเลขหน้าที่เป็นบวกคั่นด้วยลูกน้ำ (เช่น 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "เลือกแยกเอกสารทุก 'n' หน้า"
+
+msgid "Number of pages for split"
+msgstr "จำนวนหน้าสำหรับการแยก"
+
+msgid "Enter a positive number of pages"
+msgstr "ป้อนจำนวนหน้าเป็นบวก"
+
+msgid "Split at this size"
+msgstr "แยกที่ขนาดนี้"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "ป้อนจำนวนเต็มบวกสำหรับขนาดไฟล์สูงสุด"
+
+msgid "Size unit for the split file size"
+msgstr "หน่วยขนาดสำหรับขนาดไฟล์ที่แยก"
+
+msgid "Page selection for rotation"
+msgstr "การเลือกหน้าสำหรับการหมุน"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "เลือกหน้าที่จะหมุน: ทั้งหมด, คู่, หรือ คี่"
+
+msgid "Rotation angle"
+msgstr "มุมหมุน"
+
+msgid "Choose the rotation angle to apply"
+msgstr "เลือกมุมการหมุนที่จะนำไปใช้"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "กำหนดหน้าที่คุณต้องการหมุน (เช่น: 2 หรือ 5-23 หรือ 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "การทำให้หน้าเป็นมาตรฐาน"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "แบบฟอร์มเชิงโต้ตอบ (แอคโรฟอร์ม)"
+
+msgid "Bookmarks handling"
+msgstr "การจัดการบุ๊กมาร์ก"
+
+msgid "Table of contents"
+msgstr "สารบัญ"
+
+msgid "Repeating PDF file"
+msgstr "ไฟล์ PDF ที่ซ้ำกัน"
+
+msgid "There are news available"
+msgstr "มีข่าวสารใหม่"
+
+msgid "selected"
+msgstr "เลือกแล้ว"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (พร้อมแจ้งเตือน)"
+
+msgid "Collapse the sidebar"
+msgstr "พับแถบด้านข้าง"
+
+msgid "Expand the sidebar"
+msgstr "ขยายแถบด้านข้าง"
+
+msgid "PDF files to open"
+msgstr "ไฟล์ PDF เพื่อเปิด"
+
+msgid "file list"
+msgstr "รายการไฟล์"
+
+msgid "Available tasks"
+msgstr "งานพร้อมใช้งาน"
+
+msgid "Log messages"
+msgstr "บันทึกข้อความ"
+
+msgid "Save the log messages to a text file"
+msgstr "บันทึกข้อความบันทึกลงในไฟล์ข้อความ"
+
+msgid "Close the log panel"
+msgstr "ปิดแผงล็อก"
+
+msgid "News items"
+msgstr "ข่าวสาร"
+
+msgid "Close news panel"
+msgstr "ปิดแผงข่าว"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "วิธีใช้สำหรับ {0}"
+
+msgid "Log register rows"
+msgstr "บันทึกแถวทะเบียน"
+
+msgid "Language"
+msgstr "ภาษา"
+
+msgid "Startup tool"
+msgstr "เครื่องมือเริ่มต้น"
+
+msgid "Theme"
+msgstr "ธีม"
+
+msgid "Font"
+msgstr "ฟอนต์"
+
+msgid "Font size"
+msgstr "ขนาดตัวอักษร"
+
+msgid "Default PDF version"
+msgstr "เวอร์ชัน PDF ค่าเริ่มต้น"
+
+msgid "Manually select the output destination directory"
+msgstr "เลือกโฟลเดอร์ปลายทางผลลัพธ์ด้วยตนเอง"
+
+msgid "Default prefix"
+msgstr "คำนำหน้าเริ่มต้น"
+
+msgid "Default prefix for output file names"
+msgstr "คำนำหน้าเริ่มต้นสำหรับชื่อไฟล์ผลลัพธ์"
+
+msgid "Right click to add special prefix keywords"
+msgstr "คลิกขวาเพื่อเพิ่มคีย์เวิร์ดนำหน้าพิเศษ"
+
+msgid "Properties table"
+msgstr "ตารางคุณสมบัติ"
+
+msgid "Properties"
+msgstr "คุณสมบัติ"
+
+msgid "Empty"
+msgstr "ว่าง"
+
+msgid "Notification"
+msgstr "การแจ้งเตือน"
+
+msgid "Close notification"
+msgstr "ปิดการแจ้งเตือน"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "เปิด URL {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "ล้างเอกสาร PDF ที่เลือกไว้"
+
+msgid "PDF encryption status"
+msgstr "สถานะการเข้ารหัส PDF"
+
+msgid "PDF document password"
+msgstr "รหัสผ่านเอกสาร PDF"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "ลากและวางไฟล์ PDF ที่นี่ หรือใช้ปุ่มเพิ่มด้านบน"
+
+msgid "PDF documents selection table"
+msgstr "ตารางการเลือกเอกสาร PDF"
+
+msgid "PDF selection table"
+msgstr "ตารางเลือก PDF"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "ตารางเลือกเอกสาร PDF, {0} เอกสาร"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} หน้าที่เลือก"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "ขนาด: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "แก้ไขเมื่อ: {0}"
+
+msgid "Number of total pages"
+msgstr "จำนวนหน้าทั้งหมด"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "ชื่อไฟล์: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "แถว {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} หน้า"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "กำหนดหน้าที่เลือก (เช่น: 2 หรือ 5-23 หรือ 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "เลือกไฟล์ปลายทาง PDF"
+
+msgid "Browse for destination PDF file"
+msgstr "เรียกดูไฟล์ PDF ปลายทาง"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "เลือกหา {0}"
+
+msgid "Compress the output PDF file"
+msgstr "บีบอัดไฟล์ PDF ผลลัพธ์"
+
+msgid "Select a PDF file"
+msgstr "เลือกไฟล์ PDF"
+
+msgid "Browse for source PDF file"
+msgstr "เรียกดูไฟล์ PDF ต้นฉบับ"
+
+msgid "Output PDF version"
+msgstr "เวอร์ชัน PDF ที่ส่งออก"
+
+msgid "Output PDF version selector"
+msgstr "ตัวเลือกเวอร์ชัน PDF ที่ส่งออก"
+
+msgid "Output directory"
+msgstr "ไดเรกทอรีเอาต์พุต"
+
+msgid "Browse for output directory"
+msgstr "เรียกดูโฟลเดอร์ผลลัพธ์"
+
+msgid "Browse for directory"
+msgstr "เรียกดูโฟลเดอร์"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "ค่าไม่ถูกต้อง: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "เมื่อเลือก ต้องใช้ PDF เวอร์ชัน {0} หรือสูงกว่าสำหรับไฟล์เอาต์พุต"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"คลิกขวาเพื่อเพิ่มคีย์เวิร์ดนำหน้าพิเศษ เช่น วันที่และเวลา หรือชื่อไฟล์"
+
+msgid "Open the task output file"
+msgstr "เปิดไฟล์ผลลัพธ์ของงาน"
+
+msgid "Open the task output directory"
+msgstr "เปิดโฟลเดอร์ผลลัพธ์ของงาน"
+
+msgid "Task footer"
+msgstr "ส่วนท้ายงาน"
+
+msgid "Task progress"
+msgstr "ความคืบหน้างาน"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "ความคืบหน้าของงาน: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "สถานะงาน: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "สถานะงาน: {0}%"

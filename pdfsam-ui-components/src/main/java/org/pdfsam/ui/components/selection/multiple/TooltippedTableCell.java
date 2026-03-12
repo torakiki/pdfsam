@@ -1,4 +1,3 @@
-package org.pdfsam.ui.components.selection.multiple;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 14/12/22
@@ -17,6 +16,7 @@ package org.pdfsam.ui.components.selection.multiple;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.ui.components.selection.multiple;
 
 import javafx.scene.control.TableCell;
 import javafx.scene.control.Tooltip;
@@ -36,6 +36,7 @@ class TooltippedTableCell<T> extends TableCell<SelectionTableRowData, T> {
     public TooltippedTableCell(String tooltipMessage) {
         requireNotBlank(tooltipMessage, "Tooltiped cell must have a tooltip message");
         this.tooltip.setText(tooltipMessage);
+        setAccessibleHelp(tooltipMessage);
     }
 
     @Override

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-10-23 12:37+0200\n"
+"PO-Revision-Date: 2026-02-24 17:12+0100\n"
 "Last-Translator: Botfai Tibor <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: hu\n"
 
 msgid "No PDF document has been selected"
@@ -164,8 +164,8 @@ msgstr "Szétválasztás a következő méretnél"
 msgid "Size must be a number"
 msgstr "A méretnek egy számnak kell lennie"
 
-msgid "Split at this size:"
-msgstr "Szétválasztás ennél a méretnél:"
+#~ msgid "Split at this size:"
+#~ msgstr "Szétválasztás ennél a méretnél:"
 
 msgid "Invalid split size"
 msgstr "Érvénytelen szétválasztási méret"
@@ -203,8 +203,8 @@ msgstr "180 fokkal az óramutató járásával megegyezően"
 msgid "90 degrees counterclockwise"
 msgstr "90 fokkal az óramutató járásával ellentétesen"
 
-msgid "Rotate "
-msgstr "Elforgatás "
+#~ msgid "Rotate "
+#~ msgstr "Elforgatás "
 
 msgid "Rotate settings"
 msgstr "Elforgatás beállításai"
@@ -215,11 +215,11 @@ msgstr "Elforgatás"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "PDF dokumentum oldalainak elforgatása"
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dupla kattintással állíthatod be a forgatni kívánt oldalakat (pl: 2 vagy 5-"
-"23 vagy 2,5-7,12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Dupla kattintással állíthatod be a forgatni kívánt oldalakat (pl: 2 vagy 5-"
+#~ "23 vagy 2,5-7,12-)"
 
 msgid "Merge settings"
 msgstr "Egyesítés beállításai"
@@ -255,8 +255,8 @@ msgstr "Azonos szélesség az első oldallal"
 msgid "Same width as first page (based on page orientation)"
 msgstr "Az első oldal szélességével megegyező (oldaltájolás szerint)"
 
-msgid "Pages normalization:"
-msgstr "Oldalnormalizálás:"
+#~ msgid "Pages normalization:"
+#~ msgstr "Oldalnormalizálás:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -277,8 +277,8 @@ msgstr "Simítás"
 msgid "Discard forms"
 msgstr "Űrlapok elvetése"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Interaktív űrlapok (AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Interaktív űrlapok (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
@@ -296,8 +296,8 @@ msgstr "Bejegyzés készítése minden egyesített dokumentumhoz"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Tartsa meg a könyvjelzőket minden egyesített dokumentumhoz"
 
-msgid "Bookmarks handling:"
-msgstr "Könyvjelzők kezelése:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Könyvjelzők kezelése:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
@@ -313,8 +313,8 @@ msgstr "Generáljon a fájl nevekből"
 msgid "Generate from documents titles"
 msgstr "Generáljon a dokumentum címekből"
 
-msgid "Table of contents:"
-msgstr "Tartalomjegyzék"
+#~ msgid "Table of contents:"
+#~ msgstr "Tartalomjegyzék"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -619,32 +619,32 @@ msgstr "Kezdőlap"
 msgid "Premium features"
 msgstr "Prémium funkciók"
 
-msgid "Log register rows:"
-msgstr "Naplózott sorok száma:"
+#~ msgid "Log register rows:"
+#~ msgstr "Naplózott sorok száma:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "A naplóban megjelenített sorok maximális száma"
 
-msgid "Language:"
-msgstr "Nyelv:"
+#~ msgid "Language:"
+#~ msgstr "Nyelv:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Válassza ki a kívánt nyelvet (újraindítás szükséges)"
 
-msgid "Startup tool:"
-msgstr "Indítási eszköz:"
+#~ msgid "Startup tool:"
+#~ msgstr "Indítási eszköz:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr "Eszköz indításkori megnyitásának beállítása (újraindítás szükséges)"
 
-msgid "Theme:"
-msgstr "Téma:"
+#~ msgid "Theme:"
+#~ msgstr "Téma:"
 
 msgid "Set the application theme"
 msgstr "Alkalmazás téma beállítása"
 
-msgid "Font size:"
-msgstr "Betűméret:"
+#~ msgid "Font size:"
+#~ msgstr "Betűméret:"
 
 msgid "Set the application font size"
 msgstr "Állítsa be az alkalmazás betűméretét"
@@ -997,8 +997,8 @@ msgstr "Adja meg a felhasználói jelszót"
 msgid "Unlock"
 msgstr "Feloldás"
 
-msgid "Drag and drop PDF files here"
-msgstr "Húzd és ejtsd ide a PDF fájlokat"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Húzd és ejtsd ide a PDF fájlokat"
 
 msgid "Set as range for all"
 msgstr "Határértékként beállítva mindenre"
@@ -1095,9 +1095,9 @@ msgstr "Oldalszám"
 msgid "Number of total pages of the document"
 msgstr "A dokumentum összes oldalának száma"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Kattints duplán az oldalak kijelöléséhez (pl.: 2 vagy 5-23 vagy 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Kattints duplán az oldalak kijelöléséhez (pl.: 2 vagy 5-23 vagy 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Oldaltartományok"
@@ -1344,8 +1344,8 @@ msgstr "El szeretné menteni?"
 msgid "Follow us on Bluesky"
 msgstr "Kövessen minket Bluesky-n"
 
-msgid "Font:"
-msgstr "Betűtípus:"
+#~ msgid "Font:"
+#~ msgstr "Betűtípus:"
 
 msgid "Sets the application font"
 msgstr "Beállítja az alkalmazás betűtípusát"
@@ -1364,3 +1364,319 @@ msgstr "Kijelölt feloldása"
 
 msgid "Set as pace for all"
 msgstr "Beállítás ütemként mindegyikre"
+
+msgid "Split at this bookmark level"
+msgstr "Felosztás ezen a könyvjelző szinten"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr ""
+"Válassza ki a könyvjelző mélységi szintjét, amelyen felosztja a dokumentumot"
+
+msgid "Bookmark level"
+msgstr "Könyvjelző szint"
+
+msgid "Bookmark level selector"
+msgstr "Könyvjelző szintválasztó"
+
+msgid "Select a bookmark level"
+msgstr "Válasszon egy könyvjelző szintet"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "Válassza a PDF felosztását előre meghatározott oldalak után"
+
+msgid "Predefined set of pages to split after"
+msgstr "Előre meghatározott felosztási oldalak"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr ""
+"Válassza ki, mely előre definiált oldalkészlet után történjen a felosztás "
+"(páratlan oldalak, páros oldalak vagy minden oldal)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Válassza a dokumentum felosztását meghatározott oldalszámok után"
+
+msgid "Page numbers to split at"
+msgstr "Felosztási oldalszámok"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "Adja meg vesszővel elválasztott pozitív oldalszámokat (Pl. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Válassza a dokumentum felosztását 'n' oldalanként"
+
+msgid "Number of pages for split"
+msgstr "Oldalak száma felosztáshoz"
+
+msgid "Enter a positive number of pages"
+msgstr "Adjon meg pozitív oldalszámot"
+
+msgid "Split at this size"
+msgstr "Felosztás ennél a méretnél"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Adjon meg egy pozitív egész számot a maximális fájlmérethez"
+
+msgid "Size unit for the split file size"
+msgstr "Mértékegység az osztott fájlmérethez"
+
+msgid "Page selection for rotation"
+msgstr "Oldalválasztás forgatáshoz"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Válassza ki, mely oldalakat forgassa el: összes, páros vagy páratlan"
+
+msgid "Rotation angle"
+msgstr "Forgatási szög"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Válassza ki az alkalmazandó forgatási szöget"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Adja meg az elforgatni kívánt oldalakat (pl: 2 vagy 5-23 vagy 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Oldalak normalizálása"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Interaktív űrlapok (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Könyvjelzők kezelése"
+
+msgid "Table of contents"
+msgstr "Tartalomjegyzék"
+
+msgid "Repeating PDF file"
+msgstr "Ismétlődő PDF fájl"
+
+msgid "There are news available"
+msgstr "Hírek érhetők el"
+
+msgid "selected"
+msgstr "kijelölt"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (értesítéssel)"
+
+msgid "Collapse the sidebar"
+msgstr "Oldalsáv összecsukása"
+
+msgid "Expand the sidebar"
+msgstr "Gördítse ki az oldalsávot"
+
+msgid "PDF files to open"
+msgstr "Megnyitandó PDF fájlok"
+
+msgid "file list"
+msgstr "fájllista"
+
+msgid "Available tasks"
+msgstr "Elérhető feladatok"
+
+msgid "Log messages"
+msgstr "Naplóüzenetek"
+
+msgid "Save the log messages to a text file"
+msgstr "Mentse a naplóüzeneteket szöveges fájlba"
+
+msgid "Close the log panel"
+msgstr "Zárja be a naplópanelt"
+
+msgid "News items"
+msgstr "Hírek"
+
+msgid "Close news panel"
+msgstr "Hírpanel bezárása"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Súgó: {0}"
+
+msgid "Log register rows"
+msgstr "Naplóbejegyzések sorai"
+
+msgid "Language"
+msgstr "Nyelv"
+
+msgid "Startup tool"
+msgstr "Indítási eszköz"
+
+msgid "Theme"
+msgstr "Téma"
+
+msgid "Font"
+msgstr "Betűtípus"
+
+msgid "Font size"
+msgstr "Betűméret"
+
+msgid "Default PDF version"
+msgstr "Alapértelmezett PDF verzió"
+
+msgid "Manually select the output destination directory"
+msgstr "Manuálisan válassza ki a kimeneti célmappát"
+
+msgid "Default prefix"
+msgstr "Alapértelmezett előtag"
+
+msgid "Default prefix for output file names"
+msgstr "Alapértelmezett előtag a kimeneti fájlnevekhez"
+
+msgid "Right click to add special prefix keywords"
+msgstr "Jobb kattintás speciális előtag kulcsszavak hozzáadásához"
+
+msgid "Properties table"
+msgstr "Tulajdonságok táblázat"
+
+msgid "Properties"
+msgstr "Tulajdonságok"
+
+msgid "Empty"
+msgstr "Üres"
+
+msgid "Notification"
+msgstr "Értesítés"
+
+msgid "Close notification"
+msgstr "Értesítés bezárása"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Nyissa meg a(z) {0} URL-t"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "A kiválasztott PDF dokumentum törlése"
+
+msgid "PDF encryption status"
+msgstr "PDF titkosítás állapota"
+
+msgid "PDF document password"
+msgstr "PDF dokumentum jelszó"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "Húzza ide a PDF-fájlokat vagy használja a fenti Hozzáadás gombot"
+
+msgid "PDF documents selection table"
+msgstr "PDF Dokumentumok Kijelölő Táblázata"
+
+msgid "PDF selection table"
+msgstr "PDF kijelölési táblázat"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "PDF dokumentumok kiválasztási táblázata, {0} dokumentum"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} kiválasztott oldal"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Méret: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Módosítva: {0}"
+
+msgid "Number of total pages"
+msgstr "Összes oldalszám"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Fájlnév: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Sor {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} oldal"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Kijelölt oldalak beállítása (pl: 2 vagy 5-23 vagy 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Válasszon egy PDF célfájlt"
+
+msgid "Browse for destination PDF file"
+msgstr "Tallózás cél PDF fájlhoz"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Tallózás ehhez {0}"
+
+msgid "Compress the output PDF file"
+msgstr "Tömörítse a kimeneti PDF fájlt"
+
+msgid "Select a PDF file"
+msgstr "Válasszon egy PDF fájlt"
+
+msgid "Browse for source PDF file"
+msgstr "Tallózás forrás PDF fájlhoz"
+
+msgid "Output PDF version"
+msgstr "Kimeneti PDF verzió"
+
+msgid "Output PDF version selector"
+msgstr "Kimeneti PDF verzió választó"
+
+msgid "Output directory"
+msgstr "Kimeneti könyvtár"
+
+msgid "Browse for output directory"
+msgstr "Tallózás kimeneti könyvtárhoz"
+
+msgid "Browse for directory"
+msgstr "Mappa tallózása"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Érvénytelen érték: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr ""
+"Kiválasztás esetén a kimeneti fájlhoz PDF {0} vagy újabb verzió szükséges"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Jobb kattintás speciális előtag kulcsszavak hozzáadásához, például időbélyeg "
+"vagy fájlnév"
+
+msgid "Open the task output file"
+msgstr "Nyissa meg a feladat kimeneti fájlját"
+
+msgid "Open the task output directory"
+msgstr "Nyissa meg a feladat kimeneti könyvtárát"
+
+msgid "Task footer"
+msgstr "Feladat lábléc"
+
+msgid "Task progress"
+msgstr "Feladat előrehaladás"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Feladat előrehaladása: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Feladat állapota: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Feladat állapota: {0}%"

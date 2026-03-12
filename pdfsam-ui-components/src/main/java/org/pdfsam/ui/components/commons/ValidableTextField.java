@@ -23,6 +23,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.geometry.Point2D;
+import javafx.scene.AccessibleAttribute;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
@@ -42,9 +43,9 @@ import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 /**
  * {@link TextField} triggering validation when Enter key is pressed or when focus is lost. A {@link FXValidationSupport.ValidationState} property is exposed to bind to the validation state. Default
  * implementation behaves as any value in the field is always valid, a different {@link Validator} can be set to achieve custom validation.
- * 
+ *
  * @author Andrea Vacondio
- * 
+ *
  */
 public class ValidableTextField extends TextField {
     private static final KeyCombination ENTER_COMBO = new KeyCodeCombination(KeyCode.ENTER);
@@ -66,13 +67,16 @@ public class ValidableTextField extends TextField {
         });
 
         textProperty().addListener((o, oldVal, newVal) -> validationSupport.makeNotValidated());
-        validationSupport.validationStateProperty().addListener(
-                o -> {
-                    if (validationSupport.validationStateProperty().get() == FXValidationSupport.ValidationState.INVALID
-                            && errorTooltipManager != null) {
-                        errorTooltipManager.showTooltip();
-                    }
-                });
+        validationSupport.validationStateProperty().addListener(o -> {
+            if (validationSupport.validationStateProperty().get() == FXValidationSupport.ValidationState.INVALID
+                    && errorTooltipManager != null) {
+                errorTooltipManager.showTooltip();
+                setAccessibleText(errorTooltipManager.tooltip.getText());
+                notifyAccessibleAttributeChanged(AccessibleAttribute.TEXT);
+            } else {
+                setAccessibleText(null);
+            }
+        });
     }
 
     public final FXValidationSupport.ValidationState getValidationState() {
@@ -119,7 +123,7 @@ public class ValidableTextField extends TextField {
 
     /**
      * Sets the validator for this field. It doesn't trigger a validation.
-     * 
+     *
      * @param validator
      * @see FXValidationSupport#setValidator(org.pdfsam.core.support.validation.Validator)
      */
@@ -137,9 +141,9 @@ public class ValidableTextField extends TextField {
 
     /**
      * Manages the show/hide of the error tooltip
-     * 
+     *
      * @author Andrea Vacondio
-     * 
+     *
      */
     private final class ErrorTooltipManager {
 

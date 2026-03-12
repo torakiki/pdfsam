@@ -22,6 +22,7 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.beans.value.WeakChangeListener;
+import javafx.scene.AccessibleAttribute;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
@@ -49,14 +50,14 @@ class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStat
     private PdfDocumentDescriptor current;
 
     KeywordsTab() {
-        VBox content = new VBox();
+        var content = new VBox();
         content.getStyleClass().add("info-props");
         setText(i18n().tr("Keywords"));
         setClosable(false);
         keywords.setWrapText(true);
         keywords.getStyleClass().add("info-property-value");
         content.getChildren().add(keywords);
-        ScrollPane scroll = new ScrollPane(content);
+        var scroll = new ScrollPane(content);
         scroll.setFitToHeight(true);
         scroll.setFitToWidth(true);
         setContent(scroll);
@@ -77,7 +78,10 @@ class KeywordsTab extends Tab implements ChangeListener<PdfDescriptorLoadingStat
             PdfDescriptorLoadingStatus oldValue, PdfDescriptorLoadingStatus newValue) {
         if (newValue == PdfDescriptorLoadingStatus.LOADED) {
             LOG.trace("Descriptor loaded, updating keywords tab");
-            Platform.runLater(() -> keywords.setText(current.getInformation(PdfMetadataFields.KEYWORDS)));
+            Platform.runLater(() -> {
+                keywords.setText(current.getInformation(PdfMetadataFields.KEYWORDS));
+                keywords.notifyAccessibleAttributeChanged(AccessibleAttribute.TEXT);
+            });
         }
     }
 }

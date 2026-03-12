@@ -47,10 +47,13 @@ class PreferenceOutputPane extends GridPane {
             @Named("pdfVersionCombo") PreferenceComboBox<ComboItem<PdfVersion>> pdfVersionCombo,
             @Named("prefixField") PreferencePrefixField prefixField) {
 
-        add(new Label(i18n().tr("Default PDF version:")), 0, 1);
+        var pdfVersionLabel = new Label(i18n().tr("Default PDF version:"));
+        pdfVersionLabel.setLabelFor(pdfVersionCombo);
+        add(pdfVersionLabel, 0, 1);
         setFillWidth(pdfVersionCombo, true);
         pdfVersionCombo.setMaxWidth(Double.POSITIVE_INFINITY);
         add(pdfVersionCombo, 1, 1);
+        pdfVersionCombo.setAccessibleText(i18n().tr("Default PDF version"));
         add(helpIcon(i18n().tr("Default PDF version for generated PDF files")), 2, 1);
 
         ToggleGroup group = new ToggleGroup();
@@ -59,13 +62,16 @@ class PreferenceOutputPane extends GridPane {
         manualRadio.setToggleGroup(group);
         manualRadio.getStyleClass().addAll(Style.VITEM.css());
         manualRadio.setId("manualRadio");
+        manualRadio.setAccessibleHelp(i18n().tr("Manually select the output destination directory"));
         add(manualRadio, 0, 2, 3, 1);
 
         smartRadio.getStyleClass().addAll(Style.VITEM.css());
         smartRadio.setToggleGroup(group);
-        smartRadio.setGraphic(helpIcon(
-                i18n().tr("Automatically set the destination directory to the selected PDF document directory")));
+        var smartRadioHelpText = i18n().tr(
+                "Automatically set the destination directory to the selected PDF document directory");
+        smartRadio.setGraphic(helpIcon(smartRadioHelpText));
         smartRadio.getStyleClass().addAll(Style.WITH_HELP.css());
+        smartRadio.setAccessibleHelp(smartRadioHelpText);
         add(smartRadio, 0, 3, 3, 1);
 
         if (isNull(group.getSelectedToggle())) {
@@ -76,10 +82,13 @@ class PreferenceOutputPane extends GridPane {
         add(overwriteOutput, 0, 5, 3, 1);
         add(discardBookmarks, 0, 6, 3, 1);
 
-        add(new Label(i18n().tr("Default prefix:")), 0, 7);
+        var prefixLabel = new Label(i18n().tr("Default prefix:"));
+        prefixLabel.setLabelFor(prefixField);
+        add(prefixLabel, 0, 7);
         setFillWidth(prefixField, true);
         prefixField.setMaxWidth(Double.POSITIVE_INFINITY);
         add(prefixField, 1, 7);
+        prefixField.setAccessibleText(i18n().tr("Default prefix"));
         var helpIcon = helpIcon("""
                 %s.
                 %s

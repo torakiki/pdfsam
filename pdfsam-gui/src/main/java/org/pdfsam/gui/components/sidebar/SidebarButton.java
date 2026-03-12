@@ -1,4 +1,3 @@
-package org.pdfsam.gui.components.sidebar;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 09/01/23
@@ -17,10 +16,12 @@ package org.pdfsam.gui.components.sidebar;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.gui.components.sidebar;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.geometry.Pos;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
@@ -47,6 +48,7 @@ class SidebarButton extends Button {
 
     public SidebarButton(String text, Node graphic) {
         this(text);
+        graphic.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
         this.setGraphic(graphic);
     }
 

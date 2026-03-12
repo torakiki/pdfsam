@@ -20,6 +20,9 @@ package org.pdfsam.ui.components.selection.multiple;
 
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.util.Callback;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 
@@ -57,6 +60,24 @@ public enum LongColumn implements SelectionTableColumn<Number> {
         }
 
         @Override
+        public Callback<TableColumn<SelectionTableRowData, Number>, TableCell<SelectionTableRowData, Number>> cellFactory() {
+            return param -> new TableCell<>() {
+                @Override
+                public void updateItem(final Number item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty || item == null) {
+                        setText("");
+                        setAccessibleText(null);
+                    } else {
+                        var text = getTextValue(item);
+                        setText(text);
+                        setAccessibleText(i18n().tr("Size: {0}", text));
+                    }
+                }
+            };
+        }
+
+        @Override
         public Float prefWidth() {
             return 50F;
         }
@@ -80,6 +101,24 @@ public enum LongColumn implements SelectionTableColumn<Number> {
         @Override
         public Comparator<Number> comparator() {
             return Comparator.comparingLong(Number::longValue);
+        }
+
+        @Override
+        public Callback<TableColumn<SelectionTableRowData, Number>, TableCell<SelectionTableRowData, Number>> cellFactory() {
+            return param -> new TableCell<>() {
+                @Override
+                public void updateItem(final Number item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty || item == null) {
+                        setText("");
+                        setAccessibleText(null);
+                    } else {
+                        var text = getTextValue(item);
+                        setText(text);
+                        setAccessibleText(i18n().tr("Modified: {0}", text));
+                    }
+                }
+            };
         }
 
         @Override

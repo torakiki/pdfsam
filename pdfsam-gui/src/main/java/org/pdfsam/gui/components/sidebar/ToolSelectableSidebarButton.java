@@ -1,4 +1,3 @@
-package org.pdfsam.gui.components.sidebar;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 06/02/23
@@ -17,6 +16,7 @@ package org.pdfsam.gui.components.sidebar;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.gui.components.sidebar;
 
 import javafx.scene.control.Tooltip;
 import org.pdfsam.model.tool.Tool;
@@ -52,7 +52,7 @@ public class ToolSelectableSidebarButton extends SelectableSidebarButton {
     }
 
     /**
-     * Factory method for a {@link ToolSelectableSidebarButton} created from a {@link "Tool cannot be null"}
+     * Factory method for a {@link ToolSelectableSidebarButton} created from a {@link Tool}
      */
     public static ToolSelectableSidebarButton of(Tool tool, int order) {
         requireNotNullArg(tool, "Tool cannot be null");

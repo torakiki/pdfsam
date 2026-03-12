@@ -63,7 +63,14 @@ class RotateOptionsPane extends HBox
         getStyleClass().addAll(Style.HCONTAINER.css());
         getStyleClass().addAll(Style.CONTAINER.css());
         resetView();
-        getChildren().addAll(new Label(i18n().tr("Rotate ")), this.rotationType, this.rotation);
+
+        var rotateLabel = new Label(i18n().tr("Rotate") + " ");
+        rotateLabel.setLabelFor(this.rotationType);
+        this.rotationType.setAccessibleText(i18n().tr("Page selection for rotation"));
+        this.rotationType.setAccessibleHelp(i18n().tr("Choose which pages to rotate: all, even, or odd"));
+        this.rotation.setAccessibleText(i18n().tr("Rotation angle"));
+        this.rotation.setAccessibleHelp(i18n().tr("Choose the rotation angle to apply"));
+        getChildren().addAll(rotateLabel, this.rotationType, this.rotation);
     }
 
     @Override

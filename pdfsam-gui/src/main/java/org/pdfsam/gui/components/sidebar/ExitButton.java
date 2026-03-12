@@ -1,4 +1,3 @@
-package org.pdfsam.gui.components.sidebar;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 09/01/23
@@ -17,8 +16,10 @@ package org.pdfsam.gui.components.sidebar;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.gui.components.sidebar;
 
 import javafx.application.Platform;
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.Tooltip;
 import org.kordamp.ikonli.boxicons.BoxiconsRegular;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -38,6 +39,7 @@ class ExitButton extends SidebarButton {
         this.setOnAction(e -> Platform.exit());
         var icon = new FontIcon(BoxiconsRegular.POWER_OFF);
         icon.getStyleClass().addAll("tool-icon");
+        icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
         setGraphic(icon);
         setTooltip(new Tooltip(i18n().tr("Exit the application")));
     }

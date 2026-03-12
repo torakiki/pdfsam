@@ -1,4 +1,3 @@
-package org.pdfsam.gui.components.sidebar;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 09/01/23
@@ -17,6 +16,7 @@ package org.pdfsam.gui.components.sidebar;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.gui.components.sidebar;
 
 import jakarta.inject.Inject;
 import javafx.geometry.Orientation;
@@ -67,6 +67,7 @@ public class VerticalSidebar extends BorderPane {
         toolsLabel.getStyleClass().add("sidebar-title");
         toolsLabel.contentDisplayProperty()
                 .bind(expandButton.selectedProperty().map(b -> b ? ContentDisplay.LEFT : ContentDisplay.GRAPHIC_ONLY));
+        toolsLabel.setLabelFor(buttons);
         buttons.getChildren().addAll(new Separator(Orientation.HORIZONTAL), toolsLabel);
         tools.getChildren().forEach(b -> {
             if (b instanceof SidebarButton button) {

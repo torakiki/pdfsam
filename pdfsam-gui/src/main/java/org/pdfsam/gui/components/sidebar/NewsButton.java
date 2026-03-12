@@ -1,4 +1,3 @@
-package org.pdfsam.gui.components.sidebar;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 20/01/23
@@ -17,6 +16,7 @@ package org.pdfsam.gui.components.sidebar;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.gui.components.sidebar;
 
 import jakarta.inject.Inject;
 import javafx.application.Platform;
@@ -42,6 +42,7 @@ public class NewsButton extends SidebarButtonWithNotification<SidebarButton> {
         super(new SidebarButton(i18n().tr("News"), new FontIcon(BoxiconsRegular.NEWS)),
                 SidebarButtonWithNotification.notificationOf(new Circle(5)), SidebarNotificationType.INFO);
         getWrapped().setDisable(true);
+        getWrapped().setAccessibleText(i18n().tr("What's new"));
         getWrapped().setTooltip(new Tooltip(i18n().tr("What's new")));
         getWrapped().setOnAction(e -> eventStudio().broadcast(ToggleNewsPanelRequest.INSTANCE));
         eventStudio().addAnnotatedListeners(this);
@@ -54,6 +55,7 @@ public class NewsButton extends SidebarButtonWithNotification<SidebarButton> {
                 getWrapped().setDisable(false);
                 if (!event.isUpToDate()) {
                     showNotification();
+                    getWrapped().setAccessibleText(i18n().tr("There are news available"));
                 }
             });
         }

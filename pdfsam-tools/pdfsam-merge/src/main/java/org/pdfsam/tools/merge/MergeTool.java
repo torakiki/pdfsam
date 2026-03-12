@@ -19,7 +19,9 @@
 package org.pdfsam.tools.merge;
 
 import jakarta.inject.Named;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.unicons.UniconsLine;
@@ -75,6 +77,9 @@ public class MergeTool implements Tool {
     public Node graphic() {
         var icon = new FontIcon(UniconsLine.FILES_LANDSCAPES_ALT);
         icon.getStyleClass().addAll(this.descriptor().category().styleClass(), "tool-icon");
+        icon.setAccessibleText(i18n().tr("Merge"));
+        icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
+        Tooltip.install(icon, new Tooltip(i18n().tr("Merge")));
         return icon;
     }
 

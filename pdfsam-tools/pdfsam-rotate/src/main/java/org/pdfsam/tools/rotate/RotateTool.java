@@ -19,6 +19,7 @@
 package org.pdfsam.tools.rotate;
 
 import jakarta.inject.Named;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -77,6 +78,7 @@ public class RotateTool implements Tool {
     public Node graphic() {
         var icon = new FontIcon(UniconsLine.ROTATE_360);
         icon.getStyleClass().addAll(this.descriptor().category().styleClass(), "tool-icon");
+        icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
         return icon;
     }
 

@@ -18,8 +18,9 @@ package org.pdfsam.ui.components.selection;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import java.util.Objects;
+
 import static org.apache.commons.lang3.StringUtils.EMPTY;
-import static org.apache.commons.lang3.StringUtils.defaultString;
 
 /**
  * Request to set the pace for all the rows
@@ -29,6 +30,6 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 public record SetPaceRequest(String pace) {
 
     public SetPaceRequest(String pace) {
-        this.pace = defaultString(pace, EMPTY);
+        this.pace = Objects.toString(pace, EMPTY);
     }
 }

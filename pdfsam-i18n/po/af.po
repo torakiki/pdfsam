@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-10-23 12:13+0200\n"
+"PO-Revision-Date: 2026-02-24 16:37+0100\n"
 "Last-Translator: Andrea Vacondio <info@pdfsam.org>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "Language: af\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 
 msgid "No PDF document has been selected"
 msgstr "Geen PDF dokument was geselekteerde"
@@ -165,8 +165,8 @@ msgstr "Stel die grootte in om gesplete at"
 msgid "Size must be a number"
 msgstr "Grootte moet 'n nommer wees"
 
-msgid "Split at this size:"
-msgstr "Gesplete at hierdie grootte:"
+#~ msgid "Split at this size:"
+#~ msgstr "Gesplete at hierdie grootte:"
 
 msgid "Invalid split size"
 msgstr "Ongeldige gesplete grootte"
@@ -204,8 +204,8 @@ msgstr "180 grade kloksgewys"
 msgid "90 degrees counterclockwise"
 msgstr "90 grade antikloksgewys"
 
-msgid "Rotate "
-msgstr "Draaien "
+#~ msgid "Rotate "
+#~ msgstr "Draaien "
 
 msgid "Rotate settings"
 msgstr "Draaien instellings"
@@ -216,9 +216,9 @@ msgstr "Roteer"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Roteer die bladsye van meervoudige PDF dokumente."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Dubbel kliek op stel bladsye wat jy wil om te draaien"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Dubbel kliek op stel bladsye wat jy wil om te draaien"
 
 msgid "Merge settings"
 msgstr "Saamsmelt instellings"
@@ -255,8 +255,8 @@ msgstr "Dieselfde breedte as eerste bladsy"
 msgid "Same width as first page (based on page orientation)"
 msgstr "Dieselfde breedte as eerste bladsy (gebaseer op bladsyoriëntasie)"
 
-msgid "Pages normalization:"
-msgstr "Bladsye normalisering:"
+#~ msgid "Pages normalization:"
+#~ msgstr "Bladsye normalisering:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -277,8 +277,8 @@ msgstr "Afplat"
 msgid "Discard forms"
 msgstr "Discard vorms"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Interaktiewe vorms (AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Interaktiewe vorms (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
@@ -296,8 +296,8 @@ msgstr "Skep een inskrywing vir elke saamgevoegde dokument"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Behou- boekmerke as een inskrywing vir elke saamgevoegde dokument"
 
-msgid "Bookmarks handling:"
-msgstr "Boekmerke hantering:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Boekmerke hantering:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "Wat om te doen in geval een of meer insette dokumente bevat boekmerke"
@@ -311,8 +311,8 @@ msgstr "Genereer vanaf lêer naam"
 msgid "Generate from documents titles"
 msgstr "Genereer vanaf dokumente- titels"
 
-msgid "Table of contents:"
-msgstr "Tafel van inhoud:"
+#~ msgid "Table of contents:"
+#~ msgstr "Tafel van inhoud:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -615,32 +615,32 @@ msgstr "Tuis"
 msgid "Premium features"
 msgstr "Premie funksies"
 
-msgid "Log register rows:"
-msgstr "Log registreer rye:"
+#~ msgid "Log register rows:"
+#~ msgstr "Log registreer rye:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Maksimum aantal rye vertoon deur die Log registreer"
 
-msgid "Language:"
-msgstr "Taal:"
+#~ msgid "Language:"
+#~ msgstr "Taal:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Stel jou voorkeur taal (herbegin benodigde)"
 
-msgid "Startup tool:"
-msgstr "Opstartgereedskap:"
+#~ msgid "Startup tool:"
+#~ msgstr "Opstartgereedskap:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr "Stel die instrument om oop te maak by programopstart (herbegin nodig)"
 
-msgid "Theme:"
-msgstr "Tema:"
+#~ msgid "Theme:"
+#~ msgstr "Tema:"
 
 msgid "Set the application theme"
 msgstr "Stel die toepassing tema"
 
-msgid "Font size:"
-msgstr "Lettertipe grootte:"
+#~ msgid "Font size:"
+#~ msgstr "Lettertipe grootte:"
 
 msgid "Set the application font size"
 msgstr "Stel die toepassing se lettergrootte"
@@ -991,8 +991,8 @@ msgstr "Betree die gebruiker wagwoord"
 msgid "Unlock"
 msgstr "Ontsluit"
 
-msgid "Drag and drop PDF files here"
-msgstr "Sleep en druppel PDF lêers hier"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Sleep en druppel PDF lêers hier"
 
 msgid "Set as range for all"
 msgstr "Stel soos range vir alle"
@@ -1089,9 +1089,9 @@ msgstr "Bladsye"
 msgid "Number of total pages of the document"
 msgstr "Aantal totale bladsye van die dokument"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dubbel klik om geselekteerde bladsye in te stel (ex: 2 of 5-23 of 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Dubbel klik om geselekteerde bladsye in te stel (ex: 2 of 5-23 of 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Bladsy ranges"
@@ -1330,8 +1330,8 @@ msgstr "Fout met die stoor van inhoud na knipbord"
 msgid "Follow us on Bluesky"
 msgstr "Volg ons op Bluesky"
 
-msgid "Font:"
-msgstr "Lettertipe:"
+#~ msgid "Font:"
+#~ msgstr "Lettertipe:"
 
 msgid "Sets the application font"
 msgstr "Stel die toepassingslettertipe"
@@ -1356,3 +1356,316 @@ msgstr "Wil u dit stoor?"
 
 msgid "Set as pace for all"
 msgstr "Stel as tempo vir alles"
+
+msgid "Split at this bookmark level"
+msgstr "Verdeel by hierdie boekmerk-vlak"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "Kies die boekmerk-dieptevlak waarby die dokument verdeel moet word"
+
+msgid "Bookmark level"
+msgstr "Boekmerk vlak"
+
+msgid "Bookmark level selector"
+msgstr "Boekmerk vlak kieser"
+
+msgid "Select a bookmark level"
+msgstr "Kies 'n boekmerk vlak"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "Kies om die PDF na 'n voorafbepaalde stel bladsye te verdeel"
+
+msgid "Predefined set of pages to split after"
+msgstr "Voorafbepaalde stel bladsye om na te verdeel"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr ""
+"Kies watter voorafbepaalde stel bladsye om na te verdeel (onewe bladsye, ewe "
+"bladsye of elke bladsy)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Kies om die dokument na spesifieke bladsynommers te verdeel"
+
+msgid "Page numbers to split at"
+msgstr "Bladsynommers om by te verdeel"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "Voer komma-geskeide positiewe bladsynommers in (Bv. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Kies om die dokument elke 'n' bladsye te verdeel"
+
+msgid "Number of pages for split"
+msgstr "Aantal bladsye vir verdeling"
+
+msgid "Enter a positive number of pages"
+msgstr "Voer 'n positiewe aantal bladsye in"
+
+msgid "Split at this size"
+msgstr "Verdeel by hierdie grootte"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Voer 'n positiewe heelgetal in vir die maksimum lêergrootte"
+
+msgid "Size unit for the split file size"
+msgstr "Grootte-eenheid vir die verdeelde lêergrootte"
+
+msgid "Page selection for rotation"
+msgstr "Bladsykeuse vir rotasie"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Kies watter bladsye om te roteer: almal, ewe, of onewe"
+
+msgid "Rotation angle"
+msgstr "Rotasiehoek"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Kies die rotasiehoek om toe te pas"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Stel bladsye wat jy wil roteer (bv: 2 of 5-23 of 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Bladsye normalisering"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Interaktiewe vorms (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Hantering van boekmerke"
+
+msgid "Table of contents"
+msgstr "Inhoudsopgawe"
+
+msgid "Repeating PDF file"
+msgstr "Herhalende PDF-lêer"
+
+msgid "There are news available"
+msgstr "Daar is nuus beskikbaar"
+
+msgid "selected"
+msgstr "gekies"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (met kennisgewing)"
+
+msgid "Collapse the sidebar"
+msgstr "Vou die kantbalk in"
+
+msgid "Expand the sidebar"
+msgstr "Vou die kantbalk uit"
+
+msgid "PDF files to open"
+msgstr "PDF-lêers om oop te maak"
+
+msgid "file list"
+msgstr "lêerlys"
+
+msgid "Available tasks"
+msgstr "Beskikbare take"
+
+msgid "Log messages"
+msgstr "Logboodskappe"
+
+msgid "Save the log messages to a text file"
+msgstr "Stoor die logboodskappe in 'n tekslêer"
+
+msgid "Close the log panel"
+msgstr "Maak die logpaneel toe"
+
+msgid "News items"
+msgstr "Nuusitems"
+
+msgid "Close news panel"
+msgstr "Maak nuuspaneel toe"
+
+#~ msgid "About panel"
+#~ msgstr "Oor paneel"
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Hulp vir {0}"
+
+msgid "Log register rows"
+msgstr "Loglys rye"
+
+msgid "Language"
+msgstr "Taal"
+
+msgid "Startup tool"
+msgstr "Aanskakel-instrument"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "Font"
+msgstr "Font"
+
+msgid "Font size"
+msgstr "Lettertipe grootte"
+
+msgid "Default PDF version"
+msgstr "Verstek PDF-weergawe"
+
+msgid "Manually select the output destination directory"
+msgstr "Kies handmatig die uitsetbestemmingsgids"
+
+msgid "Default prefix"
+msgstr "Verstekvoorvoegsel"
+
+msgid "Default prefix for output file names"
+msgstr "Verstekvoorvoegsel vir uitvoerlêername"
+
+msgid "Right click to add special prefix keywords"
+msgstr "Regskliek om spesiale voorvoegselsleutelwoorde by te voeg"
+
+msgid "Properties table"
+msgstr "Eienskappe-tabel"
+
+msgid "Properties"
+msgstr "Eienskappe"
+
+msgid "Empty"
+msgstr "Leeg"
+
+msgid "Notification"
+msgstr "Kennisgewing"
+
+msgid "Close notification"
+msgstr "Sluit kennisgewing"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Maak die URL {0} oop"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr "PDF-dokumentseleksie-nutsbalk"
+
+msgid "Clear the selected PDF document"
+msgstr "Wis die geselekteerde PDF-dokument"
+
+msgid "PDF encryption status"
+msgstr "PDF-enkripsie status"
+
+msgid "PDF document password"
+msgstr "PDF-dokument wagwoord"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "Sleep en los PDF-lêers hier of gebruik die Voeg by-knoppie hierbo"
+
+msgid "PDF documents selection table"
+msgstr "PDF-dokumentseleksietabel"
+
+msgid "PDF selection table"
+msgstr "PDF-keusetabel"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "PDF-dokumentseleksietabel, {0} dokumente"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} gekose bladsye"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Grootte: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Gewysig: {0}"
+
+msgid "Number of total pages"
+msgstr "Aantal totale bladsye"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Lêernaam: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Ry {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr "Dokumentkeuse-nutsbalk"
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} bladsye"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Stel geselekteerde bladsye (bv: 2 of 5-23 of 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Kies 'n PDF-bestemmingslêer"
+
+msgid "Browse for destination PDF file"
+msgstr "Blaai vir bestemming PDF-lêer"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Blaai vir {0}"
+
+msgid "Compress the output PDF file"
+msgstr "Komprimeer die uitvoer PDF-lêer"
+
+msgid "Select a PDF file"
+msgstr "Kies 'n PDF-lêer"
+
+msgid "Browse for source PDF file"
+msgstr "Blaai vir bron PDF-lêer"
+
+msgid "Output PDF version"
+msgstr "Uitvoer-PDF-weergawe"
+
+msgid "Output PDF version selector"
+msgstr "PDF-uitvoerweergawekieser"
+
+msgid "Output directory"
+msgstr "Uitvoergids"
+
+msgid "Browse for output directory"
+msgstr "Blaai vir uitvoergids"
+
+msgid "Browse for directory"
+msgstr "Blaai vir gids"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Ongeldige waarde: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "Wanneer gekies, vereis PDF weergawe {0} of hoër vir die uitvoerlêer"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Regskliek om spesiale voorvoegselsleutelwoorde soos tydstempel of lêernaam "
+"by te voeg"
+
+msgid "Open the task output file"
+msgstr "Maak die taak se uitvoerlêer oop"
+
+msgid "Open the task output directory"
+msgstr "Maak die taak se afvoergids oop"
+
+msgid "Task footer"
+msgstr "Taakvoetskrif"
+
+msgid "Task progress"
+msgstr "Taakvordering"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Taakvordering: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Taakstatus: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Taakstatus: {0}%"

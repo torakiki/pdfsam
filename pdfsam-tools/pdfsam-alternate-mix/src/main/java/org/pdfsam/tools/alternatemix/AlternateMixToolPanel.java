@@ -1,4 +1,3 @@
-package org.pdfsam.tools.alternatemix;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 03/10/22
@@ -17,6 +16,7 @@ package org.pdfsam.tools.alternatemix;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.tools.alternatemix;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Named;

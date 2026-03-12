@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-10-23 12:55+0200\n"
+"PO-Revision-Date: 2026-02-24 17:05+0100\n"
 "Last-Translator: Wermlandsdata <bernhard@wermlandsdata.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: sv\n"
 
 msgid "No PDF document has been selected"
@@ -167,8 +167,8 @@ msgstr "Ange storlek att dela vid"
 msgid "Size must be a number"
 msgstr "Storlek måste vara ett nummer"
 
-msgid "Split at this size:"
-msgstr "Dela med denna storlek:"
+#~ msgid "Split at this size:"
+#~ msgstr "Dela med denna storlek:"
 
 msgid "Invalid split size"
 msgstr "Ogiltig delningsstorlek"
@@ -206,8 +206,8 @@ msgstr "180 grader medurs"
 msgid "90 degrees counterclockwise"
 msgstr "90 grader moturs"
 
-msgid "Rotate "
-msgstr "Rotera "
+#~ msgid "Rotate "
+#~ msgstr "Rotera "
 
 msgid "Rotate settings"
 msgstr "Rotationsinställningar"
@@ -218,11 +218,11 @@ msgstr "Rotera"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Rotera sidorna för flera PDF dokument."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dubbelklicka för att ange de sidor du vill rotera (t.ex. 2 eller 5.23 eller "
-"2, 5-7, 12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Dubbelklicka för att ange de sidor du vill rotera (t.ex. 2 eller 5.23 eller "
+#~ "2, 5-7, 12-)"
 
 msgid "Merge settings"
 msgstr "Sammanslagningsinställningar"
@@ -258,8 +258,8 @@ msgstr "Samma bredd som första sidan"
 msgid "Same width as first page (based on page orientation)"
 msgstr "Samma bredd som första sidan (baserat på sidorientering)"
 
-msgid "Pages normalization:"
-msgstr "Sidnormalisering:"
+#~ msgid "Pages normalization:"
+#~ msgstr "Sidnormalisering:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -280,8 +280,8 @@ msgstr "Utjämna"
 msgid "Discard forms"
 msgstr "Ta bort formulär"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Interaktiva formulär (AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Interaktiva formulär (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr "Att göra om ett eller flera indatadokument innehåller Acro Forms"
@@ -298,8 +298,8 @@ msgstr "Skapa en ingång för varje sammanslaget dokument"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Behåll bokmärken som en ingång för varje sammanslaget dokument"
 
-msgid "Bookmarks handling:"
-msgstr "Bokmärkeshantering:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Bokmärkeshantering:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "Vad göra om ett eller flera indatadokument innehåller bokmärken"
@@ -313,8 +313,8 @@ msgstr "Skapa från filnamn"
 msgid "Generate from documents titles"
 msgstr "Skapa från dokumenttitlar"
 
-msgid "Table of contents:"
-msgstr "Innehållsförteckning:"
+#~ msgid "Table of contents:"
+#~ msgstr "Innehållsförteckning:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -622,34 +622,34 @@ msgstr "Hem"
 msgid "Premium features"
 msgstr "Premiumfunktioner"
 
-msgid "Log register rows:"
-msgstr "Logga register rader:"
+#~ msgid "Log register rows:"
+#~ msgstr "Logga register rader:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Maximalt antal rader som visas i Log registret"
 
 # G:\Documents\eclipse_workspace\PDF
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
-msgid "Language:"
-msgstr "Språk:"
+#~ msgid "Language:"
+#~ msgstr "Språk:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Välj språk du föredrar (omstart krävs)"
 
-msgid "Startup tool:"
-msgstr "Startverktyg:"
+#~ msgid "Startup tool:"
+#~ msgstr "Startverktyg:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr "Ställ in verktyget att öppnas vid programstart (omstart krävs)"
 
-msgid "Theme:"
-msgstr "Tema:"
+#~ msgid "Theme:"
+#~ msgstr "Tema:"
 
 msgid "Set the application theme"
 msgstr "Ange programmets tema"
 
-msgid "Font size:"
-msgstr "Teckenstorlek:"
+#~ msgid "Font size:"
+#~ msgstr "Teckenstorlek:"
 
 msgid "Set the application font size"
 msgstr "Ange applikationens teckenstorlek"
@@ -1001,8 +1001,8 @@ msgstr "Fyll i användarlösen"
 msgid "Unlock"
 msgstr "Lås upp"
 
-msgid "Drag and drop PDF files here"
-msgstr "Dra och släpp PDF filer här"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Dra och släpp PDF filer här"
 
 msgid "Set as range for all"
 msgstr "Sätt som område för allt"
@@ -1104,10 +1104,10 @@ msgstr "Sidor"
 msgid "Number of total pages of the document"
 msgstr "Antal sidor totalt i dokumentet"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dubbelklicka för att ställa in antalet sidor (t.ex. 2 eller 5-23 eller 2,5-"
-"7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Dubbelklicka för att ställa in antalet sidor (t.ex. 2 eller 5-23 eller 2,5-"
+#~ "7,12-)"
 
 msgid "Page ranges"
 msgstr "Sidområde"
@@ -1370,8 +1370,8 @@ msgstr "Fel vid sparning av innehåll till urklipp"
 msgid "Follow us on Bluesky"
 msgstr "Följ oss på Bluesky"
 
-msgid "Font:"
-msgstr "Teckensnitt:"
+#~ msgid "Font:"
+#~ msgstr "Teckensnitt:"
 
 msgid "Sets the application font"
 msgstr "Ställer in programteckensnitt"
@@ -1396,3 +1396,316 @@ msgstr "Vill du spara den?"
 
 msgid "Set as pace for all"
 msgstr "Ställ in som tempo för alla"
+
+msgid "Split at this bookmark level"
+msgstr "Dela vid denna bokmärkesnivå"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "Välj den bokmärkesdjupnivå där dokumentet ska delas"
+
+msgid "Bookmark level"
+msgstr "Bokmärkesnivå"
+
+msgid "Bookmark level selector"
+msgstr "Bokmärkesnivåväljare"
+
+msgid "Select a bookmark level"
+msgstr "Välj en bokmärkesnivå"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "Välj att dela PDF-filen efter en fördefinierad uppsättning sidor"
+
+msgid "Predefined set of pages to split after"
+msgstr "Förinställd siduppsättning att dela efter"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr ""
+"Välj vilken fördefinierad uppsättning sidor att dela efter (udda sidor, "
+"jämna sidor eller varje sida)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Välj att dela dokumentet efter specifika sidnummer"
+
+msgid "Page numbers to split at"
+msgstr "Sidnummer att dela vid"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "Ange kommaseparerade positiva sidnummer (T.ex. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Välj att dela upp dokumentet var 'n' sidor"
+
+msgid "Number of pages for split"
+msgstr "Antal sidor för delning"
+
+msgid "Enter a positive number of pages"
+msgstr "Ange ett positivt antal sidor"
+
+msgid "Split at this size"
+msgstr "Dela vid denna storlek"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Ange ett positivt heltal för den maximala filstorleken"
+
+msgid "Size unit for the split file size"
+msgstr "Storleksenhet för delad filstorlek"
+
+msgid "Page selection for rotation"
+msgstr "Sidval för rotation"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Välj vilka sidor som ska roteras: alla, jämna eller udda"
+
+msgid "Rotation angle"
+msgstr "Rotationsvinkel"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Välj rotationsvinkeln att tillämpa"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Ange sidor du vill rotera (t.ex.: 2 eller 5-23 eller 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Sidnormalisering"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Interaktiva formulär (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Bokmärkeshantering"
+
+msgid "Table of contents"
+msgstr "Innehållsförteckning"
+
+msgid "Repeating PDF file"
+msgstr "Upprepad PDF-fil"
+
+msgid "There are news available"
+msgstr "Det finns nyheter tillgängliga"
+
+msgid "selected"
+msgstr "vald"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (med avisering)"
+
+msgid "Collapse the sidebar"
+msgstr "Fäll ihop sidopanelen"
+
+msgid "Expand the sidebar"
+msgstr "Expandera sidofältet"
+
+msgid "PDF files to open"
+msgstr "PDF-filer att öppna"
+
+msgid "file list"
+msgstr "fillista"
+
+msgid "Available tasks"
+msgstr "Tillgängliga uppgifter"
+
+msgid "Log messages"
+msgstr "Loggmeddelanden"
+
+msgid "Save the log messages to a text file"
+msgstr "Spara loggmeddelandena till en textfil"
+
+msgid "Close the log panel"
+msgstr "Stäng loggpanelen"
+
+msgid "News items"
+msgstr "Nyheter"
+
+msgid "Close news panel"
+msgstr "Stäng nyhetspanel"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Hjälp för {0}"
+
+msgid "Log register rows"
+msgstr "Loggregister-rader"
+
+msgid "Language"
+msgstr "Språk"
+
+msgid "Startup tool"
+msgstr "Startverktyg"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "Font"
+msgstr "Teckensnitt"
+
+msgid "Font size"
+msgstr "Teckensnittsstorlek"
+
+msgid "Default PDF version"
+msgstr "Standard PDF-version"
+
+msgid "Manually select the output destination directory"
+msgstr "Välj manuellt utdatamappen"
+
+msgid "Default prefix"
+msgstr "Standardprefix"
+
+msgid "Default prefix for output file names"
+msgstr "Standard prefix för utdatafilnamn"
+
+msgid "Right click to add special prefix keywords"
+msgstr "Högerklicka för att lägga till speciella prefixnyckelord"
+
+msgid "Properties table"
+msgstr "Egenskapstabell"
+
+msgid "Properties"
+msgstr "Egenskaper"
+
+msgid "Empty"
+msgstr "Tom"
+
+msgid "Notification"
+msgstr "Avisering"
+
+msgid "Close notification"
+msgstr "Stäng avisering"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Öppna webbadressen {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "Rensa det valda PDF-dokumentet"
+
+msgid "PDF encryption status"
+msgstr "PDF krypteringsstatus"
+
+msgid "PDF document password"
+msgstr "PDF-dokumentlösenord"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "Dra och släpp PDF-filer här eller använd knappen Lägg till ovanför"
+
+msgid "PDF documents selection table"
+msgstr "PDF-dokumenturvalstabell"
+
+msgid "PDF selection table"
+msgstr "PDF urvalstabell"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "Tabell för val av PDF-dokument, {0} dokument"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} valda sidor"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Storlek: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Ändrad: {0}"
+
+msgid "Number of total pages"
+msgstr "Antal sidor totalt"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Filnamn: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Rad {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} sidor"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Ange valda sidor (t.ex.: 2 eller 5-23 eller 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Välj en PDF-målfil"
+
+msgid "Browse for destination PDF file"
+msgstr "Välj mål-PDF-fil"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Bläddra efter {0}"
+
+msgid "Compress the output PDF file"
+msgstr "Komprimera den utgående PDF-filen"
+
+msgid "Select a PDF file"
+msgstr "Välj en PDF-fil"
+
+msgid "Browse for source PDF file"
+msgstr "Bläddra efter käll-PDF-fil"
+
+msgid "Output PDF version"
+msgstr "PDF-version för utdata"
+
+msgid "Output PDF version selector"
+msgstr "Väljare för utgående PDF-version"
+
+msgid "Output directory"
+msgstr "Utmatningsmapp"
+
+msgid "Browse for output directory"
+msgstr "Välj utdatamapp"
+
+msgid "Browse for directory"
+msgstr "Välj mapp"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Ogiltigt värde: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "När markerad, kräver PDF-version {0} eller högre för utdatafilen"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Högerklicka för att lägga till särskilda prefixnyckelord som tidsstämpel "
+"eller filnamn"
+
+msgid "Open the task output file"
+msgstr "Öppna uppgiftsutdatafilen"
+
+msgid "Open the task output directory"
+msgstr "Öppna uppgiftsutdatamappen"
+
+msgid "Task footer"
+msgstr "Uppgiftsfot"
+
+msgid "Task progress"
+msgstr "Uppgiftsframsteg"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Uppgiftsförlopp: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Uppgiftsstatus: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Uppgiftsstatus: {0}%"

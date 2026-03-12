@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2025-10-23 12:34+0200\n"
+"PO-Revision-Date: 2026-02-24 16:52+0100\n"
 "Last-Translator: Μάριος Μπαλασόπουλος <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: el\n"
 
 msgid "No PDF document has been selected"
@@ -174,8 +174,8 @@ msgstr "Ορίστε το μέγεθος στο οποίο θα υπάρξει �
 msgid "Size must be a number"
 msgstr "Το μέγεθος πρέπει να είναι ένας αριθμός"
 
-msgid "Split at this size:"
-msgstr "Διαχωρισμός σε αυτό το μέγεθος"
+#~ msgid "Split at this size:"
+#~ msgstr "Διαχωρισμός σε αυτό το μέγεθος"
 
 msgid "Invalid split size"
 msgstr "Μη έγκυρο μέγεθος διαχωρισμού"
@@ -213,8 +213,8 @@ msgstr "180 μοίρες κατά την φορά των δεικτών του �
 msgid "90 degrees counterclockwise"
 msgstr "90 μοίρες αντίστροφα από την φορά των δεικτών του ρολογιού"
 
-msgid "Rotate "
-msgstr "Περιστροφή "
+#~ msgid "Rotate "
+#~ msgstr "Περιστροφή "
 
 msgid "Rotate settings"
 msgstr "Ρυθμίσεις περιστροφής"
@@ -225,11 +225,11 @@ msgstr "Περιστροφή"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Περιστρέψτε τις σελίδες πολλαπλών εγγράφων PDF."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Διπλό κλικ για να ορίσετε σελίδες που θέλετε να περιστρέψετε (π.χ.:  2 ή  5-"
-"23 ή 2,5-7,12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Διπλό κλικ για να ορίσετε σελίδες που θέλετε να περιστρέψετε (π.χ.:  2 ή  5-"
+#~ "23 ή 2,5-7,12-)"
 
 msgid "Merge settings"
 msgstr "Ρυθμίσεις συγχώνευσης"
@@ -267,8 +267,8 @@ msgid "Same width as first page (based on page orientation)"
 msgstr ""
 "Ιδιο πλάτος με την πρώτη σελίδα (με βάση τον προσανατολισμό της σελίδας)"
 
-msgid "Pages normalization:"
-msgstr "Ομαλοποίηση σελίδων"
+#~ msgid "Pages normalization:"
+#~ msgstr "Ομαλοποίηση σελίδων"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -289,8 +289,8 @@ msgstr "Ισοπέδωση"
 msgid "Discard forms"
 msgstr "Απόρριψη φόρμας"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Διαδραστικές φόρμες (AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Διαδραστικές φόρμες (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
@@ -311,8 +311,8 @@ msgstr ""
 "Διατήρηση σελιδοδεικτών ως ξεχωριστή καταχώρηση για κάθε συγχωνευμένο "
 "έγγραφο"
 
-msgid "Bookmarks handling:"
-msgstr "Διαχείριση σελιδοδεικτών:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Διαχείριση σελιδοδεικτών:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
@@ -328,8 +328,8 @@ msgstr "Παραγωγή από ονόματα αρχείων"
 msgid "Generate from documents titles"
 msgstr "Παραγωγή από τίτλους εγγράφων"
 
-msgid "Table of contents:"
-msgstr "Πίνακας περιεχομένων:"
+#~ msgid "Table of contents:"
+#~ msgstr "Πίνακας περιεχομένων:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -646,22 +646,22 @@ msgstr "Κεντρική Σελίδα"
 msgid "Premium features"
 msgstr "Premium χαρακτηριστικά"
 
-msgid "Log register rows:"
-msgstr "Γραμμές εγγραφής αρχείων καταγραφής"
+#~ msgid "Log register rows:"
+#~ msgstr "Γραμμές εγγραφής αρχείων καταγραφής"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Μέγιστος αριθμός γραμμών που εμφανίζεται στο Αρχείο Καταγραφής"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
-msgid "Language:"
-msgstr "Γλώσσα:"
+#~ msgid "Language:"
+#~ msgstr "Γλώσσα:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Ορισμός γλώσσας επιλογής (απαιτείται επανεκκίνηση)"
 
-msgid "Startup tool:"
-msgstr "Εργαλείο εκκίνησης:"
+#~ msgid "Startup tool:"
+#~ msgstr "Εργαλείο εκκίνησης:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
@@ -670,14 +670,14 @@ msgstr ""
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
-msgid "Theme:"
-msgstr "Θέμα:"
+#~ msgid "Theme:"
+#~ msgstr "Θέμα:"
 
 msgid "Set the application theme"
 msgstr "Ορίστε το θέμα της εφαρμογής"
 
-msgid "Font size:"
-msgstr "Μέγεθος γραμματοσειράς:"
+#~ msgid "Font size:"
+#~ msgstr "Μέγεθος γραμματοσειράς:"
 
 msgid "Set the application font size"
 msgstr "Ορίστε το μέγεθος της γραμματοσειράς της εφαρμογής"
@@ -1078,8 +1078,8 @@ msgstr "Εισάγετε τον κωδικό χρήστη"
 msgid "Unlock"
 msgstr "Ξεκλείδωμα"
 
-msgid "Drag and drop PDF files here"
-msgstr "Μεταφέρετε και αποθέσατε αρχεία PDF εδώ"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Μεταφέρετε και αποθέσατε αρχεία PDF εδώ"
 
 msgid "Set as range for all"
 msgstr "Ορισμός ως εύρος για όλα"
@@ -1126,7 +1126,7 @@ msgstr "Σύνολο σελίδων: {0}"
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JInfoPanel.java:118
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\GUI\InfoGUI.java:128
 msgid "Name"
-msgstr "'Όνομα"
+msgstr "Όνομα"
 
 msgid "Add documents to the table"
 msgstr "Προσθέστε έγγραφα στον πίνακα"
@@ -1186,9 +1186,9 @@ msgstr "Σελίδες"
 msgid "Number of total pages of the document"
 msgstr "Συνολικός αριθμός σελίδων του εγγράφου"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Διπλό κλικ για να ορίσετε επιλεγμένες σελίδες (π.χ.:  2 ή  5-23 ή 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Διπλό κλικ για να ορίσετε επιλεγμένες σελίδες (π.χ.:  2 ή  5-23 ή 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Εύρος σελίδων"
@@ -1387,8 +1387,8 @@ msgstr "Σφάλμα αποθήκευσης περιεχομένου στο πρ
 msgid "Follow us on Bluesky"
 msgstr "Follow us on Bluesky"
 
-msgid "Font:"
-msgstr "Font:"
+#~ msgid "Font:"
+#~ msgstr "Font:"
 
 msgid "Sets the application font"
 msgstr "Sets the application font"
@@ -1413,3 +1413,324 @@ msgstr "Θέλετε να το αποθηκεύσετε;"
 
 msgid "Set as pace for all"
 msgstr "Ορισμός ως πρότυπο για όλα"
+
+msgid "Split at this bookmark level"
+msgstr "Διαχωρισμός σε αυτό το επίπεδο σελιδοδείκτη"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr ""
+"Επιλέξτε το επίπεδο βάθους σελιδοδείκτη στο οποίο να διαχωρίσετε το έγγραφο"
+
+msgid "Bookmark level"
+msgstr "Επίπεδο σελιδοδείκτη"
+
+msgid "Bookmark level selector"
+msgstr "Επιλογέας επιπέδου σελιδοδείκτη"
+
+msgid "Select a bookmark level"
+msgstr "Επιλέξτε ένα επίπεδο σελιδοδείκτη"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr ""
+"Επιλέξτε για να διαχωρίσετε το PDF μετά από ένα προκαθορισμένο σύνολο "
+"σελίδων"
+
+msgid "Predefined set of pages to split after"
+msgstr "Προκαθορισμένες σελίδες για διαχωρισμό μετά"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr ""
+"Επιλέξτε ποιο προκαθορισμένο σύνολο σελίδων για διαίρεση μετά (μονές "
+"σελίδες, ζυγές σελίδες ή κάθε σελίδα)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr ""
+"Επιλέξτε για να χωρίσετε το έγγραφο μετά από συγκεκριμένους αριθμούς σελίδων"
+
+msgid "Page numbers to split at"
+msgstr "Αριθμοί σελίδων για διαχωρισμό"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr ""
+"Εισάγετε διαχωρισμένους με κόμμα θετικούς αριθμούς σελίδων (Π.χ. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Επιλέξτε να διαχωρίσετε το έγγραφο κάθε 'ν' σελίδες"
+
+msgid "Number of pages for split"
+msgstr "Αριθμός σελίδων για διαχωρισμό"
+
+msgid "Enter a positive number of pages"
+msgstr "Εισάγετε έναν θετικό αριθμό σελίδων"
+
+msgid "Split at this size"
+msgstr "Διαίρεση σε αυτό το μέγεθος"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Εισαγάγετε έναν θετικό ακέραιο για το μέγιστο μέγεθος αρχείου"
+
+msgid "Size unit for the split file size"
+msgstr "Μονάδα μεγέθους για το μέγεθος του διαχωρισμένου αρχείου"
+
+msgid "Page selection for rotation"
+msgstr "Επιλογή σελίδας για περιστροφή"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Επιλέξτε ποιες σελίδες να περιστρέψετε: όλες, άρτιες, ή περιττές"
+
+msgid "Rotation angle"
+msgstr "Γωνία περιστροφής"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Επιλέξτε τη γωνία περιστροφής προς εφαρμογή"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Ορίστε τις σελίδες που θέλετε να περιστρέψετε (π.χ.: 2 ή 5-23 ή 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Κανονικοποίηση σελίδων"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Διαδραστικές φόρμες (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Διαχείριση σελιδοδεικτών"
+
+msgid "Table of contents"
+msgstr "Πίνακας περιεχομένων"
+
+msgid "Repeating PDF file"
+msgstr "Επαναλαμβανόμενο αρχείο PDF"
+
+msgid "There are news available"
+msgstr "Υπάρχουν νέα διαθέσιμα"
+
+msgid "selected"
+msgstr "επιλεγμένο"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (με ειδοποίηση)"
+
+msgid "Collapse the sidebar"
+msgstr "Σύμπτυξη της πλευρικής γραμμής"
+
+msgid "Expand the sidebar"
+msgstr "Ανάπτυξη της πλευρικής γραμμής"
+
+msgid "PDF files to open"
+msgstr "Αρχεία PDF για άνοιγμα"
+
+msgid "file list"
+msgstr "λίστα αρχείων"
+
+msgid "Available tasks"
+msgstr "Διαθέσιμες εργασίες"
+
+msgid "Log messages"
+msgstr "Μηνύματα καταγραφής"
+
+msgid "Save the log messages to a text file"
+msgstr "Σώστε τα μηνύματα καταγραφής σε ένα αρχείο κειμένου"
+
+msgid "Close the log panel"
+msgstr "Κλείστε τον πίνακα καταγραφής"
+
+msgid "News items"
+msgstr "Νέα"
+
+msgid "Close news panel"
+msgstr "Κλείσιμο πίνακα ειδήσεων"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Βοήθεια για {0}"
+
+msgid "Log register rows"
+msgstr "Σειρές μητρώου καταγραφής"
+
+msgid "Language"
+msgstr "Γλώσσα"
+
+msgid "Startup tool"
+msgstr "Εργαλείο εκκίνησης"
+
+msgid "Theme"
+msgstr "Θέμα"
+
+msgid "Font"
+msgstr "Γραμματοσειρά"
+
+msgid "Font size"
+msgstr "Μέγεθος γραμματοσειράς"
+
+msgid "Default PDF version"
+msgstr "Προεπιλεγμένη έκδοση PDF"
+
+msgid "Manually select the output destination directory"
+msgstr "Επιλέξτε χειροκίνητα τον φάκελο προορισμού εξόδου"
+
+msgid "Default prefix"
+msgstr "Προεπιλεγμένο πρόθεμα"
+
+msgid "Default prefix for output file names"
+msgstr "Προεπιλεγμένο πρόθεμα για ονόματα αρχείων εξόδου"
+
+msgid "Right click to add special prefix keywords"
+msgstr "Δεξί κλικ για προσθήκη ειδικών λέξεων-κλειδιών προθέματος"
+
+msgid "Properties table"
+msgstr "Πίνακας Ιδιοτήτων"
+
+msgid "Properties"
+msgstr "Ιδιότητες"
+
+msgid "Empty"
+msgstr "Κενό"
+
+msgid "Notification"
+msgstr "Ειδοποίηση"
+
+msgid "Close notification"
+msgstr "Κλείσιμο ειδοποίησης"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Ανοίξτε τη διεύθυνση URL {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "Εκκαθάριση του επιλεγμένου εγγράφου PDF"
+
+msgid "PDF encryption status"
+msgstr "Κατάσταση κρυπτογράφησης PDF"
+
+msgid "PDF document password"
+msgstr "Κωδικός πρόσβασης εγγράφου PDF"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr ""
+"Σύρετε και αποθέστε αρχεία PDF εδώ ή χρησιμοποιήστε το κουμπί Προσθήκη "
+"παραπάνω"
+
+msgid "PDF documents selection table"
+msgstr "Πίνακας επιλογής εγγράφων PDF"
+
+msgid "PDF selection table"
+msgstr "Πίνακας επιλογής PDF"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "Πίνακας επιλογής εγγράφων PDF, {0} έγγραφα"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} επιλεγμένες σελίδες"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Μέγεθος: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Τροποποιήθηκε: {0}"
+
+msgid "Number of total pages"
+msgstr "Αριθμός συνολικών σελίδων"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Όνομα αρχείου: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Σειρά {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} σελίδες"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Ορισμός επιλεγμένων σελίδων (π.χ.: 2 ή 5-23 ή 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Επιλέξτε ένα αρχείο προορισμού PDF"
+
+msgid "Browse for destination PDF file"
+msgstr "Αναζήτηση αρχείου PDF προορισμού"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Αναζήτηση για {0}"
+
+msgid "Compress the output PDF file"
+msgstr "Συμπίεση του αρχείου PDF εξόδου"
+
+msgid "Select a PDF file"
+msgstr "Επιλέξτε ένα αρχείο PDF"
+
+msgid "Browse for source PDF file"
+msgstr "Αναζήτηση αρχείου PDF προέλευσης"
+
+msgid "Output PDF version"
+msgstr "Έκδοση PDF εξόδου"
+
+msgid "Output PDF version selector"
+msgstr "Επιλογέας έκδοσης PDF εξόδου"
+
+msgid "Output directory"
+msgstr "Φάκελος εξόδου"
+
+msgid "Browse for output directory"
+msgstr "Αναζήτηση φακέλου εξόδου"
+
+msgid "Browse for directory"
+msgstr "Επιλογή φακέλου"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Μη έγκυρη τιμή: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "Όταν επιλεγεί, απαιτεί έκδοση PDF {0} ή νεότερη για το αρχείο εξόδου"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Δεξί κλικ για προσθήκη ειδικών προθεματικών λέξεων-κλειδιών όπως "
+"χρονοσφραγίδα ή όνομα αρχείου"
+
+msgid "Open the task output file"
+msgstr "Ανοίξτε το αρχείο εξόδου της εργασίας"
+
+msgid "Open the task output directory"
+msgstr "Ανοίξτε τον κατάλογο εξόδου εργασίας"
+
+msgid "Task footer"
+msgstr "Υποσέλιδο εργασίας"
+
+msgid "Task progress"
+msgstr "Πρόοδος εργασίας"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Πρόοδος εργασίας: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Κατάσταση εργασίας: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Κατάσταση εργασίας: {0}%"

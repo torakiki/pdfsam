@@ -4,7 +4,7 @@
     <groupId>org.pdfsam</groupId>
     <artifactId>pdfsam-parent</artifactId>
     <packaging>pom</packaging>
-    <version>5.4.2-SNAPSHOT</version>
+    <version>6.0.0.M2-SNAPSHOT</version>
     <name>PDFsam</name>
     <description>A free open source desktop application to split and merge pdf documents</description>
     <url>https://pdfsam.org</url>
@@ -17,7 +17,7 @@
         <connection>scm:git:git@github.com:torakiki/pdfsam.git</connection>
         <developerConnection>scm:git:git@github.com:torakiki/pdfsam.git</developerConnection>
         <url>scm:git:git@github.com:torakiki/pdfsam.git</url>
-        <tag>v5.2.8</tag>
+        <tag>v5.4.5</tag>
     </scm>
 
     <licenses>
@@ -32,7 +32,7 @@
     <parent>
         <groupId>com.soberlemur</groupId>
         <artifactId>soberlemur-parent</artifactId>
-        <version>1.0.10</version>
+        <version>1.0.14</version>
     </parent>
 
     <profiles>
@@ -51,8 +51,6 @@
                         <configuration>
                             <excludedGroups>NoHeadless</excludedGroups>
                             <useModulePath>false</useModulePath>
-                            <!-- remove this once Foreign Function & Memory API is out of preview-->
-                            <argLine>--enable-preview</argLine>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -68,7 +66,7 @@
         <profile>
             <id>toolchain</id>
             <activation>
-                <jdk>(,21)</jdk>
+                <jdk>(,25)</jdk>
             </activation>
             <build>
                 <plugins>
@@ -85,7 +83,7 @@
                         <configuration>
                             <toolchains>
                                 <jdk>
-                                    <version>21</version>
+                                    <version>25</version>
                                 </jdk>
                             </toolchains>
                         </configuration>
@@ -118,7 +116,7 @@
                                 <additionalOption>-Xdoclint:none</additionalOption>
                                 <additionalOption>--enable-preview</additionalOption>
                             </additionalOptions>
-                            <release>21</release>
+                            <release>25</release>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -152,7 +150,7 @@
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>0.9.0</version>
+                        <version>0.10.0</version>
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>pdfsam-central</publishingServerId>
@@ -200,6 +198,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <release>25</release>
+                    <compilerArgs>--enable-preview</compilerArgs>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -220,21 +222,16 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <configuration>
-                        <release>21</release>
-                        <!-- remove this once Foreign Function & Memory API is out of preview-->
-                        <compilerArgs>--enable-preview</compilerArgs>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
-                    <version>3.6.2</version>
+                    <version>3.6.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-antrun-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>3.2.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -246,7 +243,6 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <configuration>
                         <useModulePath>false</useModulePath>
-                        <!-- remove this once Foreign Function & Memory API is out of preview-->
                         <argLine>--enable-preview</argLine>
                     </configuration>
                 </plugin>
@@ -257,11 +253,10 @@
     <properties>
         <junit.pioneer.version>2.3.0</junit.pioneer.version>
         <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
-        <sejda.version>5.1.14</sejda.version>
-        <sejda-io.version>4.0.0.M4</sejda-io.version>
+        <sejda.version>6.0.0.M1</sejda.version>
         <ikonli.version>12.4.0</ikonli.version>
         <testfx.version>4.0.18</testfx.version>
-        <javafx.version>23.0.2</javafx.version>
+        <javafx.version>25.0.2</javafx.version>
         <jakarta-el.version>4.0.2</jakarta-el.version>
         <jakarta.inject.version>2.0.1</jakarta.inject.version>
         <validation.api.version>3.0.2</validation.api.version>
@@ -295,11 +290,6 @@
                 <groupId>org.hibernate.validator</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>${hibernate-validator.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.sejda</groupId>
-                <artifactId>sejda-io</artifactId>
-                <version>${sejda-io.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.sejda</groupId>

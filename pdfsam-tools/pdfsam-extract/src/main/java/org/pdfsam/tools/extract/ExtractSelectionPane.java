@@ -24,7 +24,6 @@ import org.pdfsam.ui.components.selection.multiple.IntColumn;
 import org.pdfsam.ui.components.selection.multiple.LoadingColumn;
 import org.pdfsam.ui.components.selection.multiple.LongColumn;
 import org.pdfsam.ui.components.selection.multiple.MultipleSelectionPane;
-import org.pdfsam.ui.components.selection.multiple.SelectionTableColumn;
 import org.sejda.conversion.exception.ConversionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,9 +43,8 @@ public class ExtractSelectionPane extends MultipleSelectionPane
     private static final Logger LOG = LoggerFactory.getLogger(ExtractSelectionPane.class);
 
     public ExtractSelectionPane(String ownerModule) {
-        super(ownerModule, false, false,
-                new SelectionTableColumn<?>[] { new LoadingColumn(ownerModule), FileColumn.NAME, LongColumn.SIZE,
-                        IntColumn.PAGES, LongColumn.LAST_MODIFIED });
+        super(ownerModule, false, false, new LoadingColumn(ownerModule), FileColumn.NAME, LongColumn.SIZE,
+                IntColumn.PAGES, LongColumn.LAST_MODIFIED);
     }
 
     @Override

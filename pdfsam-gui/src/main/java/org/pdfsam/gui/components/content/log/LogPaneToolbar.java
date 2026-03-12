@@ -1,4 +1,3 @@
-package org.pdfsam.gui.components.content.log;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 15/01/23
@@ -17,6 +16,7 @@ package org.pdfsam.gui.components.content.log;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.gui.components.content.log;
 
 import jakarta.inject.Inject;
 import javafx.application.Platform;
@@ -65,6 +65,7 @@ class LogPaneToolbar extends ToolBar {
     static class SaveButton extends Button {
         public SaveButton() {
             setText(i18n().tr("_Save"));
+            setTooltip(new Tooltip(i18n().tr("Save the log messages to a text file")));
             setOnAction(e -> eventStudio().broadcast(new SaveLogRequest()));
             getStyleClass().addAll(Style.BUTTON.css());
             getStyleClass().addAll(Style.TOOLBAR_BUTTON.css());
@@ -74,6 +75,7 @@ class LogPaneToolbar extends ToolBar {
     class CloseButton extends Button {
         public CloseButton() {
             setText(i18n().tr("C_lose"));
+            setTooltip(new Tooltip(i18n().tr("Close the log panel")));
             app().runtimeState().activeTool().subscribe(t -> {
                 Platform.runLater(() -> {
                     this.setVisible(t.isPresent());

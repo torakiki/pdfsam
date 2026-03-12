@@ -48,12 +48,15 @@ public class SplitByEveryRadioButton extends RadioButton
 
     public SplitByEveryRadioButton(ValidableTextField field) {
         super(i18n().tr("Split by every \"n\" pages"));
+        this.setAccessibleHelp(i18n().tr("Select to split the document every 'n' pages"));
         this.field = field;
         this.field.setOnEnterValidation(true);
         this.field.setEnableInvalidStyle(true);
         this.field.setPromptText(i18n().tr("Number of pages"));
         this.field.setValidator(Validators.positiveInteger());
         this.field.setErrorMessage(i18n().tr("Invalid number of pages"));
+        this.field.setAccessibleText(i18n().tr("Number of pages for split"));
+        this.field.setAccessibleHelp(i18n().tr("Enter a positive number of pages"));
     }
 
     @Override

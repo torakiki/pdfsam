@@ -80,7 +80,7 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
         setPrefHeight(Double.MAX_VALUE);
         setVisible(false);
         setOnAction(e -> {
-            if (latestOutput.size() != 1 || !openFile(latestOutput.get(0))) {
+            if (latestOutput.size() != 1 || !openFile(latestOutput.getFirst())) {
                 openFile(destination);
             }
 
@@ -126,21 +126,21 @@ public class OpenButton extends SplitMenuButton implements TaskOutputDispatcher 
     @Override
     public void dispatch(FileTaskOutput output) {
         destination = output.getDestination();
-        //TODO set -fx-icon-size to 1.6em
+        setAccessibleText(i18n().tr("Open the task output file"));
         setGraphic(FontIcon.of(UniconsLine.FILE_ALT));
     }
 
     @Override
     public void dispatch(DirectoryTaskOutput output) {
         destination = output.getDestination();
-        //TODO set -fx-icon-size to 1.6em
+        setAccessibleText(i18n().tr("Open the task output directory"));
         setGraphic(FontIcon.of(UniconsLine.FOLDER_OPEN));
     }
 
     @Override
     public void dispatch(FileOrDirectoryTaskOutput output) {
         destination = output.getDestination();
-        //TODO set -fx-icon-size to 1.6em
+        setAccessibleText(i18n().tr("Open the task output directory"));
         setGraphic(FontIcon.of(UniconsLine.FOLDER_OPEN));
     }
 

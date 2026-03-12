@@ -29,7 +29,7 @@ record LogMessage(String message, LogLevel level) {
 
     LogMessage(String message, LogLevel level) {
         this.message = message;
-        this.level = ObjectUtils.defaultIfNull(level, LogLevel.INFO);
+        this.level = ObjectUtils.getIfNull(level, LogLevel.INFO);
     }
 
     @Override

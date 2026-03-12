@@ -70,8 +70,10 @@ public enum IntColumn implements SelectionTableColumn<Integer> {
                 void onUpdateItem(Integer item, boolean empty) {
                     if (empty || item == null) {
                         setText("");
+                        setAccessibleText(null);
                     } else {
                         setText(getTextValue(item));
+                        setAccessibleText(i18n().tr("{0} pages", getTextValue(item)));
                     }
                 }
             };

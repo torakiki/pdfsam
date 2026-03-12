@@ -19,6 +19,7 @@
 package org.pdfsam.tools.alternatemix;
 
 import jakarta.inject.Named;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -73,6 +74,7 @@ public class AlternateMixTool implements Tool {
     public Node graphic() {
         var icon = new FontIcon(UniconsLine.COPY_LANDSCAPE);
         icon.getStyleClass().addAll(this.descriptor().category().styleClass(), "tool-icon");
+        icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
         return icon;
     }
 

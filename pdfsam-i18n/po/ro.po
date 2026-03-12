@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"PO-Revision-Date: 2026-02-24 17:24+0100\n"
 "Last-Translator: Andrei Vasile Nemeș <Unknown>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: ro\n"
 
 msgid "No PDF document has been selected"
@@ -170,8 +170,8 @@ msgstr "Configurați dimensiunea de împărțit la"
 msgid "Size must be a number"
 msgstr "Dimensiunea trebuie să fie un număr"
 
-msgid "Split at this size:"
-msgstr "Împarte la această dimensiune:"
+#~ msgid "Split at this size:"
+#~ msgstr "Împarte la această dimensiune:"
 
 msgid "Invalid split size"
 msgstr "Mărime împărțire nevalabilă"
@@ -209,8 +209,8 @@ msgstr "180 de grade în sens orar"
 msgid "90 degrees counterclockwise"
 msgstr "90 de grade in sensul invers al acelor de ceas"
 
-msgid "Rotate "
-msgstr "Rotește "
+#~ msgid "Rotate "
+#~ msgstr "Rotește "
 
 msgid "Rotate settings"
 msgstr "Configurări rotire"
@@ -221,11 +221,11 @@ msgstr "Rotește"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Rotește paginile mai multor documente PDf."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dublu clic pentru a seta paginile care vrei să le roteşti (ex: 2 sau 5-23 "
-"sau 2,5-7,12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Dublu clic pentru a seta paginile care vrei să le roteşti (ex: 2 sau 5-23 "
+#~ "sau 2,5-7,12-)"
 
 msgid "Merge settings"
 msgstr "Configurări combinare"
@@ -263,8 +263,8 @@ msgstr "Lățime identică cu prima pagină"
 msgid "Same width as first page (based on page orientation)"
 msgstr "Lățime identică cu prima pagină (în funcție de orientarea paginii)"
 
-msgid "Pages normalization:"
-msgstr "Normalizarea paginilor"
+#~ msgid "Pages normalization:"
+#~ msgstr "Normalizarea paginilor"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -285,8 +285,8 @@ msgstr "Aplatizează"
 msgid "Discard forms"
 msgstr "Renunţă la formulare"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Formulare interactive"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Formulare interactive"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
@@ -305,8 +305,8 @@ msgstr "Creează o intrare pentru fiecare document combinat"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Reţine semnele de carte ca şi o intrare pentru fiecare document unit"
 
-msgid "Bookmarks handling:"
-msgstr "Manipularea semnelor de carte"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Manipularea semnelor de carte"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
@@ -322,8 +322,8 @@ msgstr "Generează din numele fişierului"
 msgid "Generate from documents titles"
 msgstr "Generează din titlurile documentelor"
 
-msgid "Table of contents:"
-msgstr "Cuprins"
+#~ msgid "Table of contents:"
+#~ msgstr "Cuprins"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -624,34 +624,34 @@ msgstr "Acasă"
 msgid "Premium features"
 msgstr "Caracteristici premium"
 
-msgid "Log register rows:"
-msgstr "Rânduri registru jurnal"
+#~ msgid "Log register rows:"
+#~ msgstr "Rânduri registru jurnal"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Numărul maxim de rânduri afișate de către registrul jurnal"
 
-msgid "Language:"
-msgstr "Limbă:"
+#~ msgid "Language:"
+#~ msgstr "Limbă:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Configurați limba preferată (trebuie repornit)"
 
-msgid "Startup tool:"
-msgstr "Instrument de pornire:"
+#~ msgid "Startup tool:"
+#~ msgstr "Instrument de pornire:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Setează instrumentul să se deschidă la pornirea aplicației (este necesară "
 "repornirea)"
 
-msgid "Theme:"
-msgstr "Tematică:"
+#~ msgid "Theme:"
+#~ msgstr "Tematică:"
 
 msgid "Set the application theme"
 msgstr "Setează tema aplicației"
 
-msgid "Font size:"
-msgstr "Dimensiune font:"
+#~ msgid "Font size:"
+#~ msgstr "Dimensiune font:"
 
 msgid "Set the application font size"
 msgstr "Setează dimensiunea fontului aplicației"
@@ -1005,8 +1005,8 @@ msgstr "Introduceți parola de utilizator"
 msgid "Unlock"
 msgstr "Deblochează"
 
-msgid "Drag and drop PDF files here"
-msgstr "Trageți și plasați aici fișierele PDF"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Trageți și plasați aici fișierele PDF"
 
 msgid "Set as range for all"
 msgstr "Setează un interval pentru toate"
@@ -1103,9 +1103,9 @@ msgstr "Pagini"
 msgid "Number of total pages of the document"
 msgstr "Numărul total de pagini ale documentului"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Faceți dublu clic pentru a selecta paginile (ex: 2 sau 5-23 sau 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Faceți dublu clic pentru a selecta paginile (ex: 2 sau 5-23 sau 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Intervalele de pagini"
@@ -1344,8 +1344,8 @@ msgstr "Eroare la salvarea conținutului în clipboard"
 msgid "Follow us on Bluesky"
 msgstr "Urmărește-ne pe Bluesky"
 
-msgid "Font:"
-msgstr "Font:"
+#~ msgid "Font:"
+#~ msgstr "Font:"
 
 msgid "Sets the application font"
 msgstr "Setează fontul aplicației"
@@ -1369,4 +1369,325 @@ msgid "Do you want to save it?"
 msgstr "Doriți să-l salvați?"
 
 msgid "Set as pace for all"
+msgstr "Setează ca etalon pentru toate"
+
+msgid "Split at this bookmark level"
+msgstr "Divizează la acest nivel de marcaj"
+
+msgid "Select the bookmark depth level at which to split the document"
 msgstr ""
+"Selectați nivelul de adâncime al marcajului la care să se divizeze "
+"documentul"
+
+msgid "Bookmark level"
+msgstr "Nivel marcaj"
+
+msgid "Bookmark level selector"
+msgstr "Selector nivel marcaj"
+
+msgid "Select a bookmark level"
+msgstr "Selectați un nivel de semn de carte"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "Selectați pentru a împărți PDF-ul după un set predefinit de pagini"
+
+msgid "Predefined set of pages to split after"
+msgstr "Set predefinit de pagini după care se împarte"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr ""
+"Alege ce set predefinit de pagini după care să se împartă (pagini impare, "
+"pagini pare sau fiecare pagină)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Selectați pentru a diviza documentul după numere de pagină specifice"
+
+msgid "Page numbers to split at"
+msgstr "Numere de pagină de împărțit la"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr ""
+"Introduceți numere de pagină pozitive separate prin virgulă (Ex. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Selectați pentru a împărți documentul la fiecare 'n' pagini"
+
+msgid "Number of pages for split"
+msgstr "Număr de pagini pentru împărțire"
+
+msgid "Enter a positive number of pages"
+msgstr "Introduceți un număr pozitiv de pagini"
+
+msgid "Split at this size"
+msgstr "Scindează la această dimensiune"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr ""
+"Introduceți un număr întreg pozitiv pentru dimensiunea maximă a fișierului"
+
+msgid "Size unit for the split file size"
+msgstr "Unitate de măsură pentru dimensiunea fișierului divizat"
+
+msgid "Page selection for rotation"
+msgstr "Selecție pagină pentru rotire"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Alegeți ce pagini să rotiți: toate, pare sau impare"
+
+msgid "Rotation angle"
+msgstr "Unghi de rotație"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Alegeți unghiul de rotație de aplicat"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Setați paginile pe care doriți să le rotiți (ex: 2 sau 5-23 sau 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Normalizarea paginilor"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Formulare interactive (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Gestionarea marcajelor"
+
+msgid "Table of contents"
+msgstr "Cuprins"
+
+msgid "Repeating PDF file"
+msgstr "Fișier PDF repetat"
+
+msgid "There are news available"
+msgstr "Sunt noutăți disponibile"
+
+msgid "selected"
+msgstr "selectat"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (cu notificare)"
+
+msgid "Collapse the sidebar"
+msgstr "Strânge bara laterală"
+
+msgid "Expand the sidebar"
+msgstr "Extindeți bara laterală"
+
+msgid "PDF files to open"
+msgstr "Fișiere PDF de deschis"
+
+msgid "file list"
+msgstr "listă fișiere"
+
+msgid "Available tasks"
+msgstr "Sarcini disponibile"
+
+msgid "Log messages"
+msgstr "Mesaje jurnal"
+
+msgid "Save the log messages to a text file"
+msgstr "Salvează mesajele jurnalului într-un fișier text"
+
+msgid "Close the log panel"
+msgstr "Închideți panoul de jurnal"
+
+msgid "News items"
+msgstr "Știri"
+
+msgid "Close news panel"
+msgstr "Închide panoul de știri"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Ajutor pentru {0}"
+
+msgid "Log register rows"
+msgstr "Rânduri registru jurnal"
+
+msgid "Language"
+msgstr "Limbă"
+
+msgid "Startup tool"
+msgstr "Instrument de pornire"
+
+msgid "Theme"
+msgstr "Temă"
+
+msgid "Font"
+msgstr "Font"
+
+msgid "Font size"
+msgstr "Dimensiune font"
+
+msgid "Default PDF version"
+msgstr "Versiune PDF implicită"
+
+msgid "Manually select the output destination directory"
+msgstr "Selectați manual directorul de destinație pentru ieșire"
+
+msgid "Default prefix"
+msgstr "Prefix implicit"
+
+msgid "Default prefix for output file names"
+msgstr "Prefix implicit pentru numele fișierelor de ieșire"
+
+msgid "Right click to add special prefix keywords"
+msgstr "Faceți clic dreapta pentru a adăuga cuvinte cheie speciale de prefix"
+
+msgid "Properties table"
+msgstr "Tabel de proprietăți"
+
+msgid "Properties"
+msgstr "Proprietăți"
+
+msgid "Empty"
+msgstr "Gol"
+
+msgid "Notification"
+msgstr "Notificare"
+
+msgid "Close notification"
+msgstr "Închide notificarea"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Deschideți URL-ul {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "Elimină documentul PDF selectat"
+
+msgid "PDF encryption status"
+msgstr "Stare criptare PDF"
+
+msgid "PDF document password"
+msgstr "Parolă document PDF"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr ""
+"Trageți și plasați fișiere PDF aici sau folosiți butonul Adăugare de mai sus"
+
+msgid "PDF documents selection table"
+msgstr "tabel de selecție documente PDF"
+
+msgid "PDF selection table"
+msgstr "Tabel de selecție PDF"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "Tabel de selecție documente PDF, {0} documente"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} pagini selectate"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Dimensiune: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Modificat: {0}"
+
+msgid "Number of total pages"
+msgstr "Număr total de pagini"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Nume fișier: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Rând {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} pagini"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Setează paginile selectate (ex: 2 sau 5-23 sau 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Selectați un fișier PDF destinație"
+
+msgid "Browse for destination PDF file"
+msgstr "Răsfoiește pentru fișierul PDF destinație"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Răsfoiește pentru {0}"
+
+msgid "Compress the output PDF file"
+msgstr "Comprimă fișierul PDF rezultat"
+
+msgid "Select a PDF file"
+msgstr "Alegeți un fișier PDF"
+
+msgid "Browse for source PDF file"
+msgstr "Căutați fișierul PDF sursă"
+
+msgid "Output PDF version"
+msgstr "Versiune PDF de ieșire"
+
+msgid "Output PDF version selector"
+msgstr "Selector de versiune PDF de ieșire"
+
+msgid "Output directory"
+msgstr "Folder de ieșire"
+
+msgid "Browse for output directory"
+msgstr "Răsfoiește directorul de ieșire"
+
+msgid "Browse for directory"
+msgstr "Caută folder"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Valoare invalidă: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr ""
+"Când este selectat, necesită versiunea PDF {0} sau mai mare pentru fișierul "
+"de ieșire"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Click dreapta pentru a adăuga prefixe speciale precum marcaj temporal sau "
+"nume fișier"
+
+msgid "Open the task output file"
+msgstr "Deschideți fișierul de ieșire al sarcinii"
+
+msgid "Open the task output directory"
+msgstr "Deschideți directorul de ieșire al sarcinii"
+
+msgid "Task footer"
+msgstr "Subsol sarcină"
+
+msgid "Task progress"
+msgstr "Progres sarcină"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Progres sarcină: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Stare sarcină: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Stare sarcină: {0}%"

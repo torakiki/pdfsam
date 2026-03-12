@@ -24,6 +24,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.beans.value.WeakChangeListener;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
@@ -184,6 +185,9 @@ public class SingleSelectionPane extends VBox implements ToolBound, PdfDocumentD
 
     private void initEncryptionIndicator() {
         encryptionIndicator.getStyleClass().addAll("encryption-status");
+        encryptionIndicator.setAccessibleRole(AccessibleRole.BUTTON);
+        encryptionIndicator.setAccessibleText(i18n().tr("PDF encryption status"));
+        encryptionIndicator.setFocusTraversable(true);
         encryptionIndicator.addEventFilter(MouseEvent.MOUSE_CLICKED, e -> {
             if (descriptor.loadingStatus().getValue() == ENCRYPTED) {
                 showPasswordFieldPopup();

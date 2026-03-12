@@ -46,7 +46,8 @@ public class BrowsableDirectoryField extends BrowsableField {
     public BrowsableDirectoryField() {
         setBrowseWindowTitle(i18n().tr("Select a directory"));
         getTextField().setErrorMessage(i18n().tr("Select an existing directory"));
-        getTextField().setPromptText(i18n().tr("Select a directory"));
+        setFieldPromptAndAccessibleText(i18n().tr("Select a directory"));
+        setBrowseButtonAccessibleText(i18n().tr("Browse for directory"));
         var handler = new BrowseEventHandler();
         getBrowseButton().setOnAction(handler);
         getTextField().setOnAction(handler);

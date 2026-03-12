@@ -41,6 +41,8 @@ public class BrowsablePdfInputField extends BrowsableFileField
 
     public BrowsablePdfInputField() {
         super(FileType.PDF, OpenType.OPEN);
+        setFieldPromptAndAccessibleText(i18n().tr("Select a PDF file"));
+        setBrowseButtonAccessibleText(i18n().tr("Browse for source PDF file"));
     }
 
     @Override

@@ -40,7 +40,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Panel for the Split options
- * 
+ *
  * @author Andrea Vacondio
  *
  */
@@ -57,9 +57,13 @@ class SplitOptionsPane extends HBox
         this.field.setValidator(Validators.positiveInteger());
         this.field.setErrorMessage(i18n().tr("Size must be a number"));
         this.field.setId("sizeField");
+        this.field.setAccessibleText(i18n().tr("Split at this size"));
+        this.field.setAccessibleHelp(i18n().tr("Enter a positive integer for the maximum file size"));
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.HCONTAINER.css());
-        getChildren().addAll(new Label(i18n().tr("Split at this size:")), this.field);
+        var sizeLabel = new Label(i18n().tr("Split at this size") + ":");
+        sizeLabel.setLabelFor(this.field);
+        getChildren().addAll(sizeLabel, this.field);
         Arrays.stream(SizeUnit.values()).map(SizeUnitRadio::new).forEach(r -> {
             r.setToggleGroup(group);
             getChildren().add(r);

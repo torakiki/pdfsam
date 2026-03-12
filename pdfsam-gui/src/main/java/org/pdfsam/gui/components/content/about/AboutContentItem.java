@@ -19,6 +19,7 @@
 package org.pdfsam.gui.components.content.about;
 
 import jakarta.inject.Inject;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -61,7 +62,9 @@ public class AboutContentItem implements ContentItem {
 
     @Override
     public Node graphic() {
-        return new FontIcon(UniconsLine.INFO_CIRCLE);
+        var icon = new FontIcon(UniconsLine.INFO_CIRCLE);
+        icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
+        return icon;
     }
 
 }

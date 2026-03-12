@@ -1,4 +1,3 @@
-package org.pdfsam.gui.components.content.log;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 10/01/23
@@ -17,8 +16,10 @@ package org.pdfsam.gui.components.content.log;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.gui.components.content.log;
 
 import jakarta.inject.Inject;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -62,7 +63,9 @@ public class LogContentItem implements ContentItem {
 
     @Override
     public Node graphic() {
-        return new FontIcon(UniconsLine.ENVELOPE_EXCLAMATION);
+        var icon = new FontIcon(UniconsLine.ENVELOPE_EXCLAMATION);
+        icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
+        return icon;
     }
 
 }

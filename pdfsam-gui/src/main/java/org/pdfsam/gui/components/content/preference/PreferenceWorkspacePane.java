@@ -35,9 +35,9 @@ import static org.pdfsam.ui.components.support.Views.helpIcon;
 
 /**
  * Preference pane displaying the workspace section
- * 
+ *
  * @author Andrea Vacondio
- * 
+ *
  */
 class PreferenceWorkspacePane extends VBox {
 
@@ -46,8 +46,9 @@ class PreferenceWorkspacePane extends VBox {
             @Named("workspace") PreferenceBrowsableFileField workspace,
             @Named("saveWorkspaceOnExit") PreferenceCheckBox saveWorkspaceOnExit,
             @Named("savePwdInWorkspace") PreferenceCheckBox savePwdInWorkspace) {
-        workingDirectory.getTextField()
-                .setPromptText(i18n().tr("Select a directory where documents will be saved and loaded by default"));
+        String workingDirHelpText = i18n().tr("Select a directory where documents will be saved and loaded by default");
+        workingDirectory.getTextField().setPromptText(workingDirHelpText);
+        workingDirectory.getTextField().setAccessibleText(workingDirHelpText);
         workingDirectory.setBrowseWindowTitle(i18n().tr("Select a directory"));
         var workigDirPane = new GridPane();
         workigDirPane.getStyleClass().addAll(Style.GRID.css());
@@ -56,13 +57,14 @@ class PreferenceWorkspacePane extends VBox {
         GridPane.setHalignment(workingDirectory, HPos.LEFT);
         GridPane.setHgrow(workingDirectory, Priority.ALWAYS);
         workigDirPane.add(workingDirectory, 0, 0);
-        var workingDirLabel = helpIcon(
-                i18n().tr("Select a directory where documents will be saved and loaded by default"));
+        var workingDirLabel = helpIcon(workingDirHelpText);
         GridPane.setValignment(workingDirLabel, VPos.CENTER);
         workigDirPane.add(workingDirLabel, 1, 0);
 
-        workspace.getTextField().setPromptText(
-                i18n().tr("Select a previously saved workspace that will be automatically loaded at startup"));
+        String workspaceHelpText = i18n().tr(
+                "Select a previously saved workspace that will be automatically loaded at startup");
+        workspace.getTextField().setPromptText(workspaceHelpText);
+        workspace.getTextField().setAccessibleText(workspaceHelpText);
         workspace.setBrowseWindowTitle(i18n().tr("Select a workspace"));
 
         var workspaceDirPane = new GridPane();
@@ -72,17 +74,19 @@ class PreferenceWorkspacePane extends VBox {
         GridPane.setHalignment(workspace, HPos.LEFT);
         GridPane.setHgrow(workspace, Priority.ALWAYS);
         workspaceDirPane.add(workspace, 0, 0);
-        var workspaceDirLabel = helpIcon(
-                i18n().tr("Select a previously saved workspace that will be automatically loaded at startup"));
+        var workspaceDirLabel = helpIcon(workspaceHelpText);
         GridPane.setValignment(workspaceDirLabel, VPos.CENTER);
         workspaceDirPane.add(workspaceDirLabel, 1, 0);
 
         workspace.getTextField().validProperty().addListener((o, oldVal, newVal) -> saveWorkspaceOnExit.setDisable(
                 isBlank(workspace.getTextField().getText()) || newVal != FXValidationSupport.ValidationState.VALID));
         workspace.getTextField().validate();
-        getChildren().addAll(new Label(i18n().tr("Default working directory:")), workigDirPane,
-                new Label(i18n().tr("Load default workspace at startup:")), workspaceDirPane, saveWorkspaceOnExit,
-                savePwdInWorkspace);
+        var workingDirSectionLabel = new Label(i18n().tr("Default working directory:"));
+        workingDirSectionLabel.setLabelFor(workingDirectory.getTextField());
+        var workspaceSectionLabel = new Label(i18n().tr("Load default workspace at startup:"));
+        workspaceSectionLabel.setLabelFor(workspace.getTextField());
+        getChildren().addAll(workingDirSectionLabel, workigDirPane, workspaceSectionLabel, workspaceDirPane,
+                saveWorkspaceOnExit, savePwdInWorkspace);
         getStyleClass().addAll(Style.CONTAINER.css());
     }
 }

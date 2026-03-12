@@ -23,6 +23,7 @@ import jakarta.inject.Named;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -86,9 +87,13 @@ public class OpenWithDialog extends Stage {
         BorderPane.setAlignment(messageTitle, Pos.TOP_CENTER);
 
         filesList.setPrefHeight(150);
+        filesList.setAccessibleText(i18n().tr("PDF files to open"));
+        filesList.setAccessibleRoleDescription(i18n().tr("file list"));
         containerPane.setCenter(filesList);
 
         buttons.getStyleClass().addAll(Style.CONTAINER.css());
+        buttons.setAccessibleRole(AccessibleRole.TOOL_BAR);
+        buttons.setAccessibleText(i18n().tr("Available tasks"));
         containerPane.setBottom(buttons);
         BorderPane.setAlignment(buttons, Pos.CENTER);
 

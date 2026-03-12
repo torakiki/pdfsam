@@ -46,6 +46,8 @@ public class BrowsablePdfOutputField extends BrowsableFileField implements
     public BrowsablePdfOutputField() {
         super(FileType.PDF, OpenType.SAVE);
         this.enforceValidation(false, false);
+        setFieldPromptAndAccessibleText(i18n().tr("Select a PDF destination file"));
+        setBrowseButtonAccessibleText(i18n().tr("Browse for destination PDF file"));
     }
 
     @Override

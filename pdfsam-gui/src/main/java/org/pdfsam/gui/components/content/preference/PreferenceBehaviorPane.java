@@ -45,9 +45,12 @@ class PreferenceBehaviorPane extends GridPane {
             @Named("checkForNews") PreferenceCheckBox checkForNews,
             @Named("clearConfirmation") PreferenceCheckBox clearConfirmation) {
 
-        add(new Label(i18n().tr("Log register rows:")), 0, 1);
+        var logViewRowsLabel = new Label(i18n().tr("Log register rows") + ":");
+        logViewRowsLabel.setLabelFor(logViewRowsNumber);
+        add(logViewRowsLabel, 0, 1);
         setFillWidth(logViewRowsNumber, true);
         logViewRowsNumber.setMaxWidth(Double.POSITIVE_INFINITY);
+        logViewRowsNumber.setAccessibleHelp(i18n().tr("Maximum number of rows displayed by the Log register"));
         add(logViewRowsNumber, 1, 1);
         add(helpIcon(i18n().tr("Maximum number of rows displayed by the Log register")), 2, 1);
 

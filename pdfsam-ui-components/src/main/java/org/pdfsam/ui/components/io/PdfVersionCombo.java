@@ -61,6 +61,8 @@ class PdfVersionCombo extends ComboBox<PdfVersionComboItem> implements ToolBound
 
         versionsFilter.requiredProperty().addListener((observable, oldVal, newVal) -> setFilteredItems(newVal));
         resetView();
+        setAccessibleText(i18n().tr("Output PDF version"));
+        setAccessibleRoleDescription(i18n().tr("Output PDF version selector"));
         eventStudio().addAnnotatedListeners(this);
     }
 

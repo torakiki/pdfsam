@@ -57,6 +57,7 @@ public class HomePane extends VBox {
                     toolCategory.getStyleClass().add("modules-tile-title");
                     this.getChildren().add(toolCategory);
                     var toolsPane = new FlowPane();
+                    toolCategory.setLabelFor(toolsPane);
                     toolsPane.getStyleClass().add("home-tools");
                     entry.getValue().stream().sorted(Comparator.comparing(t -> t.descriptor().name())).map(ToolsHomeTile::new)
                             .forEach(toolsPane.getChildren()::add);
@@ -70,11 +71,12 @@ public class HomePane extends VBox {
         if (!e.premiumTools().isEmpty()) {
             Label premiumTile = new Label(i18n().tr("Premium features"));
             premiumTile.getStyleClass().add("modules-tile-title");
-            var permiumToolsPanel = new FlowPane();
-            permiumToolsPanel.getStyleClass().add("home-tools");
+            var premiumToolsPanel = new FlowPane();
+            premiumTile.setLabelFor(premiumToolsPanel);
+            premiumToolsPanel.getStyleClass().add("home-tools");
             e.premiumTools().stream().sorted(Comparator.comparingInt(PremiumTool::id)).map(PremiumToolTile::new)
-                    .forEach(permiumToolsPanel.getChildren()::add);
-            Platform.runLater(() -> this.getChildren().addAll(premiumTile, permiumToolsPanel));
+                    .forEach(premiumToolsPanel.getChildren()::add);
+            Platform.runLater(() -> this.getChildren().addAll(premiumTile, premiumToolsPanel));
         }
     }
 

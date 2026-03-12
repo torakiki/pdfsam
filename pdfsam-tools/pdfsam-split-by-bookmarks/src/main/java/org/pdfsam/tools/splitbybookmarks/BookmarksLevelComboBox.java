@@ -39,16 +39,18 @@ import static java.util.Optional.ofNullable;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
- * Combo box letting the user specify the filesize in the split by size task
- * 
- * @author Andrea Vacondio
+ * Combo box letting the user select the bookmark level at which to split the document
  *
+ * @author Andrea Vacondio
  */
 class BookmarksLevelComboBox extends ComboBox<String>
         implements TaskParametersBuildStep<SplitByOutlineLevelParametersBuilder>, RestorableView, ResettableView {
     private final FXValidationSupport<String> validationSupport = new FXValidationSupport<>();
 
     BookmarksLevelComboBox() {
+        setAccessibleText(i18n().tr("Bookmark level"));
+        setAccessibleRoleDescription(i18n().tr("Bookmark level selector"));
+        setPromptText(i18n().tr("Select a bookmark level"));
         validationSupport.setValidator(Validators.alwaysFalse());
         setEditable(true);
         getSelectionModel().selectFirst();
@@ -56,11 +58,12 @@ class BookmarksLevelComboBox extends ComboBox<String>
         validationSupport.validationStateProperty().addListener(o -> {
             if (validationSupport.validationStateProperty().get() == ValidationState.INVALID) {
                 getEditor().getStyleClass().addAll(Style.INVALID.css());
+                setAccessibleHelp(i18n().tr("Invalid bookmarks level"));
             } else {
                 getEditor().getStyleClass().removeAll(Style.INVALID.css());
+                setAccessibleHelp(null);
             }
         });
-      
     }
 
     public void setValidBookmarkLevels(SortedSet<Integer> levels) {

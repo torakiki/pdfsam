@@ -53,9 +53,10 @@ class ExtractOptionsPane extends GridPane
     private final CheckBox separateFile;
 
     ExtractOptionsPane() {
+        var separateFileHelp = i18n().tr("Each continuous series of pages will generate a separate PDF file");
         this.separateFile = new CheckBox(i18n().tr("A separate file for each set of pages"));
-        this.separateFile.setGraphic(
-                helpIcon(i18n().tr("Each continuous series of pages will generate a separate PDF file")));
+        this.separateFile.setGraphic(helpIcon(separateFileHelp));
+        this.separateFile.setAccessibleHelp(separateFileHelp);
         this.separateFile.getStyleClass().addAll(Style.WITH_HELP.css());
         this.separateFile.setId("separateFile");
 
@@ -72,17 +73,21 @@ class ExtractOptionsPane extends GridPane
         this.field.setErrorMessage(i18n().tr("Invalid page ranges"));
         this.field.setId("extractRanges");
         this.field.setPrefWidth(400);
+        var fieldHelp = i18n().tr(
+                "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)");
+        this.field.setAccessibleHelp(fieldHelp);
+
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
         var label = new Label(i18n().tr("Extract pages:"));
+        label.setLabelFor(field);
         GridPane.setValignment(label, VPos.BOTTOM);
         GridPane.setHalignment(label, HPos.LEFT);
         add(label, 0, 0);
         GridPane.setValignment(field, VPos.BOTTOM);
         GridPane.setHalignment(field, HPos.LEFT);
         add(field, 1, 0);
-        var helpIcon = helpIcon(
-                i18n().tr("Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"));
+        var helpIcon = helpIcon(fieldHelp);
         GridPane.setValignment(helpIcon, VPos.CENTER);
         add(helpIcon, 2, 0);
         GridPane.setValignment(separateFile, VPos.BOTTOM);

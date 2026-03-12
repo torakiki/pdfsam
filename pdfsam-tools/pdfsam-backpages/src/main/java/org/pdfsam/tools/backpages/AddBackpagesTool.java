@@ -1,4 +1,3 @@
-package org.pdfsam.tools.backpages;
 /*
  * This file is part of the PDF Split And Merge source code
  * Created on 23/11/22
@@ -17,8 +16,10 @@ package org.pdfsam.tools.backpages;
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package org.pdfsam.tools.backpages;
 
 import jakarta.inject.Named;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -73,6 +74,7 @@ public class AddBackpagesTool implements Tool {
     public Node graphic() {
         var icon = new FontIcon(UniconsLine.ALIGN_LETTER_RIGHT);
         icon.getStyleClass().addAll(this.descriptor().category().styleClass(), "tool-icon");
+        icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
         return icon;
     }
 

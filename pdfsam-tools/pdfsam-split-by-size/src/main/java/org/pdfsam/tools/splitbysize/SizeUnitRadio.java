@@ -24,6 +24,7 @@ import org.pdfsam.model.ui.workspace.RestorableView;
 import java.util.Map;
 import java.util.Optional;
 
+import static org.pdfsam.i18n.I18nContext.i18n;
 import static org.sejda.commons.util.RequireUtils.requireNotNullArg;
 
 /**
@@ -40,6 +41,7 @@ class SizeUnitRadio extends RadioButton implements RestorableView {
         this.unit = unit;
         this.setText(unit.friendlyName());
         this.setId("unit" + unit.symbol());
+        this.setAccessibleHelp(i18n().tr("Size unit for the split file size"));
     }
 
     @Override

@@ -121,7 +121,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             "application/x-java-table-selection-list");
 
     private final String toolBinding;
-    private final Label placeHolder = new Label(i18n().tr("Drag and drop PDF files here"));
+    private final Label placeHolder = new Label(i18n().tr("Drag and drop PDF files here or use the Add button above"));
     private final PasswordFieldPopup passwordPopup;
     private final IntegerProperty hoverIndex = new SimpleIntegerProperty(-1);
     private Consumer<SelectionChangedEvent> selectionChangedConsumer;
@@ -156,6 +156,10 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
         placeHolder.getStyleClass().add("drag-drop-placeholder");
         placeHolder.setDisable(true);
         setPlaceholder(placeHolder);
+        setAccessibleText(i18n().tr("PDF documents selection table"));
+        setAccessibleRoleDescription(i18n().tr("PDF selection table"));
+        getItems().addListener((Change<? extends SelectionTableRowData> c) -> setAccessibleText(
+                i18n().tr("PDF documents selection table, {0} documents", Integer.toString(getItems().size()))));
         passwordPopup = new PasswordFieldPopup(this.toolBinding);
 
         ContextMenu contextMenu = new ContextMenu();
@@ -596,8 +600,7 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                     anchorX = owner.getX() + owner.getWidth() / 2.0;
                     anchorY = localToScreen(getLayoutBounds()).getCenterY();
                 } else {
-                    Point2D nodeCoord = reqNode.localToScene(reqNode.getWidth() / 2,
-                            reqNode.getHeight() / 1.5);
+                    Point2D nodeCoord = reqNode.localToScene(reqNode.getWidth() / 2, reqNode.getHeight() / 1.5);
                     anchorX = Math.round(owner.getX() + scene.getX() + nodeCoord.getX() + 2);
                     anchorY = Math.round(owner.getY() + scene.getY() + nodeCoord.getY() + 2);
                 }

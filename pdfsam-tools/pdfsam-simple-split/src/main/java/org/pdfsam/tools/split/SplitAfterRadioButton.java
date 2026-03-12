@@ -50,12 +50,15 @@ class SplitAfterRadioButton extends RadioButton
 
     public SplitAfterRadioButton(ValidableTextField field) {
         super(i18n().tr("Split after the following page numbers"));
+        this.setAccessibleHelp(i18n().tr("Select to split the document after specific page numbers"));
         this.field = field;
         this.field.setOnEnterValidation(true);
         this.field.setEnableInvalidStyle(true);
         this.field.setPromptText(i18n().tr("Page numbers to split at (n1,n2,n3..)"));
         this.field.setValidator(Validators.regexMatching("^([1-9]\\d*(\\s*,\\s*)?)+$"));
         this.field.setErrorMessage(i18n().tr("Invalid page numbers"));
+        this.field.setAccessibleText(i18n().tr("Page numbers to split at"));
+        this.field.setAccessibleHelp(i18n().tr("Enter comma separated positive page numbers (Ex. 1,5,12...)"));
     }
 
     @Override

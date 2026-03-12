@@ -19,6 +19,7 @@
 package org.pdfsam.gui.components.dialog;
 
 import javafx.application.Platform;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -39,17 +40,18 @@ public class ConfirmationDialog extends Stage {
 
     private final ConfirmationDialogContent dialogContent;
     private boolean response = false;
+    private VBox containerPane = new VBox();
 
     public ConfirmationDialog(DialogStyle style, Stage owner, String positiveButtonText, String negativeButtonText) {
         initModality(Modality.WINDOW_MODAL);
         initStyle(StageStyle.UTILITY);
         initOwner(owner);
         this.dialogContent = new ConfirmationDialogContent(style.icon);
-        VBox containerPane = new VBox();
+        containerPane.setAccessibleRole(AccessibleRole.DIALOG);
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.getStyleClass().addAll("-pdfsam-dialog", style.style);
-        HBox buttons = new HBox(buildPositiveButton(positiveButtonText, true),
-                buildCancelButton(negativeButtonText, false));
+        var positiveButton = buildPositiveButton(positiveButtonText, true);
+        HBox buttons = new HBox(positiveButton, buildCancelButton(negativeButtonText, false));
         buttons.getStyleClass().add("-pdfsam-dialog-buttons");
         containerPane.getChildren().addAll(dialogContent, buttons);
         Scene scene = new Scene(containerPane);
@@ -59,8 +61,8 @@ public class ConfirmationDialog extends Stage {
             Platform.runLater(() -> {
                 setResizable(false);
                 getScene().getWindow().sizeToScene();
+                positiveButton.requestFocus();
             });
-            requestFocus();
         });
     }
 
@@ -74,8 +76,9 @@ public class ConfirmationDialog extends Stage {
         return this;
     }
 
-    ConfirmationDialog messageContent(String title) {
-        dialogContent.messageContent(title);
+    ConfirmationDialog messageContent(String content) {
+        dialogContent.messageContent(content);
+        containerPane.setAccessibleText(content);
         return this;
     }
 

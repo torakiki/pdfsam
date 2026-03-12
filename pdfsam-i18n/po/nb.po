@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"PO-Revision-Date: 2026-02-24 17:19+0100\n"
 "Last-Translator: Arne Hanssen <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: nb\n"
 
 msgid "No PDF document has been selected"
@@ -163,8 +163,8 @@ msgstr "Størrelse å dele ved"
 msgid "Size must be a number"
 msgstr "Størrelse må være et tall"
 
-msgid "Split at this size:"
-msgstr "Del ved størrelse:"
+#~ msgid "Split at this size:"
+#~ msgstr "Del ved størrelse:"
 
 msgid "Invalid split size"
 msgstr "Ugyldig delstørrelse"
@@ -202,8 +202,8 @@ msgstr "180 grader mot klokken"
 msgid "90 degrees counterclockwise"
 msgstr "90 grader mot klokken"
 
-msgid "Rotate "
-msgstr "Roter "
+#~ msgid "Rotate "
+#~ msgstr "Roter "
 
 msgid "Rotate settings"
 msgstr "Roter innstillinger"
@@ -214,11 +214,11 @@ msgstr "Rotér"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Roter sidene i flere PDF dokumenter."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dobbeltklikk for å velge sider du ønsker å rotere (eks: 2 eller 5-23 eller "
-"2,5-7,12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Dobbeltklikk for å velge sider du ønsker å rotere (eks: 2 eller 5-23 eller "
+#~ "2,5-7,12-)"
 
 msgid "Merge settings"
 msgstr "Innstillinger for sammenføyninger"
@@ -254,8 +254,8 @@ msgstr "Samme bredde som første side"
 msgid "Same width as first page (based on page orientation)"
 msgstr "Samme bredde som første side (basert på sideretning)"
 
-msgid "Pages normalization:"
-msgstr "Sidenormalisering:"
+#~ msgid "Pages normalization:"
+#~ msgstr "Sidenormalisering:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -276,8 +276,8 @@ msgstr "Flat ut"
 msgid "Discard forms"
 msgstr "Slett skjema"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Internaktive skjema (\"AcroForms\"):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Internaktive skjema (\"AcroForms\"):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr "Hva skal gjøres om inndokumentet inneholder \"Acro Forms\""
@@ -294,8 +294,8 @@ msgstr "Lag ett merke for hvert sammenslåtte dokument"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Behold bokmerker som et merke for hvert sammenslått dokument"
 
-msgid "Bookmarks handling:"
-msgstr "Bokmerke håndtering:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Bokmerke håndtering:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
@@ -310,8 +310,8 @@ msgstr "Lag fra filnavn"
 msgid "Generate from documents titles"
 msgstr "Lag fra dokumenttitler"
 
-msgid "Table of contents:"
-msgstr "Innholdsfortegnelse:"
+#~ msgid "Table of contents:"
+#~ msgstr "Innholdsfortegnelse:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -610,32 +610,32 @@ msgstr "Hjem"
 msgid "Premium features"
 msgstr "Premium funksjoner"
 
-msgid "Log register rows:"
-msgstr "Rader i loggregisteret:"
+#~ msgid "Log register rows:"
+#~ msgstr "Rader i loggregisteret:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Maksimalt antall rader vist av loggregisteret"
 
-msgid "Language:"
-msgstr "Språk:"
+#~ msgid "Language:"
+#~ msgstr "Språk:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Velg ditt foretrekkende språk (krever omstart)"
 
-msgid "Startup tool:"
-msgstr "Oppstartsverktøy:"
+#~ msgid "Startup tool:"
+#~ msgstr "Oppstartsverktøy:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr "Angi verktøyet til å åpne ved programstart (omstart kreves)"
 
-msgid "Theme:"
-msgstr "Tema:"
+#~ msgid "Theme:"
+#~ msgstr "Tema:"
 
 msgid "Set the application theme"
 msgstr "Angi programtemaet"
 
-msgid "Font size:"
-msgstr "Skriftstørrelse:"
+#~ msgid "Font size:"
+#~ msgstr "Skriftstørrelse:"
 
 msgid "Set the application font size"
 msgstr "Angi skriftstørrelsen for programmet"
@@ -981,8 +981,8 @@ msgstr "Skriv inn ditt brukerpassord"
 msgid "Unlock"
 msgstr "Lås opp"
 
-msgid "Drag and drop PDF files here"
-msgstr "Dra og slipp PDF-filer hit"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Dra og slipp PDF-filer hit"
 
 msgid "Set as range for all"
 msgstr "Sett område for alle"
@@ -1078,8 +1078,8 @@ msgstr "Sider"
 msgid "Number of total pages of the document"
 msgstr "Totalt antall sider i dokumentet"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "Dobbeltklikk for å velge sider (eks: 2 eller 5-23 eller 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "Dobbeltklikk for å velge sider (eks: 2 eller 5-23 eller 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Sideområde"
@@ -1302,8 +1302,8 @@ msgstr "Feil ved lagring av innhold til utklippstavlen"
 msgid "Follow us on Bluesky"
 msgstr "Følg oss på Bluesky"
 
-msgid "Font:"
-msgstr "Skrift:"
+#~ msgid "Font:"
+#~ msgstr "Skrift:"
 
 msgid "Sets the application font"
 msgstr "Angir programskriften"
@@ -1327,4 +1327,317 @@ msgid "Do you want to save it?"
 msgstr "Vil du lagre den?"
 
 msgid "Set as pace for all"
+msgstr "Sett som tempo for alle"
+
+msgid "Split at this bookmark level"
+msgstr "Del på dette bokmerkenivået"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "Velg bokmerkedybdenivået som dokumentet skal deles ved"
+
+msgid "Bookmark level"
+msgstr "Bokmerkenivå"
+
+msgid "Bookmark level selector"
+msgstr "Bokmerkenivåvelger"
+
+msgid "Select a bookmark level"
+msgstr "Velg et bokmerkenivå"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "Velg å dele PDF-en etter et forhåndsdefinert sett med sider"
+
+msgid "Predefined set of pages to split after"
+msgstr "Forhåndsdefinert sideutvalg å dele etter"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
 msgstr ""
+"Velg forhåndsdefinert sideutvalg å splitte etter (oddetallssider, "
+"partallssider eller hver side)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Velg å dele dokumentet etter bestemte sidetall"
+
+msgid "Page numbers to split at"
+msgstr "Sidenumre å dele ved"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "Skriv inn kommaseparerte positive sidetall (F.eks. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Velg å dele dokumentet hver 'n' side"
+
+msgid "Number of pages for split"
+msgstr "Antall sider per deling"
+
+msgid "Enter a positive number of pages"
+msgstr "Skriv inn et positivt antall sider"
+
+msgid "Split at this size"
+msgstr "Del ved denne størrelsen"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Skriv inn et positivt heltall for maksimal filstørrelse"
+
+msgid "Size unit for the split file size"
+msgstr "Størrelsesenhet for delt filstørrelse"
+
+msgid "Page selection for rotation"
+msgstr "Sidevalg til rotasjon"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Velg hvilke sider som skal roteres: alle, partall, eller oddetall"
+
+msgid "Rotation angle"
+msgstr "Rotasjonsvinkel"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Velg rotasjonsvinkelen som skal brukes"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Angi sider du vil rotere (f.eks.: 2 eller 5-23 eller 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Sidenormalisering"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Interaktive skjemaer (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Bokmerkehåndtering"
+
+msgid "Table of contents"
+msgstr "Innholdsfortegnelse"
+
+msgid "Repeating PDF file"
+msgstr "Gjentakende PDF-fil"
+
+msgid "There are news available"
+msgstr "Det er nyheter tilgjengelige"
+
+msgid "selected"
+msgstr "valgt"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (med varsling)"
+
+msgid "Collapse the sidebar"
+msgstr "Skjul sidepanelet"
+
+msgid "Expand the sidebar"
+msgstr "Utvid sidepanelet"
+
+msgid "PDF files to open"
+msgstr "PDF-filer å åpne"
+
+msgid "file list"
+msgstr "filliste"
+
+msgid "Available tasks"
+msgstr "Tilgjengelige oppgaver"
+
+msgid "Log messages"
+msgstr "Loggmeldinger"
+
+msgid "Save the log messages to a text file"
+msgstr "Lagre loggmeldingene til en tekstfil"
+
+msgid "Close the log panel"
+msgstr "Lukk loggpanelet"
+
+msgid "News items"
+msgstr "Nyheter"
+
+msgid "Close news panel"
+msgstr "Lukk nyhetspanel"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Hjelp for {0}"
+
+msgid "Log register rows"
+msgstr "Logg registerrader"
+
+msgid "Language"
+msgstr "Språk"
+
+msgid "Startup tool"
+msgstr "Oppstartsverktøy"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "Font"
+msgstr "Skrift"
+
+msgid "Font size"
+msgstr "Skriftstørrelse"
+
+msgid "Default PDF version"
+msgstr "Standard PDF-versjon"
+
+msgid "Manually select the output destination directory"
+msgstr "Velg manuelt utdatamappen"
+
+msgid "Default prefix"
+msgstr "Standard prefiks"
+
+msgid "Default prefix for output file names"
+msgstr "Standard prefiks for utdatafilnavn"
+
+msgid "Right click to add special prefix keywords"
+msgstr "Høyreklikk for å legge til spesielle prefiks-nøkkelord"
+
+msgid "Properties table"
+msgstr "Egenskapstabell"
+
+msgid "Properties"
+msgstr "Egenskaper"
+
+msgid "Empty"
+msgstr "Tom"
+
+msgid "Notification"
+msgstr "Varsel"
+
+msgid "Close notification"
+msgstr "Lukk varsel"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Åpne URL-en {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "Fjern det valgte PDF-dokumentet"
+
+msgid "PDF encryption status"
+msgstr "PDF krypteringsstatus"
+
+msgid "PDF document password"
+msgstr "PDF-dokumentpassord"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "Dra og slipp PDF-filer her eller bruk Legg til-knappen over"
+
+msgid "PDF documents selection table"
+msgstr "PDF-dokumentvalgtabell"
+
+msgid "PDF selection table"
+msgstr "PDF-valgtabell"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "Tabell for valg av PDF-dokumenter, {0} dokumenter"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} valgte sider"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Størrelse: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Endret: {0}"
+
+msgid "Number of total pages"
+msgstr "Totalt antall sider"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Filnavn: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Rad {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} sider"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Angi valgte sider (f.eks.: 2 eller 5-23 eller 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Velg en PDF-destinasjonsfil"
+
+msgid "Browse for destination PDF file"
+msgstr "Bla gjennom for destinasjons-PDF-fil"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Bla gjennom for {0}"
+
+msgid "Compress the output PDF file"
+msgstr "Komprimer den utgående PDF-filen"
+
+msgid "Select a PDF file"
+msgstr "Velg en PDF-fil"
+
+msgid "Browse for source PDF file"
+msgstr "Bla gjennom kilde-PDF-fil"
+
+msgid "Output PDF version"
+msgstr "Utdata PDF-versjon"
+
+msgid "Output PDF version selector"
+msgstr "Utdata-PDF-versjonsvelger"
+
+msgid "Output directory"
+msgstr "Utdatamappe"
+
+msgid "Browse for output directory"
+msgstr "Bla gjennom utdatamappe"
+
+msgid "Browse for directory"
+msgstr "Bla gjennom etter mappe"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Ugyldig verdi: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "Når valgt, krever PDF-versjon {0} eller høyere for utdatafilen"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Høyreklikk for å legge til spesielle prefiks-nøkkelord som tidsstempel eller "
+"filnavn"
+
+msgid "Open the task output file"
+msgstr "Åpne oppgaveutdatafilen"
+
+msgid "Open the task output directory"
+msgstr "Åpne utdatamappen for oppgaven"
+
+msgid "Task footer"
+msgstr "Oppgavebunntekst"
+
+msgid "Task progress"
+msgstr "Oppgavefremdrift"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Oppgavefremdrift: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Oppgavestatus: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Oppgavestatus: {0}%"

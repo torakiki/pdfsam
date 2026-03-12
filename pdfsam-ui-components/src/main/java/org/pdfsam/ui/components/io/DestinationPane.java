@@ -45,6 +45,8 @@ class DestinationPane extends VBox implements ResettableView {
         overwrite.setSelected(false);
         overwrite.setGraphic(
                 helpIcon(i18n().tr("Tick the box if you want to overwrite the output files if they already exist.")));
+        overwrite.setAccessibleHelp(
+                i18n().tr("Tick the box if you want to overwrite the output files if they already exist."));
         overwrite.getStyleClass().addAll(Style.WITH_HELP.css());
 
        // destination.getStyleClass().addAll(Style.VITEM.css());

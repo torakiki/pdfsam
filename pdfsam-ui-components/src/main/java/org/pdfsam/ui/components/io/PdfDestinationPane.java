@@ -82,6 +82,7 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
         version = new PdfVersionCombo(toolBinding);
         compress = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_5, toolBinding);
         compress.setText(i18n().tr("Compress output file/files"));
+        compress.setAccessibleHelp(i18n().tr("Compress the output PDF file"));
         compress.setSelected(app().persistentSettings().get(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED));
         compress.setId("compressField");
         compress.getStyleClass().addAll(Style.VITEM.css());
@@ -90,6 +91,8 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
             CheckBox discardBookmarksField = new CheckBox(i18n().tr("Discard bookmarks"));
             discardBookmarksField.setGraphic(helpIcon(
                     i18n().tr("Tick the box if you don't want to retain any bookmark from the original PDF document")));
+            discardBookmarksField.setAccessibleHelp(
+                    i18n().tr("Tick the box if you don't want to retain any bookmark from the original PDF document"));
             discardBookmarksField.getStyleClass().addAll(Style.WITH_HELP.css());
             discardBookmarksField.getStyleClass().addAll(Style.VITEM.css());
             discardBookmarksField.setId("discardBookmarksField");
@@ -97,7 +100,9 @@ public class PdfDestinationPane extends DestinationPane implements ToolBound, Re
                     app().persistentSettings().get(BooleanPersistentProperty.DISCARD_BOOKMARKS));
             discardBookmarks = Optional.of(discardBookmarksField);
         }
-        HBox versionPane = new HBox(new Label(i18n().tr("Output PDF version:")), version);
+        var versionLabel = new Label(i18n().tr("Output PDF version:"));
+        versionLabel.setLabelFor(version);
+        HBox versionPane = new HBox(versionLabel, version);
         versionPane.getStyleClass().addAll(Style.VITEM.css());
         versionPane.getStyleClass().addAll(Style.HCONTAINER.css());
         advancedPanel.getChildren().add(compress);

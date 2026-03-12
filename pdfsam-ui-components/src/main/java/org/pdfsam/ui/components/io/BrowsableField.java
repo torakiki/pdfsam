@@ -19,8 +19,10 @@
 package org.pdfsam.ui.components.io;
 
 import javafx.css.PseudoClass;
+import javafx.scene.AccessibleAttribute;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.Clipboard;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -87,8 +89,12 @@ abstract class BrowsableField extends HBox implements RestorableView {
         textField.validProperty().addListener((o, oldValue, newValue) -> {
             if (newValue == FXValidationSupport.ValidationState.INVALID) {
                 validableContainer.getStyleClass().addAll(Style.INVALID.css());
+                textField.setAccessibleText(i18n().tr("Invalid value: {0}", textField.getPromptText()));
+                textField.notifyAccessibleAttributeChanged(AccessibleAttribute.TEXT);
             } else {
                 validableContainer.getStyleClass().removeAll(Style.INVALID.css());
+                textField.setAccessibleText(textField.getPromptText());
+                textField.notifyAccessibleAttributeChanged(AccessibleAttribute.TEXT);
             }
         });
         textField.focusedProperty().addListener(
@@ -119,6 +125,22 @@ abstract class BrowsableField extends HBox implements RestorableView {
             validableContainer.getChildren().add(value);
         }
         validableContainer.getChildren().add(textField);
+    }
+
+    /**
+     * Sets both prompt text and accessible text on the text field, keeping them in sync.
+     */
+    protected void setFieldPromptAndAccessibleText(String text) {
+        textField.setPromptText(text);
+        textField.setAccessibleText(text);
+    }
+
+    /**
+     * Sets accessible text and tooltip on the browse button for screen reader context.
+     */
+    protected void setBrowseButtonAccessibleText(String text) {
+        browseButton.setAccessibleText(text);
+        browseButton.setTooltip(new Tooltip(text));
     }
 
     Button getBrowseButton() {

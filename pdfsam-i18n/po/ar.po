@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2025-10-23 12:56+0200\n"
+"PO-Revision-Date: 2026-02-24 16:37+0100\n"
 "Last-Translator: Bouzid Zeroug <Unknown>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-07-23 08:44+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: ar\n"
 
 msgid "No PDF document has been selected"
@@ -168,8 +168,8 @@ msgstr "تعيين الحجم الذي تريد تقسيمه"
 msgid "Size must be a number"
 msgstr "يجب أن يكون الحجم رقمًا"
 
-msgid "Split at this size:"
-msgstr "مقسمة بهذا الحجم:"
+#~ msgid "Split at this size:"
+#~ msgstr "مقسمة بهذا الحجم:"
 
 msgid "Invalid split size"
 msgstr "حجم تقسيم غير صالح"
@@ -207,8 +207,8 @@ msgstr "180 درجة في اتجاه عقارب الساعة"
 msgid "90 degrees counterclockwise"
 msgstr "90 درجة عكس اتجاه عقارب الساعة"
 
-msgid "Rotate "
-msgstr "تدوير "
+#~ msgid "Rotate "
+#~ msgstr "تدوير "
 
 msgid "Rotate settings"
 msgstr "تدوير الإعدادات"
@@ -219,11 +219,11 @@ msgstr "تدوير"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "تدوير صفحات مستندات PDF المتعددة."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"انقر نقرًا مزدوجًا لتعيين الصفحات التي تريد تدويرها (على سبيل المثال: 2 أو 5-"
-"23 أو 2، 5-7، 12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "انقر نقرًا مزدوجًا لتعيين الصفحات التي تريد تدويرها (على سبيل المثال: 2 أو 5-"
+#~ "23 أو 2، 5-7، 12-)"
 
 msgid "Merge settings"
 msgstr "دمج الإعدادات"
@@ -259,8 +259,8 @@ msgstr "نفس عرض الصفحة الأولى"
 msgid "Same width as first page (based on page orientation)"
 msgstr "نفس عرض الصفحة الأولى (بناءً على اتجاه الصفحة)"
 
-msgid "Pages normalization:"
-msgstr "توحيد الصفحات"
+#~ msgid "Pages normalization:"
+#~ msgstr "توحيد الصفحات"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -281,8 +281,8 @@ msgstr "تسطيح"
 msgid "Discard forms"
 msgstr "التخلص من النماذج"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "النماذج التفاعلية (AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "النماذج التفاعلية (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr "ما يجب فعله في حالة احتواء مستند إدخال واحد أو أكثر على نماذج Acro"
@@ -299,8 +299,8 @@ msgstr "إنشاء إدخال واحد لكل مستند مدمج"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "الاحتفاظ بالإشارات المرجعية كمدخل واحد لكل مستند مدمج"
 
-msgid "Bookmarks handling:"
-msgstr "التعامل مع الإشارات المرجعية:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "التعامل مع الإشارات المرجعية:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr ""
@@ -316,8 +316,8 @@ msgstr "إنشاء من أسماء الملفات"
 msgid "Generate from documents titles"
 msgstr "إنشاء عناوين من المستندات"
 
-msgid "Table of contents:"
-msgstr "جدول المحتويات:"
+#~ msgid "Table of contents:"
+#~ msgstr "جدول المحتويات:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -619,32 +619,32 @@ msgstr "الرئيسية"
 msgid "Premium features"
 msgstr "مميزات العضوية المميزة"
 
-msgid "Log register rows:"
-msgstr "صفوف سجل التسجيل"
+#~ msgid "Log register rows:"
+#~ msgstr "صفوف سجل التسجيل"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "العدد الأقصى للصفوف المعروضة في سجل التسجيل"
 
-msgid "Language:"
-msgstr "اللغة:"
+#~ msgid "Language:"
+#~ msgstr "اللغة:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "قم بتعيين اللغة المفضلة لديك (يلزم إعادة التشغيل)"
 
-msgid "Startup tool:"
-msgstr "أداة بدء التشغيل:"
+#~ msgid "Startup tool:"
+#~ msgstr "أداة بدء التشغيل:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr "ضبط الأداة ليتم فتحها عند بدء تشغيل التطبيق (يلزم إعادة التشغيل)"
 
-msgid "Theme:"
-msgstr "السمة:"
+#~ msgid "Theme:"
+#~ msgstr "السمة:"
 
 msgid "Set the application theme"
 msgstr "تعيين مظهر التطبيق"
 
-msgid "Font size:"
-msgstr "حجم الخط:"
+#~ msgid "Font size:"
+#~ msgstr "حجم الخط:"
 
 msgid "Set the application font size"
 msgstr "تعيين حجم الخط في التطبيق"
@@ -1022,8 +1022,8 @@ msgstr "أدخل كلمة مرور المستخدم"
 msgid "Unlock"
 msgstr "إلغاء القفل"
 
-msgid "Drag and drop PDF files here"
-msgstr "اسحب وأفلِت ملفات PDF هنا"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "اسحب وأفلِت ملفات PDF هنا"
 
 msgid "Set as range for all"
 msgstr "تعيين كنطاق للجميع"
@@ -1129,10 +1129,10 @@ msgstr "الصفحات"
 msgid "Number of total pages of the document"
 msgstr "عدد الصفحات الاجمالية للوثيقة"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"انقر نقرًا مزدوجًا لتعيين الصفحات المحددة (على سبيل المثال: 2 أو 5-23 أو 2، "
-"5-7، 12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "انقر نقرًا مزدوجًا لتعيين الصفحات المحددة (على سبيل المثال: 2 أو 5-23 أو 2، "
+#~ "5-7، 12-)"
 
 msgid "Page ranges"
 msgstr "نطاقات الصفحات"
@@ -1276,8 +1276,8 @@ msgstr "رقم غير صالح: {0}."
 msgid "Follow us on Bluesky"
 msgstr "Последвайте ни в Bluesky"
 
-msgid "Font:"
-msgstr "Шрифт:"
+#~ msgid "Font:"
+#~ msgstr "Шрифт:"
 
 msgid "Sets the application font"
 msgstr "Задава шрифта на приложението"
@@ -1302,3 +1302,315 @@ msgstr "هل تريد حفظه"
 
 msgid "Set as pace for all"
 msgstr "تعيين كوتيرة للكل"
+
+msgid "Split at this bookmark level"
+msgstr "تقسيم عند مستوى الإشارة المرجعية هذا"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "حدد مستوى عمق الإشارة المرجعية الذي سيتم عنده تقسيم المستند"
+
+msgid "Bookmark level"
+msgstr "مستوى الإشارة المرجعية"
+
+msgid "Bookmark level selector"
+msgstr "محدد مستوى الإشارة المرجعية"
+
+msgid "Select a bookmark level"
+msgstr "حدد مستوى إشارة مرجعية"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "حدد لتقسيم ملف PDF بعد مجموعة صفحات محددة مسبقًا"
+
+msgid "Predefined set of pages to split after"
+msgstr "مجموعة صفحات مُحددة مسبقًا للتقسيم بعدها"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr ""
+"اختر مجموعة الصفحات المحددة مسبقًا للتقسيم بعدها (الصفحات الفردية، الصفحات "
+"الزوجية أو كل صفحة)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "حدد لتقسيم المستند بعد أرقام صفحات محددة"
+
+msgid "Page numbers to split at"
+msgstr "أرقام الصفحات للتقسيم عندها"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "أدخل أرقام صفحات موجبة مفصولة بفاصلة (مثال: 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "حدد لتقسيم المستند كل 'ن' صفحة"
+
+msgid "Number of pages for split"
+msgstr "عدد الصفحات للتقسيم"
+
+msgid "Enter a positive number of pages"
+msgstr "أدخل عددًا موجبًا من الصفحات"
+
+msgid "Split at this size"
+msgstr "تقسيم بهذا الحجم"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "أدخل عددًا صحيحًا موجبًا لحجم الملف الأقصى"
+
+msgid "Size unit for the split file size"
+msgstr "وحدة حجم الملف المقسم"
+
+msgid "Page selection for rotation"
+msgstr "تحديد الصفحات للتدوير"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "اختر الصفحات لتدويرها: الكل، الزوجية، أو الفردية"
+
+msgid "Rotation angle"
+msgstr "زاوية الدوران"
+
+msgid "Choose the rotation angle to apply"
+msgstr "اختر زاوية الدوران لتطبيقها"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "حدد الصفحات التي تريد تدويرها (مثلاً: 2 أو 5-23 أو 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "تسوية الصفحات"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "نماذج تفاعلية (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "إدارة الإشارات المرجعية"
+
+msgid "Table of contents"
+msgstr "جدول المحتويات"
+
+msgid "Repeating PDF file"
+msgstr "ملف PDF مكرر"
+
+msgid "There are news available"
+msgstr "توجد أخبار متاحة"
+
+msgid "selected"
+msgstr "مُحدد"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (مع إشعار)"
+
+msgid "Collapse the sidebar"
+msgstr "طي الشريط الجانبي"
+
+msgid "Expand the sidebar"
+msgstr "توسيع الشريط الجانبي"
+
+msgid "PDF files to open"
+msgstr "ملفات PDF للفتح"
+
+msgid "file list"
+msgstr "قائمة الملفات"
+
+msgid "Available tasks"
+msgstr "مهام متاحة"
+
+msgid "Log messages"
+msgstr "رسائل السجل"
+
+msgid "Save the log messages to a text file"
+msgstr "حفظ رسائل السجل إلى ملف نصي"
+
+msgid "Close the log panel"
+msgstr "إغلاق لوحة السجل"
+
+msgid "News items"
+msgstr "أخبار"
+
+msgid "Close news panel"
+msgstr "إغلاق لوحة الأخبار"
+
+#~ msgid "About panel"
+#~ msgstr "لوحة حول"
+
+#, java-format
+msgid "Help for {0}"
+msgstr "مساعدة لـ {0}"
+
+msgid "Log register rows"
+msgstr "صفوف سجل القيود"
+
+msgid "Language"
+msgstr "اللغة"
+
+msgid "Startup tool"
+msgstr "أداة بدء التشغيل"
+
+msgid "Theme"
+msgstr "نسق"
+
+msgid "Font"
+msgstr "خط"
+
+msgid "Font size"
+msgstr "حجم الخط"
+
+msgid "Default PDF version"
+msgstr "نسخة PDF الافتراضية"
+
+msgid "Manually select the output destination directory"
+msgstr "حدد يدويًا مجلد الوجهة للإخراج"
+
+msgid "Default prefix"
+msgstr "بادئة افتراضية"
+
+msgid "Default prefix for output file names"
+msgstr "بادئة افتراضية لأسماء ملفات الإخراج"
+
+msgid "Right click to add special prefix keywords"
+msgstr "انقر يمينًا لإضافة كلمات مفتاحية بادئة خاصة"
+
+msgid "Properties table"
+msgstr "جدول الخصائص"
+
+msgid "Properties"
+msgstr "خصائص"
+
+msgid "Empty"
+msgstr "فارغ"
+
+msgid "Notification"
+msgstr "إشعار"
+
+msgid "Close notification"
+msgstr "إغلاق الإشعار"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "افتح الرابط {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr "شريط أدوات اختيار مستند PDF"
+
+msgid "Clear the selected PDF document"
+msgstr "مسح المستند المحدد"
+
+msgid "PDF encryption status"
+msgstr "حالة تشفير PDF"
+
+msgid "PDF document password"
+msgstr "كلمة مرور مستند PDF"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "اسحب ملفات PDF وأفلتها هنا أو استخدم زر الإضافة أعلاه"
+
+msgid "PDF documents selection table"
+msgstr "جدول تحديد ملفات PDF"
+
+msgid "PDF selection table"
+msgstr "جدول تحديد PDF"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "جدول اختيار مستندات PDF، {0} مستندات"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} صفحات محددة"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "الحجم: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "معدل: {0}"
+
+msgid "Number of total pages"
+msgstr "عدد الصفحات الإجمالية"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "اسم الملف: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "صف {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr "شريط أدوات تحديد المستند"
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} صفحات"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "تعيين الصفحات المحددة (مثال: 2 أو 5-23 أو 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "حدد ملف PDF الوجهة"
+
+msgid "Browse for destination PDF file"
+msgstr "استعرض ملف PDF الوجهة"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "استعراض لـ {0}"
+
+msgid "Compress the output PDF file"
+msgstr "اضغط ملف PDF الناتج"
+
+msgid "Select a PDF file"
+msgstr "اختر ملف PDF"
+
+msgid "Browse for source PDF file"
+msgstr "استعراض ملف PDF المصدر"
+
+msgid "Output PDF version"
+msgstr "إصدار PDF الناتج"
+
+msgid "Output PDF version selector"
+msgstr "محدد إصدار PDF الناتج"
+
+msgid "Output directory"
+msgstr "مجلد الإخراج"
+
+msgid "Browse for output directory"
+msgstr "استعراض مجلد الإخراج"
+
+msgid "Browse for directory"
+msgstr "استعراض مجلد"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "قيمة غير صالحة: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "عند التحديد يتطلب إصدار PDF {0} أو أعلى لملف الإخراج"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"انقر بالزر الأيمن لإضافة كلمات بادئة خاصة مثل الطابع الزمني أو اسم الملف"
+
+msgid "Open the task output file"
+msgstr "افتح ملف إخراج المهمة"
+
+msgid "Open the task output directory"
+msgstr "افتح مجلد مخرجات المهمة"
+
+msgid "Task footer"
+msgstr "تذييل المهمة"
+
+msgid "Task progress"
+msgstr "تقدم المهمة"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "تقدم المهمة: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "حالة المهمة: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "حالة المهمة: {0}%"

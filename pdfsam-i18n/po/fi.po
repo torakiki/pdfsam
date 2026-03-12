@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2025-10-23 12:35+0200\n"
+"PO-Revision-Date: 2026-02-24 16:37+0100\n"
 "Last-Translator: Sami Kuusisto <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-04-22 14:00+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: fi\n"
 
 msgid "No PDF document has been selected"
@@ -166,8 +166,8 @@ msgstr "Aseta jakamiskoko"
 msgid "Size must be a number"
 msgstr "Koon pitää olla numero"
 
-msgid "Split at this size:"
-msgstr "Jaa tämän kokoisiksi:"
+#~ msgid "Split at this size:"
+#~ msgstr "Jaa tämän kokoisiksi:"
 
 msgid "Invalid split size"
 msgstr "Virheellinen jakamiskoko"
@@ -205,8 +205,8 @@ msgstr "180 astetta myötäpäivään"
 msgid "90 degrees counterclockwise"
 msgstr "90 astetta vastapäivään"
 
-msgid "Rotate "
-msgstr "Kierrä "
+#~ msgid "Rotate "
+#~ msgstr "Kierrä "
 
 msgid "Rotate settings"
 msgstr "Kiertoasetukset"
@@ -217,11 +217,11 @@ msgstr "Kierrä"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Kierrä useiden PDF-asiakirjojen sivuja."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Kaksoisnapsauta asettaaksesi kierrettävät sivut (esim. 2 tai 5-23 tai 2,5-"
-"7,12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Kaksoisnapsauta asettaaksesi kierrettävät sivut (esim. 2 tai 5-23 tai 2,5-"
+#~ "7,12-)"
 
 msgid "Merge settings"
 msgstr "Yhdistämisasetukset"
@@ -257,8 +257,8 @@ msgstr "Sama leveys kuin ensimmäisellä sivulla"
 msgid "Same width as first page (based on page orientation)"
 msgstr "Sama leveys kuin ensimmäisellä sivulla (sivun suunnan perusteella)"
 
-msgid "Pages normalization:"
-msgstr "Sivujen normalisointi:"
+#~ msgid "Pages normalization:"
+#~ msgstr "Sivujen normalisointi:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -279,8 +279,8 @@ msgstr "Yhdistä tasot"
 msgid "Discard forms"
 msgstr "Hylkää lomakkeet"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Interaktiiviset lomakkeet (AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Interaktiiviset lomakkeet (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
@@ -300,8 +300,8 @@ msgstr ""
 "Säilytä kirjanmerkit yhtenä merkintänä jokaista yhdistettyä asiakirjaa "
 "varten"
 
-msgid "Bookmarks handling:"
-msgstr "Kirjanmerkkien käsittely:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Kirjanmerkkien käsittely:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "Mitä tehdä, jos yksi tai useampi asiakirja sisältää kirjanmerkkejä"
@@ -315,8 +315,8 @@ msgstr "Muodosta tiedostojen nimistä"
 msgid "Generate from documents titles"
 msgstr "Muodosta asiakirjojen otsikoista"
 
-msgid "Table of contents:"
-msgstr "Sisällysluettelo:"
+#~ msgid "Table of contents:"
+#~ msgstr "Sisällysluettelo:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -628,22 +628,22 @@ msgstr "Koti"
 msgid "Premium features"
 msgstr "Premium-ominaisuudet"
 
-msgid "Log register rows:"
-msgstr "Lokirekisterin rivit:"
+#~ msgid "Log register rows:"
+#~ msgstr "Lokirekisterin rivit:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Lokirekisterissä näytettävien rivien maksimimäärä"
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:125
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:116
-msgid "Language:"
-msgstr "Kieli:"
+#~ msgid "Language:"
+#~ msgstr "Kieli:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Valitse kieli (uudelleenkäynnistys tarvitaan)"
 
-msgid "Startup tool:"
-msgstr "Käynnistystyökalu:"
+#~ msgid "Startup tool:"
+#~ msgstr "Käynnistystyökalu:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
@@ -652,14 +652,14 @@ msgstr ""
 
 # F:\workspace_pdfsam_enhanced\pdfsam-maine\it\pdfsam\panels\JSettingsPanel.java:122
 # F:\workspace_pdfsam_basic\pdfsam-main\it\pdfsam\panels\JSettingsPanel.java:113
-msgid "Theme:"
-msgstr "Teema:"
+#~ msgid "Theme:"
+#~ msgstr "Teema:"
 
 msgid "Set the application theme"
 msgstr "Aseta sovelluksen teema"
 
-msgid "Font size:"
-msgstr "Fontin koko:"
+#~ msgid "Font size:"
+#~ msgstr "Fontin koko:"
 
 msgid "Set the application font size"
 msgstr "Aseta sovelluksen fonttikoko"
@@ -1051,8 +1051,8 @@ msgstr "Syötä käyttäjän salasana"
 msgid "Unlock"
 msgstr "Avaa lukitus"
 
-msgid "Drag and drop PDF files here"
-msgstr "Raahaa ja pudota PDF-asiakirjoja tähän"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Raahaa ja pudota PDF-asiakirjoja tähän"
 
 msgid "Set as range for all"
 msgstr "Aseta rajoiksi kaikille"
@@ -1151,9 +1151,9 @@ msgstr "Sivut"
 msgid "Number of total pages of the document"
 msgstr "Asiakirjan sivujen kokonaismäärä"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Kaksoisnapsauta asettaaksesi valitut sivut (esim. 2 tai 5-23 tai 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Kaksoisnapsauta asettaaksesi valitut sivut (esim. 2 tai 5-23 tai 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Sivualueet"
@@ -1367,8 +1367,8 @@ msgstr "Virhe sisällön tallentamisessa leikepöydälle"
 msgid "Follow us on Bluesky"
 msgstr "Seuraa meitä Blueskyssa"
 
-msgid "Font:"
-msgstr "Fontti:"
+#~ msgid "Font:"
+#~ msgstr "Fontti:"
 
 msgid "Sets the application font"
 msgstr "Asettaa sovelluksen fontin"
@@ -1393,3 +1393,319 @@ msgstr "Haluatko tallentaa sen"
 
 msgid "Set as pace for all"
 msgstr "Aseta malliksi kaikille"
+
+msgid "Split at this bookmark level"
+msgstr "Jaa tällä kirjanmerkkien tasolla"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "Valitse kirjanmerkin syvyystaso, jolla asiakirja jaetaan"
+
+msgid "Bookmark level"
+msgstr "Kirjanmerkin taso"
+
+msgid "Bookmark level selector"
+msgstr "Kirjanmerkin tason valitsin"
+
+msgid "Select a bookmark level"
+msgstr "Valitse kirjanmerkin taso"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "Valitse jakaa PDF ennalta määritetyn sivumäärän jälkeen"
+
+msgid "Predefined set of pages to split after"
+msgstr "Ennalta määritellyt jakosivut"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr ""
+"Valitse, minkä ennalta määritetyn sivujoukon jälkeen jaetaan (parittomat "
+"sivut, parilliset sivut tai jokainen sivu)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Valitse jakaa asiakirja tiettyjen sivunumeroiden jälkeen"
+
+msgid "Page numbers to split at"
+msgstr "Jakosivunumerot"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "Syötä pilkulla erotetut positiiviset sivunumerot (esim. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Valitse jakaa asiakirja joka 'n' sivun välein"
+
+msgid "Number of pages for split"
+msgstr "Sivumäärä jaolle"
+
+msgid "Enter a positive number of pages"
+msgstr "Syötä positiivinen sivumäärä"
+
+msgid "Split at this size"
+msgstr "Jaa tähän kokoon"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Syötä positiivinen kokonaisluku tiedoston enimmäiskooksi"
+
+msgid "Size unit for the split file size"
+msgstr "Kokoyksikkö jaetun tiedoston koolle"
+
+msgid "Page selection for rotation"
+msgstr "Kierrettävien sivujen valinta"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Valitse käännettävät sivut: kaikki, parilliset tai parittomat"
+
+msgid "Rotation angle"
+msgstr "Kiertokulma"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Valitse käytettävä kiertokulma"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Aseta kierrettävät sivut (esim: 2 tai 5-23 tai 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Sivujen normalisointi"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Interaktiiviset lomakkeet (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Kirjanmerkkien käsittely"
+
+msgid "Table of contents"
+msgstr "Sisällysluettelo"
+
+msgid "Repeating PDF file"
+msgstr "Toistuva PDF-tiedosto"
+
+msgid "There are news available"
+msgstr "Saatavilla on uutisia"
+
+msgid "selected"
+msgstr "valittu"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (ilmoituksella)"
+
+msgid "Collapse the sidebar"
+msgstr "Kutista sivupalkki"
+
+msgid "Expand the sidebar"
+msgstr "Laajenna sivupalkki"
+
+msgid "PDF files to open"
+msgstr "Avattavat PDF-tiedostot"
+
+msgid "file list"
+msgstr "tiedostoluettelo"
+
+msgid "Available tasks"
+msgstr "Saatavilla olevat tehtävät"
+
+msgid "Log messages"
+msgstr "Lokiviestit"
+
+msgid "Save the log messages to a text file"
+msgstr "Tallenna lokiviestit tekstitiedostoon"
+
+msgid "Close the log panel"
+msgstr "Sulje lokipaneeli"
+
+msgid "News items"
+msgstr "Uutiset"
+
+msgid "Close news panel"
+msgstr "Sulje uutispaneeli"
+
+#~ msgid "About panel"
+#~ msgstr "Tietoja-paneeli"
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Ohje kohteelle {0}"
+
+msgid "Log register rows"
+msgstr "Kirjaa rekisteririvit"
+
+msgid "Language"
+msgstr "Kieli"
+
+msgid "Startup tool"
+msgstr "Käynnistystyökalu"
+
+msgid "Theme"
+msgstr "Teema"
+
+msgid "Font"
+msgstr "Fontti"
+
+msgid "Font size"
+msgstr "Fonttikoko"
+
+msgid "Default PDF version"
+msgstr "Oletus PDF-versio"
+
+msgid "Manually select the output destination directory"
+msgstr "Valitse manuaalisesti tulostuskohdehakemisto"
+
+msgid "Default prefix"
+msgstr "Oletus-etuliite"
+
+msgid "Default prefix for output file names"
+msgstr "Oletusarvoinen etuliite tulostiedostojen nimille"
+
+msgid "Right click to add special prefix keywords"
+msgstr ""
+"Napsauta hiiren oikealla painikkeella lisätäksesi erikoisavainsanoja "
+"etuliitteellä"
+
+msgid "Properties table"
+msgstr "Ominaisuustaulukko"
+
+msgid "Properties"
+msgstr "Ominaisuudet"
+
+msgid "Empty"
+msgstr "Tyhjä"
+
+msgid "Notification"
+msgstr "Ilmoitus"
+
+msgid "Close notification"
+msgstr "Sulje ilmoitus"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Avaa url {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr "PDF-dokumentin valintatyökalurivi"
+
+msgid "Clear the selected PDF document"
+msgstr "Tyhjennä valittu PDF-dokumentti"
+
+msgid "PDF encryption status"
+msgstr "PDF-salauksen tila"
+
+msgid "PDF document password"
+msgstr "PDF-dokumentin salasana"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr ""
+"Vedä ja pudota PDF-tiedostoja tähän tai käytä yllä olevaa Lisää-painiketta"
+
+msgid "PDF documents selection table"
+msgstr "PDF-dokumenttien valintataulukko"
+
+msgid "PDF selection table"
+msgstr "PDF-valintataulukko"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "PDF-dokumenttien valintataulukko, {0} dokumenttia"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} valittua sivua"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Koko: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Muokattu: {0}"
+
+msgid "Number of total pages"
+msgstr "Sivujen kokonaismäärä"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Tiedostonimi: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Rivi {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr "Asiakirjan valintatyökalurivi"
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} sivua"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Määritä valitut sivut (esim: 2 tai 5-23 tai 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Valitse PDF-kohdetiedosto"
+
+msgid "Browse for destination PDF file"
+msgstr "Selaa kohde-PDF-tiedostoa"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Selaa {0}"
+
+msgid "Compress the output PDF file"
+msgstr "Pakkaa luotu PDF-tiedosto"
+
+msgid "Select a PDF file"
+msgstr "Valitse PDF-tiedosto"
+
+msgid "Browse for source PDF file"
+msgstr "Selaa lähde-PDF-tiedostoa"
+
+msgid "Output PDF version"
+msgstr "Kohde-PDF-versio"
+
+msgid "Output PDF version selector"
+msgstr "Kohde-PDF-version valitsin"
+
+msgid "Output directory"
+msgstr "Kohdekansio"
+
+msgid "Browse for output directory"
+msgstr "Selaa kohdekansiota"
+
+msgid "Browse for directory"
+msgstr "Selaa hakemistoa"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Virheellinen arvo: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "Valittuna vaatii tulostiedostolle PDF-version {0} tai uudemman"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Oikeaklikkaa lisätäksesi erityisiä etuliite-avainsanoja kuten aikaleima tai "
+"tiedostonimi"
+
+msgid "Open the task output file"
+msgstr "Avaa tehtävän tulostiedosto"
+
+msgid "Open the task output directory"
+msgstr "Avaa tehtävän tuloshakemisto"
+
+msgid "Task footer"
+msgstr "Tehtävän alatunniste"
+
+msgid "Task progress"
+msgstr "Tehtävän edistyminen"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Tehtävän edistyminen: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Tehtävän tila: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Tehtävän tila: {0}%"

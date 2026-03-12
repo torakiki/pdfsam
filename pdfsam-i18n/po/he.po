@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"PO-Revision-Date: 2026-02-24 17:29+0100\n"
 "Last-Translator: NAT <Unknown>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: he\n"
 
 msgid "No PDF document has been selected"
@@ -162,8 +162,8 @@ msgstr "קבע את גודל לפיצול"
 msgid "Size must be a number"
 msgstr "הגודל חייב להיות מספר"
 
-msgid "Split at this size:"
-msgstr "פצל בגודל:"
+#~ msgid "Split at this size:"
+#~ msgstr "פצל בגודל:"
 
 msgid "Invalid split size"
 msgstr "גודל הפיצול שגוי"
@@ -199,8 +199,8 @@ msgstr "סיבוב 180מעלות"
 msgid "90 degrees counterclockwise"
 msgstr "סיבוב 90 מעלות כנגד כיוון השעון"
 
-msgid "Rotate "
-msgstr "סובב "
+#~ msgid "Rotate "
+#~ msgstr "סובב "
 
 msgid "Rotate settings"
 msgstr "הגדרות הסיבוב"
@@ -211,11 +211,11 @@ msgstr "סובב"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "סובב את העמודים של מסמכי PDF מרובים."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"לחצו לחיצה כפולה לקבוע את העמודים לסיבוב (למשל: \"2\", \"5-23\" או \"-2,5-"
-"7,12\")"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "לחצו לחיצה כפולה לקבוע את העמודים לסיבוב (למשל: \"2\", \"5-23\" או \"-2,5-"
+#~ "7,12\")"
 
 msgid "Merge settings"
 msgstr "הגדרות מיזוג"
@@ -250,8 +250,8 @@ msgstr "אותו רוחב כמו עמוד ראשון"
 msgid "Same width as first page (based on page orientation)"
 msgstr "רוחב זהה לעמוד הראשון (בהתבסס על כיוון העמוד)"
 
-msgid "Pages normalization:"
-msgstr "נורמליזציית עמודים:"
+#~ msgid "Pages normalization:"
+#~ msgstr "נורמליזציית עמודים:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -271,8 +271,8 @@ msgstr "השטחה"
 msgid "Discard forms"
 msgstr "מחק טפסים"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "טפסים אינטראקטיביים (AcroForms ):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "טפסים אינטראקטיביים (AcroForms ):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr "מה לעשות במידה ואחד או יותר מהמסמכים מכילים טפסים (AcroForms)"
@@ -289,8 +289,8 @@ msgstr "צור קבוצה עבור כל מסמך ממוזג"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "צור קבוצה עבור הסמניות מאותו קובץ ממוזג"
 
-msgid "Bookmarks handling:"
-msgstr "טיפול בסמניות:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "טיפול בסמניות:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "מה לעשות במידה ואחד או יותר מהמסמכים מכילים סימניות"
@@ -304,8 +304,8 @@ msgstr "צור משמות הקבצים"
 msgid "Generate from documents titles"
 msgstr "צור מכותרות המסמכים"
 
-msgid "Table of contents:"
-msgstr "תוכן העניינים:"
+#~ msgid "Table of contents:"
+#~ msgstr "תוכן העניינים:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -602,32 +602,32 @@ msgstr "בית"
 msgid "Premium features"
 msgstr "יכולות פרימיום"
 
-msgid "Log register rows:"
-msgstr "שורות יומן הרישום:"
+#~ msgid "Log register rows:"
+#~ msgstr "שורות יומן הרישום:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "מספר השורות המקסימלי של יומן הרישום"
 
-msgid "Language:"
-msgstr "שפה:"
+#~ msgid "Language:"
+#~ msgstr "שפה:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "הגדרת השפה המועדפת עליך (נדרש אתחול)"
 
-msgid "Startup tool:"
-msgstr "כלי הפעלה:"
+#~ msgid "Startup tool:"
+#~ msgstr "כלי הפעלה:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr "הגדר את הכלי שייפתח בהפעלת היישום (נדרשת הפעלה מחדש)"
 
-msgid "Theme:"
-msgstr "ערכת נושא:"
+#~ msgid "Theme:"
+#~ msgstr "ערכת נושא:"
 
 msgid "Set the application theme"
 msgstr "הגדר את ערכת הנושא של היישום"
 
-msgid "Font size:"
-msgstr "גודל גופן:"
+#~ msgid "Font size:"
+#~ msgstr "גודל גופן:"
 
 msgid "Set the application font size"
 msgstr "הגדר את גודל הגופן של היישום"
@@ -960,8 +960,8 @@ msgstr "הכניסו את סיסמת המשתמש"
 msgid "Unlock"
 msgstr "שחרור"
 
-msgid "Drag and drop PDF files here"
-msgstr "גרור ושחרר קבצי PDF לכאן"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "גרור ושחרר קבצי PDF לכאן"
 
 msgid "Set as range for all"
 msgstr "הגדר טווח עבור הכל"
@@ -1056,10 +1056,10 @@ msgstr "עמודים"
 msgid "Number of total pages of the document"
 msgstr "מספר העמודים הכולל של המסמך"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"לחצו לחיצה כפולה לקבוע את העמודים הנבחרים (למשל: \"2\", \"5-23\" או \"-2,5-"
-"7,12\")"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "לחצו לחיצה כפולה לקבוע את העמודים הנבחרים (למשל: \"2\", \"5-23\" או \"-2,5-"
+#~ "7,12\")"
 
 msgid "Page ranges"
 msgstr "טווחי דפים"
@@ -1132,7 +1132,7 @@ msgid "Add prefix"
 msgstr "הוספת סיומת"
 
 msgid "DEFAULT_PREFIX"
-msgstr ""
+msgstr "קידומת_ברירת_מחדל"
 
 msgid "Generated PDF documents name prefix:"
 msgstr "צור קבצי PDF עם שם שמתחיל ב:"
@@ -1150,7 +1150,7 @@ msgid "Run"
 msgstr "הפעלה"
 
 msgid "Run the task"
-msgstr ""
+msgstr "הפעל את המשימה"
 
 msgid "Requested"
 msgstr "התבקש"
@@ -1217,96 +1217,409 @@ msgstr "מספר לא תקין: {0}."
 #~ msgstr "הצג חלון הזהרה כאשר משתמש משכתב חומר קיים"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
-msgstr ""
+msgstr "עמודים לחלץ (לדוגמה: 2 או 5-23 או 2,5-7,12- או 3,אחרון)"
 
 msgid ""
 "Comma separated page numbers or ranges to extract (ex: 2 or 5-23 or 2,5-7,12-"
 " or 3,last)"
 msgstr ""
+"מספרי עמודים או טווחים מופרדים בפסיקים לחילוץ (לדוגמה: 2 או 5-23 או 2,5-7,12-"
+" או 3,אחרון)"
 
 msgid "Merge multiple PDF documents or subsections of them."
-msgstr ""
+msgstr "למזג מספר מסמכי PDF או מקטעים מהם"
 
 msgid "A .pdf extension is required for the repeating file"
-msgstr ""
+msgstr "סיומת .pdf נדרשת עבור הקובץ החוזר"
 
 msgid "A .pdf destination file extension is required"
-msgstr ""
+msgstr "סיומת קובץ יעד .pdf נדרשת"
 
 msgid "Default PDF version:"
-msgstr ""
+msgstr "גרסת PDF ברירת מחדל:"
 
 msgid "Default PDF version for generated PDF files"
-msgstr ""
+msgstr "גרסת PDF ברירת מחדל לקבצי PDF מופקים"
 
 msgid "Default prefix:"
-msgstr ""
+msgstr "קידומת ברירת מחדל:"
 
 msgid ""
 "Default prefix for output file names, used in tools that generate multiple "
 "files"
-msgstr ""
+msgstr "קידומת ברירת מחדל לשמות קבצי פלט, בשימוש בכלים שמייצרים מספר קבצים"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
-msgstr ""
+msgstr "הגדר אם \"התעלם מסימניות\" יופעל כברירת מחדל"
 
 #, java-format
 msgid "Workspace loaded: {0}"
-msgstr ""
+msgstr "סביבת עבודה נטענה: {0}"
 
 #, java-format
 msgid "The following file already existed and was skipped: {0}"
-msgstr ""
+msgstr "הקובץ הבא כבר קיים ודולג עליו: {0}"
 
 msgid "Duplicate at Top"
-msgstr ""
+msgstr "שכפל למעלה"
 
 msgid "Duplicate Up"
-msgstr ""
+msgstr "שכפל למעלה"
 
 msgid "Duplicate Down"
-msgstr ""
+msgstr "שכפל למטה"
 
 msgid "Duplicate at Bottom"
-msgstr ""
+msgstr "שכפל למטה"
 
 #, java-format
 msgid "Error saving content to file {0}"
-msgstr ""
+msgstr "שגיאה בשמירת תוכן לקובץ {0}"
 
 #, java-format
 msgid "File {0} saved"
-msgstr ""
+msgstr "קובץ {0} נשמר"
 
 msgid "Error saving content to clipboard"
-msgstr ""
+msgstr "שגיאה בשמירת תוכן ללוח הגזירים"
 
 msgid "Follow us on Bluesky"
-msgstr ""
+msgstr "עקבו אחרינו בבלוסקיי"
 
-msgid "Font:"
-msgstr ""
+#~ msgid "Font:"
+#~ msgstr ""
 
 msgid "Sets the application font"
-msgstr ""
+msgstr "מגדיר את גופן היישום"
 
 msgid "Default"
-msgstr ""
+msgstr "ברירת מחדל"
 
 msgid "Light"
-msgstr ""
+msgstr "בהיר"
 
 msgid "Dark"
-msgstr ""
+msgstr "כהה"
 
 msgid "Unlock selected"
-msgstr ""
+msgstr "בטל נעילת הנבחר"
 
 msgid "Workspace has changed"
-msgstr ""
+msgstr "סביבת עבודה השתנתה"
 
 msgid "Do you want to save it?"
-msgstr ""
+msgstr "האם ברצונך לשמור אותו?"
 
 msgid "Set as pace for all"
+msgstr "קבע כברירת מחדל לכל"
+
+msgid "Split at this bookmark level"
+msgstr "פצל ברמת סימניה זו"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "בחר את רמת עומק הסימניה שבה לפצל את המסמך"
+
+msgid "Bookmark level"
+msgstr "רמת סימניה"
+
+msgid "Bookmark level selector"
+msgstr "בורר רמת סימניה"
+
+msgid "Select a bookmark level"
+msgstr "בחר רמת סימניה"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "בחר לפיצול ה-PDF לאחר קבוצה מוגדרת מראש של עמודים"
+
+msgid "Predefined set of pages to split after"
+msgstr "קבוצת עמודים מוגדרת מראש לפצל אחריהם"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
 msgstr ""
+"בחר איזה סט מוגדר מראש של עמודים לפצל אחריו (עמודים אי-זוגיים, עמודים זוגיים "
+"או כל עמוד)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "בחר כדי לפצל את המסמך אחרי מספרי עמודים ספציפיים"
+
+msgid "Page numbers to split at"
+msgstr "מספרי עמודים לפצל בהם"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "הזן מספרי עמודים חיוביים מופרדים בפסיקים (לדוגמה: 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "בחר לפצל את המסמך כל 'n' עמודים"
+
+msgid "Number of pages for split"
+msgstr "מספר עמודים לפיצול"
+
+msgid "Enter a positive number of pages"
+msgstr "הזן מספר חיובי של עמודים"
+
+msgid "Split at this size"
+msgstr "פצל בגודל זה"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "הזן מספר שלם חיובי עבור גודל הקובץ המרבי"
+
+msgid "Size unit for the split file size"
+msgstr "יחידת מידה לגודל הקובץ המפוצל"
+
+msgid "Page selection for rotation"
+msgstr "בחירת עמודים לסיבוב"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "בחר אילו עמודים לסובב: הכל, זוגיים, או אי-זוגיים"
+
+msgid "Rotation angle"
+msgstr "זווית סיבוב"
+
+msgid "Choose the rotation angle to apply"
+msgstr "בחר את זווית הסיבוב ליישום"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "קבע עמודים שברצונך לסובב (לדוגמה: 2 או 5-23 או 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "נורמליזציית עמודים"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "טפסים אינטראקטיביים (אקרופורמס)"
+
+msgid "Bookmarks handling"
+msgstr "טיפול בסימניות"
+
+msgid "Table of contents"
+msgstr "תוכן עניינים"
+
+msgid "Repeating PDF file"
+msgstr "קובץ PDF כפול"
+
+msgid "There are news available"
+msgstr "יש חדשות זמינות"
+
+msgid "selected"
+msgstr "נבחר"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (עם התראה)"
+
+msgid "Collapse the sidebar"
+msgstr "כווץ את סרגל הצד"
+
+msgid "Expand the sidebar"
+msgstr "הרחב את סרגל הצד"
+
+msgid "PDF files to open"
+msgstr "קבצי PDF לפתיחה"
+
+msgid "file list"
+msgstr "רשימת קבצים"
+
+msgid "Available tasks"
+msgstr "משימות זמינות"
+
+msgid "Log messages"
+msgstr "יומן הודעות"
+
+msgid "Save the log messages to a text file"
+msgstr "שמור את הודעות היומן לקובץ טקסט"
+
+msgid "Close the log panel"
+msgstr "סגור את חלונית היומן"
+
+msgid "News items"
+msgstr "חדשות"
+
+msgid "Close news panel"
+msgstr "סגור פאנל חדשות"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "עזרה ל-{0}"
+
+msgid "Log register rows"
+msgstr "שורות יומן רישום"
+
+msgid "Language"
+msgstr "שפה"
+
+msgid "Startup tool"
+msgstr "כלי אתחול"
+
+msgid "Theme"
+msgstr "ערכת נושא"
+
+msgid "Font"
+msgstr "גופן"
+
+msgid "Font size"
+msgstr "גודל גופן"
+
+msgid "Default PDF version"
+msgstr "גרסת PDF ברירת מחדל"
+
+msgid "Manually select the output destination directory"
+msgstr "בחר ידנית את תיקיית היעד לפלט"
+
+msgid "Default prefix"
+msgstr "קידומת ברירת מחדל"
+
+msgid "Default prefix for output file names"
+msgstr "קידומת ברירת מחדל לשמות קבצי פלט"
+
+msgid "Right click to add special prefix keywords"
+msgstr "קליק ימני להוספת מילות מפתח קידומתיות מיוחדות"
+
+msgid "Properties table"
+msgstr "טבלת מאפיינים"
+
+msgid "Properties"
+msgstr "מאפיינים"
+
+msgid "Empty"
+msgstr "ריק"
+
+msgid "Notification"
+msgstr "התראה"
+
+msgid "Close notification"
+msgstr "סגור התראה"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "פתח את כתובת האתר {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "לנקות את מסמך ה-PDF הנבחר"
+
+msgid "PDF encryption status"
+msgstr "מצב הצפנת PDF"
+
+msgid "PDF document password"
+msgstr "סיסמת מסמך PDF"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "גרור ושחרר קבצי PDF לכאן או השתמש בכפתור 'הוסף' למעלה"
+
+msgid "PDF documents selection table"
+msgstr "טבלת בחירת מסמכי PDF"
+
+msgid "PDF selection table"
+msgstr "טבלת בחירת PDF"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "טבלת בחירת מסמכי PDF, {0} מסמכים"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} עמודים נבחרים"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "גודל: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "שונה: {0}"
+
+msgid "Number of total pages"
+msgstr "מספר עמודים כולל"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "שם קובץ: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "שורה {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} עמודים"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "הגדר עמודים נבחרים (לדוגמה: 2 או 5-23 או 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "בחר קובץ PDF יעד"
+
+msgid "Browse for destination PDF file"
+msgstr "עיון לקובץ PDF יעד"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "עיין עבור {0}"
+
+msgid "Compress the output PDF file"
+msgstr "לדחוס את קובץ ה-PDF שנוצר"
+
+msgid "Select a PDF file"
+msgstr "בחר קובץ PDF"
+
+msgid "Browse for source PDF file"
+msgstr "בחר קובץ PDF מקור"
+
+msgid "Output PDF version"
+msgstr "גרסת PDF יוצאת"
+
+msgid "Output PDF version selector"
+msgstr "בורר גרסת PDF פלט"
+
+msgid "Output directory"
+msgstr "תיקיית פלט"
+
+msgid "Browse for output directory"
+msgstr "עיון לתיקיית פלט"
+
+msgid "Browse for directory"
+msgstr "עיון בתיקייה"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "ערך לא חוקי: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "כשנבחר, מצריך גרסת PDF {0} או גבוהה יותר לקובץ הפלט"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr "קליק ימני להוספת מילות מפתח מיוחדות כקידומת כגון חותמת זמן או שם קובץ"
+
+msgid "Open the task output file"
+msgstr "פתח את קובץ הפלט של המשימה"
+
+msgid "Open the task output directory"
+msgstr "פתח את תיקיית פלט המשימה"
+
+msgid "Task footer"
+msgstr "כותרת תחתונה של משימה"
+
+msgid "Task progress"
+msgstr "התקדמות משימה"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "התקדמות משימה: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "מצב משימה: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "מצב משימה: {0}%"

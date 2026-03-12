@@ -67,8 +67,10 @@ public enum FileColumn implements SelectionTableColumn<File> {
                             setText(getTextValue(item));
                             if (item != null) {
                                 setTooltip(new Tooltip(item.getAbsolutePath()));
+                                setAccessibleText(i18n().tr("File name: {0}", item.getName()));
                             } else {
                                 setTooltip(null);
+                                setAccessibleText(null);
                             }
                         }
                     };

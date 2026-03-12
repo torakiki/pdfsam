@@ -18,6 +18,8 @@
  */
 package org.pdfsam.ui.components.selection;
 
+import javafx.application.Platform;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -72,6 +74,7 @@ public class PasswordFieldPopup extends PopupControl implements ToolBound {
     public void showFor(Node owner, double anchorX, double anchorY, PdfDocumentDescriptor... pdfDescriptors) {
         this.pdfDescriptors = pdfDescriptors;
         this.show(owner, anchorX, anchorY);
+        Platform.runLater(() -> content.passwordField.requestFocus());
     }
 
     /**
@@ -86,8 +89,11 @@ public class PasswordFieldPopup extends PopupControl implements ToolBound {
         public PasswordFieldPopupContent() {
             getStyleClass().setAll("pdfsam-input-password-content");
             passwordField.setPromptText(i18n().tr("Enter the user password"));
+            passwordField.setAccessibleText(i18n().tr("PDF document password"));
             var doneButton = new Button(i18n().tr("Unlock"));
-            doneButton.setGraphic(FontIcon.of(UniconsLine.UNLOCK_ALT));
+            var icon = FontIcon.of(UniconsLine.UNLOCK_ALT);
+            icon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
+            doneButton.setGraphic(icon);
             doneButton.getStyleClass().addAll(Style.BUTTON.css());
             doneButton.prefHeightProperty().bind(passwordField.heightProperty());
             doneButton.setMaxHeight(USE_PREF_SIZE);

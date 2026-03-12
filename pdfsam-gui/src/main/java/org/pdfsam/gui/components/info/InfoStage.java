@@ -54,6 +54,7 @@ class InfoStage extends Stage {
         setTitle(i18n().tr("Document details"));
         getIcons().addAll(logos);
         setMaximized(true);
+        setOnShown(e -> infoPane.requestFocus());
     }
 
 }

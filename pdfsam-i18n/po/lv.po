@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"PO-Revision-Date: 2026-02-24 17:17+0100\n"
 "Last-Translator: Reinis <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: lv\n"
 
 msgid "No PDF document has been selected"
@@ -163,8 +163,8 @@ msgstr "Iestatīt izmēru, pie kura sadalīt"
 msgid "Size must be a number"
 msgstr "Izmēram jābūt skaitlim"
 
-msgid "Split at this size:"
-msgstr "Sadalīt pie šī izmēra:"
+#~ msgid "Split at this size:"
+#~ msgstr "Sadalīt pie šī izmēra:"
 
 msgid "Invalid split size"
 msgstr "Nederīgs sadalīšanas izmērs"
@@ -202,8 +202,8 @@ msgstr "180 grādi pulksteņrādītāja virzienā"
 msgid "90 degrees counterclockwise"
 msgstr "90 grādi pretēji pulksteņrādītāja virzienam"
 
-msgid "Rotate "
-msgstr "Pagriezt "
+#~ msgid "Rotate "
+#~ msgstr "Pagriezt "
 
 msgid "Rotate settings"
 msgstr "Rotācijas iestatījumi"
@@ -214,11 +214,11 @@ msgstr "Rotēt"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Pagriezt vairāku PDF dokumentu lapas."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Veiciet dubultklikšķi, lai iestatītu lapas, kuras vēlaties pagriezt (piem.: "
-"2 vai 5-23, vai 2,5-7,12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Veiciet dubultklikšķi, lai iestatītu lapas, kuras vēlaties pagriezt (piem.: "
+#~ "2 vai 5-23, vai 2,5-7,12-)"
 
 msgid "Merge settings"
 msgstr "Apvienošanas iestatījumi"
@@ -254,8 +254,8 @@ msgstr "Vienāds platums kā pirmajai lapai"
 msgid "Same width as first page (based on page orientation)"
 msgstr "Vienāds platums kā pirmajai lapai (pamatojoties uz lapas orientāciju)"
 
-msgid "Pages normalization:"
-msgstr "Lapas normalizācija:"
+#~ msgid "Pages normalization:"
+#~ msgstr "Lapas normalizācija:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -274,8 +274,8 @@ msgstr "Saplacināt"
 msgid "Discard forms"
 msgstr "Atmest veidlapas"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Interaktīvās veidlapas ('AcroForms'):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Interaktīvās veidlapas ('AcroForms'):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr "Ko darīt, ja kāds no ievades dokumentiem satur 'Acro Forms'"
@@ -292,8 +292,8 @@ msgstr "Izveidot vienu ierakstu katram apvienotajam dokumentam"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Paturēt grāmatzīmes kā vienu ierakstu katram apvienotajam dokumentam"
 
-msgid "Bookmarks handling:"
-msgstr "Grāmatzīmju pārvaldība:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Grāmatzīmju pārvaldība:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "Ko darīt, ja kādā no ievades dokumentiem ir grāmatzīmes"
@@ -307,8 +307,8 @@ msgstr "Veidot no datņu nosaukumiem"
 msgid "Generate from documents titles"
 msgstr "Veidot no dokumentu virsrakstiem"
 
-msgid "Table of contents:"
-msgstr "Satura rādītājs:"
+#~ msgid "Table of contents:"
+#~ msgstr "Satura rādītājs:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -611,34 +611,34 @@ msgstr "Sākums"
 msgid "Premium features"
 msgstr "Premium funkcijas"
 
-msgid "Log register rows:"
-msgstr "Žurnāla reģistra rindas:"
+#~ msgid "Log register rows:"
+#~ msgstr "Žurnāla reģistra rindas:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Žurnāla reģistra maksimālais attēloto rindu skaits"
 
-msgid "Language:"
-msgstr "Valoda:"
+#~ msgid "Language:"
+#~ msgstr "Valoda:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Iestatīt savu vēlamo valodu (pārstartēšana nepieciešama)"
 
-msgid "Startup tool:"
-msgstr "Palaišanas rīks:"
+#~ msgid "Startup tool:"
+#~ msgstr "Palaišanas rīks:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Iestatīt rīka atvēršanu, palaižot lietojumprogrammu (nepieciešama "
 "restartēšana)"
 
-msgid "Theme:"
-msgstr "Tēma:"
+#~ msgid "Theme:"
+#~ msgstr "Tēma:"
 
 msgid "Set the application theme"
 msgstr "Iestatīt lietotnes tēmu"
 
-msgid "Font size:"
-msgstr "Fonta lielums:"
+#~ msgid "Font size:"
+#~ msgstr "Fonta lielums:"
 
 msgid "Set the application font size"
 msgstr "Iestatīt lietotnes fonta lielumu"
@@ -990,8 +990,8 @@ msgstr "Ievadiet lietotāja paroli"
 msgid "Unlock"
 msgstr "Atslēgt"
 
-msgid "Drag and drop PDF files here"
-msgstr "Velciet un nometiet PDF failus šeit"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Velciet un nometiet PDF failus šeit"
 
 msgid "Set as range for all"
 msgstr "Iestatīt par diapazonu visiem"
@@ -1088,10 +1088,10 @@ msgstr "Lapas"
 msgid "Number of total pages of the document"
 msgstr "Dokumenta kopējais lapu skaits"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Dubultklikšķis lai iestatītu atlasītās lapas (piem: 2 vai 5-23 vai 2,5-7,12-"
-")"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Dubultklikšķis lai iestatītu atlasītās lapas (piem: 2 vai 5-23 vai 2,5-7,12-"
+#~ ")"
 
 msgid "Page ranges"
 msgstr "Lapu diapazoni"
@@ -1302,8 +1302,8 @@ msgstr "Kļūda saglabājot saturu starpliktuvē"
 msgid "Follow us on Bluesky"
 msgstr "Seko mums pakalpojumā Bluesky"
 
-msgid "Font:"
-msgstr "Fonts:"
+#~ msgid "Font:"
+#~ msgstr "Fonts:"
 
 msgid "Sets the application font"
 msgstr "Iestata lietojumprogrammas fontu"
@@ -1327,4 +1327,322 @@ msgid "Do you want to save it?"
 msgstr "Vai vēlaties to saglabāt?"
 
 msgid "Set as pace for all"
+msgstr "Iestatīt kā standartu visiem"
+
+msgid "Split at this bookmark level"
+msgstr "Sadalīt šajā grāmatzīmju līmenī"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "Izvēlieties grāmatzīmes dziļuma līmeni, kurā sadalīt dokumentu"
+
+msgid "Bookmark level"
+msgstr "Grāmatzīmes līmenis"
+
+msgid "Bookmark level selector"
+msgstr "Grāmatzīmes līmeņa atlasītājs"
+
+msgid "Select a bookmark level"
+msgstr "Izvēlēties grāmatzīmes līmeni"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "Atlasīt, lai sadalītu PDF failu pēc iepriekš definēta lapu kopuma"
+
+msgid "Predefined set of pages to split after"
+msgstr "Iepriekš definēta lapu kopa, pēc kuras sadalīt"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
 msgstr ""
+"Izvēlieties, kuru iepriekš definētu lapu kopu izmantot sadalīšanai (nepāra "
+"lapas, pāra lapas vai katra lapa)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Izvēlēties sadalīt dokumentu pēc konkrētiem lappušu numuriem"
+
+msgid "Page numbers to split at"
+msgstr "Lappušu numuri, pie kuriem sadalīt"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr ""
+"Ievadiet ar komatiem atdalītus pozitīvus lapu numurus (Piem. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Izvēlēties sadalīt dokumentu ik pēc 'n' lapām"
+
+msgid "Number of pages for split"
+msgstr "Lappušu skaits sadalīšanai"
+
+msgid "Enter a positive number of pages"
+msgstr "Ievadiet pozitīvu lapu skaitu"
+
+msgid "Split at this size"
+msgstr "Sadalīt pēc šī izmēra"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Ievadiet pozitīvu veselu skaitli maksimālajam faila izmēram"
+
+msgid "Size unit for the split file size"
+msgstr "Sadalītā faila izmēra mērvienība"
+
+msgid "Page selection for rotation"
+msgstr "Lapas atlase pagriešanai"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Izvēlieties, kuras lapas pagriezt: visas, pāra vai nepāra"
+
+msgid "Rotation angle"
+msgstr "Rotācijas leņķis"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Izvēlieties rotācijas leņķi, ko piemērot"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Norādiet lapas, kuras vēlaties pagriezt (piem: 2 vai 5-23 vai 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Lapas normalizācija"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Interaktīvas formas (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Grāmatzīmju apstrāde"
+
+msgid "Table of contents"
+msgstr "Satura rādītājs"
+
+msgid "Repeating PDF file"
+msgstr "Atkārtots PDF fails"
+
+msgid "There are news available"
+msgstr "Ir pieejamas ziņas"
+
+msgid "selected"
+msgstr "izvēlēts"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (ar paziņojumu)"
+
+msgid "Collapse the sidebar"
+msgstr "Sakļaut sānjoslu"
+
+msgid "Expand the sidebar"
+msgstr "Izvērst sānjoslu"
+
+msgid "PDF files to open"
+msgstr "PDF faili atvēršanai"
+
+msgid "file list"
+msgstr "failu saraksts"
+
+msgid "Available tasks"
+msgstr "Pieejamie uzdevumi"
+
+msgid "Log messages"
+msgstr "Žurnāla ziņojumi"
+
+msgid "Save the log messages to a text file"
+msgstr "Saglabāt žurnālziņojumus teksta failā"
+
+msgid "Close the log panel"
+msgstr "Aizvērt žurnāla paneli"
+
+msgid "News items"
+msgstr "Ziņu vienumi"
+
+msgid "Close news panel"
+msgstr "Aizvērt ziņu paneli"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Palīdzība par {0}"
+
+msgid "Log register rows"
+msgstr "Žurnāla reģistra rindas"
+
+msgid "Language"
+msgstr "Valoda"
+
+msgid "Startup tool"
+msgstr "Starta rīks"
+
+msgid "Theme"
+msgstr "Tēma"
+
+msgid "Font"
+msgstr "Fonts"
+
+msgid "Font size"
+msgstr "Fonta lielums"
+
+msgid "Default PDF version"
+msgstr "Noklusējuma PDF versija"
+
+msgid "Manually select the output destination directory"
+msgstr "Manuāli atlasīt izvades galamērķa mapi"
+
+msgid "Default prefix"
+msgstr "Noklusējuma prefiks"
+
+msgid "Default prefix for output file names"
+msgstr "Noklusējuma prefikss izvades failu nosaukumiem"
+
+msgid "Right click to add special prefix keywords"
+msgstr ""
+"Noklikšķiniet ar peles labo pogu, lai pievienotu īpašus prefiksa "
+"atslēgvārdus"
+
+msgid "Properties table"
+msgstr "Īpašību tabula"
+
+msgid "Properties"
+msgstr "Īpašības"
+
+msgid "Empty"
+msgstr "Tukšs"
+
+msgid "Notification"
+msgstr "Paziņojums"
+
+msgid "Close notification"
+msgstr "Aizvērt paziņojumu"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Atvērt URL {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "Notīrīt atlasīto PDF dokumentu"
+
+msgid "PDF encryption status"
+msgstr "PDF šifrēšanas statuss"
+
+msgid "PDF document password"
+msgstr "PDF dokumenta parole"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr ""
+"Velciet un nometiet PDF failus šeit vai izmantojiet pogu Pievienot augšpusē"
+
+msgid "PDF documents selection table"
+msgstr "PDF dokumentu atlases tabula"
+
+msgid "PDF selection table"
+msgstr "PDF izvēles tabula"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "PDF dokumentu atlases tabula, {0} dokumenti"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} atlasītas lapas"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Izmērs: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Modificēts: {0}"
+
+msgid "Number of total pages"
+msgstr "Kopējais lapu skaits"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Faila nosaukums: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Rinda {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} lapas"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Iestatīt izvēlētās lapas (piem.: 2 vai 5-23 vai 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Atlasīt PDF mērķa failu"
+
+msgid "Browse for destination PDF file"
+msgstr "Pārlūkot mērķa PDF failu"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Pārlūkot {0}"
+
+msgid "Compress the output PDF file"
+msgstr "Saspiest izvades PDF failu"
+
+msgid "Select a PDF file"
+msgstr "Atlasiet PDF failu"
+
+msgid "Browse for source PDF file"
+msgstr "Pārlūkot avota PDF failu"
+
+msgid "Output PDF version"
+msgstr "Izvades PDF versija"
+
+msgid "Output PDF version selector"
+msgstr "Izejas PDF versijas atlasītājs"
+
+msgid "Output directory"
+msgstr "Izvades mape"
+
+msgid "Browse for output directory"
+msgstr "Pārlūkot izvades mapi"
+
+msgid "Browse for directory"
+msgstr "Pārlūkot direktoriju"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Nederīga vērtība: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "Kad atlasīts, nepieciešama PDF versija {0} vai jaunāka izvades failam"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Noklikšķiniet ar peles labo pogu, lai pievienotu īpašus prefiksu "
+"atslēgvārdus, piemēram, laikspiedols vai faila nosaukums"
+
+msgid "Open the task output file"
+msgstr "Atvērt uzdevuma izvades failu"
+
+msgid "Open the task output directory"
+msgstr "Atvērt uzdevuma izvades direktoriju"
+
+msgid "Task footer"
+msgstr "Uzdevuma kājene"
+
+msgid "Task progress"
+msgstr "Uzdevuma progress"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Uzdevuma gaita: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Uzdevuma statuss: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Uzdevuma statuss: {0}%"

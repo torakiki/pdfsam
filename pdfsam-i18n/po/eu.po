@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-04-26 12:14+0200\n"
-"PO-Revision-Date: 2025-10-23 12:34+0200\n"
+"PO-Revision-Date: 2026-02-24 16:53+0100\n"
 "Last-Translator: Jon Ortiz VIllanueva <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: eu\n"
 
 msgid "No PDF document has been selected"
@@ -167,8 +167,8 @@ msgstr "Ezarri zatitzeko tamaina"
 msgid "Size must be a number"
 msgstr "Tamainak zenbaki bat izan behar du"
 
-msgid "Split at this size:"
-msgstr "Zatitu tamaina honetan:"
+#~ msgid "Split at this size:"
+#~ msgstr "Zatitu tamaina honetan:"
 
 msgid "Invalid split size"
 msgstr "Zatitzeko tamaina baliogabea"
@@ -206,8 +206,8 @@ msgstr "180 gradu eskuinera"
 msgid "90 degrees counterclockwise"
 msgstr "90 gradu erlojuaren orratzen noranzkoaren aurka"
 
-msgid "Rotate "
-msgstr "Biratu "
+#~ msgid "Rotate "
+#~ msgstr "Biratu "
 
 msgid "Rotate settings"
 msgstr "Biraketaren ezarpenak"
@@ -218,11 +218,11 @@ msgstr "Biratu"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "Biratu hainbat PDF dokumenturen orriak."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Klik bikoitz egin rotatu nahi dituzun orrialdeak aukeratzeko (abd: 2 edo 5-"
-"23 edo 2,5-7,12-)"
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Klik bikoitz egin rotatu nahi dituzun orrialdeak aukeratzeko (abd: 2 edo 5-"
+#~ "23 edo 2,5-7,12-)"
 
 msgid "Merge settings"
 msgstr "Bateratzearen ezarpenak"
@@ -259,8 +259,8 @@ msgid "Same width as first page (based on page orientation)"
 msgstr ""
 "Lehen orrialdearen zabalera bera (orrialdearen orientazioan oinarrituta)"
 
-msgid "Pages normalization:"
-msgstr "Normalkuntza orrialdeetan:"
+#~ msgid "Pages normalization:"
+#~ msgstr "Normalkuntza orrialdeetan:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -281,8 +281,8 @@ msgstr "Berdindu"
 msgid "Discard forms"
 msgstr "Baztertu inprimakiak"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "Imprimaki interkatiboak (AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "Imprimaki interkatiboak (AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr ""
@@ -300,8 +300,8 @@ msgstr "Sortu sarrera bat bateratutako dokumentu bakoitzeko"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "Gorde laster-markak  egindako dokumentu bakoitzeko sarrera gisa"
 
-msgid "Bookmarks handling:"
-msgstr "Laster-markak maneiatzea:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "Laster-markak maneiatzea:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "Zer egin sarrera dokumentu batek edo gehiagok laster-markak badituzte"
@@ -315,8 +315,8 @@ msgstr "Sortu fitxategien izenetatik"
 msgid "Generate from documents titles"
 msgstr "Sortu dokumentuen izenburu"
 
-msgid "Table of contents:"
-msgstr "Edukien taula"
+#~ msgid "Table of contents:"
+#~ msgstr "Edukien taula"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -620,34 +620,34 @@ msgstr "Etxea"
 msgid "Premium features"
 msgstr "Premium eginbideak"
 
-msgid "Log register rows:"
-msgstr "Log erregistroaren errenkadak:"
+#~ msgid "Log register rows:"
+#~ msgstr "Log erregistroaren errenkadak:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "Log erregistroak gehienez bistaratutako errenkada kopurua"
 
-msgid "Language:"
-msgstr "Hizkuntza:"
+#~ msgid "Language:"
+#~ msgstr "Hizkuntza:"
 
 msgid "Set your preferred language (restart needed)"
 msgstr "Ezarri zure gogoko hizkuntza (berrabiaraztea eskatzen du)"
 
-msgid "Startup tool:"
-msgstr "Hasiera tresna:"
+#~ msgid "Startup tool:"
+#~ msgstr "Hasiera tresna:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr ""
 "Aplikazioaren hasieran irekiko den tresna ezarri (berrabiaraztea beharrezkoa "
 "da)"
 
-msgid "Theme:"
-msgstr "Gaia:"
+#~ msgid "Theme:"
+#~ msgstr "Gaia:"
 
 msgid "Set the application theme"
 msgstr "Ezarri aplikazoare gaia"
 
-msgid "Font size:"
-msgstr "Letra-tamaina:"
+#~ msgid "Font size:"
+#~ msgstr "Letra-tamaina:"
 
 msgid "Set the application font size"
 msgstr "Ezarri aplikazioare letra-tamaina"
@@ -1002,8 +1002,8 @@ msgstr "Sartu erabiltzailearen pasahitza"
 msgid "Unlock"
 msgstr "Desblokeatu"
 
-msgid "Drag and drop PDF files here"
-msgstr "Arrastatu eta jaregin PDF fitxategiak hona"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "Arrastatu eta jaregin PDF fitxategiak hona"
 
 msgid "Set as range for all"
 msgstr "Denontzako eremu gisa ezarri"
@@ -1096,9 +1096,9 @@ msgstr "Orriak"
 msgid "Number of total pages of the document"
 msgstr "Dokumentuaren orrialde kopuru totala"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr ""
-"Klik bikoitza hautatuko orrialdeak ezartzeko (adb: 2 edo 5-23 edo 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr ""
+#~ "Klik bikoitza hautatuko orrialdeak ezartzeko (adb: 2 edo 5-23 edo 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "Orri-tarteak"
@@ -1310,8 +1310,8 @@ msgstr "Errorea edukia arbelean gordetzean"
 msgid "Follow us on Bluesky"
 msgstr "Jarraitu gaitzazu Blueskyn"
 
-msgid "Font:"
-msgstr "Letra-tipoa:"
+#~ msgid "Font:"
+#~ msgstr "Letra-tipoa:"
 
 msgid "Sets the application font"
 msgstr "Aplikazioaren letra-tipoa ezartzen du"
@@ -1336,3 +1336,321 @@ msgstr "Gorde nahi duzu?"
 
 msgid "Set as pace for all"
 msgstr "Ezarri erritmo gisa guztientzat"
+
+msgid "Split at this bookmark level"
+msgstr "Zatitu laster-marka maila honetan"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "Hautatu dokumentua zatitzeko laster-markaren sakonera-maila"
+
+msgid "Bookmark level"
+msgstr "Laster-marka maila"
+
+msgid "Bookmark level selector"
+msgstr "Laster-marka maila hautatzailea"
+
+msgid "Select a bookmark level"
+msgstr "Aukeratu laster-marka maila bat"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr ""
+"Hautatu PDFa zatitzeko aurrez definitutako orrialde multzo baten ondoren"
+
+msgid "Predefined set of pages to split after"
+msgstr "Zatitzeko aurrez definitutako orrialde multzoa"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr ""
+"Aukeratu zein aurrez definitutako orrialde multzoren arabera zatitu orrialde "
+"bakoitiak orrialde bikoitiak edo orrialde guztiak"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "Hautatu dokumentua orrialde-zenbaki zehatzen ondoren zatitzeko"
+
+msgid "Page numbers to split at"
+msgstr "Zatitzeko orrialde-zenbakiak"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "Sartu komaz bereizitako orrialde zenbaki positiboak (Adib. 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "Hautatu dokumentua 'n' orrialdetik behin zatitzeko"
+
+msgid "Number of pages for split"
+msgstr "Zatitzeko orrialde kopurua"
+
+msgid "Enter a positive number of pages"
+msgstr "Sartu orrialde kopuru positibo bat"
+
+msgid "Split at this size"
+msgstr "Zatitu tamaina honetan"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "Sartu zenbaki oso positibo bat gehienezko fitxategi tamainarako"
+
+msgid "Size unit for the split file size"
+msgstr "Zatiketa-tamainarako tamaina-unitatea"
+
+msgid "Page selection for rotation"
+msgstr "Orrialde hautapena biraketarako"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "Aukeratu zein orrialde biratu: guztiak, bikoitiak, edo bakoitiak"
+
+msgid "Rotation angle"
+msgstr "Biraketa-angelua"
+
+msgid "Choose the rotation angle to apply"
+msgstr "Aukeratu aplikatzeko biraketa-angelua"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr ""
+"Biratu nahi dituzun orrialdeak ezarri (adib: 2 edo 5-23 edo 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "Orrialdeen normalizazioa"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "Formulario interaktiboak (AcroForms)"
+
+msgid "Bookmarks handling"
+msgstr "Laster-marken kudeaketa"
+
+msgid "Table of contents"
+msgstr "Aurkibidea"
+
+msgid "Repeating PDF file"
+msgstr "PDF fitxategia errepikatzen"
+
+msgid "There are news available"
+msgstr "Berriak eskuragarri daude"
+
+msgid "selected"
+msgstr "hautatuta"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (jakinarazpenarekin)"
+
+msgid "Collapse the sidebar"
+msgstr "Tolestu alboko barra"
+
+msgid "Expand the sidebar"
+msgstr "Zabaldu alboko barra"
+
+msgid "PDF files to open"
+msgstr "PDF fitxategiak irekitzeko"
+
+msgid "file list"
+msgstr "fitxategi zerrenda"
+
+msgid "Available tasks"
+msgstr "Erabilgarri dauden zereginak"
+
+msgid "Log messages"
+msgstr "Erregistro mezuak"
+
+msgid "Save the log messages to a text file"
+msgstr "Gorde erregistro-mezuak testu-fitxategi batean"
+
+msgid "Close the log panel"
+msgstr "Itxi erregistro panela"
+
+msgid "News items"
+msgstr "Albisteak"
+
+msgid "Close news panel"
+msgstr "Itxi albisteen panela"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "Laguntza {0}rako"
+
+msgid "Log register rows"
+msgstr "Erregistro-eguneroko lerroak"
+
+msgid "Language"
+msgstr "Hizkuntza"
+
+msgid "Startup tool"
+msgstr "Abiarazteko tresna"
+
+msgid "Theme"
+msgstr "Gaia"
+
+msgid "Font"
+msgstr "Letra-tipo"
+
+msgid "Font size"
+msgstr "Letra-tamaina"
+
+msgid "Default PDF version"
+msgstr "Lehenetsitako PDF bertsioa"
+
+msgid "Manually select the output destination directory"
+msgstr "Eskuz hautatu irteerako helmuga-karpeta"
+
+msgid "Default prefix"
+msgstr "Aurrizki lehenetsia"
+
+msgid "Default prefix for output file names"
+msgstr "Irteera fitxategi izenetarako aurrizki lehenetsia"
+
+msgid "Right click to add special prefix keywords"
+msgstr "Eskuineko klik egin aurrizki gako-hitz bereziak gehitzeko"
+
+msgid "Properties table"
+msgstr "Propietateen taula"
+
+msgid "Properties"
+msgstr "Propietateak"
+
+msgid "Empty"
+msgstr "Hutsik"
+
+msgid "Notification"
+msgstr "Jakinarazpen"
+
+msgid "Close notification"
+msgstr "Itxi jakinarazpen"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "Ireki URLa {0}"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "Garbitu hautatutako PDF dokumentua"
+
+msgid "PDF encryption status"
+msgstr "PDF enkriptatze egoera"
+
+msgid "PDF document password"
+msgstr "PDF dokumentu pasahitza"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr ""
+"Arrastatu eta jaregin PDF fitxategiak hemen edo erabili goiko Gehitu botoia"
+
+msgid "PDF documents selection table"
+msgstr "PDF dokumentuen hautaketa taula"
+
+msgid "PDF selection table"
+msgstr "PDF hautaketa taula"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "PDF dokumentuen hautapen taula, {0} dokumentu"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} hautatutako orrialdeak"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "Tamaina: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "Aldatua: {0}"
+
+msgid "Number of total pages"
+msgstr "Orrialde kopuru guztira"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "Fitxategi-izena: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "Errenkada {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} orrialde"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "Ezarri hautatutako orrialdeak (adib.: 2 edo 5-23 edo 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "Hautatu PDF helmuga fitxategia"
+
+msgid "Browse for destination PDF file"
+msgstr "Bilatu helmugako PDF fitxategia"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "Arakatu {0}rako"
+
+msgid "Compress the output PDF file"
+msgstr "Konprimitu irteerako PDF fitxategia"
+
+msgid "Select a PDF file"
+msgstr "Hautatu PDF fitxategi bat"
+
+msgid "Browse for source PDF file"
+msgstr "Arakatu iturri PDF fitxategia"
+
+msgid "Output PDF version"
+msgstr "Irteerako PDF bertsioa"
+
+msgid "Output PDF version selector"
+msgstr "Irteera PDF bertsio hautatzailea"
+
+msgid "Output directory"
+msgstr "Irteerako direktorioa"
+
+msgid "Browse for output directory"
+msgstr "Arakatu irteera-karpeta"
+
+msgid "Browse for directory"
+msgstr "Arakatu direktorioa"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "Balio baliogabea: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr ""
+"Hautatuta dagoenean, irteerako fitxategirako PDF bertsioa {0} edo handiagoa "
+"behar da"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr ""
+"Eskuineko klik egin aurrizki-gako-hitz bereziak gehitzeko hala nola denbora-"
+"marka edo fitxategi-izena"
+
+msgid "Open the task output file"
+msgstr "Ireki zereginaren irteera fitxategia"
+
+msgid "Open the task output directory"
+msgstr "Ireki zereginaren irteera-direktorioa"
+
+msgid "Task footer"
+msgstr "Atazaren oin-barra"
+
+msgid "Task progress"
+msgstr "Atazaren aurrerapena"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "Zereginaren aurrerapena: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "Zereginaren egoera: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "Zereginaren egoera: {0}%"

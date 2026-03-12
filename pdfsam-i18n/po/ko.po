@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2025-10-23 12:12+0200\n"
+"PO-Revision-Date: 2026-02-24 17:13+0100\n"
 "Last-Translator: SEO ARAM <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.6-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
 "Language: ko\n"
 
 msgid "No PDF document has been selected"
@@ -160,8 +160,8 @@ msgstr "분할할 파일 크기를 설정합니다."
 msgid "Size must be a number"
 msgstr "반드시 숫자로 파일크기를 입력해야 합니다."
 
-msgid "Split at this size:"
-msgstr "분할할 파일의 크기입니다:"
+#~ msgid "Split at this size:"
+#~ msgstr "분할할 파일의 크기입니다:"
 
 msgid "Invalid split size"
 msgstr "유효하지 않은 분할 파일크기"
@@ -195,8 +195,8 @@ msgstr "시계 방향으로 180도 회전하기"
 msgid "90 degrees counterclockwise"
 msgstr "반시계 방향으로 90도 회전하기"
 
-msgid "Rotate "
-msgstr "회전하기 "
+#~ msgid "Rotate "
+#~ msgstr "회전하기 "
 
 msgid "Rotate settings"
 msgstr "회전설정"
@@ -207,9 +207,9 @@ msgstr "회전"
 msgid "Rotate the pages of multiple PDF documents."
 msgstr "PDF문서들의 페이지를 회전시킵니다."
 
-msgid ""
-"Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "회전하고 싶은 페이지를 설정하려면 더블 클릭하세요(ex: 2 or 5-23 or 2,5-7,12-)."
+#~ msgid ""
+#~ "Double click to set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "회전하고 싶은 페이지를 설정하려면 더블 클릭하세요(ex: 2 or 5-23 or 2,5-7,12-)."
 
 msgid "Merge settings"
 msgstr "병합 설정"
@@ -241,8 +241,8 @@ msgstr "첫 페이지와 동일한 너비"
 msgid "Same width as first page (based on page orientation)"
 msgstr "첫 페이지와 동일한 너비 (페이지 방향 기준)"
 
-msgid "Pages normalization:"
-msgstr "페이지 정규화:"
+#~ msgid "Pages normalization:"
+#~ msgstr "페이지 정규화:"
 
 msgid ""
 "Set whether pages should be resized to all have the same width as the first "
@@ -261,8 +261,8 @@ msgstr "주석을 문서에 붙이기"
 msgid "Discard forms"
 msgstr "양식 삭제하기"
 
-msgid "Interactive forms (AcroForms):"
-msgstr "대화형 양식(AcroForms):"
+#~ msgid "Interactive forms (AcroForms):"
+#~ msgstr "대화형 양식(AcroForms):"
 
 msgid "What to do in case one or more input documents contain Acro Forms"
 msgstr "1개 이상의 입력 문서에 Acro Form이 포함되어 있는 경우 수행할 작업을 선택하세요."
@@ -279,8 +279,8 @@ msgstr "병합된 각 문서에 대해 하나의 항목을 만들기"
 msgid "Retain bookmarks as one entry for each merged document"
 msgstr "각 병합된 문서에 대해 책갈피를 하나의 항목으로 유지하기"
 
-msgid "Bookmarks handling:"
-msgstr "책갈피 처리:"
+#~ msgid "Bookmarks handling:"
+#~ msgstr "책갈피 처리:"
 
 msgid "What to do in case one or more input documents contain bookmarks"
 msgstr "1개 이상의 입력 문서에 책갈피가 포함되어 있는 경우 수행할 작업을 선택하세요."
@@ -294,8 +294,8 @@ msgstr "파일 이름에서 생성하기"
 msgid "Generate from documents titles"
 msgstr "문서 제목에서 생성하기"
 
-msgid "Table of contents:"
-msgstr "목차:"
+#~ msgid "Table of contents:"
+#~ msgstr "목차:"
 
 msgid ""
 "Set if a table of contents should be added to the generated PDF document"
@@ -589,32 +589,32 @@ msgstr "홈"
 msgid "Premium features"
 msgstr "프리미엄 기능(유료 기능)"
 
-msgid "Log register rows:"
-msgstr "저장된 로그 열:"
+#~ msgid "Log register rows:"
+#~ msgstr "저장된 로그 열:"
 
 msgid "Maximum number of rows displayed by the Log register"
 msgstr "기록된 로그가 표시되는 최대 행 수"
 
-msgid "Language:"
-msgstr "언어："
+#~ msgid "Language:"
+#~ msgstr "언어："
 
 msgid "Set your preferred language (restart needed)"
 msgstr "언어 설정 (재시작 필요)"
 
-msgid "Startup tool:"
-msgstr "시작 도구:"
+#~ msgid "Startup tool:"
+#~ msgstr "시작 도구:"
 
 msgid "Set the tool to open at application startup (restart needed)"
 msgstr "애플리케이션 시작 시 도구 열기 설정 (재시작 필요)"
 
-msgid "Theme:"
-msgstr "테마:"
+#~ msgid "Theme:"
+#~ msgstr "테마:"
 
 msgid "Set the application theme"
 msgstr "애플리케이션 테마 설정"
 
-msgid "Font size:"
-msgstr "글꼴 크기:"
+#~ msgid "Font size:"
+#~ msgstr "글꼴 크기:"
 
 msgid "Set the application font size"
 msgstr "애플리케이션 글꼴 크기 설정"
@@ -945,8 +945,8 @@ msgstr "암호 입력하기"
 msgid "Unlock"
 msgstr "잠금해제"
 
-msgid "Drag and drop PDF files here"
-msgstr "여기에 PDF 파일을 끌어다 놓으세요"
+#~ msgid "Drag and drop PDF files here"
+#~ msgstr "여기에 PDF 파일을 끌어다 놓으세요"
 
 msgid "Set as range for all"
 msgstr "모든 항목에 범위로 설정"
@@ -1041,8 +1041,8 @@ msgstr "페이지 수"
 msgid "Number of total pages of the document"
 msgstr "문서의 전체 페이지 수"
 
-msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
-msgstr "선택한 페이지를 설정하려면 더블 클릭하세요 (예: 2 또는 5-23 또는 2,5-7,12-)"
+#~ msgid "Double click to set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+#~ msgstr "선택한 페이지를 설정하려면 더블 클릭하세요 (예: 2 또는 5-23 또는 2,5-7,12-)"
 
 msgid "Page ranges"
 msgstr "페이지 범위"
@@ -1249,8 +1249,8 @@ msgstr "클립보드에 내용을 저장하는 중 오류 발생"
 msgid "Follow us on Bluesky"
 msgstr "Bluesky에서 팔로우하세요"
 
-msgid "Font:"
-msgstr "글꼴:"
+#~ msgid "Font:"
+#~ msgstr "글꼴:"
 
 msgid "Sets the application font"
 msgstr "애플리케이션 글꼴을 설정합니다"
@@ -1274,4 +1274,313 @@ msgid "Do you want to save it?"
 msgstr "저장하시겠습니까"
 
 msgid "Set as pace for all"
-msgstr ""
+msgstr "모두의 기준으로 설정"
+
+msgid "Split at this bookmark level"
+msgstr "이 책갈피 수준에서 분할"
+
+msgid "Select the bookmark depth level at which to split the document"
+msgstr "문서를 분할할 책갈피 깊이 수준 선택"
+
+msgid "Bookmark level"
+msgstr "책갈피 수준"
+
+msgid "Bookmark level selector"
+msgstr "책갈피 단계 선택기"
+
+msgid "Select a bookmark level"
+msgstr "책갈피 수준 선택"
+
+msgid "Select to split the PDF after a predefined set of pages"
+msgstr "미리 정해진 페이지 수마다 PDF를 분할하려면 선택"
+
+msgid "Predefined set of pages to split after"
+msgstr "미리 정의된 분할 기준 페이지 세트"
+
+msgid ""
+"Choose which predefined set of pages to split after (odd pages, even pages "
+"or every page)"
+msgstr "분할 기준 페이지 세트 선택 (홀수 페이지, 짝수 페이지 또는 모든 페이지)"
+
+msgid "Select to split the document after specific page numbers"
+msgstr "특정 페이지 번호 뒤에 문서 분할"
+
+msgid "Page numbers to split at"
+msgstr "분할할 페이지 번호"
+
+msgid "Enter comma separated positive page numbers (Ex. 1,5,12...)"
+msgstr "쉼표로 구분된 양수 페이지 번호를 입력하세요 (예: 1,5,12...)"
+
+msgid "Select to split the document every 'n' pages"
+msgstr "선택하여 문서를 'n' 페이지마다 분할"
+
+msgid "Number of pages for split"
+msgstr "분할당 페이지 수"
+
+msgid "Enter a positive number of pages"
+msgstr "양수 페이지 수를 입력하세요"
+
+msgid "Split at this size"
+msgstr "이 크기로 분할"
+
+msgid "Enter a positive integer for the maximum file size"
+msgstr "최대 파일 크기에 양의 정수를 입력하십시오"
+
+msgid "Size unit for the split file size"
+msgstr "분할 파일 크기 단위"
+
+msgid "Page selection for rotation"
+msgstr "회전할 페이지 선택"
+
+msgid "Choose which pages to rotate: all, even, or odd"
+msgstr "회전할 페이지 선택: 모두, 짝수, 또는 홀수"
+
+msgid "Rotation angle"
+msgstr "회전 각도"
+
+msgid "Choose the rotation angle to apply"
+msgstr "적용할 회전 각도 선택"
+
+msgid "Set pages you want to rotate (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "회전할 페이지 설정 (예: 2 또는 5-23 또는 2,5-7,12-)"
+
+msgid "Pages normalization"
+msgstr "페이지 정규화"
+
+msgid "Interactive forms (AcroForms)"
+msgstr "대화형 양식 (아크로폼)"
+
+msgid "Bookmarks handling"
+msgstr "책갈피 처리"
+
+msgid "Table of contents"
+msgstr "목차"
+
+msgid "Repeating PDF file"
+msgstr "반복 PDF 파일"
+
+msgid "There are news available"
+msgstr "새 소식이 있습니다"
+
+msgid "selected"
+msgstr "선택됨"
+
+#, java-format
+msgid "{0} (with notification)"
+msgstr "{0} (알림 포함)"
+
+msgid "Collapse the sidebar"
+msgstr "사이드바 접기"
+
+msgid "Expand the sidebar"
+msgstr "사이드바 확장"
+
+msgid "PDF files to open"
+msgstr "열 PDF 파일"
+
+msgid "file list"
+msgstr "파일 목록"
+
+msgid "Available tasks"
+msgstr "사용 가능한 작업"
+
+msgid "Log messages"
+msgstr "로그 메시지"
+
+msgid "Save the log messages to a text file"
+msgstr "로그 메시지를 텍스트 파일로 저장"
+
+msgid "Close the log panel"
+msgstr "로그 패널 닫기"
+
+msgid "News items"
+msgstr "새 소식"
+
+msgid "Close news panel"
+msgstr "뉴스 패널 닫기"
+
+#~ msgid "About panel"
+#~ msgstr ""
+
+#, java-format
+msgid "Help for {0}"
+msgstr "{0} 도움말"
+
+msgid "Log register rows"
+msgstr "로그 레지스터 행"
+
+msgid "Language"
+msgstr "언어"
+
+msgid "Startup tool"
+msgstr "시작 도구"
+
+msgid "Theme"
+msgstr "테마"
+
+msgid "Font"
+msgstr "글꼴"
+
+msgid "Font size"
+msgstr "글꼴 크기"
+
+msgid "Default PDF version"
+msgstr "기본 PDF 버전"
+
+msgid "Manually select the output destination directory"
+msgstr "수동으로 출력 대상 폴더 선택"
+
+msgid "Default prefix"
+msgstr "기본 접두사"
+
+msgid "Default prefix for output file names"
+msgstr "출력 파일 이름의 기본 접두사"
+
+msgid "Right click to add special prefix keywords"
+msgstr "우클릭하여 특별 접두사 키워드 추가"
+
+msgid "Properties table"
+msgstr "속성 표"
+
+msgid "Properties"
+msgstr "속성"
+
+msgid "Empty"
+msgstr "비어 있음"
+
+msgid "Notification"
+msgstr "알림"
+
+msgid "Close notification"
+msgstr "알림 닫기"
+
+#, java-format
+msgid "Open the url {0}"
+msgstr "URL {0} 열기"
+
+#~ msgid "PDF document selection toolbar"
+#~ msgstr ""
+
+msgid "Clear the selected PDF document"
+msgstr "선택한 PDF 문서 닫기"
+
+msgid "PDF encryption status"
+msgstr "PDF 암호화 상태"
+
+msgid "PDF document password"
+msgstr "PDF 문서 비밀번호"
+
+msgid "Drag and drop PDF files here or use the Add button above"
+msgstr "PDF 파일을 여기에 끌어다 놓거나 위에 있는 추가 버튼을 사용하세요"
+
+msgid "PDF documents selection table"
+msgstr "PDF 문서 선택 표"
+
+msgid "PDF selection table"
+msgstr "PDF 선택 표"
+
+#, java-format
+msgid "PDF documents selection table, {0} documents"
+msgstr "PDF 문서 선택 테이블, {0}개 문서"
+
+#, java-format
+msgid "{0} selected pages"
+msgstr "{0} 선택된 페이지"
+
+#, java-format
+msgid "Size: {0}"
+msgstr "크기: {0}"
+
+#, java-format
+msgid "Modified: {0}"
+msgstr "수정됨: {0}"
+
+msgid "Number of total pages"
+msgstr "총 페이지 수"
+
+#, java-format
+msgid "File name: {0}"
+msgstr "파일 이름: {0}"
+
+#, java-format
+msgid "Row {0}"
+msgstr "행 {0}"
+
+#~ msgid "Document selection toolbar"
+#~ msgstr ""
+
+#, java-format
+msgid "{0} pages"
+msgstr "{0} 페이지"
+
+msgid "Set selected pages (ex: 2 or 5-23 or 2,5-7,12-)"
+msgstr "선택 페이지 설정 (예: 2 또는 5-23 또는 2,5-7,12-)"
+
+msgid "Select a PDF destination file"
+msgstr "PDF 대상 파일 선택"
+
+msgid "Browse for destination PDF file"
+msgstr "대상 PDF 파일 찾아보기"
+
+#, java-format
+msgid "Browse for {0}"
+msgstr "{0} 찾아보기"
+
+msgid "Compress the output PDF file"
+msgstr "출력 PDF 파일 압축"
+
+msgid "Select a PDF file"
+msgstr "PDF 파일 선택"
+
+msgid "Browse for source PDF file"
+msgstr "원본 PDF 파일 찾아보기"
+
+msgid "Output PDF version"
+msgstr "출력 PDF 버전"
+
+msgid "Output PDF version selector"
+msgstr "출력 PDF 버전 선택기"
+
+msgid "Output directory"
+msgstr "출력 디렉터리"
+
+msgid "Browse for output directory"
+msgstr "출력 폴더 찾아보기"
+
+msgid "Browse for directory"
+msgstr "디렉터리 찾아보기"
+
+#, java-format
+msgid "Invalid value: {0}"
+msgstr "유효하지 않은 값: {0}"
+
+#, java-format
+msgid "When selected, requires PDF version {0} or higher for the output file"
+msgstr "선택 시 출력 파일에 PDF 버전 {0} 이상이 필요합니다"
+
+msgid "Right click to add special prefix keywords like timestamp or filename"
+msgstr "타임스탬프 또는 파일명과 같은 특수 접두사 키워드를 추가하려면 우클릭하십시오"
+
+msgid "Open the task output file"
+msgstr "작업 결과 파일 열기"
+
+msgid "Open the task output directory"
+msgstr "작업 출력 디렉터리 열기"
+
+msgid "Task footer"
+msgstr "작업 바닥글"
+
+msgid "Task progress"
+msgstr "작업 진행"
+
+#, java-format
+msgid "Task progress: {0}"
+msgstr "작업 진행률: {0}"
+
+#, java-format
+msgid "Task status: {0}"
+msgstr "작업 상태: {0}"
+
+#, java-format
+msgid "Task status: {0}%"
+msgstr "작업 상태: {0}%"

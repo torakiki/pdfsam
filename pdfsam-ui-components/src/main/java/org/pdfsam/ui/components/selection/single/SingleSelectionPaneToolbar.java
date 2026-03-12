@@ -19,7 +19,6 @@
 package org.pdfsam.ui.components.selection.single;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
@@ -76,6 +75,7 @@ class SingleSelectionPaneToolbar extends ToolBar implements ToolBound {
             getStyleClass().addAll(Style.BUTTON.css());
             getStyleClass().addAll("pdfsam-split-button", "toolbar-splitbutton");
             setText(i18n().tr("_Clear"));
+            setTooltip(new Tooltip(i18n().tr("Clear the selected PDF document")));
             setOnAction(this::clear);
 
             MenuItem clearAllSettings = new MenuItem();
@@ -89,7 +89,6 @@ class SingleSelectionPaneToolbar extends ToolBar implements ToolBound {
         }
 
         public void clearAll(ActionEvent event) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to format your system?");
             eventStudio().broadcast(new ClearToolRequest(toolBinding(), true, true));
         }
 

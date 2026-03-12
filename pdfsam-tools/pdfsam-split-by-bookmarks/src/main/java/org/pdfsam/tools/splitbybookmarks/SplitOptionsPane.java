@@ -57,10 +57,13 @@ class SplitOptionsPane extends GridPane
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
         levelCombo.setId("bookmarksLevel");
+        levelCombo.setAccessibleText(i18n().tr("Split at this bookmark level"));
+        levelCombo.setAccessibleHelp(i18n().tr("Select the bookmark depth level at which to split the document"));
         regexpField.setId("bookmarksRegexp");
         regexpField.setPromptText(i18n().tr("Regular expression the bookmark has to match"));
         regexpField.setPrefWidth(350);
         var label = new Label(i18n().tr("Split at this bookmark level:"));
+        label.setLabelFor(levelCombo);
         GridPane.setValignment(label, VPos.BOTTOM);
         GridPane.setHalignment(label, HPos.LEFT);
         add(label, 0, 0);
@@ -68,17 +71,20 @@ class SplitOptionsPane extends GridPane
         GridPane.setHalignment(levelCombo, HPos.LEFT);
         add(levelCombo, 1, 0, 2, 1);
         var regexLabel = new Label(i18n().tr("Matching regular expression:"));
+        regexLabel.setLabelFor(regexpField);
         GridPane.setValignment(regexLabel, VPos.BOTTOM);
         GridPane.setHalignment(regexLabel, HPos.LEFT);
         add(regexLabel, 0, 1);
         GridPane.setValignment(regexpField, VPos.BOTTOM);
         GridPane.setHalignment(regexpField, HPos.LEFT);
         add(regexpField, 1, 1);
-        var helpIcon = helpIcon("""
+        var regexpHelp = """
                 %s
                 %s
                 """.formatted(i18n().tr("A regular expression the bookmark text has to match"),
-                i18n().tr("Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\"")));
+                i18n().tr("Example: use .*Chapter.* to match bookmarks containing the word \"Chapter\""));
+        regexpField.setAccessibleHelp(regexpHelp);
+        var helpIcon = helpIcon(regexpHelp);
         GridPane.setValignment(helpIcon, VPos.CENTER);
         GridPane.setHalignment(helpIcon, HPos.LEFT);
         add(helpIcon, 2, 1);
