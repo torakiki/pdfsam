@@ -31,6 +31,9 @@ class SplitByOutlineLevelParametersBuilder extends SplitParametersBuilder<SplitB
 
     private int level = 0;
     private String regexp;
+    private boolean hierarchicalOutput = false;
+    private int overlapPages = 0;
+    private boolean autoDetectOverlap = false;
 
     void level(int level) {
         this.level = level;
@@ -40,9 +43,38 @@ class SplitByOutlineLevelParametersBuilder extends SplitParametersBuilder<SplitB
         this.regexp = regexp;
     }
 
+    void hierarchicalOutput(boolean hierarchicalOutput) {
+        this.hierarchicalOutput = hierarchicalOutput;
+    }
+
+    boolean isHierarchicalOutput() {
+        return hierarchicalOutput;
+    }
+
+    void overlapPages(int overlapPages) {
+        this.overlapPages = overlapPages;
+    }
+
+    int getOverlapPages() {
+        return overlapPages;
+    }
+
+    void autoDetectOverlap(boolean autoDetectOverlap) {
+        this.autoDetectOverlap = autoDetectOverlap;
+    }
+
+    boolean isAutoDetectOverlap() {
+        return autoDetectOverlap;
+    }
+
     @Override
     public SplitByOutlineLevelParameters build() {
-        SplitByOutlineLevelParameters params = new SplitByOutlineLevelParameters(level);
+        SplitByOutlineLevelParameters params;
+        if (hierarchicalOutput) {
+            params = new HierarchicalSplitByOutlineLevelParameters(level, true, overlapPages, autoDetectOverlap);
+        } else {
+            params = new SplitByOutlineLevelParameters(level);
+        }
         params.setCompress(isCompress());
         params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
