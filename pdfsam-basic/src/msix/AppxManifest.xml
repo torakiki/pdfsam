@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+        xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+        xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+        xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
+        xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+        xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+        IgnorableNamespaces="uap uap2 uap3 rescap">
+
+    <Identity
+            Name="SoberLemurSrl.PDFsamBasic"
+            Publisher="CN=2913DBE3-99DA-445F-B5B9-123C14A09D9D"
+            Version="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.0"
+            ProcessorArchitecture="x64"/>
+
+    <!-- ============================================================
+         PROPERTIES
+         Square150x150Logo / Square44x44Logo are required by the Store
+         validator even though they also appear in the VisualElements
+         block below. Both references must be consistent.
+         ============================================================ -->
+    <Properties>
+        <DisplayName>PDFsam Basic</DisplayName>
+        <PublisherDisplayName>Sober Lemur Srl</PublisherDisplayName>
+        <Description>Open source desktop application to split, merge, rotate, extract pages and mix PDF files</Description>
+        <!-- StoreLogo is the 50x50 image shown in the Store listing tile -->
+        <Logo>Assets\StoreLogo.png</Logo>
+        <uap:SupportedUsers>multiple</uap:SupportedUsers>
+    </Properties>
+
+    <!--The MinVersion here targets Windows 10 1903 (build 18362), that is the minimum required for broadFileSystemAccess -->
+    <Dependencies>
+        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.18362.0" MaxVersionTested="10.0.26100.0"/>
+    </Dependencies>
+
+    <Resources>
+        <Resource Language="en-us"/>
+    </Resources>
+
+
+    <Applications>
+        <Application Id="PDFsamBasic" Executable="pdfsam.exe" EntryPoint="Windows.FullTrustApplication">
+
+            <uap:VisualElements
+                    DisplayName="PDFsam Basic"
+                    Description="Open source desktop application to split, merge, rotate, extract pages and mix PDF files"
+                    Square150x150Logo="Assets\Square150x150Logo.png"
+                    Square44x44Logo="Assets\Square44x44Logo.png"
+                    BackgroundColor="transparent">
+
+                <!-- DefaultTile controls the Start menu tile appearance.
+                     Wide310x150Logo enables the wide tile layout. -->
+                <uap:DefaultTile
+                        Wide310x150Logo="Assets\Wide310x150Logo.png"
+                        Square310x310Logo="Assets\Square310x310Logo.png"
+                        Square71x71Logo="Assets\Square71x71Logo.png"
+                        ShortName="PDFsam"/>
+
+            </uap:VisualElements>
+
+            <Extensions>
+
+                <!-- Assiciates the "Open with" dialog for .pdf files without making it the default handler -->
+                <uap3:Extension Category="windows.fileTypeAssociation">
+                    <uap3:FileTypeAssociation Name="pdfsambasic-pdf" MultiSelectModel="Document">
+                        <uap:SupportedFileTypes>
+                            <uap:FileType>.pdf</uap:FileType>
+                        </uap:SupportedFileTypes>
+                        <uap2:SupportedVerbs>
+                            <uap3:Verb Id="open" Parameters='"%1"'>Open</uap3:Verb>
+                        </uap2:SupportedVerbs>
+                    </uap3:FileTypeAssociation>
+                </uap3:Extension>
+
+            </Extensions>
+
+        </Application>
+    </Applications>
+
+    <!-- ============================================================
+         CAPABILITIES
+         runFullTrust — Required for all packaged Win32 / Java desktop
+         apps. Without it the process cannot launch.
+
+         broadFileSystemAccess — Grants read/write access to the full
+         user filesystem (beyond the app's own package and known folders).
+         PDFsam Basic needs this because users open and save PDFs to
+         arbitrary locations chosen via a file picker.
+
+         STORE APPROVAL NOTE:
+         broadFileSystemAccess is a "restricted capability" that requires
+         Microsoft's explicit approval during Store certification. You must
+         provide a business justification in the Partner Center submission
+         notes. The justification for PDFsam Basic is straightforward:
+         the app is a general-purpose PDF editor/processor; users choose
+         source and destination paths freely via native file dialogs.
+         Microsoft has approved this for similar productivity tools.
+
+         The user will also be prompted at runtime (first launch) by
+         Windows to grant filesystem access — this appears as a standard
+         privacy consent dialog under Settings > Privacy > File system.
+         If the user denies it, the app will only be able to open files
+         passed to it via the file picker (which is already consent-scoped).
+         ============================================================ -->
+    <Capabilities>
+        <rescap:Capability Name="runFullTrust"/>
+        <rescap:Capability Name="broadFileSystemAccess"/>
+    </Capabilities>
+
+</Package>

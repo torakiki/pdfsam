@@ -20,6 +20,7 @@ package org.pdfsam.ui.components.commons;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
@@ -47,6 +48,7 @@ public class HidingPaneTest {
     }
 
     @Test
+    @Tag("NoHeadless")
     public void hide(FxRobot robot) {
         verifyThat(victim, isVisible());
         robot.clickOn(".btn");

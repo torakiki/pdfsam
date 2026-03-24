@@ -3,6 +3,7 @@ package org.pdfsam.gui.components.sidebar;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pdfsam.eventstudio.Listener;
@@ -41,6 +42,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
+@Tag("NoHeadless")
 class LogButtonTest {
     private FxRobot robot;
     private LogButton victim;

@@ -19,6 +19,8 @@
 package org.pdfsam.service.pdf;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
@@ -89,6 +91,7 @@ public class PdfListParserTest {
     }
 
     @Test
+    @DisabledOnOs(OS.WINDOWS)
     public void filenameWithQuotes(@TempDir Path folder) throws IOException {
         var file1 = Files.createFile(folder.resolve("file\"with quotes.pdf")).toFile();
         var list = folder.resolve("list.csv");
@@ -100,6 +103,7 @@ public class PdfListParserTest {
     }
 
     @Test
+    @DisabledOnOs(OS.WINDOWS)
     public void filenameWithQuotesWithoutWrappingQuotes(@TempDir Path folder) throws IOException {
         var file1 = Files.createFile(folder.resolve("file\"with quotes.pdf")).toFile();
         var list = folder.resolve("list.csv");
@@ -136,6 +140,7 @@ public class PdfListParserTest {
     }
 
     @Test
+    @DisabledOnOs(OS.WINDOWS)
     public void filenameWithQuotesAndCommas(@TempDir Path folder) throws IOException {
         var file1 = Files.createFile(folder.resolve("file , with commas\" and \".pdf")).toFile();
         var list = folder.resolve("list.csv");
@@ -148,6 +153,7 @@ public class PdfListParserTest {
     }
 
     @Test
+    @DisabledOnOs(OS.WINDOWS)
     public void filenameWithQuotesAndCommasWithoutWrappingQuotes(@TempDir Path folder) throws IOException {
         var file1 = Files.createFile(folder.resolve("file , with commas\" and \".pdf")).toFile();
         var list = folder.resolve("list.csv");

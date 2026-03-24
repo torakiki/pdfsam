@@ -4,21 +4,41 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        java: ['25']
-    name: JDK ${{ matrix.java }}
+        os: [ macos-latest, ubuntu-latest, macos-15-intel, windows-latest ]
+    name: build ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v6
     - name: Set up JDK
       uses: actions/setup-java@v5
       with:
-        java-version: ${{ matrix.java }}
+        java-version: '25'
         distribution: 'liberica'
+        java-package: 'jdk+fx'
         cache: 'maven'
-    - run: sudo apt-get install xvfb
-    - run: sudo apt-get install gettext
-    - name: Build with Maven
+    - name: Install gettext and xvfb on Ubuntu
+      if: matrix.os == 'ubuntu-latest'
+      run: sudo apt-get update && sudo apt-get install -y gettext
+
+    - name: Build with Maven Ubuntu
+      if: matrix.os == 'ubuntu-latest'
       run: xvfb-run mvn -Djava.awt.headless=true -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw --batch-mode --update-snapshots verify
+
+    - name: Build with Maven MacOS intel
+      if: matrix.os == 'macos-15-intel'
+      run: mvn --batch-mode --update-snapshots -DskipTests verify
+
+    - name: Install scoop on Windows
+      if: matrix.os == 'windows-latest'
+      uses: MinoruSekine/setup-scoop@v4
+
+    - name: Install gettext on Windows
+      if: matrix.os == 'windows-latest'
+      run: scoop install gettext
+
+    - name: Build with Maven
+      if: matrix.os != 'ubuntu-latest' && matrix.os != 'macos-15-intel'
+      run: mvn --batch-mode --update-snapshots verify

@@ -28,6 +28,8 @@ import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
@@ -113,12 +115,13 @@ public class DefaultWorkspaceServiceTest {
     }
 
     @Test
+    @DisabledOnOs(OS.WINDOWS)
     public void cannotAccessWorkspace(@TempDir Path folder) throws IOException {
         var path = Files.createTempFile(folder, null, null);
         Files.copy(getClass().getResourceAsStream("/workspace.json"), path, StandardCopyOption.REPLACE_EXISTING);
         var file = path.toFile();
         if (!file.setReadable(false)) {
-            throw new RuntimeException("OS does not implement read pemissions");
+            throw new RuntimeException("OS does not implement read permissions");
         }
         assertThrows(RuntimeException.class, () -> victim.loadWorkspace(file));
     }

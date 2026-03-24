@@ -17,3 +17,4 @@ target/
 .idea/
 /.run/
 .claude/
+.env

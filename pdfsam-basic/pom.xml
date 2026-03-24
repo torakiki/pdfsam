@@ -39,6 +39,18 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>parse-version</id>
+                                <goals>
+                                    <goal>parse-version</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-jar-plugin</artifactId>
                         <configuration>
@@ -54,18 +66,7 @@
 							</outputDirectory>
                         </configuration>
                     </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>build-helper-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>parse-version</id>
-                                <goals>
-                                    <goal>parse-version</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
+
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
@@ -81,7 +82,7 @@
                                     <arguments>
                                         <argument>--add-modules</argument>
                                         <argument>
-                                            java.base,java.logging,java.naming,java.sql,java.desktop,java.xml,java.management,jdk.unsupported,java.prefs,jdk.localedata
+                                            java.base,java.logging,java.naming,java.sql,java.desktop,java.xml,java.management,jdk.unsupported,java.prefs,jdk.localedata,javafx.controls,javafx.base,javafx.graphics
                                         </argument>
                                         <argument>--include-locales=en-*,af,ar,bg,bs,ca,co,cs,da,de,el,es,eu,fi,fr,he,hi,hu,hr,ko,jp,it,lo,lt,lv,ms,nl,nb,oc,pt-*,pl,pt,ro,ru,sk,sl,sr,sv,tr,th,zh-*,uk</argument>
                                         <argument>--output</argument>
@@ -191,6 +192,83 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-win-resources</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/assembled</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <targetPath>${project.build.directory}/msi</targetPath>
+                                            <directory>${basedir}/src/msi</directory>
+                                            <filtering>true</filtering>
+                                            <exclude>*.dll</exclude>
+                                            <include>*.*</include>
+                                        </resource>
+                                        <resource>
+                                            <targetPath>${project.build.directory}/msi</targetPath>
+                                            <directory>${basedir}/src/msi</directory>
+                                            <include>*.dll</include>
+                                        </resource>
+                                        <resource>
+                                            <targetPath>${project.build.directory}/msi/resources</targetPath>
+                                            <directory>${basedir}/src/msi/resources</directory>
+                                        </resource>
+                                        <resource>
+                                            <targetPath>${project.build.directory}/msix</targetPath>
+                                            <directory>${basedir}/src/msix</directory>
+                                            <filtering>true</filtering>
+                                            <include>AppxManifest.xml</include>
+                                            <include>BuildMsix.cmd</include>
+                                        </resource>
+                                        <resource>
+                                            <targetPath>${project.build.directory}/msix</targetPath>
+                                            <directory>${basedir}/src/msix</directory>
+                                            <filtering>false</filtering>
+                                            <include>Assets/**/*</include>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <!-- this is needed to create a detached signature of the artifact -->
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-msi</id>
+                                <phase>post-integration-test</phase>
+                                <goals>
+                                    <goal>attach-artifact</goal>
+                                </goals>
+                                <configuration>
+                                    <artifacts>
+                                        <artifact>
+                                            <file>
+                                                ${project.build.directory}/pdfsam-basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${os.detected.classifier}.msi
+                                            </file>
+                                            <type>msi</type>
+                                        </artifact>
+                                        <artifact>
+                                            <file>
+                                                ${project.build.directory}/pdfsam-basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${os.detected.classifier}.msix
+                                            </file>
+                                            <type>msix</type>
+                                        </artifact>
+                                    </artifacts>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
                         <executions>
@@ -236,6 +314,42 @@
                                     </arguments>
                                 </configuration>
                             </execution>
+                            <execution>
+                                <id>sign-exe</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>
+                                        ${project.build.directory}/msi/SignExe.cmd
+                                    </executable>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>package-msi</id>
+                                <phase>pre-integration-test</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>
+                                        ${project.build.directory}/msi/Build.cmd
+                                    </executable>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>package-msix</id>
+                                <phase>pre-integration-test</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>
+                                        ${project.build.directory}/msix/BuildMsix.cmd
+                                    </executable>
+                                </configuration>
+                            </execution>
                         </executions>
                     </plugin>
 					<plugin>
@@ -256,24 +370,6 @@
                             </execution>
                         </executions>
                     </plugin>
-					<plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>sign-exe</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>exec</goal>
-                                </goals>
-                                <configuration>
-                                    <executable>
-                                        ${project.build.directory}/msi/SignExe.cmd
-                                    </executable>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
                     <plugin>
                         <artifactId>maven-assembly-plugin</artifactId>
                         <executions>
@@ -289,83 +385,6 @@
                                     <descriptors>
                                         <descriptor>src/assembly/portable-win.xml</descriptor>
                                     </descriptors>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>copy-win-resources</id>
-                                <phase>prepare-package</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>${project.build.directory}/assembled</outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <targetPath>${project.build.directory}/msi</targetPath>
-                                            <directory>${basedir}/src/msi</directory>
-                                            <filtering>true</filtering>
-                                            <exclude>*.dll</exclude>
-                                            <include>*.*</include>
-                                        </resource>
-                                        <resource>
-                                            <targetPath>${project.build.directory}/msi</targetPath>
-                                            <directory>${basedir}/src/msi</directory>
-                                            <include>*.dll</include>
-                                        </resource>
-                                        <resource>
-                                            <targetPath>${project.build.directory}/msi/resources</targetPath>
-                                            <directory>${basedir}/src/msi/resources</directory>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>package-msi</id>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>exec</goal>
-                                </goals>
-                                <configuration>
-                                    <executable>
-                                        ${project.build.directory}/msi/Build.cmd
-                                    </executable>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <!-- this is needed to create a detached signature of the artifact -->
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>build-helper-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-msi</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>attach-artifact</goal>
-                                </goals>
-                                <configuration>
-                                    <artifacts>
-                                        <artifact>
-                                            <file>
-                                                ${project.build.directory}/pdfsam-basic-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${os.detected.classifier}.msi
-                                            </file>
-                                            <type>msi</type>
-                                        </artifact>
-                                    </artifacts>
                                 </configuration>
                             </execution>
                         </executions>

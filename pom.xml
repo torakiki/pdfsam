@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.pdfsam</groupId>
     <artifactId>pdfsam-parent</artifactId>
@@ -160,6 +161,44 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>ci-javafx-provided</id>
+            <activation>
+                <property>
+                    <name>env.CI</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>javafx-base</artifactId>
+                        <version>${javafx.version}</version>
+                        <scope>provided</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>javafx-controls</artifactId>
+                        <version>${javafx.version}</version>
+                        <scope>provided</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>javafx-media</artifactId>
+                        <version>${javafx.version}</version>
+                        <scope>provided</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>javafx-graphics</artifactId>
+                        <version>${javafx.version}</version>
+                        <scope>provided</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+        </profile>
     </profiles>
 
     <modules>
@@ -243,7 +282,12 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <configuration>
                         <useModulePath>false</useModulePath>
-                        <argLine>--enable-preview</argLine>
+                        <argLine>--enable-preview
+                            --add-opens javafx.base/com.sun.javafx.logging=ALL-UNNAMED
+                            --add-opens javafx.graphics/com.sun.glass.ui=ALL-UNNAMED
+                            --add-opens javafx.graphics/com.sun.glass.ui.delegate=ALL-UNNAMED
+                            --add-opens javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
+                            --add-opens javafx.graphics/com.sun.javafx.util=ALL-UNNAMED</argLine>
                     </configuration>
                 </plugin>
             </plugins>

@@ -21,6 +21,7 @@ package org.pdfsam.ui.components.commons;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.kordamp.ikonli.unicons.UniconsLine;
@@ -42,6 +43,7 @@ import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
  * @author Andrea Vacondio
  */
 @ExtendWith({ ApplicationExtension.class, ClearEventStudioExtension.class })
+@Tag("NoHeadless")
 public class UrlButtonTest {
 
     private static final String URL = "http://www.example.com";

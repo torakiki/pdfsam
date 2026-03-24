@@ -24,6 +24,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
@@ -38,6 +39,7 @@ import static org.testfx.assertions.api.Assertions.assertThat;
  * @author Andrea Vacondio
  */
 @ExtendWith(ApplicationExtension.class)
+@Tag("NoHeadless")
 public class HideOnEscapeHandlerTest {
     private Scene scene;
 

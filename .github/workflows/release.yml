@@ -12,7 +12,7 @@ jobs:
   os_matrix:
     strategy:
       matrix:
-        os: [ macos-latest, macos-15-intel, ubuntu-latest ]
+        os: [ macos-latest, macos-15-intel, ubuntu-latest, windows-latest ]
     runs-on: ${{ matrix.os }}
     name: build ${{ matrix.os }}
     steps:
@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v6
       - name: Import GPG key
         id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v6
+        uses: crazy-max/ghaction-import-gpg@v7
         with:
           gpg_private_key: ${{ secrets.GPG_SUB_SECRET_KEY }}
           passphrase: ${{ secrets.GPG_SUB_SECRET_KEY_PASSWORD }}
@@ -36,17 +36,11 @@ jobs:
         with:
           java-version: 25
           distribution: 'liberica'
+          java-package: 'jdk+fx'
+          cache: 'maven'
       - name: Install gettext on Ubuntu
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get update && sudo apt-get install -y gettext
-
-      - name: Install gettext on macOS
-        if: matrix.os == 'macos-latest'
-        run: brew install gettext
-
-      - name: Install gettext on macOS Intel
-        if: matrix.os == 'macos-15-intel'
-        run: brew install gettext
 
       - name: Install scoop on Windows
         if: matrix.os == 'windows-latest'
@@ -56,12 +50,42 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: scoop install gettext
 
+      - name: Add Windows SDK tools to PATH
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        run: |
+          $sdkBin = Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\bin" -Directory |
+            Where-Object { $_.Name -match "^\d" } | Sort-Object Name -Descending | Select-Object -First 1
+          $x64 = Join-Path $sdkBin.FullName "x64"
+          echo $x64 >> $env:GITHUB_PATH
+
+      - name: Setup Azure Trusted Signing dlib on Windows
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        run: |
+          $pkg = "Microsoft.Trusted.Signing.Client"
+          $version = "1.0.60"
+          nuget install $pkg -Version $version -OutputDirectory "$env:RUNNER_TEMP\nuget" -NonInteractive
+          $dlib = Get-ChildItem "$env:RUNNER_TEMP\nuget\$pkg.$version" -Recurse -Filter "Azure.CodeSigning.Dlib.dll" |
+            Where-Object { $_.FullName -match "x64" } | Select-Object -First 1
+          echo "AZURE_CODESIGNING_DLIB=$($dlib.FullName)" >> $env:GITHUB_ENV
+
+      - name: Create signing metadata file on Windows
+        if: matrix.os == 'windows-latest'
+        shell: bash
+        run: |
+          echo '${{ secrets.AZURE_SIGNING_METADATA_JSON }}' > $RUNNER_TEMP/signing-metadata.json
+          echo "AZURE_SIGNING_METADATA=$RUNNER_TEMP/signing-metadata.json" >> $GITHUB_ENV
+
       - name: Build
         env:
           APPLEID: ${{ secrets.NOTARIZE_ACCOUNT }}
           APPLEIDPASS: ${{ secrets.NOTERIZE_PWD }}
           TEAMID: ${{ secrets.NOTERIZE_TEAM_ID }}
           PDFSAM_GPG_FINGERPRINT: ${{ secrets.GPG_SUB_FINGERPRINT }}
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
         run: mvn clean install -DskipTests -Drelease --batch-mode
       - name: Release
         uses: softprops/action-gh-release@v2
@@ -71,9 +95,13 @@ jobs:
             pdfsam-basic/target/*.deb
             pdfsam-basic/target/*.dmg
             pdfsam-basic/target/*.zip
+            pdfsam-basic/target/*.msi
+            pdfsam-basic/target/*.msix
             pdfsam-basic/target/*.tar.gz
             pdfsam-basic/target/*.deb.asc
             pdfsam-basic/target/*.dmg.asc
             pdfsam-basic/target/*.zip.asc
+            pdfsam-basic/target/*.msi.asc
+            pdfsam-basic/target/*.msix.asc
             pdfsam-basic/target/*.tar.gz.asc
 
