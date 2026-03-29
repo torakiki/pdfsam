@@ -18,28 +18,28 @@
  */
 package org.pdfsam.core.support.params;
 
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.parameter.base.AbstractPdfOutputParameters;
 import org.sejda.model.pdf.PdfVersion;
 
 /**
  * Abstract builder for {@link AbstractPdfOutputParameters}.
- * 
+ *
+ * @param <P> type of the parameters the builder builds
  * @author Andrea Vacondio
- * @param <P>
- *            type of the parameters the builder builds
  */
 public abstract class AbstractPdfOutputParametersBuilder<P extends AbstractPdfOutputParameters>
         extends AbstractParametersBuilder<P> {
-    private boolean compress;
+    private CompressionPolicy compressionPolicy;
     private boolean discardBookmarks = false;
     private PdfVersion version;
 
-    public void compress(boolean compress) {
-        this.compress = compress;
+    public void compressionPolicy(CompressionPolicy compressionPolicy) {
+        this.compressionPolicy = compressionPolicy;
     }
 
-    protected boolean isCompress() {
-        return compress;
+    protected CompressionPolicy compressionPolicy() {
+        return compressionPolicy;
     }
 
     public void version(PdfVersion version) {

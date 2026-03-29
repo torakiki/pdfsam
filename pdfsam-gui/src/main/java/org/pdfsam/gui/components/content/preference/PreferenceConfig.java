@@ -21,6 +21,7 @@ package org.pdfsam.gui.components.content.preference;
 import jakarta.inject.Named;
 import javafx.scene.text.Font;
 import javafx.util.Subscription;
+import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.core.support.validation.Validators;
 import org.pdfsam.gui.components.content.log.MaxLogRowsChangedEvent;
 import org.pdfsam.gui.theme.Themes;
@@ -31,6 +32,7 @@ import org.pdfsam.model.ui.ComboItem;
 import org.pdfsam.model.ui.DefaultPdfVersionComboItem;
 import org.pdfsam.ui.components.support.FXValidationSupport;
 import org.pdfsam.ui.components.support.Style;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.pdf.PdfVersion;
 
 import java.util.Arrays;
@@ -47,13 +49,13 @@ import static org.pdfsam.core.context.BooleanPersistentProperty.CLEAR_CONFIRMATI
 import static org.pdfsam.core.context.BooleanPersistentProperty.DISCARD_BOOKMARKS;
 import static org.pdfsam.core.context.BooleanPersistentProperty.DONATION_NOTIFICATION;
 import static org.pdfsam.core.context.BooleanPersistentProperty.OVERWRITE_OUTPUT;
-import static org.pdfsam.core.context.BooleanPersistentProperty.PDF_COMPRESSION_ENABLED;
 import static org.pdfsam.core.context.BooleanPersistentProperty.PLAY_SOUNDS;
 import static org.pdfsam.core.context.BooleanPersistentProperty.PREMIUM_MODULES;
 import static org.pdfsam.core.context.BooleanPersistentProperty.SAVE_PWD_IN_WORKSPACE;
 import static org.pdfsam.core.context.BooleanPersistentProperty.SAVE_WORKSPACE_ON_EXIT;
 import static org.pdfsam.core.context.BooleanPersistentProperty.SMART_OUTPUT;
 import static org.pdfsam.core.context.IntegerPersistentProperty.LOGVIEW_ROWS_NUMBER;
+import static org.pdfsam.core.context.StringPersistentProperty.COMPRESSION_POLICY;
 import static org.pdfsam.core.context.StringPersistentProperty.FONT;
 import static org.pdfsam.core.context.StringPersistentProperty.FONT_SIZE;
 import static org.pdfsam.core.context.StringPersistentProperty.LOCALE;
@@ -178,16 +180,17 @@ public class PreferenceConfig {
     }
 
     @Provides
-    @Named("compressionEnabled")
-    public PreferenceCheckBox compressionEnabled() {
-        var compressionEnabled = new PreferenceCheckBox(PDF_COMPRESSION_ENABLED, i18n().tr("Enabled PDF compression"),
-                app().persistentSettings().get(PDF_COMPRESSION_ENABLED));
-        compressionEnabled.setId("compressionEnabled");
-        compressionEnabled.setGraphic(
-                helpIcon(i18n().tr("Set whether \"Compress output file\" should be enabled by default")));
-        compressionEnabled.getStyleClass().addAll(Style.WITH_HELP.css());
-        compressionEnabled.getStyleClass().addAll(Style.VITEM.css());
-        return compressionEnabled;
+    @Named("compressionPolicy")
+    public PreferenceComboBox<ComboItem<CompressionPolicy>> compressionEnabled() {
+        PreferenceComboBox<ComboItem<CompressionPolicy>> compressionPolicy = new PreferenceComboBox<>(
+                COMPRESSION_POLICY);
+        compressionPolicy.setId("compressionPolicy");
+        compressionPolicy.getItems().add(new ComboItem<>(CompressionPolicy.COMPRESS, i18n().tr("Compress")));
+        compressionPolicy.getItems().add(new ComboItem<>(CompressionPolicy.NEUTRAL, i18n().tr("Unchanged")));
+        compressionPolicy.getItems().add(new ComboItem<>(CompressionPolicy.UNCOMPRESS, i18n().tr("Uncompress")));
+        app().persistentSettings().get(StringPersistentProperty.COMPRESSION_POLICY).map(CompressionPolicy::valueOf)
+                .ifPresent(p -> compressionPolicy.getSelectionModel().select(keyWithEmptyValue(p)));
+        return compressionPolicy;
     }
 
     @Provides

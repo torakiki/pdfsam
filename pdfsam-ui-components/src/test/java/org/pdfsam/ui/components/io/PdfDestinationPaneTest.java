@@ -25,10 +25,12 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.io.TempDir;
 import org.mockito.Mockito;
 import org.pdfsam.core.context.BooleanPersistentProperty;
+import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.model.ui.PdfVersionComboItem;
 import org.pdfsam.model.ui.SetDestinationRequest;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.JavaFxThreadInitializeExtension;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.pdf.PdfVersion;
 
 import java.io.File;
@@ -66,7 +68,8 @@ public class PdfDestinationPaneTest {
     @BeforeEach
     public void setUp() {
         destination = Mockito.spy(BrowsableDirectoryField.class);
-        app().persistentSettings().set(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED, true);
+        app().persistentSettings()
+                .set(StringPersistentProperty.COMPRESSION_POLICY, CompressionPolicy.COMPRESS.toString());
         app().persistentSettings().set(BooleanPersistentProperty.OVERWRITE_OUTPUT, true);
         app().persistentSettings().set(BooleanPersistentProperty.SMART_OUTPUT, false);
         victim = new PdfDestinationPane(destination, TOOL);
@@ -110,6 +113,7 @@ public class PdfDestinationPaneTest {
                 .collect(Collectors.toSet());
         assertThat(available).containsOnly(PdfVersion.VERSION_1_5, PdfVersion.VERSION_1_6, PdfVersion.VERSION_1_7,
                 PdfVersion.VERSION_2_0);
+        assertEquals(CompressionPolicy.COMPRESS, victim.getCompress().getSelectionModel().getSelectedItem().key());
     }
 
     @Test
@@ -127,7 +131,7 @@ public class PdfDestinationPaneTest {
         Map<String, String> data = new HashMap<>();
         victim.saveStateTo(data);
         assertEquals(Boolean.TRUE.toString(), data.get("overwrite"));
-        assertEquals(Boolean.TRUE.toString(), data.get("compress"));
+        assertEquals("COMPRESS", data.get("compressionPolicy"));
         assertNull(data.get("discardBookmarks"));
         assertTrue(isNotEmpty(data.get("version")));
     }
@@ -136,9 +140,10 @@ public class PdfDestinationPaneTest {
     public void restoreState() {
         Map<String, String> data = new HashMap<>();
         data.put("overwrite", Boolean.FALSE.toString());
-        data.put("compress", Boolean.TRUE.toString());
+        data.put("compressionPolicy", CompressionPolicy.UNCOMPRESS.name());
         data.put("version", PdfVersion.VERSION_1_4.toString());
         victim.restoreStateFrom(data);
         assertFalse(victim.overwrite().isSelected());
+        assertEquals(CompressionPolicy.UNCOMPRESS, victim.getCompress().getSelectionModel().getSelectedItem().key());
     }
 }

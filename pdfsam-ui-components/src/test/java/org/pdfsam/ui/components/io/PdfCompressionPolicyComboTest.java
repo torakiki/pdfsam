@@ -1,7 +1,9 @@
+package org.pdfsam.ui.components.io;
+
 /*
  * This file is part of the PDF Split And Merge source code
- * Created on 16/lug/2014
- * Copyright 2017 by Sober Lemur S.r.l. (info@soberlemur.com).
+ * Created on 26/03/26
+ * Copyright 2026 by Sober Lemur S.r.l. (info@soberlemur.com).
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -16,46 +18,36 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.pdfsam.ui.components.io;
 
-import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.pdfsam.model.ui.AddPdfVersionConstraintEvent;
+import org.pdfsam.model.ui.ComboItem;
 import org.pdfsam.model.ui.RemovePdfVersionConstraintEvent;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.HitTestListener;
+import org.pdfsam.test.JavaFxThreadExtension;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.pdf.PdfVersion;
-import org.testfx.api.FxRobot;
-import org.testfx.framework.junit5.ApplicationExtension;
-import org.testfx.framework.junit5.Start;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
-/**
- * @author Andrea Vacondio
- */
-@ExtendWith({ ApplicationExtension.class })
-public class PdfVersionConstrainedCheckBoxTest {
+@ExtendWith(JavaFxThreadExtension.class)
+public class PdfCompressionPolicyComboTest {
 
     private static final String MODULE = "MODULE";
     @RegisterExtension
     public ClearEventStudioExtension clearStudio = new ClearEventStudioExtension(MODULE);
-    private PdfVersionConstrainedCheckBox victim;
 
-    private FxRobot robot;
+    private PdfCompressionPolicyCombo victim;
 
-    @Start
-    public void start(Stage stage) {
-        victim = new PdfVersionConstrainedCheckBox(PdfVersion.VERSION_1_4, MODULE);
-        Scene scene = new Scene(new HBox(victim));
-        stage.setScene(scene);
-        stage.show();
+    @BeforeEach
+    public void setUp() {
+        victim = new PdfCompressionPolicyCombo(MODULE);
     }
 
     @Test
@@ -64,11 +56,11 @@ public class PdfVersionConstrainedCheckBoxTest {
             @Override
             public void onEvent(AddPdfVersionConstraintEvent event) {
                 super.onEvent(event);
-                assertEquals(PdfVersion.VERSION_1_4, event.pdfVersion());
+                assertEquals(PdfVersion.VERSION_1_5, event.pdfVersion());
             }
         };
         eventStudio().add(AddPdfVersionConstraintEvent.class, listener, MODULE);
-        robot.clickOn(victim);
+        victim.getSelectionModel().select(ComboItem.keyWithEmptyValue(CompressionPolicy.COMPRESS));
         assertTrue(listener.isHit());
     }
 
@@ -78,12 +70,11 @@ public class PdfVersionConstrainedCheckBoxTest {
             @Override
             public void onEvent(RemovePdfVersionConstraintEvent event) {
                 super.onEvent(event);
-                assertEquals(PdfVersion.VERSION_1_4, event.pdfVersion());
+                assertEquals(PdfVersion.VERSION_1_5, event.pdfVersion());
             }
         };
         eventStudio().add(RemovePdfVersionConstraintEvent.class, listener, MODULE);
-        robot.doubleClickOn(victim);
+        victim.getSelectionModel().select(ComboItem.keyWithEmptyValue(CompressionPolicy.NEUTRAL));
         assertTrue(listener.isHit());
     }
-
 }

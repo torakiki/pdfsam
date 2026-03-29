@@ -43,7 +43,7 @@ class SplitByOutlineLevelParametersBuilder extends SplitParametersBuilder<SplitB
     @Override
     public SplitByOutlineLevelParameters build() {
         SplitByOutlineLevelParameters params = new SplitByOutlineLevelParameters(level);
-        params.setCompress(isCompress());
+        params.setCompressionPolicy(compressionPolicy());
         params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
         params.setMatchingTitleRegEx(regexp);

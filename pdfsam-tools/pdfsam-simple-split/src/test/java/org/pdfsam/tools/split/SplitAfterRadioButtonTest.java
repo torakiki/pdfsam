@@ -32,6 +32,7 @@ import org.pdfsam.tools.split.SplitAfterRadioButton.SplitByPageParametersBuilder
 import org.pdfsam.ui.components.commons.ValidableTextField;
 import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
 import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.SplitByPagesParameters;
@@ -87,7 +88,7 @@ public class SplitAfterRadioButtonTest {
 
     @Test
     public void valid() {
-        ValidableTextField field =  robot.lookup("#field").queryAs(ValidableTextField.class);
+        ValidableTextField field = robot.lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
         robot.clickOn(field).write("2,4,10").push(KeyCode.ENTER);
         assertEquals(ValidationState.VALID, field.getValidationState());
@@ -95,7 +96,7 @@ public class SplitAfterRadioButtonTest {
 
     @Test
     public void validWhiteSpace() {
-        ValidableTextField field =  robot.lookup("#field").queryAs(ValidableTextField.class);
+        ValidableTextField field = robot.lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
         robot.clickOn(field).write("2, 4 ,10").push(KeyCode.ENTER);
         assertEquals(ValidationState.VALID, field.getValidationState());
@@ -103,7 +104,7 @@ public class SplitAfterRadioButtonTest {
 
     @Test
     public void invalid() {
-        ValidableTextField field =  robot.lookup("#field").queryAs(ValidableTextField.class);
+        ValidableTextField field = robot.lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
         robot.clickOn(field).write("Chuck").push(KeyCode.ENTER);
         assertEquals(ValidationState.INVALID, field.getValidationState());
@@ -111,7 +112,7 @@ public class SplitAfterRadioButtonTest {
 
     @Test
     public void invalidZero() {
-        ValidableTextField field =  robot.lookup("#field").queryAs(ValidableTextField.class);
+        ValidableTextField field = robot.lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
         robot.clickOn(field).write("0").push(KeyCode.ENTER);
         assertEquals(ValidationState.INVALID, field.getValidationState());
@@ -119,7 +120,7 @@ public class SplitAfterRadioButtonTest {
 
     @Test
     public void invalidContainsZero() {
-        ValidableTextField field =  robot.lookup("#field").queryAs(ValidableTextField.class);
+        ValidableTextField field = robot.lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
         robot.clickOn(field).write("14,0").push(KeyCode.ENTER);
         assertEquals(ValidationState.INVALID, field.getValidationState());
@@ -127,7 +128,7 @@ public class SplitAfterRadioButtonTest {
 
     @Test
     public void invalidBuilder() {
-        ValidableTextField field =  robot.lookup("#field").queryAs(ValidableTextField.class);
+        ValidableTextField field = robot.lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
         robot.clickOn(field).write("Chuck").push(KeyCode.ENTER);
         victim.getBuilder(onError);
@@ -136,12 +137,12 @@ public class SplitAfterRadioButtonTest {
 
     @Test
     public void builder() throws Exception {
-        ValidableTextField field =  robot.lookup("#field").queryAs(ValidableTextField.class);
+        ValidableTextField field = robot.lookup("#field").queryAs(ValidableTextField.class);
         assertEquals(ValidationState.NOT_VALIDATED, field.getValidationState());
         robot.clickOn(field).write("1,10").push(KeyCode.ENTER);
         var file = Files.createTempFile(folder, null, ".pdf").toFile();
         SplitByPageParametersBuilder builder = victim.getBuilder(onError);
-        builder.compress(true);
+        builder.compressionPolicy(CompressionPolicy.COMPRESS);
         FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
         builder.output(output);
         builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
@@ -150,7 +151,7 @@ public class SplitAfterRadioButtonTest {
         builder.source(source);
         builder.version(PdfVersion.VERSION_1_7);
         SplitByPagesParameters params = builder.build();
-        assertTrue(params.isCompress());
+        assertEquals(CompressionPolicy.COMPRESS, params.compressionPolicy());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertThat(params.getPages(20)).containsOnly(1, 10);
@@ -180,7 +181,7 @@ public class SplitAfterRadioButtonTest {
 
     @Test
     public void restoreState() {
-        ValidableTextField field =  robot.lookup("#field").queryAs(ValidableTextField.class);
+        ValidableTextField field = robot.lookup("#field").queryAs(ValidableTextField.class);
         Map<String, String> data = new HashMap<>();
         data.put("splitAfter", Boolean.TRUE.toString());
         data.put("splitAfter.field", "chuck");
@@ -191,7 +192,7 @@ public class SplitAfterRadioButtonTest {
 
     @Test
     public void reset() {
-        ValidableTextField field =  robot.lookup("#field").queryAs(ValidableTextField.class);
+        ValidableTextField field = robot.lookup("#field").queryAs(ValidableTextField.class);
         robot.clickOn(field).type(KeyCode.DIGIT3).push(KeyCode.ENTER);
         assertEquals("3", field.getText());
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> victim.resetView());

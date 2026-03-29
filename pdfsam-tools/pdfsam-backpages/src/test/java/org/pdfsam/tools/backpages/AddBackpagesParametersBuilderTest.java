@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.pdfsam.core.support.params.ConversionUtils;
 import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.pdf.PdfVersion;
@@ -13,7 +14,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
 /*
@@ -39,7 +39,7 @@ class AddBackpagesParametersBuilderTest {
     @Test
     public void build(@TempDir Path folder) throws IOException {
         var victim = new AddBackpagesParametersBuilder();
-        victim.compress(true);
+        victim.compressionPolicy(CompressionPolicy.COMPRESS);
         var output = mock(FileOrDirectoryTaskOutput.class);
         var backpages = PdfFileSource.newInstanceNoPassword(Files.createTempFile(folder, null, ".pdf").toFile());
         var source = PdfFileSource.newInstanceNoPassword(Files.createTempFile(folder, null, ".pdf").toFile());
@@ -53,7 +53,7 @@ class AddBackpagesParametersBuilderTest {
         var ranges = ConversionUtils.toPageRangeSet("2,5-20,33");
         victim.ranges(ranges);
         var params = victim.build();
-        assertTrue(params.isCompress());
+        assertEquals(CompressionPolicy.COMPRESS, params.compressionPolicy());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertEquals(3, params.getStep());

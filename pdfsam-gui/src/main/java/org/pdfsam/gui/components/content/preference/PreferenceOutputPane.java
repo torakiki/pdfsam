@@ -26,6 +26,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import org.pdfsam.model.ui.ComboItem;
 import org.pdfsam.ui.components.support.Style;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.pdf.PdfVersion;
 
 import static java.util.Objects.isNull;
@@ -41,7 +42,7 @@ class PreferenceOutputPane extends GridPane {
 
     @Inject
     public PreferenceOutputPane(@Named("smartRadio") PreferenceRadioButton smartRadio,
-            @Named("compressionEnabled") PreferenceCheckBox compressionEnabled,
+            @Named("compressionPolicy") PreferenceComboBox<ComboItem<CompressionPolicy>> compressionPolicy,
             @Named("overwriteOutput") PreferenceCheckBox overwriteOutput,
             @Named("discardBookmarks") PreferenceCheckBox discardBookmarks,
             @Named("pdfVersionCombo") PreferenceComboBox<ComboItem<PdfVersion>> pdfVersionCombo,
@@ -56,6 +57,26 @@ class PreferenceOutputPane extends GridPane {
         pdfVersionCombo.setAccessibleText(i18n().tr("Default PDF version"));
         add(helpIcon(i18n().tr("Default PDF version for generated PDF files")), 2, 1);
 
+        var compressionPolicyLabel = new Label(i18n().tr("Output files compression") + ":");
+        compressionPolicyLabel.setLabelFor(compressionPolicy);
+        add(compressionPolicyLabel, 0, 2);
+        GridPane.setFillWidth(compressionPolicy, true);
+        compressionPolicy.setMaxWidth(Double.POSITIVE_INFINITY);
+        compressionPolicy.setId("compressionPolicy");
+        add(compressionPolicy, 1, 2);
+        compressionPolicy.setAccessibleText(
+                i18n().tr("Sets the default value for the compression policy of the output files"));
+        var cpHelpIcon = helpIcon("""
+                - %s: %s
+                - %s: %s
+                - %s: %s
+                """.formatted(i18n().tr("Compress"),
+                i18n().tr("all streams in the output PDF will be compressed by applying FlateDecode encoding"),
+                i18n().tr("Neutral"), i18n().tr("streams are left unchanged from the original file"),
+                i18n().tr("Uncompress"), i18n().tr(
+                        "FlateDecode and LZWDecode filters will be removed from all streams. Useful for debugging or manual inspection")));
+        add(cpHelpIcon, 2, 2);
+
         ToggleGroup group = new ToggleGroup();
 
         RadioButton manualRadio = new RadioButton(i18n().tr("Manually selected"));
@@ -63,7 +84,7 @@ class PreferenceOutputPane extends GridPane {
         manualRadio.getStyleClass().addAll(Style.VITEM.css());
         manualRadio.setId("manualRadio");
         manualRadio.setAccessibleHelp(i18n().tr("Manually select the output destination directory"));
-        add(manualRadio, 0, 2, 3, 1);
+        add(manualRadio, 0, 3, 3, 1);
 
         smartRadio.getStyleClass().addAll(Style.VITEM.css());
         smartRadio.setToggleGroup(group);
@@ -72,13 +93,12 @@ class PreferenceOutputPane extends GridPane {
         smartRadio.setGraphic(helpIcon(smartRadioHelpText));
         smartRadio.getStyleClass().addAll(Style.WITH_HELP.css());
         smartRadio.setAccessibleHelp(smartRadioHelpText);
-        add(smartRadio, 0, 3, 3, 1);
+        add(smartRadio, 0, 4, 3, 1);
 
         if (isNull(group.getSelectedToggle())) {
             group.selectToggle(manualRadio);
         }
 
-        add(compressionEnabled, 0, 4, 3, 1);
         add(overwriteOutput, 0, 5, 3, 1);
         add(discardBookmarks, 0, 6, 3, 1);
 

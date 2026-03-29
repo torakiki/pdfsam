@@ -65,7 +65,7 @@ class AddBackpagesParametersBuilder extends AbstractPdfOutputParametersBuilder<A
     @Override
     public AddBackPagesParameters build() {
         AddBackPagesParameters params = new AddBackPagesParameters();
-        params.setCompress(isCompress());
+        params.setCompressionPolicy(compressionPolicy());
         params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
         params.setOutput(output);

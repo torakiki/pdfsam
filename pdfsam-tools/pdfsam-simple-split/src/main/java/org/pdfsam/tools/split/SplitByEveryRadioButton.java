@@ -37,7 +37,7 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * {@link RadioButton} driving a text field that can accept an integer number.
- * 
+ *
  * @author Andrea Vacondio
  *
  */
@@ -96,7 +96,7 @@ public class SplitByEveryRadioButton extends RadioButton
 
     /**
      * Builder for the {@link SplitByEveryXPagesParameters}
-     * 
+     *
      * @author Andrea Vacondio
      *
      */
@@ -111,7 +111,7 @@ public class SplitByEveryRadioButton extends RadioButton
         @Override
         public SplitByEveryXPagesParameters build() {
             SplitByEveryXPagesParameters params = new SplitByEveryXPagesParameters(step);
-            params.setCompress(isCompress());
+            params.setCompressionPolicy(compressionPolicy());
             params.setExistingOutputPolicy(existingOutput());
             params.setVersion(getVersion());
             params.setOutput(getOutput());

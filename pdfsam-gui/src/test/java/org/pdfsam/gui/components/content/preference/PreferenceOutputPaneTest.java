@@ -29,6 +29,7 @@ import org.pdfsam.core.context.ApplicationPersistentSettings;
 import org.pdfsam.core.context.BooleanPersistentProperty;
 import org.pdfsam.core.context.StringPersistentProperty;
 import org.pdfsam.model.ui.ComboItem;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.pdf.PdfVersion;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
@@ -55,8 +56,8 @@ public class PreferenceOutputPaneTest {
         when(appContext.persistentSettings()).thenReturn(persistentSettings);
         var smartRadio = new PreferenceRadioButton(BooleanPersistentProperty.SMART_OUTPUT, "radio", false, appContext);
         smartRadio.setId("smartRadio");
-        var compressionEnabled = new PreferenceCheckBox(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED,
-                "compression", true, appContext);
+        var compressionEnabled = new PreferenceComboBox<ComboItem<CompressionPolicy>>(
+                StringPersistentProperty.COMPRESSION_POLICY, appContext);
         compressionEnabled.setId("compressionEnabled");
         var overwriteOutput = new PreferenceCheckBox(BooleanPersistentProperty.OVERWRITE_OUTPUT, "overwrite", false,
                 appContext);
@@ -80,13 +81,6 @@ public class PreferenceOutputPaneTest {
     @Test
     public void manualRadioIsSelected() {
         assertTrue(robot.lookup("#manualRadio").queryAs(RadioButton.class).isSelected());
-    }
-
-    @Test
-    public void clickCompression() {
-        robot.clickOn("#compressionEnabled");
-        WaitForAsyncUtils.waitForFxEvents();
-        verify(persistentSettings).set(BooleanPersistentProperty.PDF_COMPRESSION_ENABLED, false);
     }
 
     @Test

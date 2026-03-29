@@ -21,6 +21,7 @@ package org.pdfsam.tools.splitbysize;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.SplitBySizeParameters;
@@ -42,7 +43,7 @@ public class SplitBySizeParametersBuilderTest {
     @Test
     public void build(@TempDir Path folder) throws IOException {
         SplitBySizeParametersBuilder victim = new SplitBySizeParametersBuilder();
-        victim.compress(true);
+        victim.compressionPolicy(CompressionPolicy.NEUTRAL);
         FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
         victim.output(output);
         victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
@@ -53,7 +54,7 @@ public class SplitBySizeParametersBuilderTest {
         victim.source(source);
         victim.version(PdfVersion.VERSION_1_7);
         SplitBySizeParameters params = victim.build();
-        assertTrue(params.isCompress());
+        assertEquals(CompressionPolicy.NEUTRAL, params.compressionPolicy());
         assertTrue(params.discardOutline());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());

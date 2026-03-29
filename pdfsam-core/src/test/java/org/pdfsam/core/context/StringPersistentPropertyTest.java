@@ -23,6 +23,7 @@ import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.ClearSystemProperty;
 import org.junitpioneer.jupiter.SetSystemProperty;
 import org.pdfsam.core.ConfigurableSystemProperty;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.pdf.PdfVersion;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -71,5 +72,7 @@ public class StringPersistentPropertyTest {
         assertEquals("", StringPersistentProperty.WORKING_PATH.defaultSupplier().get());
         assertEquals("", StringPersistentProperty.WORKSPACE_PATH.defaultSupplier().get());
         assertEquals("", StringPersistentProperty.STARTUP_MODULE.defaultSupplier().get());
+        assertEquals(CompressionPolicy.COMPRESS.name(),
+                StringPersistentProperty.COMPRESSION_POLICY.defaultSupplier().get());
     }
 }

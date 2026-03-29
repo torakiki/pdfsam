@@ -90,7 +90,7 @@ class RotateParametersBuilder extends AbstractPdfOutputParametersBuilder<BulkRot
     @Override
     public BulkRotateParameters build() {
         BulkRotateParameters params = new BulkRotateParameters();
-        params.setCompress(isCompress());
+        params.setCompressionPolicy(compressionPolicy());
         params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
         params.setOutput(getOutput());

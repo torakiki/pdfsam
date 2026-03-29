@@ -24,6 +24,7 @@ import org.junit.jupiter.api.io.TempDir;
 import org.pdfsam.model.task.BulkRotateParameters;
 import org.pdfsam.model.task.PdfRotationInput;
 import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.pdf.PdfVersion;
@@ -38,7 +39,6 @@ import java.util.Collections;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
 /**
@@ -51,7 +51,7 @@ public class RotateParametersBuilderTest {
     @BeforeEach
     public void setUp() {
         victim = new RotateParametersBuilder();
-        victim.compress(true);
+        victim.compressionPolicy(CompressionPolicy.COMPRESS);
         victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
         victim.rotation(Rotation.DEGREES_180);
         victim.rotationType(PredefinedSetOfPages.ODD_PAGES);
@@ -66,7 +66,7 @@ public class RotateParametersBuilderTest {
         victim.addInput(source, null);
         victim.version(PdfVersion.VERSION_1_7);
         BulkRotateParameters params = victim.build();
-        assertTrue(params.isCompress());
+        assertEquals(CompressionPolicy.COMPRESS, params.compressionPolicy());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         Set<PdfRotationInput> inputs = params.getInputSet();

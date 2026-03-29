@@ -105,7 +105,7 @@ class SplitAfterPredefinedSetOfPagesRadioButton extends RadioButton
         @Override
         public SimpleSplitParameters build() {
             SimpleSplitParameters params = new SimpleSplitParameters(pages);
-            params.setCompress(isCompress());
+            params.setCompressionPolicy(compressionPolicy());
             params.setExistingOutputPolicy(existingOutput());
             params.setVersion(getVersion());
             params.setOutput(getOutput());

@@ -55,7 +55,7 @@ class AlternateMixParametersBuilder extends AbstractPdfOutputParametersBuilder<A
     @Override
     public AlternateMixMultipleInputParameters build() {
         AlternateMixMultipleInputParameters params = new AlternateMixMultipleInputParameters();
-        params.setCompress(isCompress());
+        params.setCompressionPolicy(compressionPolicy());
         params.setExistingOutputPolicy(existingOutput());
         params.setVersion(getVersion());
         params.setOutput(output);

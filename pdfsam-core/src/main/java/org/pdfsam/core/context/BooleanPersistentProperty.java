@@ -43,6 +43,7 @@ public enum BooleanPersistentProperty implements PersistentProperty<Boolean> {
     CHECK_UPDATES(() -> Boolean.parseBoolean(System.getProperty(CHECK_FOR_UPDATES_PROP, Boolean.TRUE.toString()))),
     CHECK_FOR_NEWS(() -> Boolean.parseBoolean(System.getProperty(CHECK_FOR_NEWS_PROP, Boolean.TRUE.toString()))),
     OVERWRITE_OUTPUT(() -> Boolean.parseBoolean(System.getProperty(OVERWRITE_OUTPUT_PROP, Boolean.FALSE.toString()))),
+    @Deprecated
     PDF_COMPRESSION_ENABLED(
             () -> Boolean.parseBoolean(System.getProperty(PDF_COMPRESSION_PROP, Boolean.TRUE.toString()))),
     CLEAR_CONFIRMATION(() -> Boolean.TRUE),

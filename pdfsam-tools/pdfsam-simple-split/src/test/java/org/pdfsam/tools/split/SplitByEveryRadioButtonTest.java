@@ -31,6 +31,7 @@ import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.ui.components.commons.ValidableTextField;
 import org.pdfsam.ui.components.support.FXValidationSupport.ValidationState;
 import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.SplitByEveryXPagesParameters;
@@ -126,7 +127,7 @@ public class SplitByEveryRadioButtonTest {
         robot.clickOn(field).type(KeyCode.DIGIT6).push(KeyCode.ENTER);
         var file = Files.createTempFile(folder, null, ".pdf").toFile();
         SplitByEveryRadioButton.SplitByEveryXPagesParametersBuilder builder = victim.getBuilder(onError);
-        builder.compress(true);
+        builder.compressionPolicy(CompressionPolicy.COMPRESS);
         FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
         builder.output(output);
         builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
@@ -135,13 +136,13 @@ public class SplitByEveryRadioButtonTest {
         builder.source(source);
         builder.version(PdfVersion.VERSION_1_7);
         SplitByEveryXPagesParameters params = builder.build();
-        assertTrue(params.isCompress());
+        assertEquals(CompressionPolicy.COMPRESS, params.compressionPolicy());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertThat(params.getPages(20)).containsOnly(6, 12, 18);
         assertEquals("prefix", params.getOutputPrefix());
         assertEquals(output, params.getOutput());
-        assertEquals(source, params.getSourceList().get(0));
+        assertEquals(source, params.getSourceList().getFirst());
         verify(onError, never()).accept(anyString());
     }
 

@@ -23,6 +23,7 @@ import org.junit.jupiter.api.io.TempDir;
 import org.pdfsam.core.support.params.ConversionUtils;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.optimization.OptimizationPolicy;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.ExtractPagesParameters;
@@ -47,7 +48,7 @@ public class ExtractParametersBuilderTest {
     @Test
     public void build(@TempDir Path folder) throws IOException {
         var victim = new ExtractParametersBuilder();
-        victim.compress(true);
+        victim.compressionPolicy(CompressionPolicy.COMPRESS);
         FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
         victim.output(output);
         victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
@@ -62,7 +63,7 @@ public class ExtractParametersBuilderTest {
         Set<PagesSelection> ranges = ConversionUtils.toPagesSelectionSet("2,5-20,33,45,last");
         victim.pagesSelection(ranges);
         ExtractPagesParameters params = victim.build();
-        assertTrue(params.isCompress());
+        assertEquals(CompressionPolicy.COMPRESS, params.compressionPolicy());
         assertTrue(params.discardOutline());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());

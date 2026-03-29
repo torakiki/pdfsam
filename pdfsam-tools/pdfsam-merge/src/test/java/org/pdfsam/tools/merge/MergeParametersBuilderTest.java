@@ -23,6 +23,7 @@ import org.junit.jupiter.api.io.TempDir;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.input.PdfMergeInput;
 import org.sejda.model.outline.OutlinePolicy;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.MergeParameters;
@@ -48,7 +49,7 @@ public class MergeParametersBuilderTest {
     @Test
     public void build(@TempDir Path folder) throws IOException {
         MergeParametersBuilder victim = new MergeParametersBuilder();
-        victim.compress(true);
+        victim.compressionPolicy(CompressionPolicy.UNCOMPRESS);
         FileTaskOutput output = mock(FileTaskOutput.class);
         victim.output(output);
         victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
@@ -63,7 +64,7 @@ public class MergeParametersBuilderTest {
         victim.addInput(input);
         victim.version(PdfVersion.VERSION_1_7);
         MergeParameters params = victim.build();
-        assertTrue(params.isCompress());
+        assertEquals(CompressionPolicy.UNCOMPRESS, params.compressionPolicy());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertTrue(params.isBlankPageIfOdd());

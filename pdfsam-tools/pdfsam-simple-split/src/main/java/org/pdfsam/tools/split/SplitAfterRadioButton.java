@@ -108,7 +108,7 @@ class SplitAfterRadioButton extends RadioButton
         public SplitByPagesParameters build() {
             SplitByPagesParameters params = new SplitByPagesParameters();
             params.addPages(pages);
-            params.setCompress(isCompress());
+            params.setCompressionPolicy(compressionPolicy());
             params.setExistingOutputPolicy(existingOutput());
             params.setVersion(getVersion());
             params.setOutput(getOutput());

@@ -18,6 +18,7 @@
  */
 package org.pdfsam.core.context;
 
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.pdf.PdfVersion;
 
 import java.util.function.Supplier;
@@ -50,7 +51,8 @@ public enum StringPersistentProperty implements PersistentProperty<String> {
             return PdfVersion.VERSION_1_5.name();
         }
     }),
-    PREFIX(() -> System.getProperty(PREFIX_PROP, "PDFsam_"));
+    PREFIX(() -> System.getProperty(PREFIX_PROP, "PDFsam_")),
+    COMPRESSION_POLICY(CompressionPolicy.COMPRESS::name);
 
     private final Supplier<String> defaultSupplier;
 

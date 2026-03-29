@@ -31,6 +31,7 @@ import org.pdfsam.model.ui.ComboItem;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.optimization.OptimizationPolicy;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.SimpleSplitParameters;
@@ -93,7 +94,7 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest {
         var file = Files.createTempFile(folder, null, ".pdf").toFile();
         SplitAfterPredefinedSetOfPagesRadioButton.SimpleSplitParametersBuilder builder = victim.getBuilder(onError);
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
-            builder.compress(true);
+            builder.compressionPolicy(CompressionPolicy.COMPRESS);
             FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
             builder.output(output);
             builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
@@ -102,7 +103,7 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest {
             builder.source(source);
             builder.version(PdfVersion.VERSION_1_7);
             SimpleSplitParameters params = builder.build();
-            assertTrue(params.isCompress());
+            assertEquals(CompressionPolicy.COMPRESS, params.compressionPolicy());
             assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
             assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
             assertThat(params.getPages(6)).containsOnly(1, 3, 5);
@@ -122,7 +123,7 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest {
         var file = Files.createTempFile(folder, null, ".pdf").toFile();
         WaitForAsyncUtils.waitForAsyncFx(2000, () -> {
             SplitAfterPredefinedSetOfPagesRadioButton.SimpleSplitParametersBuilder builder = victim.getBuilder(onError);
-            builder.compress(true);
+            builder.compressionPolicy(CompressionPolicy.UNCOMPRESS);
             FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
             builder.output(output);
             builder.existingOutput(ExistingOutputPolicy.OVERWRITE);
@@ -133,6 +134,7 @@ public class SplitAfterPredefinedSetOfPagesRadioButtonTest {
             System.setProperty(ConfigurableSystemProperty.PDFSAM_DISABLE_SPLIT_OPTIMIZATION, Boolean.TRUE.toString());
             SimpleSplitParameters params = builder.build();
             assertEquals(OptimizationPolicy.NO, params.getOptimizationPolicy());
+            assertEquals(CompressionPolicy.UNCOMPRESS, params.compressionPolicy());
             verify(onError, never()).accept(anyString());
         });
         System.setProperty(ConfigurableSystemProperty.PDFSAM_DISABLE_SPLIT_OPTIMIZATION, Boolean.FALSE.toString());

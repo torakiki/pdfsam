@@ -21,6 +21,7 @@ package org.pdfsam.tools.splitbybookmarks;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.sejda.model.input.PdfFileSource;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileOrDirectoryTaskOutput;
 import org.sejda.model.parameter.SplitByOutlineLevelParameters;
@@ -32,7 +33,6 @@ import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
 /**
@@ -43,7 +43,7 @@ public class SplitByOutlineLevelParametersBuilderTest {
     @Test
     public void build(@TempDir Path folder) throws IOException {
         SplitByOutlineLevelParametersBuilder victim = new SplitByOutlineLevelParametersBuilder();
-        victim.compress(true);
+        victim.compressionPolicy(CompressionPolicy.NEUTRAL);
         FileOrDirectoryTaskOutput output = mock(FileOrDirectoryTaskOutput.class);
         victim.output(output);
         victim.existingOutput(ExistingOutputPolicy.OVERWRITE);
@@ -54,7 +54,7 @@ public class SplitByOutlineLevelParametersBuilderTest {
         victim.source(source);
         victim.version(PdfVersion.VERSION_1_7);
         SplitByOutlineLevelParameters params = victim.build();
-        assertTrue(params.isCompress());
+        assertEquals(CompressionPolicy.NEUTRAL, params.compressionPolicy());
         assertFalse(params.discardOutline());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());

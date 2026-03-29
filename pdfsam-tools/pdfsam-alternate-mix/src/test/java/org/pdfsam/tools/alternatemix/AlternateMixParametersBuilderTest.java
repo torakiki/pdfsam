@@ -22,6 +22,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.sejda.model.input.PdfFileSource;
 import org.sejda.model.input.PdfMixInput;
+import org.sejda.model.output.CompressionPolicy;
 import org.sejda.model.output.ExistingOutputPolicy;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.AlternateMixMultipleInputParameters;
@@ -44,7 +45,7 @@ public class AlternateMixParametersBuilderTest {
     @Test
     public void build(@TempDir Path folder) throws IOException {
         AlternateMixParametersBuilder victim = new AlternateMixParametersBuilder();
-        victim.compress(true);
+        victim.compressionPolicy(CompressionPolicy.COMPRESS);
         PdfMixInput first = new PdfMixInput(
                 PdfFileSource.newInstanceNoPassword(Files.createTempFile(folder, null, ".pdf").toFile()), true, 2);
         victim.addInput(first);
@@ -60,7 +61,7 @@ public class AlternateMixParametersBuilderTest {
         victim.version(PdfVersion.VERSION_1_7);
         assertTrue(victim.hasInput());
         AlternateMixMultipleInputParameters params = victim.build();
-        assertTrue(params.isCompress());
+        assertEquals(CompressionPolicy.COMPRESS, params.compressionPolicy());
         assertEquals(ExistingOutputPolicy.OVERWRITE, params.getExistingOutputPolicy());
         assertEquals(PdfVersion.VERSION_1_7, params.getVersion());
         assertEquals(3, params.getInputList().size());
