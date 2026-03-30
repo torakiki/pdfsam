@@ -82,7 +82,7 @@
                                     <arguments>
                                         <argument>--add-modules</argument>
                                         <argument>
-                                            java.base,java.logging,java.naming,java.sql,java.desktop,java.xml,java.management,jdk.unsupported,java.prefs,jdk.localedata,javafx.controls,javafx.base,javafx.graphics
+                                            java.base,java.logging,java.naming,java.sql,java.desktop,java.xml,java.management,jdk.unsupported,java.prefs,jdk.localedata,javafx.controls,javafx.base,javafx.graphics,javafx.media
                                         </argument>
                                         <argument>--include-locales=en-*,af,ar,bg,bs,ca,co,cs,da,de,el,es,eu,fi,fr,he,hi,hu,hr,ko,jp,it,lo,lt,lv,ms,nl,nb,oc,pt-*,pl,pt,ro,ru,sk,sl,sr,sv,tr,th,zh-*,uk</argument>
                                         <argument>--output</argument>
