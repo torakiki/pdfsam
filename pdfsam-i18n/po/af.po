@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2026-02-24 16:37+0100\n"
+"PO-Revision-Date: 2026-03-30 16:08+0200\n"
 "Last-Translator: Andrea Vacondio <info@pdfsam.org>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "Language: af\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 
 msgid "No PDF document has been selected"
 msgstr "Geen PDF dokument was geselekteerde"
@@ -714,12 +714,12 @@ msgstr ""
 "Stel whether die aansoek behoort tjek vir nuus beskikbaarheid op opstart "
 "(herbegin benodigde)"
 
-msgid "Enabled PDF compression"
-msgstr "Geaktiveer PDF kompressie"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Geaktiveer PDF kompressie"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"Stel whether \"Compress output file\" behoort wees geaktiveer deur verstek"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr ""
+#~ "Stel whether \"Compress output file\" behoort wees geaktiveer deur verstek"
 
 msgid "Overwrite files"
 msgstr "Oorskryf lêers"
@@ -1106,8 +1106,8 @@ msgstr "Die geselekteerde lêer moet bestaan. "
 msgid "Allowed extensions are {0}"
 msgstr "Toegelaat uitbreidings is {0}"
 
-msgid "Compress output file/files"
-msgstr "Comprimeren uitset lêer/lêers"
+#~ msgid "Compress output file/files"
+#~ msgstr "Comprimeren uitset lêer/lêers"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1158,8 +1158,8 @@ msgid "Browse"
 msgstr "Snuffel"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "PDF weergawe benodig: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "PDF weergawe benodig: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Voorvoegsel vir die gegenereerde lêers name"
@@ -1609,8 +1609,8 @@ msgstr "Blaai vir bestemming PDF-lêer"
 msgid "Browse for {0}"
 msgstr "Blaai vir {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Komprimeer die uitvoer PDF-lêer"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Komprimeer die uitvoer PDF-lêer"
 
 msgid "Select a PDF file"
 msgstr "Kies 'n PDF-lêer"
@@ -1638,8 +1638,8 @@ msgid "Invalid value: {0}"
 msgstr "Ongeldige waarde: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "Wanneer gekies, vereis PDF weergawe {0} of hoër vir die uitvoerlêer"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "Wanneer gekies, vereis PDF weergawe {0} of hoër vir die uitvoerlêer"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1669,3 +1669,44 @@ msgstr "Taakstatus: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Taakstatus: {0}%"
+
+msgid "Output files compression"
+msgstr "Uitvoerlêerskompressie"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "Stel die verstekwaarde vir die kompressiebeleid van die uitvoerlêers"
+
+msgid "Compress"
+msgstr "Komprimeer"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"Alle strome in die uitvoer-PDF sal saamgepers word deur FlateDecode-"
+"enkodering toe te pas"
+
+msgid "Neutral"
+msgstr "Neutraal"
+
+msgid "streams are left unchanged from the original file"
+msgstr "strome word onveranderd gelaat vanaf die oorspronklike lêer"
+
+msgid "Uncompress"
+msgstr "Dekomprimeer"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"FlateDecode en LZWDecode filters sal van alle strome verwyder word Nuttig "
+"vir ontfouting of handmatige inspeksie"
+
+msgid "Unchanged"
+msgstr "Onveranderd"
+
+msgid "PDF version for generated PDF files"
+msgstr "PDF-weergawe vir gegenereerde PDF-lêers"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Stel die kompressiebeleid vir die uitvoerlêers"

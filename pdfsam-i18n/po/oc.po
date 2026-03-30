@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 17:22+0100\n"
+"PO-Revision-Date: 2026-03-30 16:18+0200\n"
 "Last-Translator: Quentin PAGÈS <Unknown>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2026-01-26 07:52+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: oc\n"
 
 msgid "No PDF document has been selected"
@@ -750,13 +750,13 @@ msgstr ""
 "Indica se l’aplicacion deu verificar la disponibilitat d’actualitats a "
 "l’aviada (reaviada requerida)"
 
-msgid "Enabled PDF compression"
-msgstr "Compression PDF activada"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Compression PDF activada"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"Definir se l’opcion « Compressar lo fichièr en sortida » deu èsser activada "
-"per defaut"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr ""
+#~ "Definir se l’opcion « Compressar lo fichièr en sortida » deu èsser activada "
+#~ "per defaut"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
@@ -1172,8 +1172,8 @@ msgstr "Lo fichièr seleccionat deu existir. "
 msgid "Allowed extensions are {0}"
 msgstr "Las extensions autorizadas son {0}"
 
-msgid "Compress output file/files"
-msgstr "Compressar lo(s) fichièr(s) en sortida"
+#~ msgid "Compress output file/files"
+#~ msgstr "Compressar lo(s) fichièr(s) en sortida"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1223,8 +1223,8 @@ msgid "Browse"
 msgstr "Percórrer"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Version de PDF requerida : {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Version de PDF requerida : {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Prefix pels noms de fichièrs generats"
@@ -1584,8 +1584,8 @@ msgstr "Cercar lo fichièr PDF de destinacion"
 msgid "Browse for {0}"
 msgstr "Cercar {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Comprimir lo fichièr PDF de sortida"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Comprimir lo fichièr PDF de sortida"
 
 msgid "Select a PDF file"
 msgstr "Seleccionar un fichièr PDF"
@@ -1613,10 +1613,10 @@ msgid "Invalid value: {0}"
 msgstr "Non valid valor: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr ""
-"Quand seleccionat, requerís la version PDF {0} o superiora per lo fichièr de "
-"sortida"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr ""
+#~ "Quand seleccionat, requerís la version PDF {0} o superiora per lo fichièr de "
+#~ "sortida"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1646,3 +1646,46 @@ msgstr "Estat de la tasca: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Estat de la tasca: {0}%"
+
+msgid "Output files compression"
+msgstr "Compression dels fichièrs de sortida"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr ""
+"Definís la valor per defaut per la politica de compression dels fichièrs de "
+"sortida"
+
+msgid "Compress"
+msgstr "Comprimir"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"totes los fluxes dins lo PDF de sortida seràn comprimits en aplicant lo "
+"encodatge FlateDecode"
+
+msgid "Neutral"
+msgstr "Neutre"
+
+msgid "streams are left unchanged from the original file"
+msgstr "los fluxes restan inchangjats dempuèi lo fichièr original"
+
+msgid "Uncompress"
+msgstr "Descomprimir"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"Los filtres FlateDecode e LZWDecode seràn suprimits de totes los fluxes. "
+"Utile per lo desbugatge o l'inspeccion manuala"
+
+msgid "Unchanged"
+msgstr "Pas modificat"
+
+msgid "PDF version for generated PDF files"
+msgstr "Version PDF pels fichièrs PDF generats"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Definís la politica de compression pels fichièrs de sortida"

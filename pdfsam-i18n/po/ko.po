@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2026-02-24 17:13+0100\n"
+"PO-Revision-Date: 2026-03-30 16:16+0200\n"
 "Last-Translator: SEO ARAM <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: ko\n"
 
 msgid "No PDF document has been selected"
@@ -681,11 +681,11 @@ msgid ""
 "(restart needed)"
 msgstr "프로그램 시작시 마다 새로운 뉴스를 확인할지 설정하기(재시작 필요)"
 
-msgid "Enabled PDF compression"
-msgstr "PDF 압축 사용"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "PDF 압축 사용"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "\"압축하여 파일 내보내기\"를 기본적으로 활성화 할지를 설정하기"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "\"압축하여 파일 내보내기\"를 기본적으로 활성화 할지를 설정하기"
 
 msgid "Overwrite files"
 msgstr "파일 덮어쓰기"
@@ -1057,8 +1057,8 @@ msgstr "파일을 반드시 선택해야 합니다. "
 msgid "Allowed extensions are {0}"
 msgstr "허용된 확장자는 {0}입니다"
 
-msgid "Compress output file/files"
-msgstr "출력 파일 압축"
+#~ msgid "Compress output file/files"
+#~ msgstr "출력 파일 압축"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1105,8 +1105,8 @@ msgid "Browse"
 msgstr "찾아보기"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "PDF 버전 필요: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "PDF 버전 필요: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "생성된 파일 이름의 접두사"
@@ -1526,8 +1526,8 @@ msgstr "대상 PDF 파일 찾아보기"
 msgid "Browse for {0}"
 msgstr "{0} 찾아보기"
 
-msgid "Compress the output PDF file"
-msgstr "출력 PDF 파일 압축"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "출력 PDF 파일 압축"
 
 msgid "Select a PDF file"
 msgstr "PDF 파일 선택"
@@ -1555,8 +1555,8 @@ msgid "Invalid value: {0}"
 msgstr "유효하지 않은 값: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "선택 시 출력 파일에 PDF 버전 {0} 이상이 필요합니다"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "선택 시 출력 파일에 PDF 버전 {0} 이상이 필요합니다"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr "타임스탬프 또는 파일명과 같은 특수 접두사 키워드를 추가하려면 우클릭하십시오"
@@ -1584,3 +1584,40 @@ msgstr "작업 상태: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "작업 상태: {0}%"
+
+msgid "Output files compression"
+msgstr "출력 파일 압축"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "출력 파일의 압축 정책에 대한 기본값을 설정합니다"
+
+msgid "Compress"
+msgstr "압축"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr "출력 PDF의 모든 스트림은 FlateDecode 인코딩을 적용하여 압축됩니다"
+
+msgid "Neutral"
+msgstr "중립"
+
+msgid "streams are left unchanged from the original file"
+msgstr "스트림은 원본 파일에서 변경되지 않은 상태로 유지됩니다"
+
+msgid "Uncompress"
+msgstr "압축 해제"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr "FlateDecode 및 LZWDecode 필터가 모든 스트림에서 제거됩니다. 디버깅 또는 수동 검사에 유용합니다"
+
+msgid "Unchanged"
+msgstr "변경되지 않음"
+
+msgid "PDF version for generated PDF files"
+msgstr "생성된 PDF 파일의 PDF 버전"
+
+msgid "Sets the compression policy for the output files"
+msgstr "출력 파일의 압축 정책을 설정합니다"

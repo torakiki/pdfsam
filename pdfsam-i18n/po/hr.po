@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 17:10+0100\n"
+"PO-Revision-Date: 2026-03-30 16:14+0200\n"
 "Last-Translator: Milo Ivir <Unknown>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: hr\n"
 
 msgid "No PDF document has been selected"
@@ -739,11 +739,11 @@ msgstr ""
 "Da li provjeriti novosti prilikom pokretanja programa (ponovo pokreni "
 "program)"
 
-msgid "Enabled PDF compression"
-msgstr "Aktiviraj PDF komprimiranje"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Aktiviraj PDF komprimiranje"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "Da li standardno aktivirati opciju „Komprimiraj datoteku rezultata”"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "Da li standardno aktivirati opciju „Komprimiraj datoteku rezultata”"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr "Postavi da li standardno aktivirati opciju „Odbaci oznake”"
@@ -1148,8 +1148,8 @@ msgstr "Odabrana datoteka mora postojati. "
 msgid "Allowed extensions are {0}"
 msgstr "Dozvoljeni nastavci su {0}"
 
-msgid "Compress output file/files"
-msgstr "Komprimiraj datoteke rezultata"
+#~ msgid "Compress output file/files"
+#~ msgstr "Komprimiraj datoteke rezultata"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1195,8 +1195,8 @@ msgid "Browse"
 msgstr "Pretraži"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Potrebna PDF verzija: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Potrebna PDF verzija: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Prefiks za imena stvorenih datoteka"
@@ -1576,8 +1576,8 @@ msgstr "Potražite odredišnu PDF datoteku"
 msgid "Browse for {0}"
 msgstr "Pretraži za {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Komprimiraj izlaznu PDF datoteku"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Komprimiraj izlaznu PDF datoteku"
 
 msgid "Select a PDF file"
 msgstr "Odaberite PDF datoteku"
@@ -1605,9 +1605,9 @@ msgid "Invalid value: {0}"
 msgstr "Nevažeća vrijednost: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr ""
-"Kada je odabrano, zahtijeva PDF verziju {0} ili višu za izlaznu datoteku"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr ""
+#~ "Kada je odabrano, zahtijeva PDF verziju {0} ili višu za izlaznu datoteku"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1637,3 +1637,44 @@ msgstr "Status zadatka: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Status zadatka: {0}%"
+
+msgid "Output files compression"
+msgstr "Kompresija izlaznih datoteka"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "Postavlja zadanu vrijednost za pravilo kompresije izlaznih datoteka"
+
+msgid "Compress"
+msgstr "Komprimiraj"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"svi tokovi u izlaznom PDF-u bit će komprimirani primjenom FlateDecode "
+"kodiranja"
+
+msgid "Neutral"
+msgstr "Neutralno"
+
+msgid "streams are left unchanged from the original file"
+msgstr "tokovi ostaju nepromijenjeni iz izvorne datoteke"
+
+msgid "Uncompress"
+msgstr "Dekomprimiraj"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"FlateDecode i LZWDecode filtri bit će uklonjeni iz svih tokova. Korisno za "
+"otklanjanje grešaka ili ručni pregled"
+
+msgid "Unchanged"
+msgstr "Nepromijenjeno"
+
+msgid "PDF version for generated PDF files"
+msgstr "PDF verzija za generirane PDF datoteke"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Postavlja pravila kompresije za izlazne datoteke"

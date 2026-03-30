@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2026-02-24 16:37+0100\n"
+"PO-Revision-Date: 2026-03-30 16:09+0200\n"
 "Last-Translator: Andrea Vacondio <info@pdfsam.org>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-07-26 09:48+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 
 msgid "No PDF document has been selected"
 msgstr "Няма избран pdf документ"
@@ -733,12 +733,12 @@ msgstr ""
 "Приложението да проверява ли за новини от сайта при стартиране (настройката "
 "изисква рестарт)"
 
-msgid "Enabled PDF compression"
-msgstr "Включване на PDF компресиране"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Включване на PDF компресиране"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"Компресирането на изходните файлове да бъде установено по подразбиране"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr ""
+#~ "Компресирането на изходните файлове да бъде установено по подразбиране"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
@@ -1140,8 +1140,8 @@ msgstr "Избраният файл трябва да съществува. "
 msgid "Allowed extensions are {0}"
 msgstr "Позволените окончания са {0}"
 
-msgid "Compress output file/files"
-msgstr "Компресирай изходните файл/ове/"
+#~ msgid "Compress output file/files"
+#~ msgstr "Компресирай изходните файл/ове/"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1185,8 +1185,8 @@ msgid "Browse"
 msgstr "Разглеждане"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Изисква се версия на pdf {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Изисква се версия на pdf {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Представка за имената на създаваните файлове"
@@ -1568,8 +1568,8 @@ msgstr "Избери целеви PDF файл"
 msgid "Browse for {0}"
 msgstr "Преглед за {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Компресирай изходния PDF файл"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Компресирай изходния PDF файл"
 
 msgid "Select a PDF file"
 msgstr "Изберете PDF файл"
@@ -1597,8 +1597,8 @@ msgid "Invalid value: {0}"
 msgstr "Невалидна стойност: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "При избор, изисква PDF версия {0} или по-висока за изходния файл"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "При избор, изисква PDF версия {0} или по-висока за изходния файл"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1628,3 +1628,46 @@ msgstr "Състояние на задачата: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Състояние на задачата: {0}%"
+
+msgid "Output files compression"
+msgstr "Компресиране на изходните файлове"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr ""
+"Задава стойността по подразбиране за политиката на компресия на изходните "
+"файлове"
+
+msgid "Compress"
+msgstr "Компресирай"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"всички потоци в изходния PDF ще бъдат компресирани чрез прилагане на "
+"FlateDecode кодиране"
+
+msgid "Neutral"
+msgstr "Неутрален"
+
+msgid "streams are left unchanged from the original file"
+msgstr "потоците остават непроменени от оригиналния файл"
+
+msgid "Uncompress"
+msgstr "Декомпресирай"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"FlateDecode и LZWDecode филтрите ще бъдат премахнати от всички потоци. "
+"Полезно за отстраняване на грешки или ръчна проверка"
+
+msgid "Unchanged"
+msgstr "Непроменен"
+
+msgid "PDF version for generated PDF files"
+msgstr "Версия на PDF за генерираните PDF файлове"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Задава политиката за компресия на изходните файлове"

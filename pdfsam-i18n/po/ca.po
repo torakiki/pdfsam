@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 16:37+0100\n"
+"PO-Revision-Date: 2026-03-30 16:11+0200\n"
 "Last-Translator: Juanjo <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2026-01-26 07:52+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: ca\n"
 
 msgid "No PDF document has been selected"
@@ -749,13 +749,13 @@ msgstr ""
 "Definiu si l'aplicació ha de comprovar la disponibilitat de notícies a "
 "l'inici (cal reiniciar)"
 
-msgid "Enabled PDF compression"
-msgstr "Compressió PDF activada"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Compressió PDF activada"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"Definiu si \"Compressió del fitxer de sortida\" ha d'estar habilitat per "
-"defecte"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr ""
+#~ "Definiu si \"Compressió del fitxer de sortida\" ha d'estar habilitat per "
+#~ "defecte"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
@@ -1167,8 +1167,8 @@ msgstr "El fitxer seleccionat ha d'existir. "
 msgid "Allowed extensions are {0}"
 msgstr "Les extensions permeses són {0}"
 
-msgid "Compress output file/files"
-msgstr "Comprimeix el/s fitxer/s de sortida"
+#~ msgid "Compress output file/files"
+#~ msgstr "Comprimeix el/s fitxer/s de sortida"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1218,8 +1218,8 @@ msgid "Browse"
 msgstr "Navega"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Versió PDF requerida: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Versió PDF requerida: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Prefix per als noms dels fitxers generats"
@@ -1601,8 +1601,8 @@ msgstr "Explorar fitxer PDF de destinació"
 msgid "Browse for {0}"
 msgstr "Explorar per a {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Comprimir el fitxer PDF de sortida"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Comprimir el fitxer PDF de sortida"
 
 msgid "Select a PDF file"
 msgstr "Selecciona un fitxer PDF"
@@ -1630,10 +1630,10 @@ msgid "Invalid value: {0}"
 msgstr "Valor no vàlid: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr ""
-"En seleccionar-ho, requereix la versió {0} de PDF o superior per al fitxer "
-"de sortida"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr ""
+#~ "En seleccionar-ho, requereix la versió {0} de PDF o superior per al fitxer "
+#~ "de sortida"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1663,3 +1663,46 @@ msgstr "Estat de la tasca: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Estat de la tasca: {0}%"
+
+msgid "Output files compression"
+msgstr "Compressió dels fitxers de sortida"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr ""
+"Estableix el valor per defecte per a la política de compressió dels fitxers "
+"de sortida"
+
+msgid "Compress"
+msgstr "Comprimeix"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"tots els fluxos del PDF de sortida es comprimiran aplicant la codificació "
+"FlateDecode"
+
+msgid "Neutral"
+msgstr "Neutre"
+
+msgid "streams are left unchanged from the original file"
+msgstr "els fluxos es deixen sense canvis del fitxer original"
+
+msgid "Uncompress"
+msgstr "Descomprimir"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"Els filtres FlateDecode i LZWDecode s'eliminaran de tots els fluxos. Útil "
+"per a la depuració o inspecció manual"
+
+msgid "Unchanged"
+msgstr "Sense canvis"
+
+msgid "PDF version for generated PDF files"
+msgstr "Versió PDF per als fitxers PDF generats"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Estableix la política de compressió per als fitxers de sortida"

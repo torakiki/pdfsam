@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2026-02-24 17:13+0100\n"
+"PO-Revision-Date: 2026-03-30 16:16+0200\n"
 "Last-Translator: seki-arxiv <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: ja\n"
 
 msgid "No PDF document has been selected"
@@ -700,11 +700,11 @@ msgid ""
 "(restart needed)"
 msgstr "起動時に、ニュースが利用可能かどうか確認するように設定します (再起動が必要です)"
 
-msgid "Enabled PDF compression"
-msgstr "PDF 圧縮を有効にしました"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "PDF 圧縮を有効にしました"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "\"出力ファイルを圧縮する\" をデフォルトで有効にするかどうか"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "\"出力ファイルを圧縮する\" をデフォルトで有効にするかどうか"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr "\"しおりの破棄\"をデフォルトで有効にするかどうかの設定"
@@ -1085,8 +1085,8 @@ msgstr "選択したファイルは存在する必要があります。 "
 msgid "Allowed extensions are {0}"
 msgstr "許可される拡張子は {0}"
 
-msgid "Compress output file/files"
-msgstr "出力ファイルを圧縮する"
+#~ msgid "Compress output file/files"
+#~ msgstr "出力ファイルを圧縮する"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1129,8 +1129,8 @@ msgid "Browse"
 msgstr "参照"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "必要な PDF バージョン: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "必要な PDF バージョン: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "生成されるファイル名の接頭語"
@@ -1519,8 +1519,8 @@ msgstr "保存先PDFファイルを参照"
 msgid "Browse for {0}"
 msgstr "{0}を参照"
 
-msgid "Compress the output PDF file"
-msgstr "出力PDFファイルを圧縮"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "出力PDFファイルを圧縮"
 
 msgid "Select a PDF file"
 msgstr "PDFファイルを選択"
@@ -1548,8 +1548,8 @@ msgid "Invalid value: {0}"
 msgstr "無効な値: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "選択時、出力ファイルにはPDFバージョン{0}以上が必要です"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "選択時、出力ファイルにはPDFバージョン{0}以上が必要です"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr "右クリックでタイムスタンプやファイル名などの特殊なプレフィックスキーワードを追加します"
@@ -1577,3 +1577,40 @@ msgstr "タスクステータス：{0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "進行状況: {0}%"
+
+msgid "Output files compression"
+msgstr "出力ファイルの圧縮"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "出力ファイルの圧縮ポリシーの既定値を設定します"
+
+msgid "Compress"
+msgstr "圧縮"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr "出力PDFのすべてのストリームはFlateDecode エンコーディングを適用して圧縮されます"
+
+msgid "Neutral"
+msgstr "ニュートラル"
+
+msgid "streams are left unchanged from the original file"
+msgstr "ストリームは元のファイルから変更されません"
+
+msgid "Uncompress"
+msgstr "展開"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr "FlateDecode および LZWDecode フィルタがすべてのストリームから削除されます。デバッグや手動検査に便利です"
+
+msgid "Unchanged"
+msgstr "変更なし"
+
+msgid "PDF version for generated PDF files"
+msgstr "生成されたPDFファイルのPDFバージョン"
+
+msgid "Sets the compression policy for the output files"
+msgstr "出力ファイルの圧縮ポリシーを設定します"

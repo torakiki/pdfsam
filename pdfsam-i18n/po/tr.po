@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 17:02+0100\n"
+"PO-Revision-Date: 2026-03-30 16:19+0200\n"
 "Last-Translator: Andrea Vacondio <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: tr\n"
 
 msgid "No PDF document has been selected"
@@ -766,13 +766,13 @@ msgstr ""
 "Uygulamanın başlangıçta haber olup olmadığını kontrol etmesini "
 "ayarlayın(yeniden başlatma gerekli)"
 
-msgid "Enabled PDF compression"
-msgstr "PDF sıkıştırma etkinleştirildi"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "PDF sıkıştırma etkinleştirildi"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"\"Çıktı dosyasını sıkıştır\"ın varsayılan olarak etkin olup olmayacağını "
-"ayarlayın"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr ""
+#~ "\"Çıktı dosyasını sıkıştır\"ın varsayılan olarak etkin olup olmayacağını "
+#~ "ayarlayın"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
@@ -1201,8 +1201,8 @@ msgstr "Seçilen dosya mevcut olmalı. "
 msgid "Allowed extensions are {0}"
 msgstr "İzin verilen eklentiler: {0}"
 
-msgid "Compress output file/files"
-msgstr "Çıktı dosyalarını sıkıştır"
+#~ msgid "Compress output file/files"
+#~ msgstr "Çıktı dosyalarını sıkıştır"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1271,8 +1271,8 @@ msgid "Browse"
 msgstr "Gözat"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "İhtiyaç duyulan PDF sürümü: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "İhtiyaç duyulan PDF sürümü: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Oluşturulan dosya adı için önek"
@@ -1649,8 +1649,8 @@ msgstr "Hedef PDF dosyasına gözat"
 msgid "Browse for {0}"
 msgstr "Gözat {0} için"
 
-msgid "Compress the output PDF file"
-msgstr "Çıktı PDF dosyasını sıkıştır"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Çıktı PDF dosyasını sıkıştır"
 
 msgid "Select a PDF file"
 msgstr "Bir PDF dosyası seçin"
@@ -1678,8 +1678,8 @@ msgid "Invalid value: {0}"
 msgstr "Geçersiz değer: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "Seçildiğinde, çıktı dosyası için PDF sürüm {0} veya üzeri gerektirir"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "Seçildiğinde, çıktı dosyası için PDF sürüm {0} veya üzeri gerektirir"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1709,3 +1709,45 @@ msgstr "Görev durumu: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Görev durumu: {0}%"
+
+msgid "Output files compression"
+msgstr "Çıktı dosyaları sıkıştırma"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr ""
+"Çıktı dosyalarının sıkıştırma politikası için varsayılan değeri ayarlar"
+
+msgid "Compress"
+msgstr "Sıkıştır"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"çıktı PDF'deki tüm akışlar FlateDecode kodlaması uygulanarak "
+"sıkıştırılacaktır"
+
+msgid "Neutral"
+msgstr "Nötr"
+
+msgid "streams are left unchanged from the original file"
+msgstr "akışlar orijinal dosyadan değiştirilmeden bırakılır"
+
+msgid "Uncompress"
+msgstr "Sıkıştırmayı Kaldır"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"Tüm akışlardan FlateDecode ve LZWDecode filtreleri kaldırılacaktır. Hata "
+"ayıklama veya manuel inceleme için kullanışlıdır"
+
+msgid "Unchanged"
+msgstr "Değiştirilmedi"
+
+msgid "PDF version for generated PDF files"
+msgstr "Oluşturulan PDF dosyaları için PDF sürümü"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Çıktı dosyaları için sıkıştırma politikasını ayarlar"

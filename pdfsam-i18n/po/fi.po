@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2026-02-24 16:37+0100\n"
+"PO-Revision-Date: 2026-03-30 16:13+0200\n"
 "Last-Translator: Sami Kuusisto <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-04-22 14:00+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: fi\n"
 
 msgid "No PDF document has been selected"
@@ -757,11 +757,11 @@ msgstr ""
 "Valitse tarkistetaanko uutisten saatavuus ohjelman käynnistyessä "
 "(uudelleenkäynnistys tarvitaan)"
 
-msgid "Enabled PDF compression"
-msgstr "PDF-pakkaus käytössä"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "PDF-pakkaus käytössä"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "Valitse, onko \"Pakkaa kohdetiedosto(t)\" oletuksena käytössä"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "Valitse, onko \"Pakkaa kohdetiedosto(t)\" oletuksena käytössä"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr "Määritä, otetaanko \"Hylkää kirjanmerkit\" käyttöön oletusarvoisesti"
@@ -1168,8 +1168,8 @@ msgstr "Valitun tiedoston pitää olla olemassa. "
 msgid "Allowed extensions are {0}"
 msgstr "Sallitut tiedostopäätteet ovat {0}"
 
-msgid "Compress output file/files"
-msgstr "Pakkaa kohdetiedosto(t)"
+#~ msgid "Compress output file/files"
+#~ msgstr "Pakkaa kohdetiedosto(t)"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1237,8 +1237,8 @@ msgid "Browse"
 msgstr "Selaa"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Vaadittu PDF-versio: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Vaadittu PDF-versio: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Muodostettujen tiedostonimien etuliite"
@@ -1649,8 +1649,8 @@ msgstr "Selaa kohde-PDF-tiedostoa"
 msgid "Browse for {0}"
 msgstr "Selaa {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Pakkaa luotu PDF-tiedosto"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Pakkaa luotu PDF-tiedosto"
 
 msgid "Select a PDF file"
 msgstr "Valitse PDF-tiedosto"
@@ -1678,8 +1678,8 @@ msgid "Invalid value: {0}"
 msgstr "Virheellinen arvo: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "Valittuna vaatii tulostiedostolle PDF-version {0} tai uudemman"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "Valittuna vaatii tulostiedostolle PDF-version {0} tai uudemman"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1709,3 +1709,43 @@ msgstr "Tehtävän tila: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Tehtävän tila: {0}%"
+
+msgid "Output files compression"
+msgstr "Tulostustiedostojen pakkaus"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "Asettaa oletusarvon tulostustiedostojen pakkausmenettelylle"
+
+msgid "Compress"
+msgstr "Pakkaa"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"kaikki virrat tulostus-PDF:ssä pakataan käyttämällä FlateDecode-koodausta"
+
+msgid "Neutral"
+msgstr "Neutraali"
+
+msgid "streams are left unchanged from the original file"
+msgstr "virrat jätetään muuttumattomiksi alkuperäisestä tiedostosta"
+
+msgid "Uncompress"
+msgstr "Pura"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"FlateDecode- ja LZWDecode-suodattimet poistetaan kaikista virroista. "
+"Hyödyllinen virheenkorjauksessa tai manuaalisessa tarkastuksessa"
+
+msgid "Unchanged"
+msgstr "Muuttumaton"
+
+msgid "PDF version for generated PDF files"
+msgstr "PDF-versio luoduille PDF-tiedostoille"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Asettaa pakkausmenetelmän tulostustiedostoille"

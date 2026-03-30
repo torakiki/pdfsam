@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2026-02-24 16:58+0100\n"
+"PO-Revision-Date: 2026-03-30 16:19+0200\n"
 "Last-Translator: Loge Xu <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-02-06 10:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: zh_CN\n"
 
 msgid "No PDF document has been selected"
@@ -700,11 +700,11 @@ msgid ""
 "(restart needed)"
 msgstr "设置是否启动程序时检查新闻可用性（需重启后生效）"
 
-msgid "Enabled PDF compression"
-msgstr "启用PDF压缩"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "启用PDF压缩"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "设置是否默认启用“压缩输出文件”功能"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "设置是否默认启用“压缩输出文件”功能"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr "设置默认是否“去除书签”"
@@ -1085,8 +1085,8 @@ msgstr "选择的文件必须存在。 "
 msgid "Allowed extensions are {0}"
 msgstr "允许的拓展名为{0}"
 
-msgid "Compress output file/files"
-msgstr "压缩输出文件"
+#~ msgid "Compress output file/files"
+#~ msgstr "压缩输出文件"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1129,8 +1129,8 @@ msgid "Browse"
 msgstr "浏览"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "要求PDF版本：{0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "要求PDF版本：{0}"
 
 msgid "Prefix for the generated files names"
 msgstr "新建文件的文件名前缀"
@@ -1536,8 +1536,8 @@ msgstr "选择目标 PDF 文件"
 msgid "Browse for {0}"
 msgstr "浏览 {0}"
 
-msgid "Compress the output PDF file"
-msgstr "压缩输出的 PDF 文件"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "压缩输出的 PDF 文件"
 
 msgid "Select a PDF file"
 msgstr "选择 PDF 文件"
@@ -1565,8 +1565,8 @@ msgid "Invalid value: {0}"
 msgstr "无效值: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "选中时，输出文件需要 PDF 版本 {0} 或更高"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "选中时，输出文件需要 PDF 版本 {0} 或更高"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr "右键添加特殊前缀关键字，如时间戳或文件名"
@@ -1594,3 +1594,40 @@ msgstr "任务状态: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "任务状态: {0}%"
+
+msgid "Output files compression"
+msgstr "输出文件压缩"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "设置输出文件压缩策略的默认值"
+
+msgid "Compress"
+msgstr "压缩"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr "输出PDF中的所有流将通过应用FlateDecode编码进行压缩"
+
+msgid "Neutral"
+msgstr "中性"
+
+msgid "streams are left unchanged from the original file"
+msgstr "流保持与原始文件不变"
+
+msgid "Uncompress"
+msgstr "解压缩"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr "FlateDecode 和 LZWDecode 过滤器将从所有流中移除。用于调试或手动检查"
+
+msgid "Unchanged"
+msgstr "未更改"
+
+msgid "PDF version for generated PDF files"
+msgstr "生成的PDF文件的PDF版本"
+
+msgid "Sets the compression policy for the output files"
+msgstr "设置输出文件的压缩策略"

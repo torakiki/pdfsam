@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2026-02-24 17:05+0100\n"
+"PO-Revision-Date: 2026-03-30 16:19+0200\n"
 "Last-Translator: Wermlandsdata <bernhard@wermlandsdata.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: sv\n"
 
 msgid "No PDF document has been selected"
@@ -721,11 +721,11 @@ msgstr ""
 "Ställ in om tillgängliga nyheter ska sökas efter vid uppstart (omstart "
 "krävs)"
 
-msgid "Enabled PDF compression"
-msgstr "Aktivera PDF kompression"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Aktivera PDF kompression"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "Ställ in om \"Komprimera utdatafil\" ska vara aktiverad som standard"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "Ställ in om \"Komprimera utdatafil\" ska vara aktiverad som standard"
 
 msgid "Overwrite files"
 msgstr "Skriv över filer"
@@ -1122,8 +1122,8 @@ msgstr "Den valda filen måste finnas "
 msgid "Allowed extensions are {0}"
 msgstr "Tillåtna tillägg är {0}"
 
-msgid "Compress output file/files"
-msgstr "Komprimera målfil(er)"
+#~ msgid "Compress output file/files"
+#~ msgstr "Komprimera målfil(er)"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1192,8 +1192,8 @@ msgid "Browse"
 msgstr "Bläddra"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "PDF version som krävs: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "PDF version som krävs: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Prefix för de genererade filnamnen"
@@ -1649,8 +1649,8 @@ msgstr "Välj mål-PDF-fil"
 msgid "Browse for {0}"
 msgstr "Bläddra efter {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Komprimera den utgående PDF-filen"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Komprimera den utgående PDF-filen"
 
 msgid "Select a PDF file"
 msgstr "Välj en PDF-fil"
@@ -1678,8 +1678,8 @@ msgid "Invalid value: {0}"
 msgstr "Ogiltigt värde: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "När markerad, kräver PDF-version {0} eller högre för utdatafilen"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "När markerad, kräver PDF-version {0} eller högre för utdatafilen"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1709,3 +1709,44 @@ msgstr "Uppgiftsstatus: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Uppgiftsstatus: {0}%"
+
+msgid "Output files compression"
+msgstr "Komprimering av utdatafiler"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "Ställer in standardvärdet för komprimeringspolicyn för utdatafilerna"
+
+msgid "Compress"
+msgstr "Komprimera"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"alla strömmar i utdata-PDF:en kommer att komprimeras genom att tillämpa "
+"FlateDecode-kodning"
+
+msgid "Neutral"
+msgstr "Neutral"
+
+msgid "streams are left unchanged from the original file"
+msgstr "strömmar lämnas oförändrade från originalfilen"
+
+msgid "Uncompress"
+msgstr "Packa upp"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"FlateDecode- och LZWDecode-filter kommer att tas bort från alla strömmar. "
+"Användbart för felsökning eller manuell inspektion"
+
+msgid "Unchanged"
+msgstr "Oförändrad"
+
+msgid "PDF version for generated PDF files"
+msgstr "PDF-version för genererade PDF-filer"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Anger komprimeringspolicy för utdatafilerna"

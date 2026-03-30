@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 17:25+0100\n"
+"PO-Revision-Date: 2026-03-30 16:18+0200\n"
 "Last-Translator: Sergej <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2026-01-26 07:52+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: ru\n"
 
 msgid "No PDF document has been selected"
@@ -754,11 +754,11 @@ msgstr ""
 "Установите нужно ли проверять наличие новостей при запуске (нужен "
 "перезапуск)"
 
-msgid "Enabled PDF compression"
-msgstr "Сжатие файлов включено"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Сжатие файлов включено"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "Должно ли \"Сжатие выходных файлов\" быть включено по умолчанию"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "Должно ли \"Сжатие выходных файлов\" быть включено по умолчанию"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr "Должна ли настройка \"Отбросить закладки\" быть включена по умолчанию"
@@ -1174,8 +1174,8 @@ msgstr "Выбранный файл должен существовать. "
 msgid "Allowed extensions are {0}"
 msgstr "Допустимые расширения {0}"
 
-msgid "Compress output file/files"
-msgstr "Сжимать выходной файл(ы)."
+#~ msgid "Compress output file/files"
+#~ msgstr "Сжимать выходной файл(ы)."
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1222,8 +1222,8 @@ msgid "Browse"
 msgstr "Обзор"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Требуется указать версию PDF: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Требуется указать версию PDF: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Префикс для имён сгенерированных файлов"
@@ -1606,8 +1606,8 @@ msgstr "Выбрать PDF-файл назначения"
 msgid "Browse for {0}"
 msgstr "Обзор для {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Сжать выходной PDF-файл"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Сжать выходной PDF-файл"
 
 msgid "Select a PDF file"
 msgstr "Выберите PDF-файл"
@@ -1635,8 +1635,8 @@ msgid "Invalid value: {0}"
 msgstr "Недопустимое значение: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "При выборе, требуется версия PDF {0} или выше для выходного файла"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "При выборе, требуется версия PDF {0} или выше для выходного файла"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1657,12 +1657,53 @@ msgstr "Ход задачи"
 
 #, java-format
 msgid "Task progress: {0}"
-msgstr ""
+msgstr "Ход выполнения задачи: {0}"
 
 #, java-format
 msgid "Task status: {0}"
-msgstr ""
+msgstr "Статус задачи: {0}"
 
 #, java-format
 msgid "Task status: {0}%"
+msgstr "Состояние задачи: {0}%"
+
+msgid "Output files compression"
+msgstr "Сжатие выходных файлов"
+
+msgid "Sets the default value for the compression policy of the output files"
 msgstr ""
+"Устанавливает значение по умолчанию для политики сжатия выходных файлов"
+
+msgid "Compress"
+msgstr "Сжать"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"все потоки в выходном PDF будут сжаты с применением кодирования FlateDecode"
+
+msgid "Neutral"
+msgstr "Нейтральный"
+
+msgid "streams are left unchanged from the original file"
+msgstr "потоки остаются без изменений из исходного файла"
+
+msgid "Uncompress"
+msgstr "Распаковать"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"FlateDecode и LZWDecode фильтры будут удалены из всех потоков. Полезно для "
+"отладки или ручной проверки"
+
+msgid "Unchanged"
+msgstr "Без изменений"
+
+msgid "PDF version for generated PDF files"
+msgstr "Версия PDF для создаваемых PDF-файлов"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Устанавливает политику сжатия для выходных файлов"

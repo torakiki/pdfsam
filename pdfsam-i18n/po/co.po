@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 16:37+0100\n"
+"PO-Revision-Date: 2026-03-30 16:11+0200\n"
 "Last-Translator: Patriccollu <Patrick.Santa-Maria@laposte.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: co\n"
 
 msgid "No PDF document has been selected"
@@ -746,13 +746,13 @@ msgstr ""
 "Definisce s’ellu ci vole à verificà à l’iniziu a dispunibulità di e nutizie "
 "(rilanciu necessariu)"
 
-msgid "Enabled PDF compression"
-msgstr "A cumpressione PDF hè attivata"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "A cumpressione PDF hè attivata"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"Definisce s’è a cumpressione di u(i) schedariu(i) d’esciuta deve esse "
-"attivata di manera predefinita"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr ""
+#~ "Definisce s’è a cumpressione di u(i) schedariu(i) d’esciuta deve esse "
+#~ "attivata di manera predefinita"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
@@ -1170,8 +1170,8 @@ msgstr "U schedariu selezziunatu deve esiste. "
 msgid "Allowed extensions are {0}"
 msgstr "E stinzioni permessi sò {0}"
 
-msgid "Compress output file/files"
-msgstr "Cumpressione di u(i) schedariu(i) d’esciuta"
+#~ msgid "Compress output file/files"
+#~ msgstr "Cumpressione di u(i) schedariu(i) d’esciuta"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1221,8 +1221,8 @@ msgid "Browse"
 msgstr "Sfuglià"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Versione PDF richiesta : {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Versione PDF richiesta : {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Prefissu per i nomi di schedarii ingenerati"
@@ -1579,8 +1579,8 @@ msgstr "Circà u schedariu PDF di destinazione"
 msgid "Browse for {0}"
 msgstr "Sceglie per {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Cumpressà u schedariu PDF di uscita"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Cumpressà u schedariu PDF di uscita"
 
 msgid "Select a PDF file"
 msgstr "Sceglie un schedariu PDF"
@@ -1608,10 +1608,10 @@ msgid "Invalid value: {0}"
 msgstr "Valore invalidu: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr ""
-"Quandu selezziunatu, richiede a versione PDF {0} o superiore per u schedariu "
-"di output"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr ""
+#~ "Quandu selezziunatu, richiede a versione PDF {0} o superiore per u schedariu "
+#~ "di output"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1641,3 +1641,46 @@ msgstr "Statu di u compitu: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Statu di u compitu: {0}%"
+
+msgid "Output files compression"
+msgstr "Cumpressione di i schedarii di sorta"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr ""
+"Definisce u valore predefinitu per a pulitica di cumpressione di i schedarii "
+"di output"
+
+msgid "Compress"
+msgstr "Cumprime"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"tutti i flussi in u PDF di uscita seranu cumpressi applichendu a "
+"codificazione FlateDecode"
+
+msgid "Neutral"
+msgstr "Neutrale"
+
+msgid "streams are left unchanged from the original file"
+msgstr "i flussi restanu invariati da u schedariu originale"
+
+msgid "Uncompress"
+msgstr "Scumpressà"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"I filtri FlateDecode è LZWDecode saranu eliminati da tutti i flussi. Utile "
+"per u debug o l'ispezione manuale"
+
+msgid "Unchanged"
+msgstr "Micca cambiatu"
+
+msgid "PDF version for generated PDF files"
+msgstr "Versione PDF per i schedarii PDF generati"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Definisce a pulitica di cumpressione per i schedarii di sortita"

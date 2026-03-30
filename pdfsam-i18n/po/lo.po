@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 17:14+0100\n"
+"PO-Revision-Date: 2026-03-30 16:17+0200\n"
 "Last-Translator: boneni <Unknown>\n"
 "Language-Team: Lao <lo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2026-01-26 07:52+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: lo\n"
 
 msgid "No PDF document has been selected"
@@ -724,11 +724,11 @@ msgid ""
 msgstr ""
 "ຕັ້ງຄ່າວ່າຈະໃຫ້ແອັບພລິເຄຊັນກວດສອບຂ່າວສານເມື່ອເລີ່ມຕົ້ນ ຫຼື ບໍ່ (ຕ້ອງເປີດໃໝ່)"
 
-msgid "Enabled PDF compression"
-msgstr "ເປີດໃຊ້ການບີບອັດ PDF"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "ເປີດໃຊ້ການບີບອັດ PDF"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "ຕັ້ງຄ່າວ່າຈະໃຫ້ \"ບີບອັດໄຟລ໌ຜົນໄດ້ຮັບ\" ເປີດໃຊ້ໂດຍຄ່າເລີ່ມຕົ້ນ ຫຼື ບໍ່"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "ຕັ້ງຄ່າວ່າຈະໃຫ້ \"ບີບອັດໄຟລ໌ຜົນໄດ້ຮັບ\" ເປີດໃຊ້ໂດຍຄ່າເລີ່ມຕົ້ນ ຫຼື ບໍ່"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr "ຕັ້ງຄ່າວ່າຈະໃຫ້ \"ບໍ່ເອົາບຸກມາກ\" ເປີດໃຊ້ໂດຍຄ່າເລີ່ມຕົ້ນ ຫຼື ບໍ່"
@@ -1131,8 +1131,8 @@ msgstr "ໄຟລ໌ທີ່ເລືອກຕ້ອງມີຢູ່. "
 msgid "Allowed extensions are {0}"
 msgstr "ນາມສະກຸນທີ່ອະນຸຍາດແມ່ນ {0}"
 
-msgid "Compress output file/files"
-msgstr "ບີບອັດໄຟລ໌ຜົນໄດ້ຮັບ"
+#~ msgid "Compress output file/files"
+#~ msgstr "ບີບອັດໄຟລ໌ຜົນໄດ້ຮັບ"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1178,8 +1178,8 @@ msgid "Browse"
 msgstr "ເປີດຫາ"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "ຕ້ອງການເວີຊັນ PDF: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "ຕ້ອງການເວີຊັນ PDF: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "ຄຳນຳໜ້າສຳລັບຊື່ໄຟລ໌ທີ່ສ້າງຂຶ້ນ"
@@ -1523,8 +1523,8 @@ msgstr "ຊອກຫາໄຟລ໌ PDF ປາຍທາງ"
 msgid "Browse for {0}"
 msgstr "ຊອກຫາ {0}"
 
-msgid "Compress the output PDF file"
-msgstr "ບີບອັດໄຟລ໌ PDF ທີ່ສົ່ງອອກ"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "ບີບອັດໄຟລ໌ PDF ທີ່ສົ່ງອອກ"
 
 msgid "Select a PDF file"
 msgstr "ເລືອກໄຟລ໌ PDF"
@@ -1552,8 +1552,8 @@ msgid "Invalid value: {0}"
 msgstr "ຄ່າບໍ່ຖືກຕ້ອງ: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "ເມື່ອເລືອກແລ້ວ, ຕ້ອງການ PDF ເວີຊັນ {0} ຫຼື ສູງກວ່າ ສຳລັບໄຟລ໌ຜົນອອກ"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "ເມື່ອເລືອກແລ້ວ, ຕ້ອງການ PDF ເວີຊັນ {0} ຫຼື ສູງກວ່າ ສຳລັບໄຟລ໌ຜົນອອກ"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr "ຄລິກຂວາເພື່ອເພີ່ມຄຳສັບພິເສດນຳໜ້າ ເຊັ່ນ ວັນທີ-ເວລາ ຫຼື ຊື່ໄຟລ໌"
@@ -1572,12 +1572,52 @@ msgstr "ຄວາມຄືບໜ້າວຽກ"
 
 #, java-format
 msgid "Task progress: {0}"
-msgstr ""
+msgstr "ຄວາມຄືບໜ້າຂອງວຽກງານ: {0}"
 
 #, java-format
 msgid "Task status: {0}"
-msgstr ""
+msgstr "ສະຖານະວຽກງານ: {0}"
 
 #, java-format
 msgid "Task status: {0}%"
+msgstr "ສະຖານະວຽກງານ: {0}%"
+
+msgid "Output files compression"
+msgstr "ການບີບອັດໄຟລ์ຜົນໄດ້ຮັບ"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "ກຳນົດຄ່າເລີ່ມຕົ້ນສຳລັບນະໂຍບາຍການບີບອັດຂອງໄຟລ์ຜົນລັບ"
+
+msgid "Compress"
+msgstr "ບີບອັດ"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
 msgstr ""
+"ທຸກສະຕຣີມໃນ PDF ທີ່ສົ່ງອອກຈະຖືກບີບອັດໂດຍການນຳໃຊ້ການເຂົ້າລະຫັດ FlateDecode"
+
+msgid "Neutral"
+msgstr "ກາງ"
+
+msgid "streams are left unchanged from the original file"
+msgstr "ສະຕຣີມຍັງຄົງບໍ່ມີການປ່ຽນແປງຈາກໄຟລ້ຕົ້ນສະບັບ"
+
+msgid "Uncompress"
+msgstr "ຂະຫຍາຍ"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"ຕົວກອງ FlateDecode ແລະ LZWDecode ຈະຖືກລຶບອອກຈາກທຸກສະຕຣີມ. "
+"ມີປະໂຫຍດສຳລັບການດີບັກຫຼືການກວດສອບດ້ວຍຕົນເອງ"
+
+msgid "Unchanged"
+msgstr "ບໍ່ມີການປ່ຽນແປງ"
+
+msgid "PDF version for generated PDF files"
+msgstr "ເວີຊັນ PDF ສຳລັບໄຟລ์ PDF ທີ່ສ້າງຂຶ້ນ"
+
+msgid "Sets the compression policy for the output files"
+msgstr "ກຳນົດນະໂຍບາຍການບີບອັດສຳລັບໄຟລ์ຜົນລັບ"

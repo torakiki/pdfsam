@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 17:20+0100\n"
+"PO-Revision-Date: 2026-03-30 16:17+0200\n"
 "Last-Translator: Hendrik <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-07-23 08:44+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: nl\n"
 
 msgid "No PDF document has been selected"
@@ -772,11 +772,11 @@ msgstr ""
 "Stel in of het programma bij het opstarten moet controleren of er nieuws "
 "beschikbaar is (opnieuw opstarten vereist)"
 
-msgid "Enabled PDF compression"
-msgstr "PDF-compressie ingeschakeld"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "PDF-compressie ingeschakeld"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "Stel in of \"Comprimeer bestand\" standaard moet worden ingeschakeld"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "Stel in of \"Comprimeer bestand\" standaard moet worden ingeschakeld"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr "Stel in of 'Bladwijzers weggooien' standaard moet zijn ingeschakeld"
@@ -1199,8 +1199,8 @@ msgstr "Het geselecteerde bestand moet bestaan "
 msgid "Allowed extensions are {0}"
 msgstr "Toegestane extensies zijn {0}"
 
-msgid "Compress output file/files"
-msgstr "Comprimeer doelbestand/-en"
+#~ msgid "Compress output file/files"
+#~ msgstr "Comprimeer doelbestand/-en"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1265,8 +1265,8 @@ msgid "Browse"
 msgstr "Bladeren"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Vereiste PDF-versie: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Vereiste PDF-versie: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Voorvoegsel voor de gegenereerde bestandsnamen"
@@ -1659,8 +1659,8 @@ msgstr "Bladeren naar bestemmings-PDF-bestand"
 msgid "Browse for {0}"
 msgstr "Bladeren naar {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Comprimeer het uitvoer PDF-bestand"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Comprimeer het uitvoer PDF-bestand"
 
 msgid "Select a PDF file"
 msgstr "Selecteer een PDF-bestand"
@@ -1688,9 +1688,9 @@ msgid "Invalid value: {0}"
 msgstr "Ongeldige waarde: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr ""
-"Indien geselecteerd, vereist PDF-versie {0} of hoger voor het uitvoerbestand"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr ""
+#~ "Indien geselecteerd, vereist PDF-versie {0} of hoger voor het uitvoerbestand"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1720,3 +1720,46 @@ msgstr "Taakstatus: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Taakstatus: {0}%"
+
+msgid "Output files compression"
+msgstr "Compressie van uitvoerbestanden"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr ""
+"Stelt de standaardwaarde in voor het compressiebeleid van de "
+"uitvoerbestanden"
+
+msgid "Compress"
+msgstr "Comprimeren"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"alle streams in de uitvoer-PDF worden gecomprimeerd door FlateDecode-"
+"codering toe te passen"
+
+msgid "Neutral"
+msgstr "Neutraal"
+
+msgid "streams are left unchanged from the original file"
+msgstr "streams blijven ongewijzigd ten opzichte van het originele bestand"
+
+msgid "Uncompress"
+msgstr "Decomprimeren"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"FlateDecode- en LZWDecode-filters worden verwijderd uit alle streams. Nuttig "
+"voor foutopsporing of handmatige inspectie"
+
+msgid "Unchanged"
+msgstr "Ongewijzigd"
+
+msgid "PDF version for generated PDF files"
+msgstr "PDF-versie voor gegenereerde PDF-bestanden"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Stelt het compressiebeleid in voor de uitvoerbestanden"

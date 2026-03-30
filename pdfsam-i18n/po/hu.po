@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2026-02-24 17:12+0100\n"
+"PO-Revision-Date: 2026-03-30 16:14+0200\n"
 "Last-Translator: Botfai Tibor <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: hu\n"
 
 msgid "No PDF document has been selected"
@@ -715,13 +715,13 @@ msgstr ""
 "Állítsd be az alkalmazást, hogy ellenőrizze a híreket az indításkor "
 "(újraindítás szükséges)"
 
-msgid "Enabled PDF compression"
-msgstr "PDF tömörítés engedélyezése"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "PDF tömörítés engedélyezése"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"Állítsa be, hogy a \"Kimeneti fájl tömörítése\" alapértelmezésben "
-"engedélyezve legyen-e"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr ""
+#~ "Állítsa be, hogy a \"Kimeneti fájl tömörítése\" alapértelmezésben "
+#~ "engedélyezve legyen-e"
 
 msgid "Overwrite files"
 msgstr "Fájlok felülírása"
@@ -1112,8 +1112,8 @@ msgstr "A kiválasztott fájlnak léteznie kell. "
 msgid "Allowed extensions are {0}"
 msgstr "Engedélyezett bővítmények: {0}"
 
-msgid "Compress output file/files"
-msgstr "Kimeneti fájlok tömörítése"
+#~ msgid "Compress output file/files"
+#~ msgstr "Kimeneti fájlok tömörítése"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1164,8 +1164,8 @@ msgid "Browse"
 msgstr "Tallózás"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Szükséges PDF verzió: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Szükséges PDF verzió: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Előtag hozzáadása a generált fájlnevekhez"
@@ -1619,8 +1619,8 @@ msgstr "Tallózás cél PDF fájlhoz"
 msgid "Browse for {0}"
 msgstr "Tallózás ehhez {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Tömörítse a kimeneti PDF fájlt"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Tömörítse a kimeneti PDF fájlt"
 
 msgid "Select a PDF file"
 msgstr "Válasszon egy PDF fájlt"
@@ -1648,9 +1648,9 @@ msgid "Invalid value: {0}"
 msgstr "Érvénytelen érték: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr ""
-"Kiválasztás esetén a kimeneti fájlhoz PDF {0} vagy újabb verzió szükséges"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr ""
+#~ "Kiválasztás esetén a kimeneti fájlhoz PDF {0} vagy újabb verzió szükséges"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1680,3 +1680,45 @@ msgstr "Feladat állapota: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Feladat állapota: {0}%"
+
+msgid "Output files compression"
+msgstr "Kimeneti fájlok tömörítése"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr ""
+"Beállítja a kimeneti fájlok tömörítési házirendjének alapértelmezett értékét"
+
+msgid "Compress"
+msgstr "Tömörítés"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"a kimeneti PDF-ben minden adatfolyam tömörítve lesz FlateDecode kódolás "
+"alkalmazásával"
+
+msgid "Neutral"
+msgstr "Semleges"
+
+msgid "streams are left unchanged from the original file"
+msgstr "az adatfolyamok változatlanul maradnak az eredeti fájlból"
+
+msgid "Uncompress"
+msgstr "Kibontás"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"A FlateDecode és LZWDecode szűrők el lesznek távolítva az összes "
+"adatfolyamból. Hasznos hibakereséshez vagy kézi ellenőrzéshez"
+
+msgid "Unchanged"
+msgstr "Változatlan"
+
+msgid "PDF version for generated PDF files"
+msgstr "Generált PDF fájlok PDF verziója"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Beállítja a kimeneti fájlok tömörítési házirendjét"

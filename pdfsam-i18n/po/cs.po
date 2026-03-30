@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 16:37+0100\n"
+"PO-Revision-Date: 2026-03-30 16:12+0200\n"
 "Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-04-17 17:36+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: cs\n"
 
 msgid "No PDF document has been selected"
@@ -736,13 +736,13 @@ msgid ""
 "(restart needed)"
 msgstr "Nastavit kontrolu novinek po spuštění aplikace (vyžaduje restart)"
 
-msgid "Enabled PDF compression"
-msgstr "Komprese PDF zapnuta"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Komprese PDF zapnuta"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"Nastavte, zda má být ve výchozím nastavení povolena možnost „Komprimovat "
-"výstupní soubor“"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr ""
+#~ "Nastavte, zda má být ve výchozím nastavení povolena možnost „Komprimovat "
+#~ "výstupní soubor“"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
@@ -1149,8 +1149,8 @@ msgstr "Vybraný soubor musí existovat. "
 msgid "Allowed extensions are {0}"
 msgstr "Povolené přípony jsou {0}"
 
-msgid "Compress output file/files"
-msgstr "Komprimovat výstupní soubor(y)"
+#~ msgid "Compress output file/files"
+#~ msgstr "Komprimovat výstupní soubor(y)"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1199,8 +1199,8 @@ msgid "Browse"
 msgstr "Procházet"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Verze PDF je vyžadována: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Verze PDF je vyžadována: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Předpona vytvořených souborů."
@@ -1578,8 +1578,8 @@ msgstr "Vybrat cílový soubor PDF"
 msgid "Browse for {0}"
 msgstr "Vyhledat {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Komprimovat výstupní soubor PDF"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Komprimovat výstupní soubor PDF"
 
 msgid "Select a PDF file"
 msgstr "Vybrat soubor PDF"
@@ -1607,8 +1607,8 @@ msgid "Invalid value: {0}"
 msgstr "Neplatná hodnota: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "Při výběru vyžaduje verzi PDF {0} nebo vyšší pro výstupní soubor"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "Při výběru vyžaduje verzi PDF {0} nebo vyšší pro výstupní soubor"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1638,3 +1638,44 @@ msgstr "Stav úlohy: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Stav úlohy: {0}%"
+
+msgid "Output files compression"
+msgstr "Komprese výstupních souborů"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "Nastaví výchozí hodnotu pro zásady komprese výstupních souborů"
+
+msgid "Compress"
+msgstr "Komprimovat"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"všechny proudy ve výstupním PDF budou komprimovány pomocí kódování "
+"FlateDecode"
+
+msgid "Neutral"
+msgstr "Neutrální"
+
+msgid "streams are left unchanged from the original file"
+msgstr "proudy zůstávají nezměněny z původního souboru"
+
+msgid "Uncompress"
+msgstr "Dekomprimovat"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"Filtry FlateDecode a LZWDecode budou odstraněny ze všech proudů. Užitečné "
+"pro ladění nebo ruční kontrolu"
+
+msgid "Unchanged"
+msgstr "Beze změny"
+
+msgid "PDF version for generated PDF files"
+msgstr "Verze PDF pro generované soubory PDF"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Nastaví zásady komprese pro výstupní soubory"

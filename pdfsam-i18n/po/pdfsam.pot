@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Copyright 2025 by Sober Lemur S.r.l. (info@soberlemur.com)
+# Copyright (C) YEAR Copyright 2026 by Sober Lemur S.r.l. (info@soberlemur.com)
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: info@soberlemur.com\n"
-"POT-Creation-Date: 2026-02-24 16:35+0100\n"
+"POT-Creation-Date: 2026-03-30 16:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -746,6 +746,34 @@ msgstr ""
 msgid "Default PDF version for generated PDF files"
 msgstr ""
 
+msgid "Output files compression"
+msgstr ""
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr ""
+
+msgid "Compress"
+msgstr ""
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+
+msgid "Neutral"
+msgstr ""
+
+msgid "streams are left unchanged from the original file"
+msgstr ""
+
+msgid "Uncompress"
+msgstr ""
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+
 msgid "Manually selected"
 msgstr ""
 
@@ -837,10 +865,7 @@ msgid ""
 "(restart needed)"
 msgstr ""
 
-msgid "Enabled PDF compression"
-msgstr ""
-
-msgid "Set whether \"Compress output file\" should be enabled by default"
+msgid "Unchanged"
 msgstr ""
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
@@ -1322,18 +1347,15 @@ msgstr ""
 msgid "Allowed extensions are {0}"
 msgstr ""
 
-msgid "Compress output file/files"
+msgid "Output PDF version:"
 msgstr ""
 
-msgid "Compress the output PDF file"
+msgid "PDF version for generated PDF files"
 msgstr ""
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
 "document"
-msgstr ""
-
-msgid "Output PDF version:"
 msgstr ""
 
 msgid "Show advanced settings"
@@ -1347,6 +1369,9 @@ msgstr ""
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+msgstr ""
+
+msgid "Sets the compression policy for the output files"
 msgstr ""
 
 msgid "Select a PDF file"
@@ -1393,14 +1418,6 @@ msgstr ""
 
 #, java-format
 msgid "Invalid value: {0}"
-msgstr ""
-
-#, java-format
-msgid "PDF version required: {0}"
-msgstr ""
-
-#, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
 msgstr ""
 
 msgid "Prefix for the generated files names"

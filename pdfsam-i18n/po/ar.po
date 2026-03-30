@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 16:37+0100\n"
+"PO-Revision-Date: 2026-03-30 16:09+0200\n"
 "Last-Translator: Bouzid Zeroug <Unknown>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-07-23 08:44+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: ar\n"
 
 msgid "No PDF document has been selected"
@@ -738,11 +738,11 @@ msgstr ""
 "تعيين ما إذا كان يجب على التطبيق التحقق من توفر الأخبار عند بدء التشغيل "
 "(يلزم إعادة التشغيل)"
 
-msgid "Enabled PDF compression"
-msgstr "تمكين ضغط PDF"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "تمكين ضغط PDF"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "تعيين ما إذا كان يجب تمكين \"ضغط ملف الإخراج\" افتراضيًا"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "تعيين ما إذا كان يجب تمكين \"ضغط ملف الإخراج\" افتراضيًا"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr "تعيين ما إذا كان يجب تمكين \"تجاهل الإشارات المرجعية\" افتراضيًا"
@@ -1147,8 +1147,8 @@ msgstr "يجب أن يكون الملف المحدد موجودًا. "
 msgid "Allowed extensions are {0}"
 msgstr "الامتدادات المسموح بها هي {0}"
 
-msgid "Compress output file/files"
-msgstr "ضغط ملف/ملفات الإخراج"
+#~ msgid "Compress output file/files"
+#~ msgstr "ضغط ملف/ملفات الإخراج"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1197,8 +1197,8 @@ msgid "Browse"
 msgstr "تصفّح"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "نسخة PDF المطلوبة: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "نسخة PDF المطلوبة: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "البادئة لأسماء الملفات المُنشأة"
@@ -1555,8 +1555,8 @@ msgstr "استعرض ملف PDF الوجهة"
 msgid "Browse for {0}"
 msgstr "استعراض لـ {0}"
 
-msgid "Compress the output PDF file"
-msgstr "اضغط ملف PDF الناتج"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "اضغط ملف PDF الناتج"
 
 msgid "Select a PDF file"
 msgstr "اختر ملف PDF"
@@ -1584,8 +1584,8 @@ msgid "Invalid value: {0}"
 msgstr "قيمة غير صالحة: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "عند التحديد يتطلب إصدار PDF {0} أو أعلى لملف الإخراج"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "عند التحديد يتطلب إصدار PDF {0} أو أعلى لملف الإخراج"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1614,3 +1614,43 @@ msgstr "حالة المهمة: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "حالة المهمة: {0}%"
+
+msgid "Output files compression"
+msgstr "ضغط ملفات الإخراج"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "يعين القيمة الافتراضية لسياسة الضغط لملفات الإخراج"
+
+msgid "Compress"
+msgstr "ضغط"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"سيتم ضغط جميع التدفقات في ملف PDF الناتج عن طريق تطبيق ترميز FlateDecode"
+
+msgid "Neutral"
+msgstr "محايد"
+
+msgid "streams are left unchanged from the original file"
+msgstr "تُترك التدفقات دون تغيير من الملف الأصلي"
+
+msgid "Uncompress"
+msgstr "إلغاء الضغط"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"سيتم إزالة مرشحات FlateDecode وLZWDecode من جميع التدفقات. مفيد لتصحيح "
+"الأخطاء أو الفحص اليدوي"
+
+msgid "Unchanged"
+msgstr "بدون تغيير"
+
+msgid "PDF version for generated PDF files"
+msgstr "إصدار PDF لملفات PDF المُنشأة"
+
+msgid "Sets the compression policy for the output files"
+msgstr "يحدد سياسة الضغط لملفات الإخراج"

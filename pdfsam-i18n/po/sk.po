@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 17:27+0100\n"
+"PO-Revision-Date: 2026-03-30 16:19+0200\n"
 "Last-Translator: Marcel Lipovsky <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-01-22 08:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: sk\n"
 
 msgid "No PDF document has been selected"
@@ -747,11 +747,11 @@ msgid ""
 msgstr ""
 "Nastaviť zisťovanie noviniek po spustení aplikácie (potrebuje reštart)"
 
-msgid "Enabled PDF compression"
-msgstr "Zapnutá PDF kompresia"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Zapnutá PDF kompresia"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "Zvoľte predvolené nastavenie pre kompreciu výstupného súboru."
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "Zvoľte predvolené nastavenie pre kompreciu výstupného súboru."
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
@@ -1159,8 +1159,8 @@ msgstr "Vybraný súbor musí existovat. "
 msgid "Allowed extensions are {0}"
 msgstr "Povolené prípony sú: {0}"
 
-msgid "Compress output file/files"
-msgstr "Komprimovať výstupný súbor/súbory"
+#~ msgid "Compress output file/files"
+#~ msgstr "Komprimovať výstupný súbor/súbory"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1209,8 +1209,8 @@ msgid "Browse"
 msgstr "Prechádzať"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Požadovaná verzia PDF: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Požadovaná verzia PDF: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Predpona generovaných názvov súborov"
@@ -1589,8 +1589,8 @@ msgstr "Vybrať cieľový súbor PDF"
 msgid "Browse for {0}"
 msgstr "Prehľadávať pre {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Komprimovať výstupný súbor PDF"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Komprimovať výstupný súbor PDF"
 
 msgid "Select a PDF file"
 msgstr "Zvoľte súbor PDF"
@@ -1618,8 +1618,8 @@ msgid "Invalid value: {0}"
 msgstr "Neplatná hodnota: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "Po zvolení vyžaduje verziu PDF {0} alebo vyššiu pre výstupný súbor"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "Po zvolení vyžaduje verziu PDF {0} alebo vyššiu pre výstupný súbor"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1649,3 +1649,44 @@ msgstr "Stav úlohy: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Stav úlohy: {0}%"
+
+msgid "Output files compression"
+msgstr "Kompresia výstupných súborov"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "Nastaví predvolenú hodnotu pre politiku kompresie výstupných súborov"
+
+msgid "Compress"
+msgstr "Komprimovať"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"všetky toky vo výstupnom PDF budú komprimované použitím kódovania "
+"FlateDecode"
+
+msgid "Neutral"
+msgstr "Neutrálna"
+
+msgid "streams are left unchanged from the original file"
+msgstr "toky zostávajú nezmenené z pôvodného súboru"
+
+msgid "Uncompress"
+msgstr "Dekomprimovať"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"Filtre FlateDecode a LZWDecode budú odstránené zo všetkých streamov. "
+"Užitočné na ladenie alebo manuálnu kontrolu"
+
+msgid "Unchanged"
+msgstr "Nezmenené"
+
+msgid "PDF version for generated PDF files"
+msgstr "Verzia PDF pre generované PDF súbory"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Nastaví politiku kompresie pre výstupné súbory"

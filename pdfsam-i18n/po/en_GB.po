@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 16:37+0100\n"
+"PO-Revision-Date: 2026-03-30 16:08+0200\n"
 "Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2025-04-17 17:36+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: en_GB\n"
 
 msgid "No PDF document has been selected"
@@ -733,11 +733,11 @@ msgstr ""
 "Set whether the application should check for news availability on startup "
 "(restart needed)"
 
-msgid "Enabled PDF compression"
-msgstr "Enabled PDF compression"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Enabled PDF compression"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "Set whether \"Compress output file\" should be enabled by default"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "Set whether \"Compress output file\" should be enabled by default"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr "Set whether \"Discard bookmarks\" should be enabled by default"
@@ -1143,8 +1143,8 @@ msgstr "The selected file must exist. "
 msgid "Allowed extensions are {0}"
 msgstr "Allowed extensions are {0}"
 
-msgid "Compress output file/files"
-msgstr "Compress output file/files"
+#~ msgid "Compress output file/files"
+#~ msgstr "Compress output file/files"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1194,8 +1194,8 @@ msgid "Browse"
 msgstr "Browse"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "PDF version required: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "PDF version required: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Prefix for the generated files names"
@@ -1572,8 +1572,8 @@ msgstr ""
 msgid "Browse for {0}"
 msgstr ""
 
-msgid "Compress the output PDF file"
-msgstr ""
+#~ msgid "Compress the output PDF file"
+#~ msgstr ""
 
 msgid "Select a PDF file"
 msgstr ""
@@ -1601,8 +1601,8 @@ msgid "Invalid value: {0}"
 msgstr ""
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr ""
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr ""
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1629,4 +1629,41 @@ msgstr ""
 
 #, java-format
 msgid "Task status: {0}%"
+msgstr ""
+
+msgid "Output files compression"
+msgstr ""
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr ""
+
+msgid "Compress"
+msgstr ""
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+
+msgid "Neutral"
+msgstr ""
+
+msgid "streams are left unchanged from the original file"
+msgstr ""
+
+msgid "Uncompress"
+msgstr ""
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+
+msgid "Unchanged"
+msgstr ""
+
+msgid "PDF version for generated PDF files"
+msgstr ""
+
+msgid "Sets the compression policy for the output files"
 msgstr ""

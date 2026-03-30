@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2026-02-24 17:29+0100\n"
+"PO-Revision-Date: 2026-03-30 16:14+0200\n"
 "Last-Translator: NAT <Unknown>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: he\n"
 
 msgid "No PDF document has been selected"
@@ -694,11 +694,11 @@ msgid ""
 "(restart needed)"
 msgstr "קבע האם היישום יבדוק אם קיימים עדכונים בהפעלה (נדרשת הפעלה מחדש)"
 
-msgid "Enabled PDF compression"
-msgstr "הפעל דחיסת PDF"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "הפעל דחיסת PDF"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "קבע האם \"דחיסת קובץ פלט\" יופעל כברירת מחדל"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "קבע האם \"דחיסת קובץ פלט\" יופעל כברירת מחדל"
 
 msgid "Overwrite files"
 msgstr "החלף קבצים"
@@ -1074,8 +1074,8 @@ msgstr "הקובץ הנבחר חייב להים קיים. "
 msgid "Allowed extensions are {0}"
 msgstr "ההרחבות המותרות הן: {0}"
 
-msgid "Compress output file/files"
-msgstr "דחיסת קובץ/קובצי הפלט"
+#~ msgid "Compress output file/files"
+#~ msgstr "דחיסת קובץ/קובצי הפלט"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1122,8 +1122,8 @@ msgid "Browse"
 msgstr "עיון"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "גרסת PDF נדרשת: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "גרסת PDF נדרשת: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "תחילית עבור יצירת שמות קבצי הפלט"
@@ -1565,8 +1565,8 @@ msgstr "עיון לקובץ PDF יעד"
 msgid "Browse for {0}"
 msgstr "עיין עבור {0}"
 
-msgid "Compress the output PDF file"
-msgstr "לדחוס את קובץ ה-PDF שנוצר"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "לדחוס את קובץ ה-PDF שנוצר"
 
 msgid "Select a PDF file"
 msgstr "בחר קובץ PDF"
@@ -1594,8 +1594,8 @@ msgid "Invalid value: {0}"
 msgstr "ערך לא חוקי: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "כשנבחר, מצריך גרסת PDF {0} או גבוהה יותר לקובץ הפלט"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "כשנבחר, מצריך גרסת PDF {0} או גבוהה יותר לקובץ הפלט"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr "קליק ימני להוספת מילות מפתח מיוחדות כקידומת כגון חותמת זמן או שם קובץ"
@@ -1623,3 +1623,42 @@ msgstr "מצב משימה: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "מצב משימה: {0}%"
+
+msgid "Output files compression"
+msgstr "דחיסת קבצי פלט"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "קובע את ערך ברירת המחדל עבור מדיניות הדחיסה של קבצי הפלט"
+
+msgid "Compress"
+msgstr "דחוס"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr "כל הזרמים ב-PDF הפלט ידחסו על ידי החלת קידוד FlateDecode"
+
+msgid "Neutral"
+msgstr "ניטרלי"
+
+msgid "streams are left unchanged from the original file"
+msgstr "הזרמים נשארים ללא שינוי מהקובץ המקורי"
+
+msgid "Uncompress"
+msgstr "בטל דחיסה"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"מסנני FlateDecode ו-LZWDecode יוסרו מכל הזרמים. שימושי לניפוי באגים או "
+"לבדיקה ידנית"
+
+msgid "Unchanged"
+msgstr "ללא שינוי"
+
+msgid "PDF version for generated PDF files"
+msgstr "גרסת PDF עבור קבצי PDF שנוצרו"
+
+msgid "Sets the compression policy for the output files"
+msgstr "קובע את מדיניות הדחיסה עבור קבצי הפלט"

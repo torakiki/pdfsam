@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-04-26 12:14+0200\n"
-"PO-Revision-Date: 2026-02-24 16:53+0100\n"
+"PO-Revision-Date: 2026-03-30 16:13+0200\n"
 "Last-Translator: Jon Ortiz VIllanueva <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-08-02 14:04+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: eu\n"
 
 msgid "No PDF document has been selected"
@@ -721,11 +721,11 @@ msgstr ""
 "Ezarri ea aplikazioak egiaztatu behar duen berrien erabilgarritasuna "
 "hasieran (berrabiaraztea beharrezkoa da)"
 
-msgid "Enabled PDF compression"
-msgstr "Gaitu PDF konpresioa"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Gaitu PDF konpresioa"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "Ezarri \"Irteera fitxategia komprimatu\" lehenetesi aukera"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "Ezarri \"Irteera fitxategia komprimatu\" lehenetesi aukera"
 
 msgid "Overwrite files"
 msgstr "Gainidatzi fitxategiak"
@@ -833,7 +833,7 @@ msgid "PDFsam worked hard!"
 msgstr "PDFsam-ek gogor lan egin du!"
 
 msgid "Spread the word!"
-msgstr "(Eman ta) zabal ezazu!"
+msgstr "Zabaldu berria!"
 
 #, java-format
 msgid "PDFsam {0} is available for download"
@@ -1113,8 +1113,8 @@ msgstr "Hautatutako fitxategiak existitu behar du. "
 msgid "Allowed extensions are {0}"
 msgstr "Onartutako hedapenak hauek dira: {0}"
 
-msgid "Compress output file/files"
-msgstr "Konprimitu irteerako fitxategia(k)"
+#~ msgid "Compress output file/files"
+#~ msgstr "Konprimitu irteerako fitxategia(k)"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1165,8 +1165,8 @@ msgid "Browse"
 msgstr "Nabigatu"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Beharrezko PDF bertsioa: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Beharrezko PDF bertsioa: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Sortutako fitxategi-izenen aurrizkia"
@@ -1592,8 +1592,8 @@ msgstr "Bilatu helmugako PDF fitxategia"
 msgid "Browse for {0}"
 msgstr "Arakatu {0}rako"
 
-msgid "Compress the output PDF file"
-msgstr "Konprimitu irteerako PDF fitxategia"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Konprimitu irteerako PDF fitxategia"
 
 msgid "Select a PDF file"
 msgstr "Hautatu PDF fitxategi bat"
@@ -1621,10 +1621,10 @@ msgid "Invalid value: {0}"
 msgstr "Balio baliogabea: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr ""
-"Hautatuta dagoenean, irteerako fitxategirako PDF bertsioa {0} edo handiagoa "
-"behar da"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr ""
+#~ "Hautatuta dagoenean, irteerako fitxategirako PDF bertsioa {0} edo handiagoa "
+#~ "behar da"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1654,3 +1654,45 @@ msgstr "Zereginaren egoera: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Zereginaren egoera: {0}%"
+
+msgid "Output files compression"
+msgstr "Irteera fitxategien konpresioa"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr ""
+"Irteera-fitxategien konpresio-politikarako balio lehenetsia ezartzen du"
+
+msgid "Compress"
+msgstr "Konprimitu"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"irteera PDFko korronte guztiak konprimatuko dira FlateDecode kodeketa "
+"aplikatuz"
+
+msgid "Neutral"
+msgstr "Neutroa"
+
+msgid "streams are left unchanged from the original file"
+msgstr "jarioak jatorrizko fitxategitik aldatu gabe uzten dira"
+
+msgid "Uncompress"
+msgstr "Deskonprimitu"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"FlateDecode eta LZWDecode iragazkiak fluxu guztietatik kenduko dira. "
+"Erabilgarria arazketa edo eskuzko ikuskatzeko"
+
+msgid "Unchanged"
+msgstr "Aldatu gabe"
+
+msgid "PDF version for generated PDF files"
+msgstr "PDF bertsioa sortutako PDF fitxategietarako"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Irteera-fitxategien konpresio-politika ezartzen du"

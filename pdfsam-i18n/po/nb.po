@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2026-02-24 17:19+0100\n"
+"PO-Revision-Date: 2026-03-30 16:17+0200\n"
 "Last-Translator: Arne Hanssen <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: nb\n"
 
 msgid "No PDF document has been selected"
@@ -707,11 +707,11 @@ msgstr ""
 "Velg om programmet skal sjekke etter nyheter ved programstart (Krever "
 "omstart av program)"
 
-msgid "Enabled PDF compression"
-msgstr "Aktiver PDF kompresjon"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Aktiver PDF kompresjon"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "Velg om \"Komprimer resultatfil\" skal være aktivert som standard"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "Velg om \"Komprimer resultatfil\" skal være aktivert som standard"
 
 msgid "Overwrite files"
 msgstr "Skriv over filer"
@@ -1094,8 +1094,8 @@ msgstr "Den valgte filen må finnes "
 msgid "Allowed extensions are {0}"
 msgstr "Tillatte utvidelser er {0}"
 
-msgid "Compress output file/files"
-msgstr "Komprimer utfil(er)"
+#~ msgid "Compress output file/files"
+#~ msgstr "Komprimer utfil(er)"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1145,8 +1145,8 @@ msgid "Browse"
 msgstr "Bla igjennom"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Påkrevet PDF versjon: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Påkrevet PDF versjon: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Prefiks til de genererte filnavnene"
@@ -1581,8 +1581,8 @@ msgstr "Bla gjennom for destinasjons-PDF-fil"
 msgid "Browse for {0}"
 msgstr "Bla gjennom for {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Komprimer den utgående PDF-filen"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Komprimer den utgående PDF-filen"
 
 msgid "Select a PDF file"
 msgstr "Velg en PDF-fil"
@@ -1610,8 +1610,8 @@ msgid "Invalid value: {0}"
 msgstr "Ugyldig verdi: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "Når valgt, krever PDF-versjon {0} eller høyere for utdatafilen"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "Når valgt, krever PDF-versjon {0} eller høyere for utdatafilen"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1641,3 +1641,44 @@ msgstr "Oppgavestatus: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Oppgavestatus: {0}%"
+
+msgid "Output files compression"
+msgstr "Komprimering av utdatafiler"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "Angir standardverdien for kompresjonspolicyen til utdatafilene"
+
+msgid "Compress"
+msgstr "Komprimer"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"alle strømmer i utdata-PDF-en vil bli komprimert ved å bruke FlateDecode-"
+"koding"
+
+msgid "Neutral"
+msgstr "Nøytral"
+
+msgid "streams are left unchanged from the original file"
+msgstr "strømmer er uendret fra den opprinnelige filen"
+
+msgid "Uncompress"
+msgstr "Dekomprimere"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"FlateDecode- og LZWDecode-filtre vil bli fjernet fra alle strømmer. Nyttig "
+"for feilsøking eller manuell inspeksjon"
+
+msgid "Unchanged"
+msgstr "Uendret"
+
+msgid "PDF version for generated PDF files"
+msgstr "PDF-versjon for genererte PDF-filer"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Angir kompresjonspolicyen for utdatafilene"

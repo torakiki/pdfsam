@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-01-27 11:09+0100\n"
-"PO-Revision-Date: 2026-02-24 17:03+0100\n"
+"PO-Revision-Date: 2026-03-30 16:19+0200\n"
 "Last-Translator: kn2296 <Unknown>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-01-31 10:16+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: th\n"
 
 msgid "No PDF document has been selected"
@@ -692,11 +692,11 @@ msgstr ""
 "ตั้งค่าว่าแอปพลิเคชันควรตรวจสอบความพร้อมของข่าวสารเมื่อเริ่มต้นระบบ "
 "(จำเป็นต้องรีสตาร์ท)"
 
-msgid "Enabled PDF compression"
-msgstr "เปิดใช้งานการบีบอัด PDF"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "เปิดใช้งานการบีบอัด PDF"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr "ตั้งค่าว่าควรเปิดใช้งาน \"บีบอัดไฟล์เอาต์พุต\" โดยค่าเริ่มต้น"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr "ตั้งค่าว่าควรเปิดใช้งาน \"บีบอัดไฟล์เอาต์พุต\" โดยค่าเริ่มต้น"
 
 msgid "Overwrite files"
 msgstr "เขียนทับไฟล์"
@@ -1075,8 +1075,8 @@ msgstr "ไฟล์ที่เลือกต้องมีอยู่ "
 msgid "Allowed extensions are {0}"
 msgstr "ส่วนขยายที่อนุญาตคือ {0}"
 
-msgid "Compress output file/files"
-msgstr "บีบอัดไฟล์ที่ทำเสร็จแล้ว"
+#~ msgid "Compress output file/files"
+#~ msgstr "บีบอัดไฟล์ที่ทำเสร็จแล้ว"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1123,8 +1123,8 @@ msgid "Browse"
 msgstr "เรียกดู"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "จำเป็นต้องใช้ PDF เวอร์ชัน: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "จำเป็นต้องใช้ PDF เวอร์ชัน: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "คำนำหน้าสำหรับชื่อไฟล์ที่สร้างขึ้น"
@@ -1560,8 +1560,8 @@ msgstr "เรียกดูไฟล์ PDF ปลายทาง"
 msgid "Browse for {0}"
 msgstr "เลือกหา {0}"
 
-msgid "Compress the output PDF file"
-msgstr "บีบอัดไฟล์ PDF ผลลัพธ์"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "บีบอัดไฟล์ PDF ผลลัพธ์"
 
 msgid "Select a PDF file"
 msgstr "เลือกไฟล์ PDF"
@@ -1589,8 +1589,8 @@ msgid "Invalid value: {0}"
 msgstr "ค่าไม่ถูกต้อง: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "เมื่อเลือก ต้องใช้ PDF เวอร์ชัน {0} หรือสูงกว่าสำหรับไฟล์เอาต์พุต"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "เมื่อเลือก ต้องใช้ PDF เวอร์ชัน {0} หรือสูงกว่าสำหรับไฟล์เอาต์พุต"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1619,3 +1619,42 @@ msgstr "สถานะงาน: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "สถานะงาน: {0}%"
+
+msgid "Output files compression"
+msgstr "การบีบอัดไฟล์เอาต์พุต"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr "กำหนดค่าเริ่มต้นสำหรับนโยบายการบีบอัดของไฟล์เอาต์พุต"
+
+msgid "Compress"
+msgstr "บีบอัด"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr "สตรีมทั้งหมดใน PDF ที่ส่งออกจะถูกบีบอัดโดยใช้การเข้ารหัส FlateDecode"
+
+msgid "Neutral"
+msgstr "เป็นกลาง"
+
+msgid "streams are left unchanged from the original file"
+msgstr "สตรีมจะไม่มีการเปลี่ยนแปลงจากไฟล์ต้นฉบับ"
+
+msgid "Uncompress"
+msgstr "ยกเลิกการบีบอัด"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"ตัวกรอง FlateDecode และ LZWDecode จะถูกลบออกจากสตรีมทั้งหมด "
+"มีประโยชน์สำหรับการดีบักหรือการตรวจสอบด้วยตนเอง"
+
+msgid "Unchanged"
+msgstr "ไม่เปลี่ยนแปลง"
+
+msgid "PDF version for generated PDF files"
+msgstr "เวอร์ชัน PDF สำหรับไฟล์ PDF ที่สร้างขึ้น"
+
+msgid "Sets the compression policy for the output files"
+msgstr "กำหนดนโยบายการบีบอัดสำหรับไฟล์เอาต์พุต"

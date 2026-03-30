@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-10-23 17:08+0200\n"
-"PO-Revision-Date: 2026-02-24 16:37+0100\n"
+"PO-Revision-Date: 2026-03-30 16:16+0200\n"
 "Last-Translator: Andrea Vacondio <andrea.vacondio@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2024-10-25 13:44+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Language: it\n"
 
@@ -770,13 +770,13 @@ msgstr ""
 "Imposta se l'applicazione deve verificare la disponibilità di notizie "
 "all'avvio (riavvio necessario)"
 
-msgid "Enabled PDF compression"
-msgstr "Compressione PDF abilitata"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Compressione PDF abilitata"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"Imposta se \"Comprimi file destinazione\" deve essere abilitato come "
-"impostazione predefinita"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr ""
+#~ "Imposta se \"Comprimi file destinazione\" deve essere abilitato come "
+#~ "impostazione predefinita"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
@@ -1213,8 +1213,8 @@ msgstr "Il file selezionato deve esistere. "
 msgid "Allowed extensions are {0}"
 msgstr "Le estensioni ammesse sono {0}"
 
-msgid "Compress output file/files"
-msgstr "Comprimi file destinazione"
+#~ msgid "Compress output file/files"
+#~ msgstr "Comprimi file destinazione"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1296,8 +1296,8 @@ msgid "Browse"
 msgstr "Sfoglia"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Versione PDF richiesta: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Versione PDF richiesta: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Prefisso nomi file generati"
@@ -1660,8 +1660,8 @@ msgstr "Sfoglia per il file PDF di destinazione"
 msgid "Browse for {0}"
 msgstr "Sfoglia per {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Comprimi il file PDF di output"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Comprimi il file PDF di output"
 
 msgid "Select a PDF file"
 msgstr "Seleziona un file PDF"
@@ -1689,10 +1689,10 @@ msgid "Invalid value: {0}"
 msgstr "Valore non valido: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr ""
-"Quando selezionato, richiede la versione PDF {0} o superiore per il file di "
-"output"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr ""
+#~ "Quando selezionato, richiede la versione PDF {0} o superiore per il file di "
+#~ "output"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1722,3 +1722,46 @@ msgstr "Stato attività: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Stato attività: {0}%"
+
+msgid "Output files compression"
+msgstr "Compressione dei file di output"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr ""
+"Imposta il valore predefinito per la politica di compressione dei file di "
+"output"
+
+msgid "Compress"
+msgstr "Comprimi"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"tutti i flussi nel PDF di output saranno compressi applicando la codifica "
+"FlateDecode"
+
+msgid "Neutral"
+msgstr "Neutro"
+
+msgid "streams are left unchanged from the original file"
+msgstr "i flussi rimangono invariati rispetto al file originale"
+
+msgid "Uncompress"
+msgstr "Decomprimi"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"I filtri FlateDecode e LZWDecode verranno rimossi da tutti gli stream. Utile "
+"per il debug o l'ispezione manuale"
+
+msgid "Unchanged"
+msgstr "Non modificato"
+
+msgid "PDF version for generated PDF files"
+msgstr "Versione PDF per i file PDF generati"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Imposta la politica di compressione per i file di output"

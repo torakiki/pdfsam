@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-10-26 11:54+0200\n"
-"PO-Revision-Date: 2026-02-24 16:52+0100\n"
+"PO-Revision-Date: 2026-03-30 16:12+0200\n"
 "Last-Translator: Μάριος Μπαλασόπουλος <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2023-11-06 11:08+0000\n"
-"X-Generator: Autopo v1.0.9-SNAPSHOT\n"
+"X-Generator: Autopo v1.0.10-SNAPSHOT\n"
 "Language: el\n"
 
 msgid "No PDF document has been selected"
@@ -774,13 +774,13 @@ msgstr ""
 "Ορίστε εάν η εφαρμογή θα πρέπει να ελέγχει για τη διαθεσιμότητα ειδήσεων "
 "κατά την εκκίνηση (απαιτείται επανεκκίνηση )"
 
-msgid "Enabled PDF compression"
-msgstr "Ενεργοποιήθηκε η συμπίεση PDF"
+#~ msgid "Enabled PDF compression"
+#~ msgstr "Ενεργοποιήθηκε η συμπίεση PDF"
 
-msgid "Set whether \"Compress output file\" should be enabled by default"
-msgstr ""
-"Ορίστε εάν η \"Συμπίεση αρχείου εξόδου\" θα πρέπει να είναι ενεργοποιημένη "
-"από προεπιλογή"
+#~ msgid "Set whether \"Compress output file\" should be enabled by default"
+#~ msgstr ""
+#~ "Ορίστε εάν η \"Συμπίεση αρχείου εξόδου\" θα πρέπει να είναι ενεργοποιημένη "
+#~ "από προεπιλογή"
 
 msgid "Set whether \"Discard bookmarks\" should be enabled by default"
 msgstr ""
@@ -1203,8 +1203,8 @@ msgstr "Το επιλεγμένο αρχείο πρέπει να υπάρχει.
 msgid "Allowed extensions are {0}"
 msgstr "Επιτρεπόμενες προεκτάσεις είναι {0}"
 
-msgid "Compress output file/files"
-msgstr "Συμπίεση αρχείου/αρχείων εξόδου"
+#~ msgid "Compress output file/files"
+#~ msgstr "Συμπίεση αρχείου/αρχείων εξόδου"
 
 msgid ""
 "Tick the box if you don't want to retain any bookmark from the original PDF "
@@ -1272,8 +1272,8 @@ msgid "Browse"
 msgstr "Αναζήτηση"
 
 #, java-format
-msgid "PDF version required: {0}"
-msgstr "Απαιτούμενη έκδοση PDF: {0}"
+#~ msgid "PDF version required: {0}"
+#~ msgstr "Απαιτούμενη έκδοση PDF: {0}"
 
 msgid "Prefix for the generated files names"
 msgstr "Πρόθεμα για τα παραγόμενα ονόματα αρχείων"
@@ -1674,8 +1674,8 @@ msgstr "Αναζήτηση αρχείου PDF προορισμού"
 msgid "Browse for {0}"
 msgstr "Αναζήτηση για {0}"
 
-msgid "Compress the output PDF file"
-msgstr "Συμπίεση του αρχείου PDF εξόδου"
+#~ msgid "Compress the output PDF file"
+#~ msgstr "Συμπίεση του αρχείου PDF εξόδου"
 
 msgid "Select a PDF file"
 msgstr "Επιλέξτε ένα αρχείο PDF"
@@ -1703,8 +1703,8 @@ msgid "Invalid value: {0}"
 msgstr "Μη έγκυρη τιμή: {0}"
 
 #, java-format
-msgid "When selected, requires PDF version {0} or higher for the output file"
-msgstr "Όταν επιλεγεί, απαιτεί έκδοση PDF {0} ή νεότερη για το αρχείο εξόδου"
+#~ msgid "When selected, requires PDF version {0} or higher for the output file"
+#~ msgstr "Όταν επιλεγεί, απαιτεί έκδοση PDF {0} ή νεότερη για το αρχείο εξόδου"
 
 msgid "Right click to add special prefix keywords like timestamp or filename"
 msgstr ""
@@ -1734,3 +1734,45 @@ msgstr "Κατάσταση εργασίας: {0}"
 #, java-format
 msgid "Task status: {0}%"
 msgstr "Κατάσταση εργασίας: {0}%"
+
+msgid "Output files compression"
+msgstr "Συμπίεση αρχείων εξόδου"
+
+msgid "Sets the default value for the compression policy of the output files"
+msgstr ""
+"Ορίζει την προεπιλεγμένη τιμή για την πολιτική συμπίεσης των αρχείων εξόδου"
+
+msgid "Compress"
+msgstr "Συμπίεση"
+
+msgid ""
+"all streams in the output PDF will be compressed by applying FlateDecode "
+"encoding"
+msgstr ""
+"όλες οι ροές στο αρχείο PDF εξόδου θα συμπιεστούν με την εφαρμογή "
+"κωδικοποίησης FlateDecode"
+
+msgid "Neutral"
+msgstr "Ουδέτερο"
+
+msgid "streams are left unchanged from the original file"
+msgstr "τα streams παραμένουν αμετάβλητα από το αρχικό αρχείο"
+
+msgid "Uncompress"
+msgstr "Αποσυμπίεση"
+
+msgid ""
+"FlateDecode and LZWDecode filters will be removed from all streams. Useful "
+"for debugging or manual inspection"
+msgstr ""
+"Τα φίλτρα FlateDecode και LZWDecode θα αφαιρεθούν από όλες τις ροές. Χρήσιμο "
+"για αποσφαλμάτωση ή χειροκίνητη επιθεώρηση"
+
+msgid "Unchanged"
+msgstr "Χωρίς αλλαγή"
+
+msgid "PDF version for generated PDF files"
+msgstr "Έκδοση PDF για τα αρχεία PDF που δημιουργούνται"
+
+msgid "Sets the compression policy for the output files"
+msgstr "Ορίζει την πολιτική συμπίεσης για τα αρχεία εξόδου"
