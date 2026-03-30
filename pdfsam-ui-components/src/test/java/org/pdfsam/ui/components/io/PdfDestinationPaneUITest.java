@@ -53,6 +53,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.pdfsam.core.context.ApplicationContext.app;
+import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * @author Andrea Vacondio
@@ -100,9 +101,9 @@ public class PdfDestinationPaneUITest {
 
     @Test
     public void applyCompress() {
-        robot.clickOn(n -> n instanceof PdfCompressionPolicyCombo);
+        robot.clickOn(n -> n instanceof PdfCompressionPolicyCombo).sleep(1000).clickOn(i18n().tr("Neutral"));
         victim.apply(builder, onError);
-        //     verify(builder).compress(false);
+        verify(builder).compressionPolicy(CompressionPolicy.NEUTRAL);
     }
 
     @Test
@@ -110,7 +111,6 @@ public class PdfDestinationPaneUITest {
         Set<Node> nodes = robot.lookup(n -> n instanceof CheckBox).queryAll();
         nodes.forEach(n -> robot.clickOn(n));
         victim.apply(builder, onError);
-        //     verify(builder).compress(false);
         verify(builder).existingOutput(ExistingOutputPolicy.OVERWRITE);
         verify(builder).discardBookmarks(true);
     }
