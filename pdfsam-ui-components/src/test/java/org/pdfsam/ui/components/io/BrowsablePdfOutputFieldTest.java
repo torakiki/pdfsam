@@ -56,7 +56,7 @@ public class BrowsablePdfOutputFieldTest {
 
     @Test
     public void valid(@TempDir Path folder) throws IOException {
-        var victim = new BrowsablePdfOutputField();
+        var victim = new BrowsablePdfOutputField("ToolId");
         File value = Files.createFile(folder.resolve("test.pdf")).toFile();
         victim.getTextField().setText(value.getAbsolutePath());
         victim.apply(builder, onError);
@@ -66,7 +66,7 @@ public class BrowsablePdfOutputFieldTest {
 
     @Test
     public void invalid() {
-        var victim = new BrowsablePdfOutputField();
+        var victim = new BrowsablePdfOutputField("ToolId");
         victim.enforceValidation(true, true);
         victim.getTextField().setText("ChuckNorris");
         victim.apply(builder, onError);

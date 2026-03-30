@@ -87,7 +87,7 @@ public class MergeTool implements Tool {
         @Provides
         @Named(TOOL_ID + "field")
         public BrowsablePdfOutputField destinationFileField() {
-            return new BrowsablePdfOutputField();
+            return new BrowsablePdfOutputField(TOOL_ID);
         }
 
         @Provides

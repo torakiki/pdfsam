@@ -22,32 +22,53 @@ import org.pdfsam.core.support.params.SingleOutputTaskParametersBuilder;
 import org.pdfsam.core.support.params.TaskParametersBuildStep;
 import org.pdfsam.model.io.FileType;
 import org.pdfsam.model.io.OpenType;
+import org.pdfsam.model.tool.ToolBound;
 import org.pdfsam.ui.components.support.FXValidationSupport;
 import org.sejda.model.output.FileTaskOutput;
 import org.sejda.model.parameter.base.SingleOutputTaskParameters;
 
 import java.io.File;
 import java.nio.file.Paths;
+import java.util.Optional;
 import java.util.function.Consumer;
 
+import static java.util.Objects.nonNull;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.core.context.ApplicationContext.app;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * A {@link BrowsableFileField} letting the user select a PDF document as output for a {@link SingleOutputTaskParameters}.
- * 
+ *
  * @author Andrea Vacondio
  *
  */
-public class BrowsablePdfOutputField extends BrowsableFileField implements
-        TaskParametersBuildStep<SingleOutputTaskParametersBuilder<?>> {
+public class BrowsablePdfOutputField extends BrowsableFileField
+        implements TaskParametersBuildStep<SingleOutputTaskParametersBuilder<?>>, ToolBound {
 
-    public BrowsablePdfOutputField() {
+    private final String toolBinding;
+
+    public BrowsablePdfOutputField(String toolBinding) {
         super(FileType.PDF, OpenType.SAVE);
+        this.toolBinding = defaultString(toolBinding);
         this.enforceValidation(false, false);
         setFieldPromptAndAccessibleText(i18n().tr("Select a PDF destination file"));
         setBrowseButtonAccessibleText(i18n().tr("Browse for destination PDF file"));
+        setOnDragDropped(e -> {
+            var files = e.getDragboard().getFiles();
+            if (nonNull(files) && !files.isEmpty()) {
+                Optional<File> file = files.stream().filter(f -> FileType.PDF.matches(f.getName())).findFirst();
+                if (file.isPresent()) {
+                    this.setTextFromFile(file.get());
+                } else {
+                    files.stream().filter(File::isDirectory).findFirst().ifPresent(value -> this.setTextFromFile(
+                            new File(value, String.format("PDFsam_%s.pdf", toolBinding))));
+                }
+                e.setDropCompleted(true);
+            }
+            e.consume();
+        });
     }
 
     @Override
@@ -69,4 +90,8 @@ public class BrowsablePdfOutputField extends BrowsableFileField implements
         }
     }
 
+    @Override
+    public String toolBinding() {
+        return toolBinding;
+    }
 }
