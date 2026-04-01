@@ -12,6 +12,9 @@ xcopy /E /I /Y Assets "${project.build.directory}\image\pdfsam\Assets"
 if %ERRORLEVEL% NEQ 0 goto error
 ECHO "Assets copied"
 
+echo -Dorg.pdfsam.disable.updates=true >> "${project.build.directory}\image\pdfsam\app\pdfsam.cfg"
+if %ERRORLEVEL% NEQ 0 goto error
+
 REM Build the MSIX
 "MakeAppx.exe" pack /d "${project.build.directory}\image\pdfsam" /p "${project.build.directory}\pdfsam-basic-%PDFSAM_VERSION%-${os.detected.classifier}.msix"
 if %ERRORLEVEL% NEQ 0 goto error

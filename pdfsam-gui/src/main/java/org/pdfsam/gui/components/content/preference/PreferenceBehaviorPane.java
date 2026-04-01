@@ -25,6 +25,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import org.pdfsam.ui.components.support.Style;
 
+import static org.pdfsam.core.ConfigurableSystemProperty.PDFSAM_DISABLE_UPDATES_CHECKING;
 import static org.pdfsam.i18n.I18nContext.i18n;
 import static org.pdfsam.ui.components.support.Views.helpIcon;
 
@@ -59,8 +60,9 @@ class PreferenceBehaviorPane extends GridPane {
         add(checkForNews, 0, 4, 3, 1);
         add(fetchPremiumModules, 0, 5, 3, 1);
         add(clearConfirmation, 0, 6, 3, 1);
-        add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 7, 3, 1);
-
+        if (!Boolean.getBoolean(PDFSAM_DISABLE_UPDATES_CHECKING)) {
+            add(new VBox(checkForUpdates, checkForUpdatesNow), 0, 7, 3, 1);
+        }
         getStyleClass().addAll(Style.CONTAINER.css());
         getStyleClass().addAll(Style.GRID.css());
     }

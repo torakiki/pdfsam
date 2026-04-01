@@ -30,6 +30,7 @@ import org.slf4j.LoggerFactory;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.pdfsam.core.BrandableProperty.VERSION;
+import static org.pdfsam.core.ConfigurableSystemProperty.PDFSAM_DISABLE_UPDATES_CHECKING;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 import static org.pdfsam.i18n.I18nContext.i18n;
 
@@ -54,21 +55,23 @@ public class UpdatesController {
 
     @EventListener
     public void checkForUpdates(UpdateCheckRequest event) {
-        Thread.ofVirtual().name("updates-checker-thread").start(() -> {
-            LOG.debug(i18n().tr("Checking for updates"));
-            try {
-                var currentVersion = service.getLatestVersion();
-                if (isNotBlank(currentVersion)) {
-                    if (!appBrand.property(VERSION).equals(currentVersion)) {
-                        LOG.info(i18n().tr("PDFsam {0} is available for download", currentVersion));
-                        eventStudio().broadcast(new UpdateAvailableEvent(currentVersion));
-                    } else if (event.notifyIfNoUpdates()) {
-                        eventStudio().broadcast(new NoUpdateAvailable());
+        if (!Boolean.getBoolean(PDFSAM_DISABLE_UPDATES_CHECKING)) {
+            Thread.ofVirtual().name("updates-checker-thread").start(() -> {
+                LOG.debug(i18n().tr("Checking for updates"));
+                try {
+                    var currentVersion = service.getLatestVersion();
+                    if (isNotBlank(currentVersion)) {
+                        if (!appBrand.property(VERSION).equals(currentVersion)) {
+                            LOG.info(i18n().tr("PDFsam {0} is available for download", currentVersion));
+                            eventStudio().broadcast(new UpdateAvailableEvent(currentVersion));
+                        } else if (event.notifyIfNoUpdates()) {
+                            eventStudio().broadcast(new NoUpdateAvailable());
+                        }
                     }
+                } catch (Exception e) {
+                    LOG.warn(i18n().tr("Unable to find the latest available version."), e);
                 }
-            } catch (Exception e) {
-                LOG.warn(i18n().tr("Unable to find the latest available version."), e);
-            }
-        });
+            });
+        }
     }
 }
