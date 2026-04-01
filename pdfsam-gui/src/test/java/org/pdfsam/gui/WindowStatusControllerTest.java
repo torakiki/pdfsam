@@ -25,6 +25,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junitpioneer.jupiter.SetSystemProperty;
 import org.pdfsam.core.ConfigurableSystemProperty;
 import org.pdfsam.model.ui.StageStatus;
 import org.pdfsam.service.ui.StageService;
@@ -78,12 +79,11 @@ public class WindowStatusControllerTest   {
     }
 
     @Test
+    @SetSystemProperty(key = ConfigurableSystemProperty.PDFSAM_DISABLE_UI_RESTORE, value = "true")
     public void defaultOnDisableRestore() {
         when(service.getLatestStatus()).thenReturn(new StageStatus(10, 10, 10, 10));
-        System.setProperty(ConfigurableSystemProperty.PDFSAM_DISABLE_UI_RESTORE, Boolean.TRUE.toString());
         victim.setStage(victimStage);
         robot.clickOn("show").sleep(200);
         assertTrue(victimStage.isMaximized());
-        System.setProperty(ConfigurableSystemProperty.PDFSAM_DISABLE_UI_RESTORE, Boolean.FALSE.toString());
     }
 }

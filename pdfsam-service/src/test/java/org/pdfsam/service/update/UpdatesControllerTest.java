@@ -21,8 +21,10 @@ package org.pdfsam.service.update;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junitpioneer.jupiter.SetSystemProperty;
 import org.pdfsam.core.AppBrand;
 import org.pdfsam.core.BrandableProperty;
+import org.pdfsam.core.ConfigurableSystemProperty;
 import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.model.update.NoUpdateAvailable;
 import org.pdfsam.model.update.UpdateAvailableEvent;
@@ -32,6 +34,7 @@ import org.pdfsam.test.ClearEventStudioExtension;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.after;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -68,7 +71,17 @@ public class UpdatesControllerTest {
     }
 
     @Test
-    public void pasitiveCheckForUpdatesNotifyNoUpdates() {
+    @SetSystemProperty(key = ConfigurableSystemProperty.PDFSAM_DISABLE_UI_RESTORE, value = "true")
+    public void disabledBySysProCheckForUpdates() {
+        when(service.getLatestVersion()).thenReturn("3.0.0");
+        eventStudio().add(UpdateAvailableEvent.class, listener);
+        victim.checkForUpdates(new UpdateCheckRequest(false));
+        verify(service, never()).getLatestVersion();
+        verify(listener, timeout(1000).times(1)).onEvent(any(UpdateAvailableEvent.class));
+    }
+
+    @Test
+    public void positiveCheckForUpdatesNotifyNoUpdates() {
         when(service.getLatestVersion()).thenReturn("3.0.0");
         eventStudio().add(UpdateAvailableEvent.class, listener);
         eventStudio().add(NoUpdateAvailable.class, noUpdatesListener);
