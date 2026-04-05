@@ -4,7 +4,7 @@
 #
 # Translator: Patriccollu di Santa Maria è Sichè <Patrick.Santa-Maria[at]laposte.net>, 2015-2026.
 #
-#msgid ""
+msgid ""
 msgstr ""
 "Project-Id-Version: PDFsam in Corsican\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
