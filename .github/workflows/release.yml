@@ -17,34 +17,36 @@ jobs:
     name: build ${{ matrix.os }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
       - name: Import GPG key
         id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v7
+        uses: crazy-max/ghaction-import-gpg@2dc316deee8e90f13e1a351ab510b4d5bc0c82cd # v7
         with:
           gpg_private_key: ${{ secrets.GPG_SUB_SECRET_KEY }}
           passphrase: ${{ secrets.GPG_SUB_SECRET_KEY_PASSWORD }}
           fingerprint: ${{ secrets.GPG_SUB_FINGERPRINT }}
       - name: Set up Apple certs
         if: runner.os == 'macOS'
-        uses: apple-actions/import-codesign-certs@v7
+        uses: apple-actions/import-codesign-certs@5142e029c445c10ffc7149d172e540235a065466 # v7
         with:
           p12-file-base64: ${{ secrets.APPLE_CERT_P12 }}
           p12-password: ${{ secrets.APPLE_CERT_P12_PWD }}
       - name: Set up JDK
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
         with:
           java-version: 25
           distribution: 'liberica'
           java-package: 'jdk+fx'
-          cache: 'maven'
+          cache: ''
       - name: Install gettext on Ubuntu
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get update && sudo apt-get install -y gettext
 
       - name: Install scoop on Windows
         if: matrix.os == 'windows-latest'
-        uses: MinoruSekine/setup-scoop@v4
+        uses: MinoruSekine/setup-scoop@6435f41324fa55988d8ce5b06bae5cafc75fe045 # v4
 
       - name: Install gettext on Windows
         if: matrix.os == 'windows-latest'
@@ -88,20 +90,22 @@ jobs:
           AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
         run: mvn clean install -DskipTests -Drelease --batch-mode
       - name: Release
-        uses: softprops/action-gh-release@v3
-        with:
-          draft: true
-          files: |
-            pdfsam-basic/target/*.deb
-            pdfsam-basic/target/*.dmg
-            pdfsam-basic/target/*.zip
-            pdfsam-basic/target/*.msi
-            pdfsam-basic/target/*.msix
-            pdfsam-basic/target/*.tar.gz
-            pdfsam-basic/target/*.deb.asc
-            pdfsam-basic/target/*.dmg.asc
-            pdfsam-basic/target/*.zip.asc
-            pdfsam-basic/target/*.msi.asc
-            pdfsam-basic/target/*.msix.asc
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          gh release create "$TAG_NAME" \
+            --draft \
+            pdfsam-basic/target/*.deb \
+            pdfsam-basic/target/*.dmg \
+            pdfsam-basic/target/*.zip \
+            pdfsam-basic/target/*.msi \
+            pdfsam-basic/target/*.msix \
+            pdfsam-basic/target/*.tar.gz \
+            pdfsam-basic/target/*.deb.asc \
+            pdfsam-basic/target/*.dmg.asc \
+            pdfsam-basic/target/*.zip.asc \
+            pdfsam-basic/target/*.msi.asc \
+            pdfsam-basic/target/*.msix.asc \
             pdfsam-basic/target/*.tar.gz.asc
 
