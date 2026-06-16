@@ -66,11 +66,17 @@ public class WindowStatusController {
         }
     }
 
+    /**
+     * Sets the app's window position and size on the primary screen to sensible defaults.
+     */
     private void defaultStageStatus() {
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
-        stage.setMaximized(true);
+        Rectangle2D primaryBounds = Screen.getPrimary().getVisualBounds();
+        int w = (int) (primaryBounds.getWidth() * 0.6);
+        int h = (int) (primaryBounds.getHeight() * 0.8);
+        stage.setX(primaryBounds.getMinX() + (primaryBounds.getWidth() - w) / 2);
+        stage.setY(primaryBounds.getMinY() + (primaryBounds.getHeight() - h) / 2);
+        stage.setWidth(w);
+        stage.setHeight(h);
     }
 
     private void restore(StageStatus latestStatus) {

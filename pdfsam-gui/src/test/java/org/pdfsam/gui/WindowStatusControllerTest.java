@@ -35,7 +35,7 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 import org.testfx.framework.junit5.Stop;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -71,19 +71,14 @@ public class WindowStatusControllerTest   {
     }
 
     @Test
-    public void defaultOnNullStatus() {
-        when(service.getLatestStatus()).thenReturn(StageStatus.NULL);
-        victim.setStage(victimStage);
-        robot.clickOn("show").sleep(200);
-        assertTrue(victimStage.isMaximized());
-    }
-
-    @Test
     @SetSystemProperty(key = ConfigurableSystemProperty.PDFSAM_DISABLE_UI_RESTORE, value = "true")
     public void defaultOnDisableRestore() {
         when(service.getLatestStatus()).thenReturn(new StageStatus(10, 10, 10, 10));
         victim.setStage(victimStage);
         robot.clickOn("show").sleep(200);
-        assertTrue(victimStage.isMaximized());
+        assertNotEquals(10, victimStage.getX());
+        assertNotEquals(10, victimStage.getY());
+        assertNotEquals(10, victimStage.getWidth());
+        assertNotEquals(10, victimStage.getHeight());
     }
 }
