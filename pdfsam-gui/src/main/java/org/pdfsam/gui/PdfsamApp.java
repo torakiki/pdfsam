@@ -69,7 +69,6 @@ import org.slf4j.LoggerFactory;
 import java.awt.SplashScreen;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 import static java.util.Optional.ofNullable;
@@ -227,10 +226,15 @@ public class PdfsamApp extends Application {
     }
 
     private void loadWorkspaceIfRequired() {
-        ofNullable(getParameters().getNamed().get("workspace")).filter(StringUtils::isNotBlank)
-                .or(() -> app().persistentSettings().get(StringPersistentProperty.WORKSPACE_PATH)
-                        .filter(StringUtils::isNotBlank)).map(Paths::get).filter(Files::exists).map(Path::toFile)
-                .map(LoadWorkspaceRequest::new).ifPresent(eventStudio()::broadcast);
+        // 1. from command line
+        // 2. from persistent settings
+        ofNullable(getParameters().getNamed().get("workspace"))
+                .or(() -> rawParameters.stream().filter(s -> s.endsWith(".json")).findFirst())
+                .or(() -> app().persistentSettings().get(StringPersistentProperty.WORKSPACE_PATH))
+                .map(Path::of)
+                .filter(Files::isReadable)
+                .map(p -> new LoadWorkspaceRequest(p.toFile()))
+                .ifPresent(eventStudio()::broadcast);
     }
 
     @Override
