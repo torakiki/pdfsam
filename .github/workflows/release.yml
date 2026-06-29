@@ -46,7 +46,7 @@ jobs:
 
       - name: Install scoop on Windows
         if: matrix.os == 'windows-latest'
-        uses: MinoruSekine/setup-scoop@6435f41324fa55988d8ce5b06bae5cafc75fe045 # v4
+        uses: MinoruSekine/setup-scoop@371e1c778465fed5ee2101c415bead47553e1a07 # v5.0.0
 
       - name: Install gettext on Windows
         if: matrix.os == 'windows-latest'
