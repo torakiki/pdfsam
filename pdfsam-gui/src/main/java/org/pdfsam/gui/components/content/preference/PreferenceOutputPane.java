@@ -89,7 +89,7 @@ class PreferenceOutputPane extends GridPane {
         smartRadio.getStyleClass().addAll(Style.VITEM.css());
         smartRadio.setToggleGroup(group);
         var smartRadioHelpText = i18n().tr(
-                "Automatically set the destination directory to the selected PDF document directory");
+                "If the output field is empty, it's automatically set using the selected PDF document's directory");
         smartRadio.setGraphic(helpIcon(smartRadioHelpText));
         smartRadio.getStyleClass().addAll(Style.WITH_HELP.css());
         smartRadio.setAccessibleHelp(smartRadioHelpText);
