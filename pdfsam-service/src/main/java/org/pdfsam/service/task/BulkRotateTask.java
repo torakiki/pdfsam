@@ -60,7 +60,7 @@ public class BulkRotateTask extends BaseTask<BulkRotateParameters> {
     public void before(BulkRotateParameters parameters, TaskExecutionContext executionContext) throws TaskException {
         super.before(parameters, executionContext);
         totalSteps = parameters.getInputSet().size();
-        documentLoader = new DefaultPdfSourceOpener();
+        documentLoader = new DefaultPdfSourceOpener(executionContext);
         outputWriter = OutputWriters.newMultipleOutputWriter(parameters.getExistingOutputPolicy(), executionContext);
     }
 
@@ -85,7 +85,7 @@ public class BulkRotateTask extends BaseTask<BulkRotateParameters> {
                     rotator.rotate(page, input.rotation);
                 }
                 documentHandler.setVersionOnPDDocument(parameters.getVersion());
-                documentHandler.setCompress(parameters.isCompress());
+                documentHandler.setCompressionPolicy(parameters.compressionPolicy());
                 documentHandler.savePDDocument(tmpFile, parameters.getOutput().getEncryptionAtRestPolicy());
 
                 String outName = nameGenerator(parameters.getOutputPrefix())
