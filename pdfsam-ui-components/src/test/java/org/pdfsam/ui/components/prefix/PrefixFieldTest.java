@@ -74,7 +74,7 @@ public class PrefixFieldTest {
     @Test
     @Tag("NoHeadless")
     public void prefixMenuItemIsAdded(FxRobot robot) {
-        victim.addMenuItemFor(Prefix.BOOKMARK);
+        victim.addMenuItemFor(Prefix.BOOKMARK.getFriendlyName());
         robot.rightClickOn(victim).clickOn("#addPrefixMenu").clickOn(Prefix.BOOKMARK.getFriendlyName());
         assertTrue(victim.getText().contains(Prefix.BOOKMARK.getFriendlyName()));
     }
