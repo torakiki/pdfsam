@@ -55,9 +55,7 @@ public class PdfRotationInput implements PagesSelection {
     private final Set<PagesSelection> pageSelection = new NullSafeSet<>();
 
     /**
-     * @param source
-     * @param rotation
-     * @param pages    the pages selection to apply the rotation. If no page selection is specified, all pages are rotated
+     * @param pages the pages selection to apply the rotation. If no page selection is specified, all pages are rotated
      */
     public PdfRotationInput(PdfSource<?> source, Rotation rotation, PagesSelection... pages) {
         requireNonNull(rotation, "A rotation is expected");
