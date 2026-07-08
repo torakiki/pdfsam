@@ -106,9 +106,8 @@ public class SplitToolPanel extends BaseToolPanel {
         pane.setAlignment(Pos.TOP_CENTER);
 
         TitledPane prefixTitled = Views.titledPane(i18n().tr("File names settings"), prefix);
-        prefix.addMenuItemFor(Prefix.CURRENTPAGE);
-        prefix.addMenuItemFor(Prefix.FILENUMBER);
-        prefix.addMenuItemFor("[TOTAL_FILESNUMBER]");
+        prefix.addMenuItemFor(Prefix.CURRENTPAGE.getFriendlyName(), Prefix.FILENUMBER.getFriendlyName(),
+                Prefix.TOTAL_FILESNUMBER.getFriendlyName());
 
         pane.getChildren().addAll(selectionPane, Views.titledPane(i18n().tr("Split settings"), splitOptions),
                 Views.titledPane(i18n().tr("Output settings"), destinationPane), prefixTitled);

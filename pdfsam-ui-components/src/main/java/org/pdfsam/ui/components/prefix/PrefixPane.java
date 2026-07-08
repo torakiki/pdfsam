@@ -31,7 +31,6 @@ import org.pdfsam.model.ui.ResettableView;
 import org.pdfsam.model.ui.workspace.RestorableView;
 import org.pdfsam.persistence.PreferencesRepository;
 import org.pdfsam.ui.components.support.Style;
-import org.sejda.model.prefix.Prefix;
 
 import java.util.Map;
 import java.util.Optional;
@@ -87,10 +86,6 @@ public class PrefixPane extends GridPane
                 repository.saveString("DEFAULT_PREFIX", field.getText());
             }
         });
-    }
-
-    public void addMenuItemFor(Prefix... prefixes) {
-        field.addMenuItemFor(prefixes);
     }
 
     public void addMenuItemFor(String... prefixes) {

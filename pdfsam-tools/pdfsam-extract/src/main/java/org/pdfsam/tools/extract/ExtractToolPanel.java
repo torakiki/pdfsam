@@ -104,8 +104,7 @@ public class ExtractToolPanel extends BaseToolPanel {
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
         TitledPane prefixTitled = Views.titledPane(i18n().tr("File names settings"), prefix);
-        prefix.addMenuItemFor(Prefix.FILENUMBER);
-        prefix.addMenuItemFor("[TOTAL_FILESNUMBER]");
+        prefix.addMenuItemFor(Prefix.FILENUMBER.getFriendlyName(), Prefix.TOTAL_FILESNUMBER.getFriendlyName());
 
         pane.getChildren().addAll(selectionPane, titledPane(i18n().tr("Extract settings"), extractOptions),
                 titledPane(i18n().tr("Output settings"), destinationPane), prefixTitled);

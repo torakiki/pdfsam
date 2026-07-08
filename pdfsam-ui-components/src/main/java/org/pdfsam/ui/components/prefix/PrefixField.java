@@ -51,18 +51,6 @@ public class PrefixField extends TextField {
 
     /**
      * Adds a {@link MenuItem} for the given prefixes to the context menu. By default {@link Prefix#TIMESTAMP} and {@link Prefix#BASENAME} are always there, adding them again will
-     * result in a duplication.
-     * 
-     * @param prefixes
-     */
-    public void addMenuItemFor(Prefix... prefixes) {
-        for (Prefix current : prefixes) {
-            this.menu.getItems().add(new PrefixMenuItem(current));
-        }
-    }
-
-    /**
-     * Adds a {@link MenuItem} for the given prefixes to the context menu. By default {@link Prefix#TIMESTAMP} and {@link Prefix#BASENAME} are always there, adding them again will
      * 
      * @param prefixes
      */

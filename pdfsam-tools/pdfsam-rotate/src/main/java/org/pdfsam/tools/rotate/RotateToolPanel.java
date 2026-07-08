@@ -97,8 +97,7 @@ public class RotateToolPanel extends BaseToolPanel {
         VBox.setVgrow(selectionPane, Priority.ALWAYS);
 
         TitledPane prefixTitled = Views.titledPane(i18n().tr("File names settings"), prefix);
-        prefix.addMenuItemFor(Prefix.FILENUMBER);
-        prefix.addMenuItemFor("[TOTAL_FILESNUMBER]");
+        prefix.addMenuItemFor(Prefix.FILENUMBER.getFriendlyName(), Prefix.TOTAL_FILESNUMBER.getFriendlyName());
 
         TitledPane options = Views.titledPane(i18n().tr("Rotate settings"), rotateOptions);
 

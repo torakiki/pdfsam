@@ -43,7 +43,7 @@ public class PreferencePrefixField extends PrefixField {
         addMenuItemFor(Prefix.CURRENTPAGE);
         addMenuItemFor(Prefix.BOOKMARK);
         addMenuItemFor(Prefix.BOOKMARK_STRICT);
-        addMenuItemFor("[TOTAL_FILESNUMBER]");
+        addMenuItemFor(Prefix.TOTAL_FILESNUMBER);
         focusedProperty().addListener((o, oldVal, newVal) -> {
             if (!newVal) {
                 context.persistentSettings().set(StringPersistentProperty.PREFIX, getText());
