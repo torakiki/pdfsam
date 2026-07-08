@@ -35,10 +35,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.pdfsam.model.pdf.PdfDocumentDescriptor;
 import org.pdfsam.model.pdf.PdfLoadRequest;
-import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.ui.InputPdfArgumentsLoadRequest;
 import org.pdfsam.model.ui.SetActiveContentItemRequest;
+import org.pdfsam.model.ui.workspace.LoadWorkspaceResponse;
 import org.pdfsam.ui.components.commons.HideOnEscapeHandler;
 import org.pdfsam.ui.components.support.Style;
 
@@ -122,7 +122,7 @@ public class OpenWithDialog extends Stage {
                 });
 
                 current.setOnAction((e) -> {
-                    eventStudio().broadcast(new ClearToolRequest(m.id(), false, false), m.id());
+                    eventStudio().clearEnqueuedEvents(LoadWorkspaceResponse.class, m.id());
                     eventStudio().broadcast(new SetActiveContentItemRequest(m.id()));
                     hide();
                     var loadEvent = new PdfLoadRequest(m.id());
