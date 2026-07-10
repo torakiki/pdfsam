@@ -90,22 +90,20 @@ jobs:
           AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
         run: mvn clean install -DskipTests -Drelease --batch-mode
       - name: Release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: ${{ github.ref_name }}
-        run: |
-          gh release create "$TAG_NAME" \
-            --draft \
-            pdfsam-basic/target/*.deb \
-            pdfsam-basic/target/*.dmg \
-            pdfsam-basic/target/*.zip \
-            pdfsam-basic/target/*.msi \
-            pdfsam-basic/target/*.msix \
-            pdfsam-basic/target/*.tar.gz \
-            pdfsam-basic/target/*.deb.asc \
-            pdfsam-basic/target/*.dmg.asc \
-            pdfsam-basic/target/*.zip.asc \
-            pdfsam-basic/target/*.msi.asc \
-            pdfsam-basic/target/*.msix.asc \
+        uses: softprops/action-gh-release@718ea10b132b3b2eba29c1007bb80653f286566b # v3
+        with:
+          draft: true
+          files: |
+            pdfsam-basic/target/*.deb
+            pdfsam-basic/target/*.dmg
+            pdfsam-basic/target/*.zip
+            pdfsam-basic/target/*.msi
+            pdfsam-basic/target/*.msix
+            pdfsam-basic/target/*.tar.gz
+            pdfsam-basic/target/*.deb.asc
+            pdfsam-basic/target/*.dmg.asc
+            pdfsam-basic/target/*.zip.asc
+            pdfsam-basic/target/*.msi.asc
+            pdfsam-basic/target/*.msix.asc
             pdfsam-basic/target/*.tar.gz.asc
 
