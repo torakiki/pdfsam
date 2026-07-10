@@ -228,13 +228,11 @@ public class PdfsamApp extends Application {
     private void loadWorkspaceIfRequired() {
         // 1. from command line
         // 2. from persistent settings
-        ofNullable(getParameters().getNamed().get("workspace"))
-                .or(() -> rawParameters.stream().filter(s -> s.endsWith(".json")).findFirst())
+        ofNullable(getParameters().getNamed().get("workspace")).or(
+                        () -> rawParameters.stream().filter(s -> s.endsWith(".json")).findFirst())
                 .or(() -> app().persistentSettings().get(StringPersistentProperty.WORKSPACE_PATH))
-                .map(Path::of)
-                .filter(Files::isReadable)
-                .map(p -> new LoadWorkspaceRequest(p.toFile()))
-                .ifPresent(eventStudio()::broadcast);
+                .filter(StringUtils::isNotBlank).map(Path::of).filter(Files::isReadable)
+                .map(p -> new LoadWorkspaceRequest(p.toFile())).ifPresent(eventStudio()::broadcast);
     }
 
     @Override
