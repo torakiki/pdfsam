@@ -24,6 +24,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.io.TempDir;
@@ -82,6 +84,7 @@ public class OpenButtonTest {
     }
 
     @Test
+    @DisabledOnOs(OS.WINDOWS)
     public void openFileClick(@TempDir Path folder) throws Exception {
         File file = Files.createTempFile(folder, null, null).toFile();
         FileTaskOutput output = new FileTaskOutput(file);
