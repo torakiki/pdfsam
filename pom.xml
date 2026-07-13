@@ -294,7 +294,7 @@
 
     <properties>
         <junit.pioneer.version>2.3.0</junit.pioneer.version>
-        <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
+        <hibernate-validator.version>9.1.2.Final</hibernate-validator.version>
         <sejda.version>6.0.0.M5</sejda.version>
         <ikonli.version>12.4.0</ikonli.version>
         <testfx.version>4.0.18</testfx.version>
