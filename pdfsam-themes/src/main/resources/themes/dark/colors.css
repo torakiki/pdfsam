@@ -25,7 +25,7 @@
     -fx-accent: -default-primary;
     -fx-text-box-border: -grey-1;
     -fx-font-smoothing-type: white;
-    -fx-control-inner-background: -grey-2;
+    -fx-control-inner-background: derive(-grey-2, -15%);
     -fx-inner-border: -grey-3;
     -default-popup-background: -grey-3;
     -fx-selection-bar-non-focused: derive(-grey-0, -20%);
@@ -103,18 +103,18 @@
     -progress-bar-color: -grey-2;
 
      /** fields **/
-    -text-field-color: -grey-2;
+    -text-field-color: derive(-grey-2, -15%);
 
     /** tableview **/
-    -table-even-background-color: -grey-1;
-    -table-odd-background-color: -grey-2;
+    -table-even-background-color: derive(-grey-1, -15%);
+    -table-odd-background-color: derive(-grey-2, -15%);
     -table-border-color: derive(-table-odd-background-color, -15%);
     -table-columne-header-color: derive(-table-odd-background-color, -3%);
     -table-selected-background-color: -default-primary;
 
     /** ListView **/
-    -list-even-background-color: -grey-2;
-    -list-odd-background-color: -grey-1;
+    -list-even-background-color: derive(-grey-2, -15%);
+    -list-odd-background-color: derive(-grey-1, -15%);
     -list-selected-background-color: -default-primary;
 
     /** selection table **/
@@ -158,4 +158,9 @@
 .btn:focus-visible:hover {
     -fx-background-color: -btn-color-hover, -btn-color-hover;
     -fx-background-radius: 0.5em, 0.5em;
+}
+
+.error-log {
+    /* fixed value: -error-color is already near max brightness, leaving derive() too little headroom for WCAG AA (4.5:1) here */
+    -fx-text-fill: #FF8F8F;
 }
