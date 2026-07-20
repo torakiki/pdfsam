@@ -6,7 +6,16 @@
     -fx-background-insets: 0.0, 1;
     -fx-background-radius: 6.0;
     -fx-text-fill: -tooltip-font-color;
-    -fx-font-size: 12;
+    -fx-font-size: 1em;
+}
+
+/**
+ * A Tooltip installed on a .help-icon inherits that icon's own 1.416667em size as its
+ * base, compounding to ~1.42x the configured font size. 0.705882em (=1/1.416667) cancels
+ * that out so the bubble text renders at 1x instead.
+ */
+.help-tooltip {
+    -fx-font-size: 0.705882em;
 }
 
 /**

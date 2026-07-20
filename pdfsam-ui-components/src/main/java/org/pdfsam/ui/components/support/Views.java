@@ -64,6 +64,7 @@ public final class Views {
      */
     public static Text helpIcon(String text) {
         var tooltip = new Tooltip(text);
+        tooltip.getStyleClass().add("help-tooltip");
         var icon = FontIcon.of(UniconsLine.QUESTION_CIRCLE);
         icon.getStyleClass().add("help-icon");
         icon.setAccessibleRole(AccessibleRole.TEXT);
