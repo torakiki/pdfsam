@@ -231,7 +231,7 @@ public class PdfsamApp extends Application {
         ofNullable(getParameters().getNamed().get("workspace")).or(
                         () -> rawParameters.stream().filter(s -> s.endsWith(".json")).findFirst())
                 .or(() -> app().persistentSettings().get(StringPersistentProperty.WORKSPACE_PATH))
-                .filter(StringUtils::isNotBlank).map(Path::of).filter(Files::isReadable)
+                .filter(StringUtils::isNotBlank).map(Path::of).filter(Files::isRegularFile).filter(Files::isReadable)
                 .map(p -> new LoadWorkspaceRequest(p.toFile())).ifPresent(eventStudio()::broadcast);
     }
 
