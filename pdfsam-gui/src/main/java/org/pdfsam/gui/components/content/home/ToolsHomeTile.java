@@ -54,7 +54,8 @@ class ToolsHomeTile extends HomeTile {
         setOnAction(e -> eventStudio().broadcast(new SetActiveContentItemRequest(id)));
 
         ofNullable(tool.descriptor().supportUrl()).ifPresent(url -> {
-            var helpIcon = FontIcon.of(UniconsLine.QUESTION_CIRCLE, 18);
+            var helpIcon = FontIcon.of(UniconsLine.QUESTION_CIRCLE);
+            helpIcon.getStyleClass().add("help-icon");
             helpIcon.setAccessibleRole(AccessibleRole.IMAGE_VIEW);
             var helpButton = UrlButton.urlButton(null, url, null, "btn", "home-tools-help-button");
             helpButton.setGraphic(helpIcon);
