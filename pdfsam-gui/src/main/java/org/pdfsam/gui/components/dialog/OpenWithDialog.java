@@ -40,6 +40,7 @@ import org.pdfsam.model.ui.InputPdfArgumentsLoadRequest;
 import org.pdfsam.model.ui.SetActiveContentItemRequest;
 import org.pdfsam.model.ui.workspace.LoadWorkspaceResponse;
 import org.pdfsam.ui.components.commons.HideOnEscapeHandler;
+import org.pdfsam.ui.components.support.DialogScreenCentering;
 import org.pdfsam.ui.components.support.Style;
 
 import java.nio.file.Path;
@@ -102,6 +103,7 @@ public class OpenWithDialog extends Stage {
         setScene(scene);
         app().registerScene(scene);
         eventStudio().addAnnotatedListeners(this);
+        this.setOnShowing(e -> DialogScreenCentering.centerOnOwnerScreen(this));
         this.setOnShown(e -> requestFocus());
     }
 
@@ -136,6 +138,7 @@ public class OpenWithDialog extends Stage {
         Platform.runLater(() -> {
             getScene().getWindow().sizeToScene();
             setResizable(false);
+            DialogScreenCentering.centerOnOwnerScreen(this);
         });
         return this;
     }

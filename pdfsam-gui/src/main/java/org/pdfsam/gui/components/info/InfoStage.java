@@ -26,6 +26,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.pdfsam.ui.components.commons.ClosePane;
 import org.pdfsam.ui.components.commons.HideOnEscapeHandler;
+import org.pdfsam.ui.components.support.DialogScreenCentering;
 import org.pdfsam.ui.components.support.Style;
 
 import java.util.List;
@@ -35,14 +36,15 @@ import static org.pdfsam.i18n.I18nContext.i18n;
 
 /**
  * Stage for the info panel
- * 
+ *
  * @author Andrea Vacondio
- * 
+ *
  */
 class InfoStage extends Stage {
 
     @Inject
-    public InfoStage(InfoPane infoPane, @Named("icons") List<Image> logos) {
+    public InfoStage(InfoPane infoPane, @Named("icons") List<Image> logos, @Named("primaryStage") Stage owner) {
+        initOwner(owner);
         BorderPane containerPane = new BorderPane();
         containerPane.getStyleClass().addAll(Style.CONTAINER.css());
         containerPane.setCenter(infoPane);
@@ -54,6 +56,7 @@ class InfoStage extends Stage {
         setTitle(i18n().tr("Document details"));
         getIcons().addAll(logos);
         setMaximized(true);
+        this.setOnShowing(e -> DialogScreenCentering.centerOnOwnerScreen(this));
         setOnShown(e -> infoPane.requestFocus());
     }
 

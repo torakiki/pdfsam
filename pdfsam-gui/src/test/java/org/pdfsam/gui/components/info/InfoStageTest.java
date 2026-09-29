@@ -62,6 +62,12 @@ public class InfoStageTest {
     @Components({ InfoStageController.class })
     static class Config {
 
+        private final Stage primaryStage;
+
+        Config(Stage primaryStage) {
+            this.primaryStage = primaryStage;
+        }
+
         @Provides
         @Prototype
         @Named("icons")
@@ -69,11 +75,17 @@ public class InfoStageTest {
             return List.of(new Image(this.getClass().getResourceAsStream("/org/pdfsam/gui/images/logo.png")));
         }
 
+        @Provides
+        @Named("primaryStage")
+        public Stage primaryStage() {
+            return primaryStage;
+        }
+
     }
 
     @Start
     public void start(Stage stage) {
-        injector = Injector.start(new Config());
+        injector = Injector.start(new Config(stage));
         Button button = new Button("show");
         PdfDocumentDescriptor descriptor = PdfDocumentDescriptor.newDescriptorNoPassword(mock(File.class));
         descriptor.putInformation(PdfMetadataFields.KEYWORDS, "test");

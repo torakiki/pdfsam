@@ -27,6 +27,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.pdfsam.ui.components.support.DialogScreenCentering;
 import org.pdfsam.ui.components.support.Style;
 
 import static org.pdfsam.core.context.ApplicationContext.app;
@@ -57,10 +58,12 @@ public class ConfirmationDialog extends Stage {
         Scene scene = new Scene(containerPane);
         setScene(scene);
         app().registerScene(scene);
+        this.setOnShowing(e -> DialogScreenCentering.centerOnOwnerScreen(this));
         this.setOnShown(e -> {
             Platform.runLater(() -> {
                 setResizable(false);
                 getScene().getWindow().sizeToScene();
+                DialogScreenCentering.centerOnOwnerScreen(this);
                 positiveButton.requestFocus();
             });
         });

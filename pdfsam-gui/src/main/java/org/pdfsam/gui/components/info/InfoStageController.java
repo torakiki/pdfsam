@@ -52,7 +52,6 @@ public class InfoStageController {
     void requestShow(ShowStageRequest event) {
         InfoStage stage = stageProvider.get();
         if (!stage.isShowing()) {
-            stage.centerOnScreen();
             stage.show();
         }
         stage.requestFocus();
