@@ -32,7 +32,7 @@
     <parent>
         <groupId>com.soberlemur</groupId>
         <artifactId>soberlemur-parent</artifactId>
-        <version>1.0.21</version>
+        <version>1.0.22</version>
     </parent>
 
     <profiles>
@@ -263,7 +263,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
-                    <version>3.6.3</version>
+                    <version>3.6.4</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -273,7 +273,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>3.6.1</version>
+                    <version>3.6.2</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -295,7 +295,8 @@
     <properties>
         <junit.pioneer.version>2.3.0</junit.pioneer.version>
         <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
-        <sejda.version>6.0.0.M6</sejda.version>
+        <sejda.version>6.0.0.M7</sejda.version>
+        <brotli.dec.version>0.1.2</brotli.dec.version>
         <ikonli.version>12.4.0</ikonli.version>
         <testfx.version>4.0.18</testfx.version>
         <javafx.version>25.0.4</javafx.version>
