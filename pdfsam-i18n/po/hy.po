@@ -960,7 +960,7 @@ msgid "Move Down"
 msgstr "Տեղափոխել ներքև"
 
 msgid "Move to Bottom"
-msgstr "Տեղափոխել ներքև"
+msgstr "Տեղափոխել ներքևում"
 
 msgid "Duplicate"
 msgstr "Կրկնօրինակել"
