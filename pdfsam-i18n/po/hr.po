@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the pdfsam package.
 # Translators:
 # Milo Ivir <mail@milotype.de>, 2020., 2026.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: pdfsam\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2026-04-30 11:38+0200\n"
-"PO-Revision-Date: 2026-07-09 16:46+0200\n"
+"POT-Creation-Date: 2026-07-22 18:16+0200\n"
+"PO-Revision-Date: 2026-09-29 11:34+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2026-07-09 14:24+0000\n"
-"X-Generator: Autopo v1.0.13-SNAPSHOT\n"
+"X-Launchpad-Export-Date: 2026-10-01 08:52+0000\n"
+"X-Generator: Launchpad (build ad10a72802faca6d6a2802f2e3a89ba90e7214dd)\n"
 "Language: hr\n"
 
 msgid "No PDF document has been selected"
@@ -44,7 +44,8 @@ msgid "A separate file for each set of pages"
 msgstr "Zasebna datoteka za svaki komplet stranica"
 
 msgid "Pages to extract (ex: 2 or 5-23 or 2,5-7,12- or 3,last)"
-msgstr "Stranice za izdvajanje (npr.: 2 ili 5-23 ili 2,5-7,12- ili 3, zadnja)"
+msgstr ""
+"Stranice za izdvajanje (npr.: 2 ili 5-23 ili 2,5-7,12- ili 3, zadnja)"
 
 msgid "Invalid page ranges"
 msgstr "Neispravni rasponi stranica"
@@ -146,7 +147,8 @@ msgstr "Neparne stranice"
 msgid "Split the document after the given page numbers"
 msgstr "Rastavi dokument nakon zadanih brojeva stranica"
 
-msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid ""
+"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Rastavi PDF svakih „x” stranica, izrađujući pojedinačne dokumente s „x” "
 "stranicama"
@@ -239,7 +241,8 @@ msgstr ""
 "Sjedini dvije ili više PDF datoteka uzimajući stranice naizmjence normalnim "
 "ili obrnutim redoslijedom."
 
-msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid ""
+"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Pritisni dvaput za postavljanje stranica koje želiš miješati (npr. 2 ili 5-"
 "23 ili 2,5-7,12-)"
@@ -642,7 +645,7 @@ msgid "Recen_ts"
 msgstr "_Nedavno korišteno"
 
 msgid "_Clear recents"
-msgstr "I_zbriši nedavno korištene"
+msgstr "_Izbriši nedavno korištene"
 
 msgid "Select the workspace file to save"
 msgstr "Odaberi datoteku radnog prostora koju želiš spremiti"
@@ -814,11 +817,12 @@ msgstr "Ručno odabrano"
 msgid "Manually select the output destination directory"
 msgstr "Zučno odaberi odredišni direktorij rezultirajućih datoteka"
 
-#~ msgid ""
-#~ "Automatically set the destination directory to the selected PDF document "
-#~ "directory"
-#~ msgstr ""
-#~ "Automatski postavi odredišni direktorij na irektorij odabranog PDF dokumenta"
+msgid ""
+"If the output field is empty, it's automatically set using the selected PDF "
+"document's directory"
+msgstr ""
+"Ako je polje rezultata prazno, automatski se postavlja pomoću direktorija "
+"odabranog PDF dokumenta"
 
 msgid "Default prefix:"
 msgstr "Standardni prefiks"
@@ -860,7 +864,8 @@ msgstr "Rezultat"
 msgid "Check for updates now"
 msgstr "Traži novu verziju sada"
 
-msgid "Select a directory where documents will be saved and loaded by default"
+msgid ""
+"Select a directory where documents will be saved and loaded by default"
 msgstr "Odaberi standardni direktorij za spremanje i učitavanje dokumenata"
 
 msgid "Select a directory"
@@ -917,7 +922,8 @@ msgstr "Postavi da li standardno aktivirati opciju „Odbaci oznake”"
 msgid "Overwrite files"
 msgstr "Prepiši datoteke"
 
-msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid ""
+"Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr "Da li standardno aktivirati opciju „Prepiši ako već postoji”"
 
 msgid "Play alert sounds"
@@ -1192,7 +1198,7 @@ msgid "Clear the selected PDF document"
 msgstr "Ukloni odabrani PDF dokument"
 
 msgid "C_lear all settings"
-msgstr "Iz_briši sve postavke"
+msgstr "_Izbriši sve postavke"
 
 #, java-format
 msgid "Pages: {0}, PDF Version: {1}"
@@ -1335,7 +1341,7 @@ msgid "Removes selected documents"
 msgstr "Uklanja odabrane dokumente"
 
 msgid "_Remove"
-msgstr "U_kloni"
+msgstr "_Ukloni"
 
 msgid "Removes every document"
 msgstr "Uklanja svaki dokument"
@@ -1423,7 +1429,6 @@ msgstr "Prepiši ako već postoji"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
-""
 msgstr ""
 "Označi kvadratić ako želiš prepisati rezultirajuće datoteke ako već postoje."
 
@@ -1608,10 +1613,3 @@ msgstr "Neispravan broj: {0}."
 
 #~ msgid "Compress output file/files"
 #~ msgstr "Komprimiraj datoteke rezultata"
-
-msgid ""
-"If the output field is empty, it's automatically set using the selected PDF "
-"document's directory"
-msgstr ""
-"Ako je izlazno polje prazno, automatski se postavlja pomoću direktorija "
-"odabranog PDF dokumenta"
