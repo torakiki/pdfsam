@@ -27,13 +27,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.io.TempDir;
-import org.mockito.ArgumentCaptor;
 import org.pdfsam.eventstudio.Listener;
 import org.pdfsam.model.pdf.PdfLoadRequest;
-import org.pdfsam.model.tool.ClearToolRequest;
 import org.pdfsam.model.tool.Tool;
 import org.pdfsam.model.ui.InputPdfArgumentsLoadRequest;
 import org.pdfsam.model.ui.SetActiveContentItemRequest;
+import org.pdfsam.model.ui.workspace.LoadWorkspaceResponse;
 import org.pdfsam.test.ClearEventStudioExtension;
 import org.pdfsam.test.DefaultPriorityTestTool;
 import org.testfx.api.FxRobot;
@@ -44,10 +43,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.pdfsam.eventstudio.StaticStudio.eventStudio;
 
@@ -75,8 +75,7 @@ public class OpenWithDialogTest {
 
     @Test
     public void singleArg(@TempDir Path folder) throws IOException {
-        Listener<ClearToolRequest> clearListener = mock(Listener.class);
-        eventStudio().add(ClearToolRequest.class, clearListener, tool.id());
+        eventStudio().broadcast(new LoadWorkspaceResponse(folder.toFile(), Map.of()), tool.id());
         Listener<SetActiveContentItemRequest> activeModuleListener = mock(Listener.class);
         eventStudio().add(SetActiveContentItemRequest.class, activeModuleListener);
         Listener<PdfLoadRequest> loadRequestListener = mock(Listener.class);
@@ -86,11 +85,11 @@ public class OpenWithDialogTest {
         button.setOnAction(a -> eventStudio().broadcast(event));
         robot.clickOn("show");
         robot.clickOn(tool.descriptor().name());
-        ArgumentCaptor<ClearToolRequest> captor = ArgumentCaptor.forClass(ClearToolRequest.class);
-        verify(clearListener).onEvent(captor.capture());
-        assertFalse(captor.getValue().askConfirmation());
         verify(activeModuleListener).onEvent(any());
         verify(loadRequestListener).onEvent(any());
+        Listener<LoadWorkspaceResponse> workspaceListener = mock(Listener.class);
+        eventStudio().add(LoadWorkspaceResponse.class, workspaceListener, tool.id());
+        verify(workspaceListener, never()).onEvent(any());
     }
 
 }
