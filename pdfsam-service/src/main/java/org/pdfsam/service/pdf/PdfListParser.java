@@ -53,7 +53,9 @@ class PdfListParser implements Function<Path, List<File>> {
         if (isNull(listFile)) {
             return Collections.emptyList();
         }
-        List<Charset> charsets = List.of(StandardCharsets.UTF_8, StandardCharsets.ISO_8859_1, Charset.defaultCharset());
+        // ISO-8859-1 never fails decoding so it goes last
+        var charsets = Stream.of(StandardCharsets.UTF_8, nativeCharset(), StandardCharsets.ISO_8859_1).distinct()
+                .toList();
         for (Charset charset : charsets) {
             try (Stream<String> stream = Files.lines(listFile, charset)) {
                 return stream.map(PdfListParser::parseLine).filter(s -> s != null && Strings.CI.endsWith(s, "pdf"))
@@ -65,6 +67,14 @@ class PdfListParser implements Function<Path, List<File>> {
             }
         }
         throw new RuntimeException("Unable to read lines from " + listFile);
+    }
+
+    /**
+     * Since JDK 18 the default charset is UTF-8 unless file.encoding is set; the OS charset (e.g. GBK on a Chinese Windows) is in the native.encoding
+     * property. A missing (empty name) or unsupported value falls back to the default charset
+     */
+    private static Charset nativeCharset() {
+        return Charset.forName(System.getProperty("native.encoding", ""), Charset.defaultCharset());
     }
 
     private static String parseLine(String line) {

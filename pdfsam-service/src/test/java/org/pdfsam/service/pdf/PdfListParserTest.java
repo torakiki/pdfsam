@@ -18,13 +18,16 @@
  */
 package org.pdfsam.service.pdf;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledOnOs;
 import org.junit.jupiter.api.condition.OS;
 import org.junit.jupiter.api.io.TempDir;
+import org.junitpioneer.jupiter.SetSystemProperty;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -73,6 +76,18 @@ public class PdfListParserTest {
         lines.add(file1.getAbsolutePath());
         lines.add(file2.getAbsolutePath() + ",");
         Files.write(list, lines, StandardCharsets.ISO_8859_1);
+        List<File> parsed = new PdfListParser().apply(list);
+        assertThat(parsed).containsExactly(file1, file2);
+    }
+
+    @Test
+    @DisplayName("List file in the system native charset (e.g. GBK on a Chinese Windows) is read using the native charset")
+    @SetSystemProperty(key = "native.encoding", value = "GBK")
+    public void applyNativeCharset(@TempDir Path folder) throws IOException {
+        var file1 = Files.createTempFile(folder, null, "打印.pdf").toFile();
+        var file2 = Files.createTempFile(folder, null, "列表.pdf").toFile();
+        var list = folder.resolve("list.csv");
+        Files.write(list, List.of(file1.getAbsolutePath(), file2.getAbsolutePath() + ","), Charset.forName("GBK"));
         List<File> parsed = new PdfListParser().apply(list);
         assertThat(parsed).containsExactly(file1, file2);
     }
