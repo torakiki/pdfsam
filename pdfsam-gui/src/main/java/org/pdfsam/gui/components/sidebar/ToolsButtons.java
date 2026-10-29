@@ -23,6 +23,7 @@ import jakarta.inject.Named;
 import javafx.scene.Node;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DataFormat;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.VBox;
@@ -70,50 +71,54 @@ public class ToolsButtons extends VBox {
             Dragboard db = node.startDragAndDrop(TransferMode.MOVE);
             db.setDragView(node.snapshot(null, null));
             var cc = new ClipboardContent();
-            cc.put(DND_BUTTONS_MIME_TYPE, this.getChildren().indexOf(node));
+            cc.put(DND_BUTTONS_MIME_TYPE, Integer.toString(this.getChildren().indexOf(node)));
             db.setContent(cc);
             e.consume();
         });
 
         node.setOnDragOver(e -> {
-            if (e.getDragboard().getContent(DND_BUTTONS_MIME_TYPE) instanceof Integer index) {
-                if (index != this.getChildren().indexOf(node)) {
-                    e.acceptTransferModes(TransferMode.MOVE);
-                    e.consume();
-                }
+            if (isDraggedOnOtherTool(e, node)) {
+                e.acceptTransferModes(TransferMode.MOVE);
+                e.consume();
             }
         });
 
         node.setOnDragEntered(e -> {
-            if (e.getDragboard().getContent(DND_BUTTONS_MIME_TYPE) instanceof Integer index) {
-                if (index != this.getChildren().indexOf(node)) {
-                    node.getStyleClass().add("drag-over");
-                }
+            if (isDraggedOnOtherTool(e, node)) {
+                node.getStyleClass().add("drag-over");
             }
         });
 
         node.setOnDragExited(e -> {
-            if (e.getDragboard().getContent(DND_BUTTONS_MIME_TYPE) instanceof Integer index) {
-                if (index != this.getChildren().indexOf(node)) {
-                    node.getStyleClass().remove("drag-over");
-                }
+            if (isDraggedOnOtherTool(e, node)) {
+                node.getStyleClass().remove("drag-over");
             }
         });
 
         node.setOnDragDropped(e -> {
-            if (e.getDragboard().getContent(DND_BUTTONS_MIME_TYPE) instanceof Integer index) {
-                var myIndex = this.getChildren().indexOf(node);
-                if (index != myIndex) {
-                    node.getStyleClass().remove("drag-over");
-                    var dragged = this.getChildren().remove(index.intValue());
-                    this.getChildren().add(this.getChildren().indexOf(node), dragged);
-                    this.orderChanged = true;
-                    e.setDropCompleted(true);
-                    e.consume();
-                }
+            if (isDraggedOnOtherTool(e, node)) {
+                node.getStyleClass().remove("drag-over");
+                var dragged = this.getChildren().remove(draggedIndex(e));
+                this.getChildren().add(this.getChildren().indexOf(node), dragged);
+                this.orderChanged = true;
+                e.setDropCompleted(true);
+                e.consume();
             }
         });
         return node;
+    }
+
+    private boolean isDraggedOnOtherTool(DragEvent event, Node target) {
+        var index = draggedIndex(event);
+        return index >= 0 && index != this.getChildren().indexOf(target);
+    }
+
+    /**
+     * @return the index of the dragged tool button or -1 if the drag doesn't come from a tool button. The index is transferred as String because
+     * JavaFX doesn't reliably deserialize other types put in the {@link Dragboard} using a custom {@link DataFormat}
+     */
+    private static int draggedIndex(DragEvent event) {
+        return event.getDragboard().getContent(DND_BUTTONS_MIME_TYPE) instanceof String index ? Integer.parseInt(index) : -1;
     }
 
     @EventListener
