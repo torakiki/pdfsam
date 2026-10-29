@@ -610,6 +610,18 @@
                                     </arguments>
                                 </configuration>
                             </execution>
+                            <execution>
+                                <id>notarize-dmg</id>
+                                <phase>integration-test</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>
+                                        ${project.build.directory}/dmg/notarize_dmg.sh
+                                    </executable>
+                                </configuration>
+                            </execution>
                         </executions>
                     </plugin>
                     <plugin>
@@ -627,24 +639,6 @@
                                 <goals>
                                     <goal>run</goal>
                                 </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>notarize-dmg</id>
-                                <phase>integration-test</phase>
-                                <goals>
-                                    <goal>exec</goal>
-                                </goals>
-                                <configuration>
-                                    <executable>
-                                        ${project.build.directory}/dmg/notarize_dmg.sh
-                                    </executable>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
