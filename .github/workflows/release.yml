@@ -13,6 +13,20 @@ jobs:
     strategy:
       matrix:
         os: [ macos-latest, macos-15-intel, ubuntu-latest, windows-latest ]
+        # Temporary pin: setup-java resolves Liberica 25 to 25.0.5+11, ignoring 25.0.5.0.3+5 that fixes CVE-2026-114820
+        include:
+          - os: macos-latest
+            jdk_file: bellsoft-jdk25.0.5.0.3+5-macos-aarch64-full.tar.gz
+            jdk_sha1: 70ee0d4cb5010eb666a05de3adaef16da7fb0041
+          - os: macos-15-intel
+            jdk_file: bellsoft-jdk25.0.5.0.3+5-macos-amd64-full.tar.gz
+            jdk_sha1: 1d95b242496c7861b2d8dac845ca335b140fd552
+          - os: ubuntu-latest
+            jdk_file: bellsoft-jdk25.0.5.0.3+5-linux-amd64-full.tar.gz
+            jdk_sha1: bbb9da2585b2cd294502912513a0753eaf261701
+          - os: windows-latest
+            jdk_file: bellsoft-jdk25.0.5.0.3+5-windows-amd64-full.zip
+            jdk_sha1: a286e459eb9c27aa44bff4484125c51255e922ab
     runs-on: ${{ matrix.os }}
     name: build ${{ matrix.os }}
     steps:
@@ -33,12 +47,21 @@ jobs:
         with:
           p12-file-base64: ${{ secrets.APPLE_CERT_P12 }}
           p12-password: ${{ secrets.APPLE_CERT_P12_PWD }}
+      - name: Download JDK
+        shell: bash
+        env:
+          JDK_FILE: ${{ matrix.jdk_file }}
+          JDK_SHA1: ${{ matrix.jdk_sha1 }}
+        run: |
+          curl -fsSL -o "$RUNNER_TEMP/$JDK_FILE" "https://github.com/bell-sw/Liberica/releases/download/25.0.5.0.3+5/$JDK_FILE"
+          echo "$JDK_SHA1  $RUNNER_TEMP/$JDK_FILE" | shasum -a 1 -c -
       - name: Set up JDK
         uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
         with:
-          java-version: 25
-          distribution: 'liberica'
-          java-package: 'jdk+fx'
+          distribution: 'jdkfile'
+          jdkFile: ${{ runner.temp }}/${{ matrix.jdk_file }}
+          java-version: '25.0.5'
+          architecture: ${{ runner.arch == 'ARM64' && 'aarch64' || 'x64' }}
           cache: ''
       - name: Install gettext on Ubuntu
         if: matrix.os == 'ubuntu-latest'
