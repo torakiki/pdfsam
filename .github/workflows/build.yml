@@ -36,17 +36,21 @@ jobs:
       env:
         JDK_FILE: ${{ matrix.jdk_file }}
         JDK_SHA1: ${{ matrix.jdk_sha1 }}
+      working-directory: ${{ runner.temp }}
       run: |
-        curl -fsSL -o "$RUNNER_TEMP/$JDK_FILE" "https://github.com/bell-sw/Liberica/releases/download/25.0.5.0.3+5/$JDK_FILE"
-        echo "$JDK_SHA1  $RUNNER_TEMP/$JDK_FILE" | shasum -a 1 -c -
+        curl -fsSL -o "$JDK_FILE" "https://github.com/bell-sw/Liberica/releases/download/25.0.5.0.3+5/$JDK_FILE"
+        SHA1_CMD=$(command -v sha1sum || echo "shasum -a 1")
+        echo "$JDK_SHA1  $JDK_FILE" | $SHA1_CMD -c -
     - name: Set up JDK
       uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
       with:
         distribution: 'jdkfile'
-        jdkFile: ${{ runner.temp }}/${{ matrix.jdk_file }}
+        jdk-file: ${{ runner.temp }}/${{ matrix.jdk_file }}
         java-version: '25.0.5'
         architecture: ${{ runner.arch == 'ARM64' && 'aarch64' || 'x64' }}
         cache: 'maven'
+    - name: Print Java version
+      run: java -version
     - name: Install gettext on Ubuntu
       if: matrix.os == 'ubuntu-latest'
       run: sudo apt-get update && sudo apt-get install -y gettext
