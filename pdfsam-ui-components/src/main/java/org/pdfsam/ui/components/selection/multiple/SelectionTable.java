@@ -85,7 +85,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -360,12 +359,13 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
             setRowFactory(tv -> {
                 TableRow<SelectionTableRowData> row = new TableRow<>();
                 row.setOnDragDetected(e -> {
-                    ArrayList<Integer> selection = new ArrayList<>(getSelectionModel().getSelectedIndices());
+                    var selection = getSelectionModel().getSelectedIndices();
                     if (!row.isEmpty() && !selection.isEmpty()) {
                         Dragboard db = row.startDragAndDrop(TransferMode.MOVE);
                         db.setDragView(row.snapshot(null, null));
                         ClipboardContent cc = new ClipboardContent();
-                        cc.put(DND_TABLE_SELECTION_MIME_TYPE, selection);
+                        cc.put(DND_TABLE_SELECTION_MIME_TYPE,
+                                selection.stream().map(String::valueOf).collect(Collectors.joining(",")));
                         db.setContent(cc);
                         e.consume();
 
@@ -388,46 +388,31 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
                         clearHoverPseudoClasses(row);
                     }
 
-                    if (e.getGestureSource() != row && e.getDragboard().hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
-                        if (!((List<Integer>) e.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE)).contains(
-                                rowIndex)) {
-                            e.acceptTransferModes(TransferMode.MOVE);
-                            e.consume();
-                        }
+                    if (e.getGestureSource() != row && isDraggedOnOtherRow(e, row)) {
+                        e.acceptTransferModes(TransferMode.MOVE);
+                        e.consume();
                     }
                 });
                 row.setOnDragEntered(e -> {
-                    if (!row.isEmpty() && e.getDragboard().hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
-                        if (!((List<Integer>) e.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE)).contains(
-                                row.getIndex())) {
-                            row.setOpacity(0.6);
-                        }
+                    if (!row.isEmpty() && isDraggedOnOtherRow(e, row)) {
+                        row.setOpacity(0.6);
                     }
                 });
                 row.setOnDragExited(e -> {
                     clearHoverPseudoClasses(row);
-
-                    if (!row.isEmpty() && e.getDragboard().hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
-                        if (!((List<Integer>) e.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE)).contains(
-                                row.getIndex())) {
-                            row.setOpacity(1);
-                        }
-                    }
+                    row.setOpacity(1);
                 });
 
                 row.setOnDragDropped(e -> {
                     clearHoverPseudoClasses(row);
 
-                    Dragboard db = e.getDragboard();
-                    if (db.hasContent(DND_TABLE_SELECTION_MIME_TYPE)) {
+                    var dragged = draggedIndices(e);
+                    if (!dragged.isEmpty()) {
                         Optional<SelectionTableRowData> focus = ofNullable(getFocusModel().getFocusedItem());
                         Optional<SelectionTableRowData> toDrop = of(row).filter(r -> !r.isEmpty())
                                 .map(TableRow::getIndex).map(getItems()::get);
 
-                        List<Integer> dragged = (List<Integer>) e.getDragboard()
-                                .getContent(DND_TABLE_SELECTION_MIME_TYPE);
-                        List<SelectionTableRowData> toMove = dragged.stream().map(getItems()::get)
-                                .filter(Objects::nonNull).toList();
+                        List<SelectionTableRowData> toMove = dragged.stream().map(getItems()::get).toList();
                         getItems().removeAll(toMove);
 
                         int dropIndex = getItems().size();
@@ -469,6 +454,22 @@ public class SelectionTable extends TableView<SelectionTableRowData> implements 
     private static <T> void clearHoverPseudoClasses(TableRow<T> row) {
         row.pseudoClassStateChanged(DRAG_HOVERED_TOP_ROW_PSEUDO_CLASS, false);
         row.pseudoClassStateChanged(DRAG_HOVERED_BOTTOM_ROW_PSEUDO_CLASS, false);
+    }
+
+    private boolean isDraggedOnOtherRow(DragEvent event, TableRow<?> row) {
+        var dragged = draggedIndices(event);
+        return !dragged.isEmpty() && !dragged.contains(row.getIndex());
+    }
+
+    /**
+     * @return the indexes of the dragged rows or an empty list if the drag didn't start on a row of this table, so indexes coming from other tables or
+     * other application instances are never applied to this table's items. The indexes are transferred as a comma-separated String because JavaFX
+     * doesn't reliably deserialize other types put in the {@link Dragboard} using a custom {@link DataFormat}
+     */
+    private List<Integer> draggedIndices(DragEvent event) {
+        var fromThisTable = event.getGestureSource() instanceof TableRow<?> source && source.getTableView() == this;
+        var content = event.getDragboard().getContent(DND_TABLE_SELECTION_MIME_TYPE);
+        return fromThisTable && content instanceof String indices ? Arrays.stream(indices.split(",")).map(Integer::valueOf).toList() : List.of();
     }
 
     private void dragConsume(DragEvent e, Consumer<DragEvent> c) {
