@@ -25,6 +25,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableRow;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.DataFormat;
 import javafx.scene.input.KeyCode;
@@ -484,6 +485,19 @@ public class SelectionTableTest {
     }
 
     @Test
+    @Tag("NoHeadless")
+    public void draggedRowsAreDimmedUntilDropped() {
+        robot.clickOn("temp.pdf");
+        robot.drag("temp.pdf").moveTo("temp3.pdf");
+        WaitForAsyncUtils.waitForFxEvents();
+        assertThat(rowOf("temp.pdf").getOpacity()).isLessThan(1);
+        assertThat(rowOf("temp3.pdf").getOpacity()).isEqualTo(1);
+        robot.drop();
+        WaitForAsyncUtils.waitForFxEvents();
+        assertThat(rowOf("temp.pdf").getOpacity()).isEqualTo(1);
+    }
+
+    @Test
     public void moveSelected() {
         robot.clickOn("temp.pdf");
         verifyThat("#victim", (SelectionTable n) -> n.getSelectionModel().getSelectedIndex() == 0);
@@ -652,6 +666,12 @@ public class SelectionTableTest {
 
     private List<String> fileNames() {
         return victim.getItems().stream().map(i -> i.descriptor().getFileName()).toList();
+    }
+
+    private TableRow<?> rowOf(String fileName) {
+        return robot.lookup(".table-row-cell").queryAllAs(TableRow.class).stream()
+                .filter(r -> r.getItem() instanceof SelectionTableRowData data && data.descriptor().getFileName().equals(fileName))
+                .findFirst().orElseThrow();
     }
 
     private PdfDocumentDescriptor populate() throws Exception {

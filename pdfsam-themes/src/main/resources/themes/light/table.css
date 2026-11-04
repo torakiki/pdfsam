@@ -54,3 +54,13 @@
 }
 
 
+
+/**
+ * Label shown while dragging rows of the selection table to reorder them
+ */
+.selection-table-drag-view {
+    -fx-background-color: -drag-drop-mark-color;
+    -fx-background-radius: 0.416667em;
+    -fx-text-fill: -btn-default-font-color;
+    -fx-padding: 0.333333em 1.166667em;
+}

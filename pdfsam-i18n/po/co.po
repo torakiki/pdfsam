@@ -1,22 +1,22 @@
 # Corsican localization file for PDFsam.
 # Copyright (C) 2026 by Sober Lemur S.r.l. (info@soberlemur.com)
 # This file is distributed under the same license as the PDFsam package.
-#
+# 
 # Translator: Patriccollu di Santa Maria è Sichè <Patrick.Santa-Maria[at]laposte.net>, 2015-2026.
-#msgid ""
+# msgid ""
 msgid ""
 msgstr ""
 "Project-Id-Version: PDFsam in Corsican\n"
 "Report-Msgid-Bugs-To: info@pdfsam.org\n"
 "POT-Creation-Date: 2026-07-22 18:16+0200\n"
-"PO-Revision-Date: 2026-08-07 20:56+0000\n"
+"PO-Revision-Date: 2026-11-04 12:10+0100\n"
 "Last-Translator: Anthony OLHAGARAY <Unknown>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2026-10-01 08:52+0000\n"
-"X-Generator: Launchpad (build ad10a72802faca6d6a2802f2e3a89ba90e7214dd)\n"
+"X-Generator: Autopo v1.0.13-SNAPSHOT\n"
 "Language: co\n"
 
 msgid "No PDF document has been selected"
@@ -38,8 +38,7 @@ msgid "Output settings"
 msgstr "Parametri d’esciuta"
 
 msgid "Each continuous series of pages will generate a separate PDF file"
-msgstr ""
-"Ogni seria di pagine in cuntinuu ingenererà un schedariu PDF distintu"
+msgstr "Ogni seria di pagine in cuntinuu ingenererà un schedariu PDF distintu"
 
 msgid "A separate file for each set of pages"
 msgstr "Un schedariu staccatu per ogni gruppu di pagine"
@@ -149,8 +148,7 @@ msgstr "Pagine anesche"
 msgid "Split the document after the given page numbers"
 msgstr "Sparte u ducumentu dopu à u numeru di pagine indicatu"
 
-msgid ""
-"Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
+msgid "Splits the PDF every \"n\" pages creating documents of \"n\" pages each"
 msgstr ""
 "Sparte u PDF ogni « n » pagine creendu ducumenti di « n » pagine ognunu"
 
@@ -245,8 +243,7 @@ msgstr ""
 "Fusione di dui ducumenti PDF o più pigliendu e pagine alternatamente in "
 "ordine nurmale o à l’arritrosa."
 
-msgid ""
-"Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
+msgid "Double click to set pages you want to mix (ex: 2 or 5-23 or 2,5-7,12-)"
 msgstr ""
 "Doppiu cliccu per definisce e pagine ch’ellu ci vole à mischià (i.e. : 2 o 5-"
 "23 o 2,5-7,12-)"
@@ -811,8 +808,7 @@ msgid "Neutral"
 msgstr "Neutru"
 
 msgid "streams are left unchanged from the original file"
-msgstr ""
-"i flussi stanu senza cambiamentu in paragone di u schedariu d’origine"
+msgstr "i flussi stanu senza cambiamentu in paragone di u schedariu d’origine"
 
 msgid "Uncompress"
 msgstr "Scumprime"
@@ -877,8 +873,7 @@ msgstr "Destinazione"
 msgid "Check for updates now"
 msgstr "Cuntrollà i rinnovi avà"
 
-msgid ""
-"Select a directory where documents will be saved and loaded by default"
+msgid "Select a directory where documents will be saved and loaded by default"
 msgstr ""
 "Selezziunà un cartulare induve i ducumenti seranu arregistrati è caricati di "
 "manera predefinita"
@@ -939,8 +934,7 @@ msgstr ""
 msgid "Overwrite files"
 msgstr "Rimpiazzà i schedarii"
 
-msgid ""
-"Set whether \"Overwrite if already exists\" should be enabled by default"
+msgid "Set whether \"Overwrite if already exists\" should be enabled by default"
 msgstr ""
 "Definisce s’è l’ozzione « Rimpiazzallu s’ellu esiste dighjà » deve esse "
 "attivata di manera predefinita"
@@ -995,7 +989,8 @@ msgstr ""
 
 msgid "Use the selected PDF document directory as output directory"
 msgstr ""
-"Impiegà u cartulare di u ducumentu PDF selezziunatu cum’è cartulare d’esciuta"
+"Impiegà u cartulare di u ducumentu PDF selezziunatu cum’è cartulare "
+"d’esciuta"
 
 msgid "Save default workspace on exit"
 msgstr "Arregistrà à l’esciuta u spaziu di travagliu predefinitu"
@@ -1457,6 +1452,7 @@ msgstr "Rimpiazzallu s’ellu esiste dighjà"
 
 msgid ""
 "Tick the box if you want to overwrite the output files if they already exist."
+""
 msgstr ""
 "Marcà l’alveola s’è voi vulete rimpiazzà i schedarii d’esciuta s’elli "
 "esistenu dighjà."
@@ -1614,3 +1610,10 @@ msgstr "Numeru inaccettevule : {0}."
 
 #~ msgid "Theme:"
 #~ msgstr "Tema :"
+
+msgid "1 file selected"
+msgstr "1 schedariu selezziunatu"
+
+#, java-format
+msgid "{0} files selected"
+msgstr "{0} schedarii selezziunati"
