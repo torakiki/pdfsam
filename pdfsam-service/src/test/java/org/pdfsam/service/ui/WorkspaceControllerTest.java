@@ -35,6 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Objects.nonNull;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.awaitility.Awaitility.await;
 import static org.mockito.ArgumentMatchers.any;
@@ -79,7 +80,7 @@ public class WorkspaceControllerTest {
         eventStudio().add(SaveWorkspaceRequest.class, listener, DefaultPriorityTestTool.ID);
         victim.saveWorkspace(new SaveWorkspaceRequest(file));
         verify(listener, timeout(5000).times(1)).onEvent(any());
-        verify(service).saveWorkspace(anyMap(), eq(file));
+        verify(service, timeout(5000)).saveWorkspace(anyMap(), eq(file));
     }
 
     @Test
@@ -94,11 +95,13 @@ public class WorkspaceControllerTest {
 
     @Test
     public void loadEmptyWorkspace() {
-        Listener<LoadWorkspaceRequest> listener = mock(Listener.class);
-        eventStudio().add(LoadWorkspaceRequest.class, listener, DefaultPriorityTestTool.ID);
+        Listener<LoadWorkspaceResponse> listener = mock(Listener.class);
+        eventStudio().add(LoadWorkspaceResponse.class, listener, DefaultPriorityTestTool.ID);
         when(service.loadWorkspace(any())).thenReturn(Collections.emptyMap());
         victim.loadWorkspace(new LoadWorkspaceRequest(file));
-        await().atMost(5, SECONDS).untilAsserted(() -> verify(listener, never()).onEvent(any()));
+        verify(service, timeout(5000)).loadWorkspace(file);
+        verify(listener, after(1000).never()).onEvent(any());
+        verify(recentWorkspaces, never()).addWorkspaceLastUsed(any());
     }
 
     @Test
@@ -123,20 +126,20 @@ public class WorkspaceControllerTest {
         when(service.loadWorkspace(any())).thenReturn(data);
         victim.loadWorkspace(new LoadWorkspaceRequest(file));
         await().atMost(5, SECONDS).untilAsserted(() -> verify(listener).onEvent(any()));
-        verify(recentWorkspaces).addWorkspaceLastUsed(file);
-        verify(loadedListener).onEvent(any());
+        verify(recentWorkspaces, timeout(5000)).addWorkspaceLastUsed(file);
+        verify(loadedListener, timeout(5000)).onEvent(any());
     }
 
     @Test
     public void loadWorkspaceNoDataForModule() {
-        Listener<LoadWorkspaceRequest> listener = mock(Listener.class);
-        eventStudio().add(LoadWorkspaceRequest.class, listener, "anotherModule");
+        Listener<LoadWorkspaceResponse> listener = mock(Listener.class);
+        eventStudio().add(LoadWorkspaceResponse.class, listener, "anotherModule");
         var moduleData = Map.of("key", "value");
         var data = Map.of("anotherModule", moduleData);
         when(service.loadWorkspace(any())).thenReturn(data);
         victim.loadWorkspace(new LoadWorkspaceRequest(file));
-        await().atMost(5, SECONDS).untilAsserted(() -> verify(listener, never()).onEvent(any()));
-        verify(recentWorkspaces).addWorkspaceLastUsed(any());
+        verify(recentWorkspaces, timeout(5000)).addWorkspaceLastUsed(file);
+        verify(listener, never()).onEvent(any());
     }
 
     @Test
@@ -151,13 +154,13 @@ public class WorkspaceControllerTest {
 
         when(service.loadWorkspace(any())).thenReturn(data);
         victim.loadWorkspace(new LoadWorkspaceRequest(file));
-        await().atMost(5, SECONDS).untilAsserted(() -> verify(service).loadWorkspace(any()));
+        await().atMost(5, SECONDS).until(() -> app().runtimeState().workspace(), w -> nonNull(w) && file.equals(w.file()));
 
         Listener<SaveWorkspaceRequest> saveListener = mock(Listener.class);
         eventStudio().add(SaveWorkspaceRequest.class, saveListener, DefaultPriorityTestTool.ID);
         victim.saveWorkspace(new SaveWorkspaceRequest(file));
         verify(saveListener, timeout(5000).times(1)).onEvent(any());
 
-        verify(service).saveWorkspace(eq(data), eq(file));
+        verify(service, timeout(5000)).saveWorkspace(eq(data), eq(file));
     }
 }
